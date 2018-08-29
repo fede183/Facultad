@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="AboutLayout">false</item>
+    <item type="id" name="ScrollView01">false</item>
+    <item type="id" name="AboutTextView">false</item>
+    <item type="id" name="CloseButton">false</item>
+    <item type="id" name="sectionSpinner">false</item>
+    <item type="id" name="gridView">false</item>
+    <item type="id" name="editArea">false</item>
+    <item type="id" name="editor">false</item>
+    <item type="id" name="copyButton">false</item>
+    <item type="id" name="menu_about">false</item>
+    <item type="id" name="menu_show_editor">false</item>
+    <item type="id" name="menu_hide_editor">false</item>
+</resources>

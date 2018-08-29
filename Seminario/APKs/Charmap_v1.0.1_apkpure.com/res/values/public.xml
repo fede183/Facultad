@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public type="drawable" name="icon" id="0x7f020000" />
+    <public type="layout" name="about" id="0x7f030000" />
+    <public type="layout" name="main" id="0x7f030001" />
+    <public type="string" name="copy_button_label" id="0x7f040000" />
+    <public type="string" name="app_name" id="0x7f040001" />
+    <public type="string" name="menu_about" id="0x7f040002" />
+    <public type="string" name="show_editor" id="0x7f040003" />
+    <public type="string" name="hide_editor" id="0x7f040004" />
+    <public type="string" name="close_button" id="0x7f040005" />
+    <public type="string" name="about_title" id="0x7f040006" />
+    <public type="string" name="about" id="0x7f040007" />
+    <public type="menu" name="mainmenu" id="0x7f050000" />
+    <public type="id" name="AboutLayout" id="0x7f060000" />
+    <public type="id" name="ScrollView01" id="0x7f060001" />
+    <public type="id" name="AboutTextView" id="0x7f060002" />
+    <public type="id" name="CloseButton" id="0x7f060003" />
+    <public type="id" name="sectionSpinner" id="0x7f060004" />
+    <public type="id" name="gridView" id="0x7f060005" />
+    <public type="id" name="editArea" id="0x7f060006" />
+    <public type="id" name="editor" id="0x7f060007" />
+    <public type="id" name="copyButton" id="0x7f060008" />
+    <public type="id" name="menu_about" id="0x7f060009" />
+    <public type="id" name="menu_show_editor" id="0x7f06000a" />
+    <public type="id" name="menu_hide_editor" id="0x7f06000b" />
+</resources>

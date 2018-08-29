@@ -1,0 +1,1 @@
+#executed_events #covered_lines #line_coverage_percentage(%) #total_exec_time (min)

@@ -1,0 +1,105 @@
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_19.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_25.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_31.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_7.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_49.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_22.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_5.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_46.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_40.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_1.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_16.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /RESET_APP_STATE.xml
+
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_13.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /EMPTY_APP_STATE.xml
+
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_10.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_34.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_37.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_28.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_6.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_4.xml
+com.kkinder.charmap.Charmap
+
+-----------
+
+the state file name: /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output/ui/S_43.xml
+com.kkinder.charmap.Charmap
+
+-----------
+

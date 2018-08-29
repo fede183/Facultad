@@ -1,0 +1,2 @@
+PORT = 2000
+FSM_FILE_LOCATION = /home/federico/Seminario/APKs/Charmap_v1.0.1_apkpure.com-output/stoat_fsm_output

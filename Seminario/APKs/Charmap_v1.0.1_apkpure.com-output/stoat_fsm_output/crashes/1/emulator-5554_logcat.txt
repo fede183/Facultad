@@ -1,0 +1,28 @@
+--------- beginning of main
+--------- beginning of system
+05-24 21:10:21.488  2839  6906 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:10:31.638  2839  6868 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:10:43.048  2839  6868 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:10:48.670  2839  6868 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:10:56.172  2839  6871 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:11:03.957  2839  6871 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:11:10.402  2839  6906 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:11:17.886  2839  6871 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:11:25.237  2839  6903 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:11:32.211  2839  6868 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:11:39.464  2839  6903 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:11:47.316  2839  6905 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:11:54.885  2839  6905 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:12:02.386  2839  6906 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:12:07.704  2839  6906 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:12:16.438  2839  6903 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:12:22.146  2839  6903 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:12:27.207  2839  6903 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:12:32.250  2839  6903 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:12:37.301  2839  6903 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:12:42.360  2839  6903 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:13:22.221  2839  6905 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:13:30.377  2839  6905 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:13:36.025  2839  6905 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:13:45.155  2839  6905 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
+05-24 21:14:02.736  2839  6905 E ActivityThread: Failed to find provider info for com.google.android.apps.gsa.testing.ui.audio.recorded
