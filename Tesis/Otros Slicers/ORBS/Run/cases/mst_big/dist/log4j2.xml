@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<Configuration monitorInterval="30"> 
+  <Appenders> 
+    <Console name="STDOUT" target="SYSTEM_OUT"> 
+       <!--<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/> --> 
+       <PatternLayout pattern="%d{ABSOLUTE} %-5p - %m%n"/>
+    </Console> 
+    
+     <File name="MyFile" fileName="logs/orbs.log">
+         <PatternLayout pattern="%d %-5p - %m%n"/>
+      </File>
+      
+      <File name="Trace" fileName="logs/trace.log">
+         <!--<PatternLayout pattern="%d %-5p - %m%n"/>--> 
+         <!--<PatternLayout pattern="%d %-5p [%t] %C{1} (%L) - %m%n"/>-->
+          <PatternLayout pattern="%d %-5p [%t] - %m%n"/>
+      </File>
+  </Appenders> 
+   
+  
+  <Loggers> 
+    <Logger name="hello"/> 
+    <Root level="trace"> 
+      <AppenderRef ref="STDOUT" level="info"/> 
+      <AppenderRef ref="MyFile" level="info"/>
+      <AppenderRef ref="Trace" level="trace"/>
+    </Root> 
+  </Loggers> 
+</Configuration>

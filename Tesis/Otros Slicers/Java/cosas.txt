@@ -1,0 +1,13 @@
+Javaslicer:
+
+Necesitas un JAR, un método del cual iniciar, y una línea+variable que tomar como criterio. "Jolden completo.jar"
+
+Instrumentás el programa y lo corrés a la vez generando una traza. Eso se hace con "tracer.jar"
+
+Corrés el slicer, slicer.jar. con el criterio y la traza que generaste, genera un resultado. 
+Largo, y no tan sencillo de leer
+
+Corrés mi programita "JavaslicerTranslator" que toma el resultado anterior y lo traduce en un formato de resultado, escrito IGUAL que el resultado de Slicer NET. esto sirve para comparar los resultados. 
+
+TODO ESTO ESTÁ HECHO EN BASH.SH
+
