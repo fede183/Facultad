@@ -1,0 +1,387 @@
+ 0.0% done, time left: unknown                                0.3% done, time left: unknown  0.4% done, time left: unknown  2.7% done, time left: unknown  7.6% done, time left: unknown 12.8% done, time left: unknown 17.4% done, time left: unknown 24.0% done, time left: unknown 28.5% done, time left:   0:00:01   42.6% done, time left:   0:00:01 47.9% done, time left:   0:00:04 53.4% done, time left:   0:00:00 57.1% done, time left:   0:00:00 62.8% done, time left:   0:00:00 67.8% done, time left:   0:00:00 71.7% done, time left:   0:00:00 76.1% done, time left:   0:00:00 85.4% done, time left:   0:00:00 87.9% done, time left:   0:00:00 93.3% done, time left:   0:00:00 97.6% done, time left:   0:00:00 98.8% done, time left:   0:00:00 100.0% done, time left:   0:00:00  finished
+The dynamic slice for criterion [bisort.BiSort.main:69:{sliceVariable}]:
+bisort.BiSort.main:33 ALOAD 0
+bisort.BiSort.main:33 ICONST_0
+bisort.BiSort.main:33 IALOAD
+bisort.BiSort.main:33 PUTSTATIC bisort/BiSort.size I
+bisort.BiSort.main:38 GETSTATIC bisort/BiSort.size I
+bisort.BiSort.main:38 LDC 12345768
+bisort.BiSort.main:38 INVOKESTATIC bisort/Value.createTree(II)Lbisort/Value;
+bisort.BiSort.main:38 ASTORE 1
+bisort.BiSort.main:39 LDC 245867
+bisort.BiSort.main:39 INVOKESTATIC bisort/Value.random(I)I
+bisort.BiSort.main:39 BIPUSH 100
+bisort.BiSort.main:39 IREM
+bisort.BiSort.main:39 ISTORE 2
+bisort.BiSort.main:50 ALOAD 1
+bisort.BiSort.main:50 ILOAD 2
+bisort.BiSort.main:50 ICONST_0
+bisort.BiSort.main:50 INVOKEVIRTUAL bisort/Value.bisort(IZ)I
+bisort.BiSort.main:50 ISTORE 2
+bisort.BiSort.main:58 ALOAD 1
+bisort.BiSort.main:58 ILOAD 2
+bisort.BiSort.main:58 ICONST_1
+bisort.BiSort.main:58 INVOKEVIRTUAL bisort/Value.bisort(IZ)I
+bisort.BiSort.main:67 ALOAD 1
+bisort.BiSort.main:67 GETFIELD bisort/Value.value I
+bisort.BiSort.main:67 ISTORE 3
+bisort.Value.<init>:29 ALOAD 0
+bisort.Value.<init>:29 ILOAD 1
+bisort.Value.<init>:29 PUTFIELD bisort/Value.value I
+bisort.Value.createTree:42 ILOAD 0
+bisort.Value.createTree:42 ICONST_1
+bisort.Value.createTree:42 IF_ICMPLE L0
+bisort.Value.createTree:44 ILOAD 1
+bisort.Value.createTree:44 INVOKESTATIC bisort/Value.random(I)I
+bisort.Value.createTree:44 ISTORE 1
+bisort.Value.createTree:45 ILOAD 1
+bisort.Value.createTree:45 BIPUSH 100
+bisort.Value.createTree:45 IREM
+bisort.Value.createTree:45 ISTORE 2
+bisort.Value.createTree:47 NEW bisort/Value
+bisort.Value.createTree:47 DUP
+bisort.Value.createTree:47 ILOAD 2
+bisort.Value.createTree:47 INVOKESPECIAL bisort/Value.<init>(I)V
+bisort.Value.createTree:47 ASTORE 3
+bisort.Value.createTree:48 ALOAD 3
+bisort.Value.createTree:48 ILOAD 0
+bisort.Value.createTree:48 ICONST_2
+bisort.Value.createTree:48 IDIV
+bisort.Value.createTree:48 ILOAD 1
+bisort.Value.createTree:48 INVOKESTATIC bisort/Value.createTree(II)Lbisort/Value;
+bisort.Value.createTree:48 PUTFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.createTree:49 ALOAD 3
+bisort.Value.createTree:49 ILOAD 0
+bisort.Value.createTree:49 ICONST_2
+bisort.Value.createTree:49 IDIV
+bisort.Value.createTree:49 ILOAD 1
+bisort.Value.createTree:49 ILOAD 0
+bisort.Value.createTree:49 ICONST_1
+bisort.Value.createTree:49 IADD
+bisort.Value.createTree:49 INVOKESTATIC bisort/Value.skiprand(II)I
+bisort.Value.createTree:49 INVOKESTATIC bisort/Value.createTree(II)Lbisort/Value;
+bisort.Value.createTree:49 PUTFIELD bisort/Value.right Lbisort/Value;
+bisort.Value.createTree:50 ALOAD 3
+bisort.Value.createTree:50 ARETURN
+bisort.Value.bisort:65 ALOAD 0
+bisort.Value.bisort:65 GETFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.bisort:65 IFNONNULL L2
+bisort.Value.bisort:67 ALOAD 0
+bisort.Value.bisort:67 GETFIELD bisort/Value.value I
+bisort.Value.bisort:67 ILOAD 1
+bisort.Value.bisort:67 IF_ICMPLE L0
+bisort.Value.bisort:67 ICONST_1
+bisort.Value.bisort:67 ICONST_0
+bisort.Value.bisort:67 ILOAD 2
+bisort.Value.bisort:67 IXOR
+bisort.Value.bisort:67 IFEQ L5
+bisort.Value.bisort:69 ILOAD 1
+bisort.Value.bisort:69 ISTORE 3
+bisort.Value.bisort:71 ALOAD 0
+bisort.Value.bisort:71 ILOAD 3
+bisort.Value.bisort:71 PUTFIELD bisort/Value.value I
+bisort.Value.bisort:76 ALOAD 0
+bisort.Value.bisort:76 GETFIELD bisort/Value.value I
+bisort.Value.bisort:76 ISTORE 3
+bisort.Value.bisort:77 ALOAD 0
+bisort.Value.bisort:77 ALOAD 0
+bisort.Value.bisort:77 GETFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.bisort:77 ILOAD 3
+bisort.Value.bisort:77 ILOAD 2
+bisort.Value.bisort:77 INVOKEVIRTUAL bisort/Value.bisort(IZ)I
+bisort.Value.bisort:77 PUTFIELD bisort/Value.value I
+bisort.Value.bisort:78 ILOAD 2
+bisort.Value.bisort:78 IFEQ L3
+bisort.Value.bisort:78 ICONST_0
+bisort.Value.bisort:78 ICONST_1
+bisort.Value.bisort:78 ISTORE 4
+bisort.Value.bisort:79 ALOAD 0
+bisort.Value.bisort:79 GETFIELD bisort/Value.right Lbisort/Value;
+bisort.Value.bisort:79 ILOAD 1
+bisort.Value.bisort:79 ILOAD 4
+bisort.Value.bisort:79 INVOKEVIRTUAL bisort/Value.bisort(IZ)I
+bisort.Value.bisort:79 ISTORE 1
+bisort.Value.bisort:80 ALOAD 0
+bisort.Value.bisort:80 ILOAD 1
+bisort.Value.bisort:80 ILOAD 2
+bisort.Value.bisort:80 INVOKEVIRTUAL bisort/Value.bimerge(IZ)I
+bisort.Value.bisort:80 ISTORE 1
+bisort.Value.bisort:82 ILOAD 1
+bisort.Value.bisort:82 IRETURN
+bisort.Value.bimerge:94 ALOAD 0
+bisort.Value.bimerge:94 GETFIELD bisort/Value.value I
+bisort.Value.bimerge:94 ISTORE 3
+bisort.Value.bimerge:95 ALOAD 0
+bisort.Value.bimerge:95 GETFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.bimerge:95 ASTORE 4
+bisort.Value.bimerge:96 ALOAD 0
+bisort.Value.bimerge:96 GETFIELD bisort/Value.right Lbisort/Value;
+bisort.Value.bimerge:96 ASTORE 5
+bisort.Value.bimerge:98 ILOAD 3
+bisort.Value.bimerge:98 ILOAD 1
+bisort.Value.bimerge:98 IF_ICMPLE L0
+bisort.Value.bimerge:98 ICONST_1
+bisort.Value.bimerge:98 ICONST_0
+bisort.Value.bimerge:98 ILOAD 2
+bisort.Value.bimerge:98 IXOR
+bisort.Value.bimerge:98 ISTORE 6
+bisort.Value.bimerge:99 ILOAD 6
+bisort.Value.bimerge:99 IFEQ L8
+bisort.Value.bimerge:101 ALOAD 0
+bisort.Value.bimerge:101 ILOAD 1
+bisort.Value.bimerge:101 PUTFIELD bisort/Value.value I
+bisort.Value.bimerge:102 ILOAD 3
+bisort.Value.bimerge:102 ISTORE 1
+bisort.Value.bimerge:105 ALOAD 4
+bisort.Value.bimerge:105 IFNONNULL L2
+bisort.Value.bimerge:107 ALOAD 4
+bisort.Value.bimerge:107 GETFIELD bisort/Value.value I
+bisort.Value.bimerge:107 ISTORE 7
+bisort.Value.bimerge:108 ALOAD 4
+bisort.Value.bimerge:108 GETFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.bimerge:108 ASTORE 8
+bisort.Value.bimerge:109 ALOAD 4
+bisort.Value.bimerge:109 GETFIELD bisort/Value.right Lbisort/Value;
+bisort.Value.bimerge:109 ASTORE 9
+bisort.Value.bimerge:110 ALOAD 5
+bisort.Value.bimerge:110 GETFIELD bisort/Value.value I
+bisort.Value.bimerge:110 ISTORE 3
+bisort.Value.bimerge:111 ALOAD 5
+bisort.Value.bimerge:111 GETFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.bimerge:111 ASTORE 10
+bisort.Value.bimerge:112 ALOAD 5
+bisort.Value.bimerge:112 GETFIELD bisort/Value.right Lbisort/Value;
+bisort.Value.bimerge:112 ASTORE 11
+bisort.Value.bimerge:114 ILOAD 7
+bisort.Value.bimerge:114 ILOAD 3
+bisort.Value.bimerge:114 IF_ICMPLE L3
+bisort.Value.bimerge:114 ICONST_1
+bisort.Value.bimerge:114 ICONST_0
+bisort.Value.bimerge:114 ILOAD 2
+bisort.Value.bimerge:114 IXOR
+bisort.Value.bimerge:114 ISTORE 12
+bisort.Value.bimerge:115 ILOAD 6
+bisort.Value.bimerge:115 IFEQ L6
+bisort.Value.bimerge:117 ILOAD 12
+bisort.Value.bimerge:117 IFEQ L5
+bisort.Value.bimerge:119 ALOAD 4
+bisort.Value.bimerge:119 ALOAD 5
+bisort.Value.bimerge:119 INVOKEVIRTUAL bisort/Value.swapValRight(Lbisort/Value;)V
+bisort.Value.bimerge:120 ALOAD 8
+bisort.Value.bimerge:120 ASTORE 4
+bisort.Value.bimerge:121 ALOAD 10
+bisort.Value.bimerge:121 ASTORE 5
+bisort.Value.bimerge:125 ALOAD 9
+bisort.Value.bimerge:125 ASTORE 4
+bisort.Value.bimerge:126 ALOAD 11
+bisort.Value.bimerge:126 ASTORE 5
+bisort.Value.bimerge:131 ILOAD 12
+bisort.Value.bimerge:131 IFEQ L7
+bisort.Value.bimerge:133 ALOAD 4
+bisort.Value.bimerge:133 ALOAD 5
+bisort.Value.bimerge:133 INVOKEVIRTUAL bisort/Value.swapValLeft(Lbisort/Value;)V
+bisort.Value.bimerge:134 ALOAD 9
+bisort.Value.bimerge:134 ASTORE 4
+bisort.Value.bimerge:135 ALOAD 11
+bisort.Value.bimerge:135 ASTORE 5
+bisort.Value.bimerge:139 ALOAD 8
+bisort.Value.bimerge:139 ASTORE 4
+bisort.Value.bimerge:140 ALOAD 10
+bisort.Value.bimerge:140 ASTORE 5
+bisort.Value.bimerge:145 ALOAD 0
+bisort.Value.bimerge:145 GETFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.bimerge:145 IFNULL L9
+bisort.Value.bimerge:147 ALOAD 0
+bisort.Value.bimerge:147 ALOAD 0
+bisort.Value.bimerge:147 GETFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.bimerge:147 ALOAD 0
+bisort.Value.bimerge:147 GETFIELD bisort/Value.value I
+bisort.Value.bimerge:147 ILOAD 2
+bisort.Value.bimerge:147 INVOKEVIRTUAL bisort/Value.bimerge(IZ)I
+bisort.Value.bimerge:147 PUTFIELD bisort/Value.value I
+bisort.Value.bimerge:148 ALOAD 0
+bisort.Value.bimerge:148 GETFIELD bisort/Value.right Lbisort/Value;
+bisort.Value.bimerge:148 ILOAD 1
+bisort.Value.bimerge:148 ILOAD 2
+bisort.Value.bimerge:148 INVOKEVIRTUAL bisort/Value.bimerge(IZ)I
+bisort.Value.bimerge:148 ISTORE 1
+bisort.Value.bimerge:150 ILOAD 1
+bisort.Value.bimerge:150 IRETURN
+bisort.Value.swapValRight:159 ALOAD 1
+bisort.Value.swapValRight:159 GETFIELD bisort/Value.value I
+bisort.Value.swapValRight:159 ISTORE 2
+bisort.Value.swapValRight:160 ALOAD 1
+bisort.Value.swapValRight:160 GETFIELD bisort/Value.right Lbisort/Value;
+bisort.Value.swapValRight:160 ASTORE 3
+bisort.Value.swapValRight:162 ALOAD 1
+bisort.Value.swapValRight:162 ALOAD 0
+bisort.Value.swapValRight:162 GETFIELD bisort/Value.value I
+bisort.Value.swapValRight:162 PUTFIELD bisort/Value.value I
+bisort.Value.swapValRight:163 ALOAD 1
+bisort.Value.swapValRight:163 ALOAD 0
+bisort.Value.swapValRight:163 GETFIELD bisort/Value.right Lbisort/Value;
+bisort.Value.swapValRight:163 PUTFIELD bisort/Value.right Lbisort/Value;
+bisort.Value.swapValRight:165 ALOAD 0
+bisort.Value.swapValRight:165 ILOAD 2
+bisort.Value.swapValRight:165 PUTFIELD bisort/Value.value I
+bisort.Value.swapValRight:166 ALOAD 0
+bisort.Value.swapValRight:166 ALOAD 3
+bisort.Value.swapValRight:166 PUTFIELD bisort/Value.right Lbisort/Value;
+bisort.Value.swapValLeft:175 ALOAD 1
+bisort.Value.swapValLeft:175 GETFIELD bisort/Value.value I
+bisort.Value.swapValLeft:175 ISTORE 2
+bisort.Value.swapValLeft:176 ALOAD 1
+bisort.Value.swapValLeft:176 GETFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.swapValLeft:176 ASTORE 3
+bisort.Value.swapValLeft:178 ALOAD 1
+bisort.Value.swapValLeft:178 ALOAD 0
+bisort.Value.swapValLeft:178 GETFIELD bisort/Value.value I
+bisort.Value.swapValLeft:178 PUTFIELD bisort/Value.value I
+bisort.Value.swapValLeft:179 ALOAD 1
+bisort.Value.swapValLeft:179 ALOAD 0
+bisort.Value.swapValLeft:179 GETFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.swapValLeft:179 PUTFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.swapValLeft:181 ALOAD 0
+bisort.Value.swapValLeft:181 ILOAD 2
+bisort.Value.swapValLeft:181 PUTFIELD bisort/Value.value I
+bisort.Value.swapValLeft:182 ALOAD 0
+bisort.Value.swapValLeft:182 ALOAD 3
+bisort.Value.swapValLeft:182 PUTFIELD bisort/Value.left Lbisort/Value;
+bisort.Value.mult:207 ILOAD 0
+bisort.Value.mult:207 SIPUSH 10000
+bisort.Value.mult:207 IDIV
+bisort.Value.mult:207 ISTORE 2
+bisort.Value.mult:208 ILOAD 0
+bisort.Value.mult:208 SIPUSH 10000
+bisort.Value.mult:208 IREM
+bisort.Value.mult:208 ISTORE 3
+bisort.Value.mult:209 ILOAD 1
+bisort.Value.mult:209 SIPUSH 10000
+bisort.Value.mult:209 IDIV
+bisort.Value.mult:209 ISTORE 4
+bisort.Value.mult:210 ILOAD 1
+bisort.Value.mult:210 SIPUSH 10000
+bisort.Value.mult:210 IREM
+bisort.Value.mult:210 ISTORE 5
+bisort.Value.mult:211 ILOAD 3
+bisort.Value.mult:211 ILOAD 4
+bisort.Value.mult:211 IMUL
+bisort.Value.mult:211 ILOAD 2
+bisort.Value.mult:211 ILOAD 5
+bisort.Value.mult:211 IMUL
+bisort.Value.mult:211 IADD
+bisort.Value.mult:211 SIPUSH 10000
+bisort.Value.mult:211 IREM
+bisort.Value.mult:211 SIPUSH 10000
+bisort.Value.mult:211 IMUL
+bisort.Value.mult:211 ILOAD 3
+bisort.Value.mult:211 ILOAD 5
+bisort.Value.mult:211 IMUL
+bisort.Value.mult:211 IADD
+bisort.Value.mult:211 IRETURN
+bisort.Value.skiprand:222 ILOAD 1
+bisort.Value.skiprand:222 ISTORE 2
+bisort.Value.skiprand:222 IINC 2 -1
+bisort.Value.skiprand:222 ILOAD 2
+bisort.Value.skiprand:222 IFNE L0
+bisort.Value.skiprand:223 ILOAD 0
+bisort.Value.skiprand:223 INVOKESTATIC bisort/Value.random(I)I
+bisort.Value.skiprand:223 ISTORE 0
+bisort.Value.skiprand:224 ILOAD 0
+bisort.Value.skiprand:224 IRETURN
+bisort.Value.random:234 ILOAD 0
+bisort.Value.random:234 LDC 31415821
+bisort.Value.random:234 INVOKESTATIC bisort/Value.mult(II)I
+bisort.Value.random:234 ICONST_1
+bisort.Value.random:234 IADD
+bisort.Value.random:234 ISTORE 1
+bisort.Value.random:235 ILOAD 1
+bisort.Value.random:235 IRETURN
+java.lang.Character.digit:-1 ILOAD 0
+java.lang.Character.digit:-1 INVOKESTATIC java/lang/CharacterData.of(I)Ljava/lang/CharacterData;
+java.lang.Character.digit:-1 IRETURN
+java.lang.Character.digit:-1 ILOAD 0
+java.lang.Character.digit:-1 INVOKESTATIC java/lang/Character.digit(II)I
+java.lang.Character.digit:-1 IRETURN
+java.lang.CharacterData.of:-1 ILOAD 0
+java.lang.CharacterData.of:-1 BIPUSH 8
+java.lang.CharacterData.of:-1 IUSHR
+java.lang.CharacterData.of:-1 IFNE L0
+java.lang.CharacterData.of:-1 GETSTATIC java/lang/CharacterDataLatin1.instance Ljava/lang/CharacterDataLatin1;
+java.lang.CharacterData.of:-1 ARETURN
+java.lang.Integer.parseInt:-1 ALOAD 0
+java.lang.Integer.parseInt:-1 BIPUSH 10
+java.lang.Integer.parseInt:-1 INVOKESTATIC java/lang/Integer.parseInt(Ljava/lang/String;I)I
+java.lang.Integer.parseInt:-1 IRETURN
+java.lang.Integer.parseInt:-1 ICONST_0
+java.lang.Integer.parseInt:-1 ISTORE 2
+java.lang.Integer.parseInt:-1 ICONST_0
+java.lang.Integer.parseInt:-1 ISTORE 3
+java.lang.Integer.parseInt:-1 ICONST_0
+java.lang.Integer.parseInt:-1 ISTORE 4
+java.lang.Integer.parseInt:-1 ALOAD 0
+java.lang.Integer.parseInt:-1 INVOKEVIRTUAL java/lang/String.length()I
+java.lang.Integer.parseInt:-1 ISTORE 5
+java.lang.Integer.parseInt:-1 ILOAD 5
+java.lang.Integer.parseInt:-1 IFLE L12
+java.lang.Integer.parseInt:-1 ILOAD 4
+java.lang.Integer.parseInt:-1 ILOAD 5
+java.lang.Integer.parseInt:-1 IF_ICMPGE L11
+java.lang.Integer.parseInt:-1 ALOAD 0
+java.lang.Integer.parseInt:-1 ILOAD 4
+java.lang.Integer.parseInt:-1 IINC 4 1
+java.lang.Integer.parseInt:-1 INVOKEVIRTUAL java/lang/String.charAt(I)C
+java.lang.Integer.parseInt:-1 INVOKESTATIC java/lang/Character.digit(CI)I
+java.lang.Integer.parseInt:-1 ISTORE 8
+java.lang.Integer.parseInt:-1 ILOAD 2
+java.lang.Integer.parseInt:-1 ILOAD 1
+java.lang.Integer.parseInt:-1 IMUL
+java.lang.Integer.parseInt:-1 ISTORE 2
+java.lang.Integer.parseInt:-1 ILOAD 2
+java.lang.Integer.parseInt:-1 ILOAD 8
+java.lang.Integer.parseInt:-1 ISUB
+java.lang.Integer.parseInt:-1 ISTORE 2
+java.lang.Integer.parseInt:-1 ILOAD 3
+java.lang.Integer.parseInt:-1 IFEQ L14
+java.lang.Integer.parseInt:-1 ILOAD 2
+java.lang.Integer.parseInt:-1 INEG
+java.lang.Integer.parseInt:-1 IRETURN
+main.Program.main:30 ICONST_1
+main.Program.main:30 ISTORE 3
+main.Program.main:31 ILOAD 3
+main.Program.main:31 IFEQ L2
+main.Program.main:33 ALOAD 0
+main.Program.main:33 ICONST_0
+main.Program.main:33 AALOAD
+main.Program.main:33 INVOKESTATIC java/lang/Integer.parseInt(Ljava/lang/String;)I
+main.Program.main:33 ISTORE 1
+main.Program.main:34 ALOAD 0
+main.Program.main:34 ARRAYLENGTH
+main.Program.main:34 ICONST_1
+main.Program.main:34 ISUB
+main.Program.main:34 NEWARRAY T_INT
+main.Program.main:34 ASTORE 2
+main.Program.main:35 ICONST_1
+main.Program.main:35 ISTORE 4
+main.Program.main:35 IINC 4 1
+main.Program.main:35 ILOAD 4
+main.Program.main:35 ALOAD 0
+main.Program.main:35 ARRAYLENGTH
+main.Program.main:35 IF_ICMPLT L0
+main.Program.main:36 ALOAD 2
+main.Program.main:36 ILOAD 4
+main.Program.main:36 ICONST_1
+main.Program.main:36 ISUB
+main.Program.main:36 ALOAD 0
+main.Program.main:36 ILOAD 4
+main.Program.main:36 AALOAD
+main.Program.main:36 INVOKEVIRTUAL java/lang/String.trim()Ljava/lang/String;
+main.Program.main:36 INVOKESTATIC java/lang/Integer.parseInt(Ljava/lang/String;)I
+main.Program.main:36 IASTORE
+main.Program.main:48 ILOAD 1
+main.Program.main:48 TABLESWITCH (1 => L4, 2 => L5, 3 => L6, 4 => L7, 5 => L8, 6 => L9, 7 => L10, 8 => L11, * => L12)
+main.Program.main:56 ALOAD 2
+main.Program.main:56 INVOKESTATIC bisort/BiSort.main([I)V
+
+Slice consists of 382 bytecode instructions.
+Computation took 3.11 seconds.
