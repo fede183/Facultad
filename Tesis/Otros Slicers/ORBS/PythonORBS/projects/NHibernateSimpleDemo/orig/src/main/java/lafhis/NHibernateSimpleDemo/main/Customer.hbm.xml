@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="lafhis.NHibernateSimpleDemo.main.Customer" table="Customers" catalog="tests" lazy="false">
+        <id name="ID" type="java.lang.Integer">
+            <column name="CustomerID" />
+            <generator class="identity" />
+        </id>
+        <!-- Component mapping: Address
+        <component name="Address" class="lafhis.NHibernateSimpleDemo.main.Address">
+            <property name="StreetAddress" type="string" />
+            <property name="City" type="string" />
+            <property name="State" type="string" />
+            <property name="Zip" type="string" />
+        </component>-->
+            
+        <!-- One-to-many mapping: Orders -->
+        <bag name="Orders" cascade="all-delete-orphan" lazy="false">
+            <key column="CustomerID" />
+            <one-to-many class="lafhis.NHibernateSimpleDemo.main.Order" />
+        </bag>
+        
+        <property name="Name" type="string">
+            <column name="Name" length="256" not-null="true" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>
