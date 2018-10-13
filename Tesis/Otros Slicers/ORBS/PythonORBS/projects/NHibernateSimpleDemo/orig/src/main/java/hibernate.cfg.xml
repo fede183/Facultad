@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
@@ -24,3 +25,31 @@
         <mapping resource="lafhis/NHibernateSimpleDemo/main/Customer.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>        
+        <property name="hibernate.connection.url">jdbc:sqlserver://localhost\ARSAT;databaseName=lafhis</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password">qwertyui</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+        <property name="show_sql">true</property>-->
+
+	<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>        
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tests</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">lafhis</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="show_sql">false</property>
+        <mapping resource="lafhis/NHibernateSimpleDemo/main/Product.hbm.xml"></mapping>
+        <mapping resource="lafhis/NHibernateSimpleDemo/main/Order.hbm.xml"></mapping>
+        <mapping resource="lafhis/NHibernateSimpleDemo/main/Customer.hbm.xml"></mapping>
+    </session-factory>
+</hibernate-configuration>
+>>>>>>> 3e88ea80f0834d4037ab054f53ebbe65ed116e98

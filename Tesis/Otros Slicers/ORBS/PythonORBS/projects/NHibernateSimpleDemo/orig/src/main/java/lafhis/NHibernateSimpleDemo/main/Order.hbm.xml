@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
@@ -23,3 +24,30 @@
         </property>
     </class>
 </hibernate-mapping>
+=======
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="lafhis.NHibernateSimpleDemo.main.Order" table="Orders" catalog="tests" lazy="false">
+        <id name="ID" type="java.lang.Integer">
+            <column name="OrderID" />
+            <generator class="identity" />
+        </id>
+        <!-- Many-to-one mapping: Customer -->
+        <many-to-one name="Customer" 
+                     class="lafhis.NHibernateSimpleDemo.main.Customer" 
+                     column="CustomerID"
+                     cascade="all" />
+        <!-- Many-to-many mapping: OrderItems -->
+        <bag name="OrderItems" table="OrderItems" cascade="none" lazy="false" >
+            <key column ="OrderID" />
+            <many-to-many class="lafhis.NHibernateSimpleDemo.main.Product" column="ProductID" />
+        </bag>
+        <property name="Date" type="java.util.Date">
+            <column name="Date" length="256" not-null="true" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>
+>>>>>>> 3e88ea80f0834d4037ab054f53ebbe65ed116e98
