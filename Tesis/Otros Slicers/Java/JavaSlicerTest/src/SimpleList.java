@@ -14,7 +14,7 @@ public class SimpleList<T>
         public void Add(T item)
         {
             if (item == null)
-                throw new NullReferenceException();
+                throw new NullPointerException();
 
             if (_first == null)
             {
@@ -29,27 +29,19 @@ public class SimpleList<T>
             _size++;
         }
 
-        public T GetAt(int index)
-        {
+        public T GetAt(int index) throws Exception {
             if (index < 0 || index >= _size)
                 throw new Exception("Index must be in range");
 
-            var next = _first;
-            for (var i = 0; i < index; i++)
+            Node next = _first;
+            for (int i = 0; i < index; i++)
                 next = next._next;
 
             return next._element;
         }
 
-        public int Count
-        {
-            get
-            {
-                return _size;
-            }
-        }
 
-        internal class Node
+        protected class Node
         {
             public T _element;
             public Node _next;

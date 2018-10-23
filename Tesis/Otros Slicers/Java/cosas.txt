@@ -16,7 +16,7 @@ java -jar slicer.jar -p traza.trace bisort.BiSort.main:69:{sliceVariable} > slic
 
 Corrés mi programita "JavaslicerTranslator" que toma el resultado anterior y lo traduce en un formato de resultado, escrito IGUAL que el resultado de Slicer NET. esto sirve para comparar los resultados. 
 
-./JavaslicerTranslator.exe slice.slice result.result trace.trace SummaryResultsFile.txt 1 1 1 BiSort 2 1000
+./JavaslicerTranslator.exe slice.slice result.result traza.trace SummaryResultsFile.txt 1 1 1 BiSort 2 1000
 
 
 TODO ESTO ESTÁ HECHO EN BASH.SH
