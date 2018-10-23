@@ -1,0 +1,6 @@
+Iteration,Lines Deleted,Compilations,Executions,Cachced Compilations,Cached Executions,Elapsed Time (hh:mm:ss:ms)
+0,136,0,0,0,0,00:00:00:001
+1,263,5159,531,414,513,00:10:01:828
+2,0,4768,22,12,505,00:09:09:070
+Total:,399,9927,553,426,1018,00:19:10:899
+

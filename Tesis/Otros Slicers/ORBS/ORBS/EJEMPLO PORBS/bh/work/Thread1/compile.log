@@ -1,0 +1,5128 @@
+bh/BH.java:85: error: reached end of file while parsing
+    return res;
+               ^
+1 error
+bh/BH.java:87: error: reached end of file while parsing
+}
+ ^
+1 error
+bh/BH.java:86: error: missing return statement
+  }
+  ^
+1 error
+bh/BH.java:82: error: ';' expected
+  static final double xRand(double xl, double xh, double r)
+                                                           ^
+bh/BH.java:87: error: class, interface, or enum expected
+}
+^
+2 errors
+bh/BH.java:85: error: illegal start of type
+    return res;
+    ^
+bh/BH.java:85: error: ';' expected
+    return res;
+          ^
+bh/BH.java:87: error: class, interface, or enum expected
+}
+^
+3 errors
+bh/BH.java:78: error: unclosed comment
+  /**
+  ^
+bh/BH.java:88: error: reached end of file while parsing
+2 errors
+bh/BH.java:78: error: unclosed comment
+  /**
+  ^
+bh/BH.java:88: error: reached end of file while parsing
+2 errors
+bh/BH.java:76: error: missing return statement
+  }
+  ^
+1 error
+bh/BH.java:70: error: ';' expected
+  static final double myRand(double seed)
+                                         ^
+bh/BH.java:75: error: illegal start of type
+    return seed;
+    ^
+bh/BH.java:75: error: ';' expected
+    return seed;
+          ^
+bh/BH.java:82: error: class, interface, or enum expected
+  static final double xRand(double xl, double xh, double r)
+               ^
+bh/BH.java:85: error: class, interface, or enum expected
+    return res;
+    ^
+bh/BH.java:86: error: class, interface, or enum expected
+  }
+  ^
+6 errors
+bh/BH.java:74: error: <identifier> expected
+    seed = t - (2147483647.0 * Math.floor(t / 2147483647.0));
+        ^
+bh/BH.java:75: error: illegal start of type
+    return seed;
+    ^
+bh/BH.java:75: error: ';' expected
+    return seed;
+          ^
+bh/BH.java:82: error: class, interface, or enum expected
+  static final double xRand(double xl, double xh, double r)
+               ^
+bh/BH.java:85: error: class, interface, or enum expected
+    return res;
+    ^
+bh/BH.java:86: error: class, interface, or enum expected
+  }
+  ^
+6 errors
+bh/BH.java:67: error: unclosed comment
+  /**
+  ^
+bh/BH.java:88: error: reached end of file while parsing
+2 errors
+bh/BH.java:67: error: unclosed comment
+  /**
+  ^
+bh/BH.java:88: error: reached end of file while parsing
+2 errors
+bh/BH.java:70: error: illegal start of expression
+  static final double myRand(double seed)
+  ^
+bh/BH.java:70: error: ';' expected
+  static final double myRand(double seed)
+                            ^
+bh/BH.java:70: error: ';' expected
+  static final double myRand(double seed)
+                                        ^
+bh/BH.java:82: error: illegal start of expression
+  static final double xRand(double xl, double xh, double r)
+  ^
+bh/BH.java:82: error: ';' expected
+  static final double xRand(double xl, double xh, double r)
+                           ^
+bh/BH.java:82: error: <identifier> expected
+  static final double xRand(double xl, double xh, double r)
+                                      ^
+bh/BH.java:82: error: not a statement
+  static final double xRand(double xl, double xh, double r)
+                                              ^
+bh/BH.java:82: error: ';' expected
+  static final double xRand(double xl, double xh, double r)
+                                                ^
+bh/BH.java:82: error: ';' expected
+  static final double xRand(double xl, double xh, double r)
+                                                          ^
+bh/BH.java:87: error: reached end of file while parsing
+}
+ ^
+10 errors
+bh/BH.java:64: error: <identifier> expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                    ^
+bh/BH.java:64: error: illegal start of type
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                     ^
+bh/BH.java:64: error: ')' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                        ^
+bh/BH.java:64: error: ';' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                               ^
+bh/BH.java:64: error: ']' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                      ^
+bh/BH.java:64: error: ';' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                       ^
+bh/BH.java:64: error: illegal start of type
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                        ^
+bh/BH.java:64: error: <identifier> expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                         ^
+bh/BH.java:64: error: ';' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                          ^
+bh/BH.java:64: error: illegal start of type
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                                  ^
+bh/BH.java:64: error: <identifier> expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                                   ^
+bh/BH.java:64: error: ';' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                                    ^
+bh/BH.java:70: error: class, interface, or enum expected
+  static final double myRand(double seed)
+               ^
+bh/BH.java:74: error: class, interface, or enum expected
+    seed = t - (2147483647.0 * Math.floor(t / 2147483647.0));
+    ^
+bh/BH.java:75: error: class, interface, or enum expected
+    return seed;
+    ^
+bh/BH.java:76: error: class, interface, or enum expected
+  }
+  ^
+bh/BH.java:82: error: class, interface, or enum expected
+  static final double xRand(double xl, double xh, double r)
+               ^
+bh/BH.java:85: error: class, interface, or enum expected
+    return res;
+    ^
+bh/BH.java:86: error: class, interface, or enum expected
+  }
+  ^
+19 errors
+bh/BH.java:48: error: cannot find symbol
+		  root.stepSystem(i++);
+		                  ^
+  symbol:   variable i
+  location: class BH
+1 error
+bh/BH.java:46: error: cannot find symbol
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	          ^
+  symbol:   variable tnow
+  location: class BH
+bh/BH.java:46: error: cannot find symbol
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                                        ^
+  symbol:   variable i
+  location: class BH
+bh/BH.java:48: error: cannot find symbol
+		  root.stepSystem(i++);
+		                  ^
+  symbol:   variable i
+  location: class BH
+3 errors
+bh/BH.java:45: error: variable declaration not allowed here
+	  int i = 0;
+	      ^
+1 error
+bh/BH.java:39: error: cannot find symbol
+	  root.createTestData(nbody);
+	  ^
+  symbol:   variable root
+  location: class BH
+bh/BH.java:48: error: cannot find symbol
+		  root.stepSystem(i++);
+		  ^
+  symbol:   variable root
+  location: class BH
+bh/BH.java:64: error: package root.bodyTab does not exist
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                            ^
+3 errors
+bh/BH.java:32: error: <identifier> expected
+	  nbody = args[0];
+	       ^
+bh/BH.java:39: error: <identifier> expected
+	  root.createTestData(nbody);
+	                     ^
+bh/BH.java:39: error: <identifier> expected
+	  root.createTestData(nbody);
+	                           ^
+bh/BH.java:46: error: illegal start of type
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	  ^
+bh/BH.java:46: error: illegal start of type
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	         ^
+bh/BH.java:46: error: ')' expected
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	          ^
+bh/BH.java:46: error: ';' expected
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	              ^
+bh/BH.java:46: error: <identifier> expected
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                      ^
+bh/BH.java:46: error: illegal start of type
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                         ^
+bh/BH.java:46: error: <identifier> expected
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                            ^
+bh/BH.java:46: error: ';' expected
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                             ^
+bh/BH.java:46: error: illegal start of type
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                                  ^
+bh/BH.java:46: error: <identifier> expected
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                                   ^
+bh/BH.java:46: error: > expected
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                                                  ^
+bh/BH.java:64: error: <identifier> expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                    ^
+bh/BH.java:64: error: illegal start of type
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                     ^
+bh/BH.java:64: error: ')' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                        ^
+bh/BH.java:64: error: ';' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                               ^
+bh/BH.java:64: error: ']' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                      ^
+bh/BH.java:64: error: ';' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                       ^
+bh/BH.java:64: error: illegal start of type
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                        ^
+bh/BH.java:64: error: <identifier> expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                         ^
+bh/BH.java:64: error: ';' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                          ^
+bh/BH.java:64: error: illegal start of type
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                                  ^
+bh/BH.java:64: error: <identifier> expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                                   ^
+bh/BH.java:64: error: ';' expected
+	  System.out.println(new Double(root.bodyTab.pos.data[0]).toString());
+	                                                                    ^
+bh/BH.java:70: error: class, interface, or enum expected
+  static final double myRand(double seed)
+               ^
+bh/BH.java:74: error: class, interface, or enum expected
+    seed = t - (2147483647.0 * Math.floor(t / 2147483647.0));
+    ^
+bh/BH.java:75: error: class, interface, or enum expected
+    return seed;
+    ^
+bh/BH.java:76: error: class, interface, or enum expected
+  }
+  ^
+bh/BH.java:82: error: class, interface, or enum expected
+  static final double xRand(double xl, double xh, double r)
+               ^
+bh/BH.java:85: error: class, interface, or enum expected
+    return res;
+    ^
+bh/BH.java:86: error: class, interface, or enum expected
+  }
+  ^
+33 errors
+main/Program.java:53: error: cannot find symbol
+				BH.main(programInputs);
+				  ^
+  symbol:   method main(int[])
+  location: class BH
+bh/BH.java:32: error: cannot find symbol
+	  nbody = args[0];
+	          ^
+  symbol:   variable args
+  location: class BH
+bh/BH.java:46: error: cannot find symbol
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                 ^
+  symbol:   variable TSTOP
+  location: class BH
+3 errors
+bh/BH.java:46: error: cannot find symbol
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                 ^
+  symbol:   variable TSTOP
+  location: class BH
+bh/BH.java:46: error: cannot find symbol
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                             ^
+  symbol:   variable DTIME
+  location: class BH
+bh/Tree.java:223: error: cannot find symbol
+    double dthf = 0.5 * BH.DTIME;
+                          ^
+  symbol:   variable DTIME
+  location: class BH
+bh/Tree.java:242: error: cannot find symbol
+      dpos.multScalar(BH.DTIME);
+                        ^
+  symbol:   variable DTIME
+  location: class BH
+4 errors
+bh/BH.java:46: error: cannot find symbol
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	                             ^
+  symbol:   variable DTIME
+  location: class BH
+bh/Tree.java:223: error: cannot find symbol
+    double dthf = 0.5 * BH.DTIME;
+                          ^
+  symbol:   variable DTIME
+  location: class BH
+bh/Tree.java:242: error: cannot find symbol
+      dpos.multScalar(BH.DTIME);
+                        ^
+  symbol:   variable DTIME
+  location: class BH
+3 errors
+bh/BH.java:22: error: unclosed comment
+  /**
+  ^
+bh/BH.java:88: error: reached end of file while parsing
+2 errors
+bh/BH.java:13: error: unclosed comment
+  /**
+  ^
+bh/BH.java:88: error: reached end of file while parsing
+2 errors
+bh/BH.java:13: error: unclosed comment
+  /**
+  ^
+bh/BH.java:88: error: reached end of file while parsing
+2 errors
+bh/BH.java:8: error: unclosed comment
+  /**
+  ^
+bh/BH.java:88: error: reached end of file while parsing
+2 errors
+bh/BH.java:7: error: class, interface, or enum expected
+{
+^
+bh/BH.java:16: error: class, interface, or enum expected
+  private static int nsteps = 10;
+                 ^
+bh/BH.java:27: error: class, interface, or enum expected
+  static double DTIME = 0.0125;
+         ^
+bh/BH.java:28: error: class, interface, or enum expected
+  private static double TSTOP = 2.0;
+                 ^
+bh/BH.java:30: error: class, interface, or enum expected
+  public static void main(int[] args)
+                ^
+bh/BH.java:38: error: class, interface, or enum expected
+	  Tree root = new Tree();
+	  ^
+bh/BH.java:39: error: class, interface, or enum expected
+	  root.createTestData(nbody);
+	  ^
+bh/BH.java:44: error: class, interface, or enum expected
+	  double tnow = 0.0;
+	  ^
+bh/BH.java:45: error: class, interface, or enum expected
+	  int i = 0;
+	  ^
+bh/BH.java:46: error: class, interface, or enum expected
+	  while ((tnow < TSTOP + 0.1*DTIME) && (i < nsteps)) 
+	  ^
+bh/BH.java:60: error: class, interface, or enum expected
+	  }
+	  ^
+bh/BH.java:65: error: class, interface, or enum expected
+  }  
+  ^
+bh/BH.java:70: error: class, interface, or enum expected
+  static final double myRand(double seed)
+               ^
+bh/BH.java:74: error: class, interface, or enum expected
+    seed = t - (2147483647.0 * Math.floor(t / 2147483647.0));
+    ^
+bh/BH.java:75: error: class, interface, or enum expected
+    return seed;
+    ^
+bh/BH.java:76: error: class, interface, or enum expected
+  }
+  ^
+bh/BH.java:82: error: class, interface, or enum expected
+  static final double xRand(double xl, double xh, double r)
+               ^
+bh/BH.java:85: error: class, interface, or enum expected
+    return res;
+    ^
+bh/BH.java:86: error: class, interface, or enum expected
+  }
+  ^
+19 errors
+bh/Body.java:262: error: reached end of file while parsing
+    return "Body " + super.toString();
+                                      ^
+1 error
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+1 error
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+1 error
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+1 error
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+1 error
+bh/Body.java:254: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:254: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+3 errors
+bh/Body.java:251: error: missing return statement
+      }
+      ^
+1 error
+bh/Body.java:250: error: cannot find symbol
+		return retval;
+		       ^
+  symbol:   variable retval
+  location: class Enumerate
+1 error
+bh/Body.java:246: error: ';' expected
+      public Object nextElement() 
+                                 ^
+bh/Body.java:250: error: illegal start of type
+		return retval;
+		^
+bh/Body.java:250: error: ';' expected
+		return retval;
+		      ^
+bh/Body.java:254: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:254: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:254: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:264: error: class, interface, or enum expected
+}
+^
+7 errors
+bh/Body.java:249: error: <identifier> expected
+		current = current.procNext;
+		       ^
+bh/Body.java:250: error: illegal start of type
+		return retval;
+		^
+bh/Body.java:250: error: ';' expected
+		return retval;
+		      ^
+bh/Body.java:254: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:254: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:254: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:264: error: class, interface, or enum expected
+}
+^
+7 errors
+bh/Body.java:254: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:254: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+3 errors
+bh/Body.java:246: error: illegal start of expression
+      public Object nextElement() 
+      ^
+bh/Body.java:246: error: ';' expected
+      public Object nextElement() 
+                               ^
+bh/Body.java:254: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:254: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+5 errors
+bh/Body.java:242: error: ';' expected
+      public boolean hasMoreElements() 
+                                      ^
+bh/Body.java:246: error: illegal start of expression
+      public Object nextElement() 
+      ^
+bh/Body.java:246: error: ';' expected
+      public Object nextElement() 
+                               ^
+bh/Body.java:254: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:254: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:254: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:264: error: class, interface, or enum expected
+}
+^
+7 errors
+bh/Body.java:244: error: illegal start of type
+		return (current != null);  
+		^
+bh/Body.java:244: error: <identifier> expected
+		return (current != null);  
+		               ^
+bh/Body.java:244: error: ';' expected
+		return (current != null);  
+		                  ^
+bh/Body.java:244: error: illegal start of type
+		return (current != null);  
+		                       ^
+bh/Body.java:244: error: <identifier> expected
+		return (current != null);  
+		                        ^
+bh/Body.java:244: error: ';' expected
+		return (current != null);  
+		                         ^
+6 errors
+bh/Body.java:246: error: illegal start of expression
+      public Object nextElement() 
+      ^
+bh/Body.java:246: error: ';' expected
+      public Object nextElement() 
+                               ^
+bh/Body.java:254: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:254: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+5 errors
+bh/Body.java:242: error: illegal start of expression
+      public boolean hasMoreElements() 
+      ^
+bh/Body.java:242: error: ';' expected
+      public boolean hasMoreElements() 
+                                    ^
+bh/Body.java:246: error: illegal start of expression
+      public Object nextElement() 
+      ^
+bh/Body.java:246: error: ';' expected
+      public Object nextElement() 
+                               ^
+bh/Body.java:254: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:254: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+7 errors
+bh/Body.java:237: error: illegal start of expression
+      private Body current;
+      ^
+bh/Body.java:242: error: illegal start of expression
+      public boolean hasMoreElements() 
+      ^
+bh/Body.java:242: error: ';' expected
+      public boolean hasMoreElements() 
+                                    ^
+bh/Body.java:246: error: illegal start of expression
+      public Object nextElement() 
+      ^
+bh/Body.java:246: error: ';' expected
+      public Object nextElement() 
+                               ^
+bh/Body.java:254: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:254: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:254: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:264: error: class, interface, or enum expected
+}
+^
+9 errors
+bh/Body.java:237: error: illegal start of expression
+      private Body current;
+      ^
+bh/Body.java:242: error: illegal start of expression
+      public boolean hasMoreElements() 
+      ^
+bh/Body.java:242: error: ';' expected
+      public boolean hasMoreElements() 
+                                    ^
+bh/Body.java:246: error: illegal start of expression
+      public Object nextElement() 
+      ^
+bh/Body.java:246: error: ';' expected
+      public Object nextElement() 
+                               ^
+bh/Body.java:254: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:254: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:254: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:264: error: class, interface, or enum expected
+}
+^
+9 errors
+bh/Body.java:254: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:254: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:254: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:264: error: class, interface, or enum expected
+}
+^
+4 errors
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+1 error
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+2 errors
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+2 errors
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+1 error
+bh/Body.java:230: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:230: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+4 errors
+bh/Body.java:227: error: missing return statement
+		}
+		^
+1 error
+bh/Body.java:226: error: cannot find symbol
+			return retval;
+			       ^
+  symbol:   variable retval
+  location: class Enumerate
+1 error
+bh/Body.java:222: error: ';' expected
+		public Object nextElement() 
+		                           ^
+bh/Body.java:226: error: illegal start of type
+			return retval;
+			^
+bh/Body.java:226: error: ';' expected
+			return retval;
+			      ^
+bh/Body.java:230: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:230: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:230: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+9 errors
+bh/Body.java:225: error: <identifier> expected
+			current = current.next;
+			       ^
+bh/Body.java:226: error: illegal start of type
+			return retval;
+			^
+bh/Body.java:226: error: ';' expected
+			return retval;
+			      ^
+bh/Body.java:230: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:230: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:230: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+9 errors
+bh/Body.java:230: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:230: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+4 errors
+bh/Body.java:222: error: illegal start of expression
+		public Object nextElement() 
+		^
+bh/Body.java:222: error: ';' expected
+		public Object nextElement() 
+		                         ^
+bh/Body.java:230: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:230: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+6 errors
+bh/Body.java:218: error: ';' expected
+		public boolean hasMoreElements() 
+		                                ^
+bh/Body.java:222: error: illegal start of expression
+		public Object nextElement() 
+		^
+bh/Body.java:222: error: ';' expected
+		public Object nextElement() 
+		                         ^
+bh/Body.java:230: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:230: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:230: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+9 errors
+bh/Body.java:220: error: illegal start of type
+			return (current != null);  
+			^
+bh/Body.java:220: error: <identifier> expected
+			return (current != null);  
+			               ^
+bh/Body.java:220: error: ';' expected
+			return (current != null);  
+			                  ^
+bh/Body.java:220: error: illegal start of type
+			return (current != null);  
+			                       ^
+bh/Body.java:220: error: <identifier> expected
+			return (current != null);  
+			                        ^
+bh/Body.java:220: error: ';' expected
+			return (current != null);  
+			                         ^
+6 errors
+bh/Body.java:222: error: illegal start of expression
+		public Object nextElement() 
+		^
+bh/Body.java:222: error: ';' expected
+		public Object nextElement() 
+		                         ^
+bh/Body.java:230: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:230: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+6 errors
+bh/Body.java:218: error: illegal start of expression
+		public boolean hasMoreElements() 
+		^
+bh/Body.java:218: error: ';' expected
+		public boolean hasMoreElements() 
+		                              ^
+bh/Body.java:222: error: illegal start of expression
+		public Object nextElement() 
+		^
+bh/Body.java:222: error: ';' expected
+		public Object nextElement() 
+		                         ^
+bh/Body.java:230: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:230: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+8 errors
+bh/Body.java:213: error: illegal start of expression
+      private Body current;
+      ^
+bh/Body.java:218: error: illegal start of expression
+		public boolean hasMoreElements() 
+		^
+bh/Body.java:218: error: ';' expected
+		public boolean hasMoreElements() 
+		                              ^
+bh/Body.java:222: error: illegal start of expression
+		public Object nextElement() 
+		^
+bh/Body.java:222: error: ';' expected
+		public Object nextElement() 
+		                         ^
+bh/Body.java:230: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:230: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:230: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+11 errors
+bh/Body.java:213: error: illegal start of expression
+      private Body current;
+      ^
+bh/Body.java:218: error: illegal start of expression
+		public boolean hasMoreElements() 
+		^
+bh/Body.java:218: error: ';' expected
+		public boolean hasMoreElements() 
+		                              ^
+bh/Body.java:222: error: illegal start of expression
+		public Object nextElement() 
+		^
+bh/Body.java:222: error: ';' expected
+		public Object nextElement() 
+		                         ^
+bh/Body.java:230: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:230: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:230: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+11 errors
+bh/Body.java:230: error: illegal start of type
+    return new Enumerate();
+    ^
+bh/Body.java:230: error: ';' expected
+    return new Enumerate();
+          ^
+bh/Body.java:230: error: invalid method declaration; return type required
+    return new Enumerate();
+               ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+6 errors
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+2 errors
+bh/Body.java:209: error: ';' expected
+  final Enumeration elements()
+                            ^
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+3 errors
+bh/Body.java:207: error: illegal start of statement
+  }
+  ^
+1 error
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                                         ^
+bh/Body.java:206: error: illegal start of type
+    return hg;
+    ^
+bh/Body.java:206: error: ';' expected
+    return hg;
+          ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+9 errors
+bh/Body.java:204: error: illegal start of type
+    if (this != hg.pskip)
+    ^
+bh/Body.java:204: error: illegal start of type
+    if (this != hg.pskip)
+        ^
+bh/Body.java:204: error: ')' expected
+    if (this != hg.pskip)
+            ^
+bh/Body.java:204: error: <identifier> expected
+    if (this != hg.pskip)
+                        ^
+bh/Body.java:205: error: <identifier> expected
+      hg = gravSub(hg);
+        ^
+bh/Body.java:206: error: illegal start of type
+    return hg;
+    ^
+bh/Body.java:206: error: ';' expected
+    return hg;
+          ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+13 errors
+bh/Body.java:199: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:199: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:195: error: cannot find symbol
+    phi = hg.phi0;
+          ^
+  symbol:   variable hg
+  location: class Body
+bh/Body.java:196: error: cannot find symbol
+    newAcc = hg.acc0;
+             ^
+  symbol:   variable hg
+  location: class Body
+2 errors
+bh/Body.java:194: error: cannot find symbol
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+  symbol:   variable hg
+  location: class Body
+bh/Body.java:194: error: cannot find symbol
+    hg = root.walkSubTree(rsize * rsize, hg);
+                                         ^
+  symbol:   variable hg
+  location: class Body
+bh/Body.java:195: error: cannot find symbol
+    phi = hg.phi0;
+          ^
+  symbol:   variable hg
+  location: class Body
+bh/Body.java:196: error: cannot find symbol
+    newAcc = hg.acc0;
+             ^
+  symbol:   variable hg
+  location: class Body
+4 errors
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                                                 ^
+bh/Body.java:194: error: <identifier> expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+      ^
+bh/Body.java:195: error: <identifier> expected
+    phi = hg.phi0;
+       ^
+bh/Body.java:196: error: <identifier> expected
+    newAcc = hg.acc0;
+          ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+13 errors
+bh/Body.java:194: error: <identifier> expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+      ^
+bh/Body.java:195: error: <identifier> expected
+    phi = hg.phi0;
+       ^
+bh/Body.java:196: error: <identifier> expected
+    newAcc = hg.acc0;
+          ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+12 errors
+bh/Body.java:184: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:184: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:182: error: illegal start of statement
+  }
+  ^
+1 error
+bh/Body.java:182: error: missing return statement
+  }
+  ^
+1 error
+bh/Body.java:179: error: cannot find symbol
+		i += Cell.NSUB >> (k + 1);
+		                   ^
+  symbol:   variable k
+  location: class Body
+1 error
+bh/Body.java:178: error: cannot find symbol
+      if (((int)xp.value(k) & l) != 0)
+                         ^
+  symbol:   variable k
+  location: class Body
+bh/Body.java:179: error: cannot find symbol
+		i += Cell.NSUB >> (k + 1);
+		^
+  symbol:   variable i
+  location: class Body
+bh/Body.java:179: error: cannot find symbol
+		i += Cell.NSUB >> (k + 1);
+		                   ^
+  symbol:   variable k
+  location: class Body
+bh/Body.java:181: error: cannot find symbol
+	return i;
+	       ^
+  symbol:   variable i
+  location: class Body
+4 errors
+bh/Body.java:179: error: cannot find symbol
+		i += Cell.NSUB >> (k + 1);
+		^
+  symbol:   variable i
+  location: class Body
+bh/Body.java:181: error: cannot find symbol
+	return i;
+	       ^
+  symbol:   variable i
+  location: class Body
+2 errors
+bh/Body.java:170: error: cannot find symbol
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:171: error: cannot find symbol
+    xp.value(1, Math.floor(imxv * xsc));
+                                  ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:173: error: cannot find symbol
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:174: error: cannot find symbol
+    xp.value(2, Math.floor(imxv * xsc));
+                                  ^
+  symbol:   variable xsc
+  location: class Body
+4 errors
+bh/Body.java:168: error: cannot find symbol
+    xp.value(0, Math.floor(imxv * xsc));
+                           ^
+  symbol:   variable imxv
+  location: class Body
+bh/Body.java:168: error: cannot find symbol
+    xp.value(0, Math.floor(imxv * xsc));
+                                  ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:170: error: cannot find symbol
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:171: error: cannot find symbol
+    xp.value(1, Math.floor(imxv * xsc));
+                           ^
+  symbol:   variable imxv
+  location: class Body
+bh/Body.java:171: error: cannot find symbol
+    xp.value(1, Math.floor(imxv * xsc));
+                                  ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:173: error: cannot find symbol
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:174: error: cannot find symbol
+    xp.value(2, Math.floor(imxv * xsc));
+                           ^
+  symbol:   variable imxv
+  location: class Body
+bh/Body.java:174: error: cannot find symbol
+    xp.value(2, Math.floor(imxv * xsc));
+                                  ^
+  symbol:   variable xsc
+  location: class Body
+8 errors
+bh/Body.java:168: error: cannot find symbol
+    xp.value(0, Math.floor(imxv * xsc));
+                           ^
+  symbol:   variable imxv
+  location: class Body
+bh/Body.java:168: error: cannot find symbol
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+  symbol:   variable xp
+  location: class Body
+bh/Body.java:171: error: cannot find symbol
+    xp.value(1, Math.floor(imxv * xsc));
+                           ^
+  symbol:   variable imxv
+  location: class Body
+bh/Body.java:171: error: cannot find symbol
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+  symbol:   variable xp
+  location: class Body
+bh/Body.java:174: error: cannot find symbol
+    xp.value(2, Math.floor(imxv * xsc));
+                           ^
+  symbol:   variable imxv
+  location: class Body
+bh/Body.java:174: error: cannot find symbol
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+  symbol:   variable xp
+  location: class Body
+bh/Body.java:178: error: cannot find symbol
+      if (((int)xp.value(k) & l) != 0)
+                ^
+  symbol:   variable xp
+  location: class Body
+7 errors
+bh/Body.java:162: error: ';' expected
+  final int subindex(Tree tree, int l)
+                                      ^
+bh/Body.java:168: error: <identifier> expected
+    xp.value(0, Math.floor(imxv * xsc));
+            ^
+bh/Body.java:168: error: illegal start of type
+    xp.value(0, Math.floor(imxv * xsc));
+             ^
+bh/Body.java:168: error: <identifier> expected
+    xp.value(0, Math.floor(imxv * xsc));
+                          ^
+bh/Body.java:168: error: ';' expected
+    xp.value(0, Math.floor(imxv * xsc));
+                           ^
+bh/Body.java:168: error: illegal start of type
+    xp.value(0, Math.floor(imxv * xsc));
+                                ^
+bh/Body.java:168: error: ';' expected
+    xp.value(0, Math.floor(imxv * xsc));
+                                     ^
+bh/Body.java:170: error: <identifier> expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+       ^
+bh/Body.java:171: error: <identifier> expected
+    xp.value(1, Math.floor(imxv * xsc));
+            ^
+bh/Body.java:171: error: illegal start of type
+    xp.value(1, Math.floor(imxv * xsc));
+             ^
+bh/Body.java:171: error: <identifier> expected
+    xp.value(1, Math.floor(imxv * xsc));
+                          ^
+bh/Body.java:171: error: ';' expected
+    xp.value(1, Math.floor(imxv * xsc));
+                           ^
+bh/Body.java:171: error: illegal start of type
+    xp.value(1, Math.floor(imxv * xsc));
+                                ^
+bh/Body.java:171: error: ';' expected
+    xp.value(1, Math.floor(imxv * xsc));
+                                     ^
+bh/Body.java:173: error: <identifier> expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+       ^
+bh/Body.java:174: error: <identifier> expected
+    xp.value(2, Math.floor(imxv * xsc));
+            ^
+bh/Body.java:174: error: illegal start of type
+    xp.value(2, Math.floor(imxv * xsc));
+             ^
+bh/Body.java:174: error: <identifier> expected
+    xp.value(2, Math.floor(imxv * xsc));
+                          ^
+bh/Body.java:174: error: ';' expected
+    xp.value(2, Math.floor(imxv * xsc));
+                           ^
+bh/Body.java:174: error: illegal start of type
+    xp.value(2, Math.floor(imxv * xsc));
+                                ^
+bh/Body.java:174: error: ';' expected
+    xp.value(2, Math.floor(imxv * xsc));
+                                     ^
+bh/Body.java:177: error: illegal start of type
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: ')' expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+              ^
+bh/Body.java:177: error: illegal start of type
+    for (int k = 0; k < MathVector.NDIM; k++)
+                 ^
+bh/Body.java:177: error: <identifier> expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                  ^
+bh/Body.java:177: error: ';' expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                   ^
+bh/Body.java:177: error: > expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                  ^
+bh/Body.java:177: error: '(' expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                       ^
+bh/Body.java:177: error: <identifier> expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                          ^
+bh/Body.java:177: error: illegal start of type
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                            ^
+bh/Body.java:177: error: <identifier> expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                             ^
+bh/Body.java:178: error: illegal start of type
+      if (((int)xp.value(k) & l) != 0)
+          ^
+bh/Body.java:178: error: ')' expected
+      if (((int)xp.value(k) & l) != 0)
+           ^
+bh/Body.java:178: error: ';' expected
+      if (((int)xp.value(k) & l) != 0)
+            ^
+bh/Body.java:178: error: illegal start of type
+      if (((int)xp.value(k) & l) != 0)
+               ^
+bh/Body.java:178: error: ';' expected
+      if (((int)xp.value(k) & l) != 0)
+                  ^
+bh/Body.java:178: error: invalid method declaration; return type required
+      if (((int)xp.value(k) & l) != 0)
+                   ^
+bh/Body.java:178: error: <identifier> expected
+      if (((int)xp.value(k) & l) != 0)
+                          ^
+bh/Body.java:178: error: ';' expected
+      if (((int)xp.value(k) & l) != 0)
+                           ^
+bh/Body.java:181: error: illegal start of type
+	return i;
+	^
+bh/Body.java:181: error: ';' expected
+	return i;
+	      ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+56 errors
+bh/Body.java:168: error: <identifier> expected
+    xp.value(0, Math.floor(imxv * xsc));
+            ^
+bh/Body.java:168: error: illegal start of type
+    xp.value(0, Math.floor(imxv * xsc));
+             ^
+bh/Body.java:168: error: <identifier> expected
+    xp.value(0, Math.floor(imxv * xsc));
+                          ^
+bh/Body.java:168: error: ';' expected
+    xp.value(0, Math.floor(imxv * xsc));
+                           ^
+bh/Body.java:168: error: illegal start of type
+    xp.value(0, Math.floor(imxv * xsc));
+                                ^
+bh/Body.java:168: error: ';' expected
+    xp.value(0, Math.floor(imxv * xsc));
+                                     ^
+bh/Body.java:170: error: <identifier> expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+       ^
+bh/Body.java:171: error: <identifier> expected
+    xp.value(1, Math.floor(imxv * xsc));
+            ^
+bh/Body.java:171: error: illegal start of type
+    xp.value(1, Math.floor(imxv * xsc));
+             ^
+bh/Body.java:171: error: <identifier> expected
+    xp.value(1, Math.floor(imxv * xsc));
+                          ^
+bh/Body.java:171: error: ';' expected
+    xp.value(1, Math.floor(imxv * xsc));
+                           ^
+bh/Body.java:171: error: illegal start of type
+    xp.value(1, Math.floor(imxv * xsc));
+                                ^
+bh/Body.java:171: error: ';' expected
+    xp.value(1, Math.floor(imxv * xsc));
+                                     ^
+bh/Body.java:173: error: <identifier> expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+       ^
+bh/Body.java:174: error: <identifier> expected
+    xp.value(2, Math.floor(imxv * xsc));
+            ^
+bh/Body.java:174: error: illegal start of type
+    xp.value(2, Math.floor(imxv * xsc));
+             ^
+bh/Body.java:174: error: <identifier> expected
+    xp.value(2, Math.floor(imxv * xsc));
+                          ^
+bh/Body.java:174: error: ';' expected
+    xp.value(2, Math.floor(imxv * xsc));
+                           ^
+bh/Body.java:174: error: illegal start of type
+    xp.value(2, Math.floor(imxv * xsc));
+                                ^
+bh/Body.java:174: error: ';' expected
+    xp.value(2, Math.floor(imxv * xsc));
+                                     ^
+bh/Body.java:177: error: illegal start of type
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: ')' expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+              ^
+bh/Body.java:177: error: illegal start of type
+    for (int k = 0; k < MathVector.NDIM; k++)
+                 ^
+bh/Body.java:177: error: <identifier> expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                  ^
+bh/Body.java:177: error: ';' expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                   ^
+bh/Body.java:177: error: > expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                  ^
+bh/Body.java:177: error: '(' expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                       ^
+bh/Body.java:177: error: <identifier> expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                          ^
+bh/Body.java:177: error: illegal start of type
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                            ^
+bh/Body.java:177: error: <identifier> expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                             ^
+bh/Body.java:178: error: illegal start of type
+      if (((int)xp.value(k) & l) != 0)
+          ^
+bh/Body.java:178: error: ')' expected
+      if (((int)xp.value(k) & l) != 0)
+           ^
+bh/Body.java:178: error: ';' expected
+      if (((int)xp.value(k) & l) != 0)
+            ^
+bh/Body.java:178: error: illegal start of type
+      if (((int)xp.value(k) & l) != 0)
+               ^
+bh/Body.java:178: error: ';' expected
+      if (((int)xp.value(k) & l) != 0)
+                  ^
+bh/Body.java:178: error: invalid method declaration; return type required
+      if (((int)xp.value(k) & l) != 0)
+                   ^
+bh/Body.java:178: error: <identifier> expected
+      if (((int)xp.value(k) & l) != 0)
+                          ^
+bh/Body.java:178: error: ';' expected
+      if (((int)xp.value(k) & l) != 0)
+                           ^
+bh/Body.java:181: error: illegal start of type
+	return i;
+	^
+bh/Body.java:181: error: ';' expected
+	return i;
+	      ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+55 errors
+bh/Body.java:158: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:158: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:153: error: ';' expected
+  final double hackcofm()
+                         ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+30 errors
+bh/Body.java:155: error: illegal start of type
+    return mass;
+    ^
+bh/Body.java:155: error: ';' expected
+    return mass;
+          ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+31 errors
+bh/Body.java:150: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:150: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:148: error: illegal start of statement
+  }
+  ^
+1 error
+bh/Body.java:144: error: 'else' without 'if'
+    else 
+    ^
+1 error
+bh/Body.java:144: error: 'else' without 'if'
+    else 
+    ^
+1 error
+bh/Body.java:142: error: cannot find symbol
+    if (rt != null) 
+        ^
+  symbol:   variable rt
+  location: class Body
+bh/Body.java:143: error: cannot find symbol
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+                        ^
+  symbol:   variable rt
+  location: class Body
+2 errors
+bh/Body.java:137: error: cannot find symbol
+    retval.subp[si] = this;
+                ^
+  symbol:   variable si
+  location: class Body
+bh/Body.java:140: error: cannot find symbol
+    si = oldSubindex(xpic, l);
+    ^
+  symbol:   variable si
+  location: class Body
+bh/Body.java:141: error: cannot find symbol
+    Node rt = retval.subp[si];
+                          ^
+  symbol:   variable si
+  location: class Body
+bh/Body.java:143: error: cannot find symbol
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+                  ^
+  symbol:   variable si
+  location: class Body
+bh/Body.java:145: error: cannot find symbol
+      retval.subp[si] = p;
+                  ^
+  symbol:   variable si
+  location: class Body
+5 errors
+bh/Body.java:137: error: cannot find symbol
+    retval.subp[si] = this;
+    ^
+  symbol:   variable retval
+  location: class Body
+bh/Body.java:141: error: cannot find symbol
+    Node rt = retval.subp[si];
+              ^
+  symbol:   variable retval
+  location: class Body
+bh/Body.java:143: error: cannot find symbol
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+      ^
+  symbol:   variable retval
+  location: class Body
+bh/Body.java:145: error: cannot find symbol
+      retval.subp[si] = p;
+      ^
+  symbol:   variable retval
+  location: class Body
+bh/Body.java:147: error: cannot find symbol
+	return retval;
+	       ^
+  symbol:   variable retval
+  location: class Body
+5 errors
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                                ^
+bh/Body.java:137: error: ']' expected
+    retval.subp[si] = this;
+                ^
+bh/Body.java:137: error: ';' expected
+    retval.subp[si] = this;
+                  ^
+bh/Body.java:140: error: <identifier> expected
+    si = oldSubindex(xpic, l);
+      ^
+bh/Body.java:142: error: illegal start of type
+    if (rt != null) 
+    ^
+bh/Body.java:142: error: <identifier> expected
+    if (rt != null) 
+          ^
+bh/Body.java:142: error: ';' expected
+    if (rt != null) 
+             ^
+bh/Body.java:142: error: illegal start of type
+    if (rt != null) 
+                  ^
+bh/Body.java:143: error: ';' expected
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+            ^
+bh/Body.java:143: error: ']' expected
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+                  ^
+bh/Body.java:143: error: ';' expected
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+                    ^
+bh/Body.java:143: error: <identifier> expected
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+                                   ^
+bh/Body.java:143: error: <identifier> expected
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+                                     ^
+bh/Body.java:143: error: <identifier> expected
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+                                           ^
+bh/Body.java:143: error: <identifier> expected
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+                                              ^
+bh/Body.java:143: error: ';' expected
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+                                                 ^
+bh/Body.java:143: error: illegal start of type
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+                                                   ^
+bh/Body.java:143: error: ';' expected
+      retval.subp[si] = rt.loadTree(p, xpic, l >> 1, tree);
+                                                         ^
+bh/Body.java:144: error: illegal start of type
+    else 
+    ^
+bh/Body.java:144: error: ';' expected
+    else 
+        ^
+bh/Body.java:145: error: illegal start of type
+      retval.subp[si] = p;
+            ^
+bh/Body.java:145: error: ']' expected
+      retval.subp[si] = p;
+                  ^
+bh/Body.java:145: error: illegal start of type
+      retval.subp[si] = p;
+                    ^
+bh/Body.java:145: error: <identifier> expected
+      retval.subp[si] = p;
+                     ^
+bh/Body.java:145: error: ';' expected
+      retval.subp[si] = p;
+                       ^
+bh/Body.java:147: error: illegal start of type
+	return retval;
+	^
+bh/Body.java:147: error: ';' expected
+	return retval;
+	      ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+58 errors
+bh/Body.java:127: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:127: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:125: error: illegal start of statement
+  }
+  ^
+1 error
+bh/Body.java:116: error: cannot find symbol
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:117: error: cannot find symbol
+    if (!(0.0 < xsc && xsc < 1.0))
+                ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:117: error: cannot find symbol
+    if (!(0.0 < xsc && xsc < 1.0))
+                       ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:120: error: cannot find symbol
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:121: error: cannot find symbol
+    if (!(0.0 < xsc && xsc < 1.0))
+                ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:121: error: cannot find symbol
+    if (!(0.0 < xsc && xsc < 1.0))
+                       ^
+  symbol:   variable xsc
+  location: class Body
+6 errors
+bh/Body.java:113: error: cannot find symbol
+    if (!(0.0 < xsc && xsc < 1.0))
+                ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:113: error: cannot find symbol
+    if (!(0.0 < xsc && xsc < 1.0))
+                       ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:114: error: cannot find symbol
+      result = false;
+      ^
+  symbol:   variable result
+  location: class Body
+bh/Body.java:116: error: cannot find symbol
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:117: error: cannot find symbol
+    if (!(0.0 < xsc && xsc < 1.0))
+                ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:117: error: cannot find symbol
+    if (!(0.0 < xsc && xsc < 1.0))
+                       ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:118: error: cannot find symbol
+      result = false;
+      ^
+  symbol:   variable result
+  location: class Body
+bh/Body.java:120: error: cannot find symbol
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:121: error: cannot find symbol
+    if (!(0.0 < xsc && xsc < 1.0))
+                ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:121: error: cannot find symbol
+    if (!(0.0 < xsc && xsc < 1.0))
+                       ^
+  symbol:   variable xsc
+  location: class Body
+bh/Body.java:122: error: cannot find symbol
+      result = false;
+      ^
+  symbol:   variable result
+  location: class Body
+bh/Body.java:124: error: cannot find symbol
+    return result;
+           ^
+  symbol:   variable result
+  location: class Body
+12 errors
+bh/Body.java:114: error: cannot find symbol
+      result = false;
+      ^
+  symbol:   variable result
+  location: class Body
+bh/Body.java:118: error: cannot find symbol
+      result = false;
+      ^
+  symbol:   variable result
+  location: class Body
+bh/Body.java:122: error: cannot find symbol
+      result = false;
+      ^
+  symbol:   variable result
+  location: class Body
+bh/Body.java:124: error: cannot find symbol
+    return result;
+           ^
+  symbol:   variable result
+  location: class Body
+4 errors
+bh/Body.java:120: error: cannot find symbol
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+           ^
+  symbol:   variable pos2
+  location: class Body
+1 error
+bh/Body.java:112: error: cannot find symbol
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+                  ^
+  symbol:   variable pos0
+  location: class Body
+bh/Body.java:116: error: cannot find symbol
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+           ^
+  symbol:   variable pos1
+  location: class Body
+2 errors
+bh/Body.java:103: error: ';' expected
+  final boolean icTest(Tree tree)
+                                 ^
+bh/Body.java:113: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:113: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+        ^
+bh/Body.java:113: error: ')' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+         ^
+bh/Body.java:113: error: ';' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+          ^
+bh/Body.java:113: error: > expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                   ^
+bh/Body.java:113: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                    ^
+bh/Body.java:113: error: '(' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                           ^
+bh/Body.java:113: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                            ^
+bh/Body.java:113: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                                ^
+bh/Body.java:113: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                                 ^
+bh/Body.java:114: error: '(' expected
+      result = false;
+      ^
+bh/Body.java:114: error: illegal start of type
+      result = false;
+             ^
+bh/Body.java:114: error: <identifier> expected
+      result = false;
+              ^
+bh/Body.java:116: error: <identifier> expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+       ^
+bh/Body.java:117: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:117: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+        ^
+bh/Body.java:117: error: ')' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+         ^
+bh/Body.java:117: error: ';' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+          ^
+bh/Body.java:117: error: > expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                   ^
+bh/Body.java:117: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                    ^
+bh/Body.java:117: error: '(' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                           ^
+bh/Body.java:117: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                            ^
+bh/Body.java:117: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                                ^
+bh/Body.java:117: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                                 ^
+bh/Body.java:118: error: '(' expected
+      result = false;
+      ^
+bh/Body.java:118: error: illegal start of type
+      result = false;
+             ^
+bh/Body.java:118: error: <identifier> expected
+      result = false;
+              ^
+bh/Body.java:120: error: <identifier> expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+       ^
+bh/Body.java:121: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:121: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+        ^
+bh/Body.java:121: error: ')' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+         ^
+bh/Body.java:121: error: ';' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+          ^
+bh/Body.java:121: error: > expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                   ^
+bh/Body.java:121: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                    ^
+bh/Body.java:121: error: '(' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                           ^
+bh/Body.java:121: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                            ^
+bh/Body.java:121: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                                ^
+bh/Body.java:121: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                                 ^
+bh/Body.java:122: error: '(' expected
+      result = false;
+      ^
+bh/Body.java:122: error: illegal start of type
+      result = false;
+             ^
+bh/Body.java:122: error: <identifier> expected
+      result = false;
+              ^
+bh/Body.java:124: error: illegal start of type
+    return result;
+    ^
+bh/Body.java:124: error: ';' expected
+    return result;
+          ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+84 errors
+bh/Body.java:113: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:113: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+        ^
+bh/Body.java:113: error: ')' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+         ^
+bh/Body.java:113: error: ';' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+          ^
+bh/Body.java:113: error: > expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                   ^
+bh/Body.java:113: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                    ^
+bh/Body.java:113: error: '(' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                           ^
+bh/Body.java:113: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                            ^
+bh/Body.java:113: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                                ^
+bh/Body.java:113: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                                 ^
+bh/Body.java:114: error: '(' expected
+      result = false;
+      ^
+bh/Body.java:114: error: illegal start of type
+      result = false;
+             ^
+bh/Body.java:114: error: <identifier> expected
+      result = false;
+              ^
+bh/Body.java:116: error: <identifier> expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+       ^
+bh/Body.java:117: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:117: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+        ^
+bh/Body.java:117: error: ')' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+         ^
+bh/Body.java:117: error: ';' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+          ^
+bh/Body.java:117: error: > expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                   ^
+bh/Body.java:117: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                    ^
+bh/Body.java:117: error: '(' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                           ^
+bh/Body.java:117: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                            ^
+bh/Body.java:117: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                                ^
+bh/Body.java:117: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                                 ^
+bh/Body.java:118: error: '(' expected
+      result = false;
+      ^
+bh/Body.java:118: error: illegal start of type
+      result = false;
+             ^
+bh/Body.java:118: error: <identifier> expected
+      result = false;
+              ^
+bh/Body.java:120: error: <identifier> expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+       ^
+bh/Body.java:121: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:121: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+        ^
+bh/Body.java:121: error: ')' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+         ^
+bh/Body.java:121: error: ';' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+          ^
+bh/Body.java:121: error: > expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                   ^
+bh/Body.java:121: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                    ^
+bh/Body.java:121: error: '(' expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                           ^
+bh/Body.java:121: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                            ^
+bh/Body.java:121: error: illegal start of type
+    if (!(0.0 < xsc && xsc < 1.0))
+                                ^
+bh/Body.java:121: error: <identifier> expected
+    if (!(0.0 < xsc && xsc < 1.0))
+                                 ^
+bh/Body.java:122: error: '(' expected
+      result = false;
+      ^
+bh/Body.java:122: error: illegal start of type
+      result = false;
+             ^
+bh/Body.java:122: error: <identifier> expected
+      result = false;
+              ^
+bh/Body.java:124: error: illegal start of type
+    return result;
+    ^
+bh/Body.java:124: error: ';' expected
+    return result;
+          ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+83 errors
+bh/Body.java:99: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:99: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:103: error: ';' expected
+  final boolean icTest(Tree tree)
+                      ^
+bh/Body.java:103: error: ';' expected
+  final boolean icTest(Tree tree)
+                                ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                     ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                        ^
+bh/Body.java:131: error: not a statement
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                         ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                             ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                          ^
+bh/Body.java:131: error: not a statement
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                           ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                               ^
+bh/Body.java:153: error: ';' expected
+  final double hackcofm()
+                       ^
+bh/Body.java:162: error: ';' expected
+  final int subindex(Tree tree, int l)
+                    ^
+bh/Body.java:162: error: <identifier> expected
+  final int subindex(Tree tree, int l)
+                               ^
+bh/Body.java:162: error: not a statement
+  final int subindex(Tree tree, int l)
+                                    ^
+bh/Body.java:162: error: ';' expected
+  final int subindex(Tree tree, int l)
+                                     ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                        ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                                           ^
+bh/Body.java:189: error: not a statement
+  final void hackGravity(double rsize, Node root)
+                                            ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                                                ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                      ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                                     ^
+bh/Body.java:202: error: not a statement
+  final HG walkSubTree(double dsq, HG hg)
+                                      ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                                        ^
+bh/Body.java:209: error: ';' expected
+  final Enumeration elements()
+                            ^
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+25 errors
+bh/Body.java:103: error: ';' expected
+  final boolean icTest(Tree tree)
+                      ^
+bh/Body.java:103: error: ';' expected
+  final boolean icTest(Tree tree)
+                                ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                     ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                        ^
+bh/Body.java:131: error: not a statement
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                         ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                             ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                          ^
+bh/Body.java:131: error: not a statement
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                           ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                               ^
+bh/Body.java:153: error: ';' expected
+  final double hackcofm()
+                       ^
+bh/Body.java:162: error: ';' expected
+  final int subindex(Tree tree, int l)
+                    ^
+bh/Body.java:162: error: <identifier> expected
+  final int subindex(Tree tree, int l)
+                               ^
+bh/Body.java:162: error: not a statement
+  final int subindex(Tree tree, int l)
+                                    ^
+bh/Body.java:162: error: ';' expected
+  final int subindex(Tree tree, int l)
+                                     ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                        ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                                           ^
+bh/Body.java:189: error: not a statement
+  final void hackGravity(double rsize, Node root)
+                                            ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                                                ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                      ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                                     ^
+bh/Body.java:202: error: not a statement
+  final HG walkSubTree(double dsq, HG hg)
+                                      ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                                        ^
+bh/Body.java:209: error: ';' expected
+  final Enumeration elements()
+                            ^
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+25 errors
+bh/Body.java:93: error: cannot find symbol
+			tree.root = newt;
+			            ^
+  symbol:   variable newt
+  location: class Body
+1 error
+bh/Body.java:92: error: cannot find symbol
+			newt.subp[k] = tree.root;
+			^
+  symbol:   variable newt
+  location: class Body
+bh/Body.java:92: error: cannot find symbol
+			newt.subp[k] = tree.root;
+			          ^
+  symbol:   variable k
+  location: class Body
+bh/Body.java:93: error: cannot find symbol
+			tree.root = newt;
+			            ^
+  symbol:   variable newt
+  location: class Body
+3 errors
+bh/Body.java:91: error: variable declaration not allowed here
+			Cell newt = new Cell();
+			     ^
+1 error
+bh/Body.java:90: error: cannot find symbol
+			int k = oldSubindex(ic, IMAX >> 1);
+			                    ^
+  symbol:   variable ic
+  location: class Body
+1 error
+bh/Body.java:103: error: class, interface, or enum expected
+  final boolean icTest(Tree tree)
+        ^
+bh/Body.java:106: error: class, interface, or enum expected
+    double pos1 = pos.value(1);
+    ^
+bh/Body.java:107: error: class, interface, or enum expected
+    double pos2 = pos.value(2);
+    ^
+bh/Body.java:110: error: class, interface, or enum expected
+    boolean result = true;
+    ^
+bh/Body.java:112: error: class, interface, or enum expected
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:113: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:116: error: class, interface, or enum expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:117: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:120: error: class, interface, or enum expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:121: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:124: error: class, interface, or enum expected
+    return result;
+    ^
+bh/Body.java:125: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+52 errors
+bh/Body.java:103: error: class, interface, or enum expected
+  final boolean icTest(Tree tree)
+        ^
+bh/Body.java:106: error: class, interface, or enum expected
+    double pos1 = pos.value(1);
+    ^
+bh/Body.java:107: error: class, interface, or enum expected
+    double pos2 = pos.value(2);
+    ^
+bh/Body.java:110: error: class, interface, or enum expected
+    boolean result = true;
+    ^
+bh/Body.java:112: error: class, interface, or enum expected
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:113: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:116: error: class, interface, or enum expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:117: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:120: error: class, interface, or enum expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:121: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:124: error: class, interface, or enum expected
+    return result;
+    ^
+bh/Body.java:125: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+52 errors
+bh/Body.java:103: error: ';' expected
+  final boolean icTest(Tree tree)
+                      ^
+bh/Body.java:103: error: ';' expected
+  final boolean icTest(Tree tree)
+                                ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                     ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                        ^
+bh/Body.java:131: error: not a statement
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                         ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                             ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                          ^
+bh/Body.java:131: error: not a statement
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                           ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                               ^
+bh/Body.java:153: error: ';' expected
+  final double hackcofm()
+                       ^
+bh/Body.java:162: error: ';' expected
+  final int subindex(Tree tree, int l)
+                    ^
+bh/Body.java:162: error: <identifier> expected
+  final int subindex(Tree tree, int l)
+                               ^
+bh/Body.java:162: error: not a statement
+  final int subindex(Tree tree, int l)
+                                    ^
+bh/Body.java:162: error: ';' expected
+  final int subindex(Tree tree, int l)
+                                     ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                        ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                                           ^
+bh/Body.java:189: error: not a statement
+  final void hackGravity(double rsize, Node root)
+                                            ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                                                ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                      ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                                     ^
+bh/Body.java:202: error: not a statement
+  final HG walkSubTree(double dsq, HG hg)
+                                      ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                                        ^
+bh/Body.java:209: error: ';' expected
+  final Enumeration elements()
+                            ^
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+25 errors
+bh/Body.java:103: error: ';' expected
+  final boolean icTest(Tree tree)
+                      ^
+bh/Body.java:103: error: ';' expected
+  final boolean icTest(Tree tree)
+                                ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                     ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                        ^
+bh/Body.java:131: error: not a statement
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                         ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                             ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                          ^
+bh/Body.java:131: error: not a statement
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                           ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                               ^
+bh/Body.java:153: error: ';' expected
+  final double hackcofm()
+                       ^
+bh/Body.java:162: error: ';' expected
+  final int subindex(Tree tree, int l)
+                    ^
+bh/Body.java:162: error: <identifier> expected
+  final int subindex(Tree tree, int l)
+                               ^
+bh/Body.java:162: error: not a statement
+  final int subindex(Tree tree, int l)
+                                    ^
+bh/Body.java:162: error: ';' expected
+  final int subindex(Tree tree, int l)
+                                     ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                        ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                                           ^
+bh/Body.java:189: error: not a statement
+  final void hackGravity(double rsize, Node root)
+                                            ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                                                ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                      ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                                     ^
+bh/Body.java:202: error: not a statement
+  final HG walkSubTree(double dsq, HG hg)
+                                      ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                                        ^
+bh/Body.java:209: error: ';' expected
+  final Enumeration elements()
+                            ^
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+25 errors
+bh/Body.java:103: error: ';' expected
+  final boolean icTest(Tree tree)
+                      ^
+bh/Body.java:103: error: ';' expected
+  final boolean icTest(Tree tree)
+                                ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                     ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                        ^
+bh/Body.java:131: error: not a statement
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                         ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                             ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                          ^
+bh/Body.java:131: error: not a statement
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                           ^
+bh/Body.java:131: error: ';' expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+                                                               ^
+bh/Body.java:153: error: ';' expected
+  final double hackcofm()
+                       ^
+bh/Body.java:162: error: ';' expected
+  final int subindex(Tree tree, int l)
+                    ^
+bh/Body.java:162: error: <identifier> expected
+  final int subindex(Tree tree, int l)
+                               ^
+bh/Body.java:162: error: not a statement
+  final int subindex(Tree tree, int l)
+                                    ^
+bh/Body.java:162: error: ';' expected
+  final int subindex(Tree tree, int l)
+                                     ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                        ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                                           ^
+bh/Body.java:189: error: not a statement
+  final void hackGravity(double rsize, Node root)
+                                            ^
+bh/Body.java:189: error: ';' expected
+  final void hackGravity(double rsize, Node root)
+                                                ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                      ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                                     ^
+bh/Body.java:202: error: not a statement
+  final HG walkSubTree(double dsq, HG hg)
+                                      ^
+bh/Body.java:202: error: ';' expected
+  final HG walkSubTree(double dsq, HG hg)
+                                        ^
+bh/Body.java:209: error: ';' expected
+  final Enumeration elements()
+                            ^
+bh/Body.java:233: error: ';' expected
+  final Enumeration elementsRev()
+                               ^
+bh/Body.java:264: error: reached end of file while parsing
+}
+ ^
+25 errors
+bh/Body.java:103: error: class, interface, or enum expected
+  final boolean icTest(Tree tree)
+        ^
+bh/Body.java:106: error: class, interface, or enum expected
+    double pos1 = pos.value(1);
+    ^
+bh/Body.java:107: error: class, interface, or enum expected
+    double pos2 = pos.value(2);
+    ^
+bh/Body.java:110: error: class, interface, or enum expected
+    boolean result = true;
+    ^
+bh/Body.java:112: error: class, interface, or enum expected
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:113: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:116: error: class, interface, or enum expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:117: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:120: error: class, interface, or enum expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:121: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:124: error: class, interface, or enum expected
+    return result;
+    ^
+bh/Body.java:125: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+52 errors
+bh/Body.java:103: error: class, interface, or enum expected
+  final boolean icTest(Tree tree)
+        ^
+bh/Body.java:106: error: class, interface, or enum expected
+    double pos1 = pos.value(1);
+    ^
+bh/Body.java:107: error: class, interface, or enum expected
+    double pos2 = pos.value(2);
+    ^
+bh/Body.java:110: error: class, interface, or enum expected
+    boolean result = true;
+    ^
+bh/Body.java:112: error: class, interface, or enum expected
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:113: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:116: error: class, interface, or enum expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:117: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:120: error: class, interface, or enum expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:121: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:124: error: class, interface, or enum expected
+    return result;
+    ^
+bh/Body.java:125: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+52 errors
+bh/Body.java:103: error: class, interface, or enum expected
+  final boolean icTest(Tree tree)
+        ^
+bh/Body.java:106: error: class, interface, or enum expected
+    double pos1 = pos.value(1);
+    ^
+bh/Body.java:107: error: class, interface, or enum expected
+    double pos2 = pos.value(2);
+    ^
+bh/Body.java:110: error: class, interface, or enum expected
+    boolean result = true;
+    ^
+bh/Body.java:112: error: class, interface, or enum expected
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:113: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:116: error: class, interface, or enum expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:117: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:120: error: class, interface, or enum expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:121: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:124: error: class, interface, or enum expected
+    return result;
+    ^
+bh/Body.java:125: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+52 errors
+bh/Body.java:103: error: class, interface, or enum expected
+  final boolean icTest(Tree tree)
+        ^
+bh/Body.java:106: error: class, interface, or enum expected
+    double pos1 = pos.value(1);
+    ^
+bh/Body.java:107: error: class, interface, or enum expected
+    double pos2 = pos.value(2);
+    ^
+bh/Body.java:110: error: class, interface, or enum expected
+    boolean result = true;
+    ^
+bh/Body.java:112: error: class, interface, or enum expected
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:113: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:116: error: class, interface, or enum expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:117: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:120: error: class, interface, or enum expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:121: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:124: error: class, interface, or enum expected
+    return result;
+    ^
+bh/Body.java:125: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+52 errors
+bh/Body.java:78: error: cannot find symbol
+			if (pos.value(k) < rmid.value(k)) 
+			              ^
+  symbol:   variable k
+  location: class Body
+bh/Body.java:78: error: cannot find symbol
+			if (pos.value(k) < rmid.value(k)) 
+			                              ^
+  symbol:   variable k
+  location: class Body
+bh/Body.java:80: error: cannot find symbol
+			  double rmin = tree.rmin.value(k);
+			                                ^
+  symbol:   variable k
+  location: class Body
+bh/Body.java:81: error: cannot find symbol
+			  tree.rmin.value(k, rmin - rsize);
+			                  ^
+  symbol:   variable k
+  location: class Body
+4 errors
+bh/Body.java:81: error: cannot find symbol
+			  tree.rmin.value(k, rmin - rsize);
+			                            ^
+  symbol:   variable rsize
+  location: class Body
+bh/Body.java:84: error: cannot find symbol
+		tree.rsize = 2.0 * rsize;
+		                   ^
+  symbol:   variable rsize
+  location: class Body
+2 errors
+bh/Body.java:103: error: class, interface, or enum expected
+  final boolean icTest(Tree tree)
+        ^
+bh/Body.java:106: error: class, interface, or enum expected
+    double pos1 = pos.value(1);
+    ^
+bh/Body.java:107: error: class, interface, or enum expected
+    double pos2 = pos.value(2);
+    ^
+bh/Body.java:110: error: class, interface, or enum expected
+    boolean result = true;
+    ^
+bh/Body.java:112: error: class, interface, or enum expected
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:113: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:116: error: class, interface, or enum expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:117: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:120: error: class, interface, or enum expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:121: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:124: error: class, interface, or enum expected
+    return result;
+    ^
+bh/Body.java:125: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+52 errors
+bh/Body.java:103: error: class, interface, or enum expected
+  final boolean icTest(Tree tree)
+        ^
+bh/Body.java:106: error: class, interface, or enum expected
+    double pos1 = pos.value(1);
+    ^
+bh/Body.java:107: error: class, interface, or enum expected
+    double pos2 = pos.value(2);
+    ^
+bh/Body.java:110: error: class, interface, or enum expected
+    boolean result = true;
+    ^
+bh/Body.java:112: error: class, interface, or enum expected
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:113: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:116: error: class, interface, or enum expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:117: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:120: error: class, interface, or enum expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:121: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:124: error: class, interface, or enum expected
+    return result;
+    ^
+bh/Body.java:125: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+52 errors
+bh/Body.java:94: error: cannot find symbol
+			inbox = icTest(tree);
+			^
+  symbol:   variable inbox
+  location: class Body
+1 error
+bh/Body.java:71: error: cannot find symbol
+    while (!inbox) 
+            ^
+  symbol:   variable inbox
+  location: class Body
+bh/Body.java:74: error: cannot find symbol
+		rmid.addScalar(tree.rmin, 0.5 * rsize);
+		^
+  symbol:   variable rmid
+  location: class Body
+bh/Body.java:78: error: cannot find symbol
+			if (pos.value(k) < rmid.value(k)) 
+			                   ^
+  symbol:   variable rmid
+  location: class Body
+bh/Body.java:87: error: cannot find symbol
+			MathVector ic = tree.intcoord(rmid);
+			                              ^
+  symbol:   variable rmid
+  location: class Body
+bh/Body.java:94: error: cannot find symbol
+			inbox = icTest(tree);
+			^
+  symbol:   variable inbox
+  location: class Body
+5 errors
+bh/Body.java:66: error: ';' expected
+  final void expandBox(Tree tree, int nsteps)
+                                             ^
+bh/Body.java:71: error: illegal start of type
+    while (!inbox) 
+    ^
+bh/Body.java:71: error: illegal start of type
+    while (!inbox) 
+           ^
+bh/Body.java:71: error: ')' expected
+    while (!inbox) 
+            ^
+bh/Body.java:71: error: ';' expected
+    while (!inbox) 
+                 ^
+bh/Body.java:103: error: class, interface, or enum expected
+  final boolean icTest(Tree tree)
+        ^
+bh/Body.java:106: error: class, interface, or enum expected
+    double pos1 = pos.value(1);
+    ^
+bh/Body.java:107: error: class, interface, or enum expected
+    double pos2 = pos.value(2);
+    ^
+bh/Body.java:110: error: class, interface, or enum expected
+    boolean result = true;
+    ^
+bh/Body.java:112: error: class, interface, or enum expected
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:113: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:116: error: class, interface, or enum expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:117: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:120: error: class, interface, or enum expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:121: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:124: error: class, interface, or enum expected
+    return result;
+    ^
+bh/Body.java:125: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+57 errors
+bh/Body.java:71: error: illegal start of type
+    while (!inbox) 
+    ^
+bh/Body.java:71: error: illegal start of type
+    while (!inbox) 
+           ^
+bh/Body.java:71: error: ')' expected
+    while (!inbox) 
+            ^
+bh/Body.java:71: error: ';' expected
+    while (!inbox) 
+                 ^
+bh/Body.java:103: error: class, interface, or enum expected
+  final boolean icTest(Tree tree)
+        ^
+bh/Body.java:106: error: class, interface, or enum expected
+    double pos1 = pos.value(1);
+    ^
+bh/Body.java:107: error: class, interface, or enum expected
+    double pos2 = pos.value(2);
+    ^
+bh/Body.java:110: error: class, interface, or enum expected
+    boolean result = true;
+    ^
+bh/Body.java:112: error: class, interface, or enum expected
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:113: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:116: error: class, interface, or enum expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:117: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:120: error: class, interface, or enum expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:121: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:124: error: class, interface, or enum expected
+    return result;
+    ^
+bh/Body.java:125: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+56 errors
+bh/Body.java:63: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:63: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors
+bh/Body.java:58: error: ';' expected
+  final Body getProcNext()
+                          ^
+bh/Body.java:66: error: class, interface, or enum expected
+  final void expandBox(Tree tree, int nsteps)
+        ^
+bh/Body.java:70: error: class, interface, or enum expected
+    boolean inbox = icTest(tree);
+    ^
+bh/Body.java:71: error: class, interface, or enum expected
+    while (!inbox) 
+    ^
+bh/Body.java:74: error: class, interface, or enum expected
+		rmid.addScalar(tree.rmin, 0.5 * rsize);
+		^
+bh/Body.java:76: error: class, interface, or enum expected
+		for (int k = 0; k < MathVector.NDIM; k++) 
+		^
+bh/Body.java:76: error: class, interface, or enum expected
+		for (int k = 0; k < MathVector.NDIM; k++) 
+		                ^
+bh/Body.java:76: error: class, interface, or enum expected
+		for (int k = 0; k < MathVector.NDIM; k++) 
+		                                     ^
+bh/Body.java:81: error: class, interface, or enum expected
+			  tree.rmin.value(k, rmin - rsize);
+			  ^
+bh/Body.java:82: error: class, interface, or enum expected
+			}
+			^
+bh/Body.java:85: error: class, interface, or enum expected
+		if (tree.root != null) 
+		^
+bh/Body.java:88: error: class, interface, or enum expected
+			if (ic == null) 
+			^
+bh/Body.java:90: error: class, interface, or enum expected
+			int k = oldSubindex(ic, IMAX >> 1);
+			^
+bh/Body.java:91: error: class, interface, or enum expected
+			Cell newt = new Cell();
+			^
+bh/Body.java:92: error: class, interface, or enum expected
+			newt.subp[k] = tree.root;
+			^
+bh/Body.java:93: error: class, interface, or enum expected
+			tree.root = newt;
+			^
+bh/Body.java:94: error: class, interface, or enum expected
+			inbox = icTest(tree);
+			^
+bh/Body.java:95: error: class, interface, or enum expected
+		}
+		^
+bh/Body.java:103: error: class, interface, or enum expected
+  final boolean icTest(Tree tree)
+        ^
+bh/Body.java:106: error: class, interface, or enum expected
+    double pos1 = pos.value(1);
+    ^
+bh/Body.java:107: error: class, interface, or enum expected
+    double pos2 = pos.value(2);
+    ^
+bh/Body.java:110: error: class, interface, or enum expected
+    boolean result = true;
+    ^
+bh/Body.java:112: error: class, interface, or enum expected
+    double xsc = (pos0 - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:113: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:116: error: class, interface, or enum expected
+    xsc = (pos1 - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:117: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:120: error: class, interface, or enum expected
+    xsc = (pos2 - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:121: error: class, interface, or enum expected
+    if (!(0.0 < xsc && xsc < 1.0))
+    ^
+bh/Body.java:124: error: class, interface, or enum expected
+    return result;
+    ^
+bh/Body.java:125: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:131: error: class, interface, or enum expected
+  final Node loadTree(Body p, MathVector xpic, int l, Tree tree)
+        ^
+bh/Body.java:135: error: class, interface, or enum expected
+    int si = subindex(tree, l);
+    ^
+bh/Body.java:137: error: class, interface, or enum expected
+    retval.subp[si] = this;
+    ^
+bh/Body.java:140: error: class, interface, or enum expected
+    si = oldSubindex(xpic, l);
+    ^
+bh/Body.java:141: error: class, interface, or enum expected
+    Node rt = retval.subp[si];
+    ^
+bh/Body.java:142: error: class, interface, or enum expected
+    if (rt != null) 
+    ^
+bh/Body.java:144: error: class, interface, or enum expected
+    else 
+    ^
+bh/Body.java:147: error: class, interface, or enum expected
+	return retval;
+	^
+bh/Body.java:148: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:153: error: class, interface, or enum expected
+  final double hackcofm()
+        ^
+bh/Body.java:156: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:162: error: class, interface, or enum expected
+  final int subindex(Tree tree, int l)
+        ^
+bh/Body.java:166: error: class, interface, or enum expected
+	double imxv = (double)Node.IMAX;
+	^
+bh/Body.java:167: error: class, interface, or enum expected
+    double xsc = (pos.value(0) - tree.rmin.value(0)) / tree.rsize;
+    ^
+bh/Body.java:168: error: class, interface, or enum expected
+    xp.value(0, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:170: error: class, interface, or enum expected
+    xsc = (pos.value(1) - tree.rmin.value(1)) / tree.rsize;
+    ^
+bh/Body.java:171: error: class, interface, or enum expected
+    xp.value(1, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:173: error: class, interface, or enum expected
+    xsc = (pos.value(2) - tree.rmin.value(2)) / tree.rsize;
+    ^
+bh/Body.java:174: error: class, interface, or enum expected
+    xp.value(2, Math.floor(imxv * xsc));
+    ^
+bh/Body.java:176: error: class, interface, or enum expected
+    int i = 0;
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                    ^
+bh/Body.java:177: error: class, interface, or enum expected
+    for (int k = 0; k < MathVector.NDIM; k++)
+                                         ^
+bh/Body.java:181: error: class, interface, or enum expected
+	return i;
+	^
+bh/Body.java:182: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:189: error: class, interface, or enum expected
+  final void hackGravity(double rsize, Node root)
+        ^
+bh/Body.java:193: error: class, interface, or enum expected
+    HG hg = new HG(this, pos);
+    ^
+bh/Body.java:194: error: class, interface, or enum expected
+    hg = root.walkSubTree(rsize * rsize, hg);
+    ^
+bh/Body.java:195: error: class, interface, or enum expected
+    phi = hg.phi0;
+    ^
+bh/Body.java:196: error: class, interface, or enum expected
+    newAcc = hg.acc0;
+    ^
+bh/Body.java:197: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:202: error: class, interface, or enum expected
+  final HG walkSubTree(double dsq, HG hg)
+        ^
+bh/Body.java:206: error: class, interface, or enum expected
+    return hg;
+    ^
+bh/Body.java:207: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:209: error: class, interface, or enum expected
+  final Enumeration elements()
+        ^
+bh/Body.java:230: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:231: error: class, interface, or enum expected
+  }
+  ^
+bh/Body.java:233: error: class, interface, or enum expected
+  final Enumeration elementsRev()
+        ^
+bh/Body.java:254: error: class, interface, or enum expected
+    return new Enumerate();
+    ^
+bh/Body.java:255: error: class, interface, or enum expected
+  }
+  ^
+70 errors
+bh/Body.java:55: error: unclosed comment
+  /**
+  ^
+bh/Body.java:265: error: reached end of file while parsing
+2 errors

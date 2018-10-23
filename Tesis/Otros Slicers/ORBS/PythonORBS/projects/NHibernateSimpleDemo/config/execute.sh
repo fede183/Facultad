@@ -14,7 +14,7 @@
 # as passed in parameter $1.
 
 # Configure ORBS for this project.
-source config/config.sh
+. config/config.sh
 
 ElapsedTimeLimit=4s
 cd work

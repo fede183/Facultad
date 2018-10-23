@@ -104,7 +104,7 @@ count_iterations = 0
 #
 def setup():
     #LAFHIS
-    subprocess.check_output('bash config/setup.sh')
+    subprocess.check_output('bash config/setup.sh', shell=True)
     #commands.getoutput('bash config/setup.sh') LAFHIS
     # Read the files and store them in a list.
     # Mark every line as not deleted.
@@ -131,7 +131,7 @@ def setup():
 def compile(log):
     global count_compiles
     count_compiles += 1
-    r = subprocess.check_output('bash config/compile.sh ' + log)
+    r = subprocess.check_output('bash config/compile.sh ' + log, shell=True)
     #r = commands.getoutput('bash config/compile.sh ' + log) LAFHIS
     #debug.write("C " + log + " " + r + "\n")
     return r
@@ -148,7 +148,7 @@ def execute(log):
     count_executes += 1
     #return commands.getoutput('bash config/execute.sh ' + criterion + " " + log) LAFHIS
     print ('bash config/execute.sh ' + criterion + " " + log)
-    return subprocess.check_output('bash config/execute.sh ' + criterion + " " + log)
+    return subprocess.check_output('bash config/execute.sh ' + criterion + " " + log, shell=True)
     
 
 # Generate a hash for a slice.

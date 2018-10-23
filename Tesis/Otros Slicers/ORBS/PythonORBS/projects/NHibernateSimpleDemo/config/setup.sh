@@ -13,7 +13,7 @@
 # (e.g. invoking ./configure).
 
 # Configure ORBS for this project.
-source config/config.sh
+. config/config.sh
 
 # prepare the work space
 rm -rf work
