@@ -1,0 +1,13 @@
+reader.c: In function ‘main’:
+reader.c:11:7: warning: implicit declaration of function ‘atoi’ [-Wimplicit-function-declaration]
+   if (atoi(argv[1]))
+       ^~~~
+reader.c:13:5: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
+     printf("%s\n", cur_locale->decimal_point);
+     ^~~~~~
+reader.c:13:5: warning: incompatible implicit declaration of built-in function ‘printf’
+reader.c:13:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
+checker.java:17: error: class, interface, or enum expected
+  }
+  ^
+1 error
