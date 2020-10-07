@@ -1,0 +1,260 @@
+Modulo Tried
+
+Interfaz
+	parámetros formales
+		géneros k, σ
+		función • = •(in k1:k, in k2:k) -> res:bool
+		Pre = {true}
+		Post = {res =obs (k1 = k2)}
+		Complejidad: Θ(equal(k1, k2))
+		Descripción: función de igualdad de k's.
+
+		función Copiar(in k:k) -> res:k
+		Pre = {true}
+		Post = {res =obs k}
+		Complejidad: Θ(copy(k))
+		Descripción: función de copia de k's.
+
+		función Copiar(in s : σ) → res : σ
+		Pre ≡ {true}
+		Post ≡ {res = obs s}
+		Complejidad: Θ(copy(s))
+		Descripción: función de copia de σ’s
+
+		función Long(in k:k) -> res:nat
+		Pre = {true}
+		Post = {res =obs long(k)}
+		Complejidad: Θ(1)
+		Descripción: devuelve el tamaño de la clave k.
+
+	se explica con: Diccionario(k, σ)
+	género: trie(k, σ)
+
+Operaciones básicas de trie
+
+Vacio() -> res:trie(k,σ)
+Pre = {true}
+Post = {res =obs vacio}
+Complejidad: Θ(1)
+Descripción: ganera un diccionario vacío.
+
+Definir(in/out d:trie(k,σ), in k:k, in s:σ)
+Pre = {d =obs d0}
+Post = {d = obs definir(d, k, s)}
+Complejidad: O(long(k) + copy(k))
+Descripción: define la clave k con el significado s en el diccionario. Retorna un iterador al elemento recién agre-
+gado.
+
+Definido?(in d:trie(k, σ), in k:k) -> res:bool
+Pre = {true}
+Post = {res =obs def?(d, k)}
+Complejidad: O(long(k) + copy(k))
+Descripción: devuelve true si y sólo k está definido en el diccionario.
+
+Significado(in d:trie(k, σ), in k:k) -> res:σ
+Pre = {def?(d, k)}
+Post = {alias(res =obs Significado(d, k))}
+Complejidad: O(long(k) + copy(k))
+Descripción: ganera un diccionario vacío.
+Aliasing: res es modificable si y sólo si d es modificable.
+
+Borrar(in/out d:trie(k, σ), in k:k)
+Pre = {d = d0 && def?(d, k)}
+Post = {d =obs borrar(d0, k)}
+Complejidad: <O(Eliminar del conjunto lineal + copy(k) + long(k))
+Descripción: ganera un diccionario vacío.
+
+Claves(in d:trie(k, σ)) -> res:conj(k)
+Pre = {true}
+Post = {res =obs claves(d)}
+Complejidad: Θ(1)
+Descripción: devuelve las claves del diccionario.
+
+#Claves(in d:trie(k, σ)) -> res:nat
+Pre = {true}
+Post = {res =obs #claves(d)}
+Complejidad: Θ(1)
+Descripción: devuelve la cantidad de claves del diccionario.
+
+Copiar(in d : trie(κ, σ)) → res : trie(κ, σ)
+Pre ≡ {true}
+Post ≡ {res = obs d}
+Complejidad:
+Descripción: genera una copia nueva del diccionario.
+
+• = •(in d1:trie(k, σ), in d2:trie(k, σ)) -> res:bool
+Pre = {true}
+Post = {res =obs c1 = c2}
+Complejidad = O(#Claves(d1) x (= de σ) + = De conj lineal) 
+Descripción: compara d 1 y d 2 por igualdad, cuando σ posee operación de igualdad.
+Requiere: • = •(in s1 : σ, in s2 : σ) → res : bool
+Pre ≡ {true}
+Post ≡ {res = obs (s1 = s2 )}
+Complejidad: Θ(equal(s1 , s2 ))
+Descripción: función de igualdad de σ’s
+
+
+trie(k, σ) src estr 
+donde estr es tupla<diccionario : lista(nodoTrie), claves : conj(k)>
+
+donde nodoTrie es tupla<letra : k, final : bool, siguientes : estr, significado : σ> 
+
+Rep en español:
+-Para todo i menor a la longitud de diccionario:
+	-Si siguiente apunta a null entonces final es true.
+	-siguiente no puede apuntar a un trie con su diccionario vacio. 
+	-long de letra es 1.
+	-Si el puntero siguiente no apunta a null a lo que apunte también debe estas cosas.
+
+-No hay un puntero que aparezca en otra posición.
+
+Rep: trie(k, σ) -> bool
+(ParaTodo t:trie(k, σ)) ( Rep(t) = (ParaTodo i:nat)(i < Longitud(t.diccionario) ->l (
+long(t.diccionario[i].letra) =obs 1 && (EsVacía?(t.diccionario[i].siguientes) -> t.diccionario[i].final) && (¬EsVacía?(t.diccionario[i].siguientes) -> Rep(t.diccionario[i].siguientes))
+)
+) LetrasReperidas?(t.diccionario)
+)  
+LetrasReperidas?: lista(nodoTrie) -> bool
+LetrasReperidas?(l) = if(EsVacía?(l)) then true else LetrasReperidas?(Fin(l)) && LetrasReperidas?Aux(Fin(l), Primero(l).letra) fi
+
+LetrasReperidas?Aux: lista(nodoTrie) x k-> bool
+LetrasReperidas?Aux(l, k) = if(EsVacía?(l)) then true else (if(Primero(l).letra = k) then ¬LetrasReperidas?Aux(Fin(l), k) else LetrasReperidas?Aux(Fin(l), k) fi) fi
+
+Abs : dicc d -> dicc(κ, σ) {Rep(d)}
+Abs(d) ≡ dc / (ParaTodo c:k) (def?(c, dc) <-> Definido?(d, c) &&l def?(c, dc) ->l obtener(c, dc) =obs Significado(d, c)) 
+
+
+
+Algoritmos:
+
+iVacío() -> res:trie 			<O(1)
+res <- <Vacío(), Vacío()>           <O(Vacío()) = O(1)
+
+iDefinir(in/out d:estr, in k:k, in s:σ) 	<O(long(k) + 1 + 2xcopy(k)) = O(long(k) + copy(k))
+AgregarRapido(d.claves, k) 				<O(copy(k))
+kAux <- copy(k) //prengutar de como se representa hostname						<O(copy(k))
+*recorrido <- d.diccionario 			<O(1)
+while(¬vacia?(kAux)){ 					<O(long(k) x (1+1+5+1)) = O(long(k))
+	i <- 1								<O(1)
+	while(i <= Longitud(*recorrido) && *recorrido[i].letra != prim(kAux)){          <O(Longitud(*recorrido)) pero esto está acotado por constante así que es O(1)
+		i <- i + 1 			<O(1)
+	}
+	if(Longitud(*recorrido) == i + 1){      <O(4)
+		nueva <- Vacío() 					<O(1)
+		AgregarAtras(*recorrido, <prim(kAux) , vacia?(fin(kAux)), nueva, s>) 	<O(copy(<prim(kAux) , vacia?(fin(kAux)), nueva, s>)) = O(1)
+		*recorrido <- (*recorrido)[i].siguientes 		<O(1)
+
+	}
+	else if (*recorrido[i].letra == prim(kAux) && vacia?(fin(kAux))){ 	<O(5)
+		*recorrido.final <- true 										<O(1)		
+		*recorrido.significado <- s 									<O(1)
+
+	}
+	else if (*recorrido[i].letra == prim(kAux)){ 						<O(2)
+		*recorrido <- (*recorrido)[i].siguientes 						<O(1)
+
+	}
+
+	kAux <- fin(kAux) 														<O(1)
+}
+
+iDefinido?(in d:estr, in k:k) -> res:bool <O(copy(k) + long(k) x 3 + 2) = O(copy(k) + long(k) x 3) = O(copy(k) + long(k))
+kAux <- copy(k) 				<O(copy(k))
+*recorrido <- d.diccionario 	<O(1)
+res <- true 					<O(1)
+while(¬vacia?(kAux) && res){ 	<O(long(k) x 3)
+	i <- 1						<O(1)
+	while(*recorrido[i].letra != prim(kAux)){      <O(Longitud(*recorrido)) pero esto está acotado por constante así que es O(1)
+		i <- i + 1 				<O(1)
+	}
+
+	if(Longitud(*recorrido) == i + 1){               <O(2)
+		res <- false           						 <O(1)
+	}
+	else if (*recorrido[i].letra == prim(kAux) && vacia?(fin(kAux))){ <O(3)
+		res <- *recorrido[i].final 				     <O(1)
+	}
+	else if (*recorrido[i].letra == prim(kAux)){              <O(2)
+		*recorrido <- (*recorrido)[i].siguientes 		<O(1)
+	}
+
+	kAux <- fin(kAux) 									<O(1)
+}
+
+iSignificado(in d:estr, in k:k) -> res:σ  <O(copy(k) + long(k) + 1) = O(copy(k) + long(k))
+kAux <- copy(k) 		 		<O(copy(k))
+*recorrido <- d.diccionario 	<O(1)
+while(¬vacia?(kAux)){ 			<O(long(k) + 1 + 3 + 1 + 1) = O(long(k))
+	i <- 1                  	<O(1)
+	while(*recorrido[i].letra != prim(kAux)){   <O(Longitud(*recorrido)) pero esto está acotado por constante así que es O(1)
+		i <- i + 1 			 									 <O(1)
+	}
+	if (*recorrido[i].letra == prim(kAux) && vacia?(fin(kAux))){  	 <O(3)
+		res <- (*recorrido)[i].significado 						 <O(1)
+	}
+	else{ 	 													 <O(1)
+		*recorrido <- (*recorrido)[i].siguientes 				 <O(1)
+	}
+	kAux <- fin(kAux) 											 <O(1)
+}
+
+iBorrar(in/out d:estr, in k:k)			<O(Eliminar del conjunto lineal + copy(k) + long(k))	
+Eliminar(d.claves, k) 					<O(Eliminar del conjunto lineal)
+kAux <- copy(k) 						<O(copy(k))
+*recorrido <- d.diccionario 			<O(1)
+aBorrar <-Vacío() 						<O(1)
+aBorrarElem <- Vacío() 					<O(1)
+while(¬vacía?(kAux)){ 					<O(long(k) x (1+1+6+1)) = O(long(k))
+	i <- 1								<O(1)
+	while(i <= Longitud(*recorrido) && *recorrido[i] != prim(kAux)){          <O(Longitud(*recorrido)) pero esto está acotado por constante así que es O(1)
+		i <- i + 1 								<O(1)
+	}
+	if (vacia?(fin(kAux))){ 					<O(5)		
+		*recorrido[i].final <- false 				<O(1)
+	}
+	else{ 					
+		recorrido <- (*recorrido)[i].siguientes 							<O(1)
+	}
+	AgregarAdelante(aBorrar, crearIT(*recorrido)) 							<O(1)
+	AgregarAdelante(aBorrarElem, recorrido[i]) 								<O(1)
+	kAux <- fin(kAux) 														<O(1)
+}
+i <- 1   																	<O(1)
+//Como borrar los punteros
+
+while(i <= long){ 										<O(long x 5) = O(long) <= O(L)
+	while(Siguiente(aBorrar[i]) != aBorrarElem[i]){     <O(Longitud(*recorrido)) pero esto está acotado por constante así que es O(1)
+		Avanzar(aBorrar[i]) 							<O(1)
+	}
+	EliminarSiguiente(aBorrar[i]) 						<O(1)
+	i <- i + 1  										<O(1)
+	if(aBorrarElem[i].siguientes = null){  				<O(2)
+		i <- long + 1 									<O(1)
+	}
+}
+
+
+
+Claves(in d:estr) -> res:conj(k) 	<O(1)	
+res <- d.claves 					<O(1)
+
+i#Claves(in d:estr) -> res:nat 		<O(1)
+res <- Cardinal(Claves(d))   		<O(1)
+
+iCopiar(in d : estr) → res : estr 			//Preguntar si es necesario
+
+
+i• = •(in d1:estr, in d2:estr) -> res:bool  <O(#Claves(d1) x (= de σ) + = De conj lineal + 2) = O(#Claves(d1) x (= de σ) + = De conj lineal) 
+res <- Claves(d1) = Claves(d2) 				<O(= De conj lineal + 2) =O(= De conj lineal)
+iteradorClave1 <- crearIT(Claves(d1)) 		<O(1)
+iteradorClave2 <- crearIT(Claves(d2)) 		<O(1)
+while(res && HaySiguiente(iteradorClave1)){ 	O(#Claves(d1) x (= de σ + 1)) = O(O(#Claves(d1) x (= de σ)))
+	
+	res <- Significado(Siguiente(iteradorClave1)) = Significado(Siguiente(iteradorClave2))    <O(= de σ)
+
+	Avanzar(iteradorClave1) 	<O(1)
+	Avanzar(iteradorClave2) 			<O(1)													  
+}
+
+
+Fin Modulo

@@ -1,0 +1,92 @@
+; ** por compatibilidad se omiten tildes **
+; ==============================================================================
+; TRABAJO PRACTICO 3 - System Programming - ORGANIZACION DE COMPUTADOR II - FCEN
+; ==============================================================================
+
+%ifndef __PANTALLA_MAC__
+%define __PANTALLA_MAC__
+
+%macro imprimir_pantalla_inicial 0
+    ;for todo verde
+	; 80 * 50 = 4000 cantidad de pixels de pantalla a escribir
+	; 0x2020 = espacio con fondo verde (explicar en Informe!!!!)
+    mov ax, 0x2020
+	mov ecx, 4000 
+	xor ebx, ebx
+%%cicloVerde:
+	mov [fs:ebx], ax
+	add ebx, 2
+	loop %%cicloVerde
+	
+	;for linea roja
+	; 0x4020 = espacio con fondo rojo (explicar en Informe!!!!)
+	mov ax, 0x4020
+	mov ecx, 50 
+	xor ebx, ebx
+%%cicloRojo:
+	mov [fs:ebx], ax
+	add ebx, 160 ;80 (ancho) * 2 (pixels)
+	loop %%cicloRojo
+
+	;for linea azul
+	; 0x1020 = espacio con fondo azul (explicar en Informe!!!!)
+	mov ax, 0x1020
+	mov ecx, 50 
+	mov ebx, 158 ; (80 - 1) * 2 = indice ultima columna * tamaño pixel 
+%%cicloAzul:
+	mov [fs:ebx], ax
+	add ebx, 160 ;80 (ancho) * 2 (pixels)
+	loop %%cicloAzul
+
+	mov ax, 0x0020
+	mov ecx, 80 
+	xor ebx, ebx ; (80 - 1) * 2 = indice ultima columna * tamaño pixel 
+%%cicloNegro1:
+	mov [fs:ebx], ax
+	add ebx, 2 ;80 (ancho) * 2 (pixels)
+	loop %%cicloNegro1
+
+	mov ecx, 400 
+	mov ebx, 7200 ; (80 - 1) * 2 = indice ultima columna * tamaño pixel 
+%%cicloNegro2:
+	mov [fs:ebx], ax
+	add ebx, 2 ;80 (ancho) * 2 (pixels)
+	loop %%cicloNegro2
+	
+	mov ax, 0x4020
+	mov ecx, 5 
+	mov ebx, 7270 ; (80 - 1) * 2 = indice ultima columna * tamaño pixel 
+%%cicloPuntajeR:
+	mov [fs:ebx], ax
+	add ebx, 2 ;80 (ancho) * 2 (pixels)
+	mov [fs:ebx], ax
+	add ebx, 2 ;80 (ancho) * 2 (pixels)
+	mov [fs:ebx], ax
+	add ebx, 2 ;80 (ancho) * 2 (pixels)
+	mov [fs:ebx], ax
+	add ebx, 2 ;80 (ancho) * 2 (pixels)
+	mov [fs:ebx], ax
+	add ebx, 152 ;80 (ancho) * 2 (pixels)
+	loop %%cicloPuntajeR
+
+	mov ax, 0x1020
+	mov ecx, 5 
+	mov ebx, 7280 ; (80 - 1) * 2 = indice ultima columna * tamaño pixel 
+%%cicloPuntajeB:
+	mov [fs:ebx], ax
+	add ebx, 2 ;80 (ancho) * 2 (pixels)
+	mov [fs:ebx], ax
+	add ebx, 2 ;80 (ancho) * 2 (pixels)
+	mov [fs:ebx], ax
+	add ebx, 2 ;80 (ancho) * 2 (pixels)
+	mov [fs:ebx], ax
+	add ebx, 2 ;80 (ancho) * 2 (pixels)
+	mov [fs:ebx], ax
+	add ebx, 152 ;80 (ancho) * 2 (pixels)
+	loop %%cicloPuntajeB
+
+
+
+%endmacro
+
+%endif  ;; !__PANTALLA_MAC__ ;;

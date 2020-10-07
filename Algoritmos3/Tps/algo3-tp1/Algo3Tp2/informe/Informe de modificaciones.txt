@@ -1,0 +1,50 @@
+Informe de modificaicones:
+
+Ejercicio 1:
+Código:
+	Se modifica el procesamiento de la entrada para adecuarse a requerimientos de complejidad
+	Archivos Ejercicio1.java y Piso.java
+Informe:
+	Se agrega pseudocódigo del algoritmo y preprocesamiento necesario.
+	Se agrega explicación de la implementación del pseudocódigo presentado en la sección Desarrollo.
+	Se reescriben las secciones de Correctitud y Complejidad para referenciar al pseudocódigo en sus argumentos.
+	Se agrega análisis de complejidad del preprocesamiento.
+	Se modifica la introducción de la sección de Experimentación para reflejar
+		que no se pretende probar correctitud a través de los tests.
+	Se modifica la escala de la función de cota en los gráficos para reflejar
+		que los resultados obtenidos son coeherentes con ella.
+	Se aclara que los tiempos medidos corresponden solo a la resolución, no a
+		preprocesamiento e inicialización
+
+	
+Ejercicio 2:
+Código:
+	Se modifica el procesamiento de la entrada y el tipo de soporte para las listas de vecinos en el tipo Posicion
+		para adecuarse a requerimientos de complejidad.
+Informe:
+	Se agrega pseudocódigo del algoritmo y preprocesamiento necesario.
+	Se agrega explicación de la implementación del pseudocódigo presentado en la sección Desarrollo.
+	Se reescriben las secciones de Correctitud y Complejidad para referenciar al pseudocódigo en sus argumentos.
+	Se agrega análisis de complejidad del preprocesamiento.
+	Se modifica la introducción de la sección de Experimentación para reflejar
+		que no se pretende probar correctitud a través de los tests.
+	Se eliminan mediciones irrelevantes de los graficos para presentar resultados de mayor interés, comentando los
+		resultados omitidos en la sección de Experimentación.
+	Se aclara que los tiempos medidos corresponden solo a la resolución, no a
+		preprocesamiento e inicialización
+		
+Ejercicio 3:
+Código:
+	Se modifica la implementación de Union-Find reemplazando hashmaps por vectores para garantizar acceso
+		en tiempo constante.
+Informe:
+	Se desarrollo de la estructura Union-Find, y descripción paso a paso de su funcionamiento.
+	Se modifica el desarrollo de Kruskal agregando más explicación y pseudocódigo.
+	Se modifica la explicación de la complejidad para ser más adecuada.
+	Se modifica la introducción de la sección de Experimentación para reflejar
+		que no se pretende probar correctitud a través de los tests.
+	Se modifica la introducción de la sección de Experimentación para reflejar
+		que no se pretende probar correctitud a través de los tests.
+	Se aclara que los tiempos medidos corresponden solo a la resolución, no a
+		preprocesamiento e inicialización
+	

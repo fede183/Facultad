@@ -1,0 +1,5 @@
+#cantNodos cantColores HaySolucion tiempoEnS
+10 10 Ok 2
+20 10 X 103.576
+30 10 X 245.911
+40 10 X 496.900

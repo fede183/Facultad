@@ -1,0 +1,111 @@
+
+\section{Ejercicio 3}
+\subsection{Introducción}
+Contamos con un conjunto de exploradoras a las que se le asigna una letra, cada una con amistades dentro del grupo. 
+A partir de esto, buscamos ubicarlas en una ronda que minimice la suma de las distancias entre cada par de amigas.
+De esa ronda queremos saber ademas cual fue la distancia máxima entre amigas, y de haber mas de una ronda posible, quedarnos con la primera en orden alfabético.\\
+Se pide una complejidad estrictamente mejor que $O(e^ea^2) $, donde $e$ es la cantidad de exploradoras y $a$ la cantidad de amistades.
+
+Por ejemplo:
+\\
+Se cuenta con las exploradoras  $e = \{a, b, c, d, e\} $  y amistades  $a = \{ (a,b), (a,c), (a,d), (b,e), (c,d) \} $ 
+
+\begin{figure}[H]
+  \hspace{-2em}
+	\begin{minipage}[h]{0.48\textwidth}
+	\begin{center}
+		\centering
+		  \includegraphics[scale=1]{imagenes/ej3-ejemplo.png}
+		 \caption{Ejemplo de configuración óptima}
+	\end{center}
+	\end{minipage}
+	\hspace{3em}
+	\begin{minipage}[h]{0.48\textwidth}
+	\begin{center}
+	   \centering
+	       \includegraphics[scale=1]{imagenes/ej3-ejemplo2.png}
+	     \caption{Ejemplo de configuración suboptima}
+	\end{center}
+	\end{minipage}
+\end{figure}
+
+La ronda que minimiza la suma de las distancias entre las amistades primera en orden alfabético es $abecd$, donde la distancia para cada amistad es una exploradora, excepto $(a,c)$ que tienen una separación de dos , sumando una distancia total $6$. Para el caso $abcde$, las amistades $(a,b)$ y $(c,d)$ tienen distancia uno, mientras que las demás están separadas por dos, sumando un total de $8$.
+
+
+\subsection{Desarrollo}
+Elegimos utilizar la técnica de backtracking para hallar una solución optima.
+A partir de los datos de entrada, construimos una lista de exploradoras en la que guardamos su letra y posición en la ronda. Para indicar que una exploradora no esta en la ronda, utilizamos el indice -1.
+Luego definimos una lista de amistades que vincula pares de exploradoras de la lista anterior.
+Por último, ordenamos alfabéticamente la lista de exploradoras, para facilitar el orden en que buscaremos soluciones optimas.
+
+Dado que es una estructura circular, siempre podremos ubicar la primer exploradora (por su letra) en la primer posición al representar cualquier ronda optima como una cadena. Al tener la lista de exploradoras ordenada, la primera de la lista estará en el primer lugar a imprimir, por lo que la ubicamos antes de llamar a la función de backtracking. Esto no es estrictamente necesario para la solución, pero elimina una cantidad considerable de operaciones innecesarias.
+
+\newpage
+
+Hecho esto, llamamos a la función recursiva que resuelve el problema.
+En cada llamada calculamos primero la suma de las distancias entre las amistades presentes en la ronda. Si esta suma es menor a la mejor solución encontrada, o aun no hallamos una, y faltan exploradoras para completar la ronda, ubicamos cada exploradora posible en la posición actual y llamamos a la recursión indicando que se debe ubicar la siguiente. Si la ronda esta completa, guardamos la suma si es mejor que nuestra solución anterior. Si la suma parcial fue mayor a nuestro candidato a solución óptima, podamos esta rama de decisión para que continúe la recursión de un nivel superior o termine la función.
+
+Al colocar una exploradora en la ronda controlamos primero que no haya sido ubicada previamente. Si no esta presente, le asignamos ademas la posición en que fue colocada. Esto es necesario para que en las sucesivas llamadas recursivas no se intente volver a ubicarla, restringiendo efectivamente el conjunto de exploradoras con el que trabaja cada recursión para que solo pueda colocar las validas.
+Una vez terminada la búsqueda por profundidad, se restablece la posición de la exploradora colocada, para que pueda volver a ser utilizada en la próxima llamada recursiva.
+
+Al momento de controlar las distancias, debido al mecanismo detallado en el parrafo anterior, cada exploradora tiene asignada su posición en la ronda. Dada la estructura circular en la que estan dispuestas, con cada exploradora en posiciones numeradas de 0 a la cantidad de exploradoras, la distancia entre cada par puede calcularse como:
+ Dadas $a$ y $b$ dos posiciones en la ronda, $a < b$. Sea $t$ el tamaño de la ronda.
+Si $b - a > t/2$ entonces la distancia entre $a$ y $b$ es igual a $t+ a - b$.
+Sino, la distancia entre $a$ y $b$ es igual a $b - a$.
+Esto se debe a que la distancia máxima entre dos puntos de una ronda es la mitad de su tamaño. Si la diferencia entre las posiciones es mayor a este valor, entonces están mas cerca en el sentido contrario. Para ilustrar este caso podemos imaginar que los indices continúan subiendo a medida que terminan los iniciales. Por ejemplo, en una ronda de 5 exploradoras, tras una vuelta de la ronda la exploradora 1 se convierte en la 6, la 2 en la 7, y así sucesivamente. Luego, la distancia entre la exploradora 1 y 5 es igual a la distancia entre la 5 y 6, cuya diferencia de indices es 1.
+
+
+\subsection{Correctitud}
+
+Podemos garantizar que el resultado obtenido sera una solución optima porque se consideran todas las instancias válidas del problema.
+La poda que incorporamos solo elimina casos cuya solución es estrictamente peor que la mejor encontrada. 
+Como las distancias entre exploradoras son siempre positivas, la suma parcial de las que ya fueron ubicadas en la ronda es menor o igual a la suma de todas las distancias. Por lo que si esa suma parcial ya es superior a la mejor solución encontrada, cualquier otra configuración de la ronda derivada de esa ronda parcial tendra mayor distancia total.
+Al calcular las distancias para cada posible ronda válida y quedarnos con la primer optima encontrada nos aseguramos también de que sea la primera en orden alfabético, ya que recorremos en orden una lista de exploradoras ordenadas por sus letras a medida que generamos las rondas.
+
+\subsection{Complejidad}
+
+Dejando de lado la complejidad de la lectura y construcción de las estructuras a partir de las que se resuelve el problema, incurrimos en una complejidad 
+$O(e \ log(e))$ al ordenar la lista de exploradoras.
+Para la solución del problema realizamos operaciones de costo constante antes de llamar a la función recursiva. 
+Cada llamada a esta función tiene un costo $O(e+a)$ y como no es llamada para exploradoras ya ubicadas, se utiliza $e!$ veces.
+Podemos entonces acotar la complejidad de todos los llamados recursivos por $O(e! (e+a))$.\\
+Como $e\ log(e) < e! (e+a) $ $\forall{e,a \in \mathbb{N}}$ podemos acotar la complejidad del algoritmo propuesto a $O(e! (e+a))$. 
+
+
+\subsection{Experimentación}
+
+Para la experimentación consideramos escenarios de peor y mejor caso, así como variaciones en el tamaño de los parámetros de entrada.
+Tanto para el peor y mejor caso como para la variación sobre $e$ experimentamos sobre el rango $\#e = 5..12$ para analizar los tiempos de ejecución, que consideramos suficiente a efectos de ilustrar sus relaciones con las cotas de complejidad.
+
+El peor caso para este algoritmo sucede cuando no puede aplicarse ninguna poda, es decir, cuando toda suma parcial de distancias es menor a la distancia óptima.
+Esto sucede cuando todas las exploradoras son amigas entre si, formando un grafo completo de amistades. Como la suma de distancias sera igual para toda ronda en esta situación, cualquier suma en rondas incompletas sera menor a la mejor distancia obtenida.
+El mejor caso para este algoritmo sucede cuando la configuración óptima es la primera considerada y pueden podarse la mayor cantidad de alternativas.
+Por su estructura, en cualquier ronda hay al menos dos configuraciones con distancia optima cuando las distinguimos en algún orden, dado que si se invierte el orden de la mejor ronda se obtiene otra con las mismas distancias. 
+Por lo tanto, el mejor caso se da cuando solo estas dos rondas no son podadas.
+A partir de esto encontramos que el mejor caso sucede cuando cada exploradora es amiga de la siguiente en orden alfabético, formando un circulo.
+\begin{figure}[H]
+\input{plots/Tp1Ej3Test3.tex}
+\caption{Comparación de tiempos de mejor y peor caso}
+\end{figure}
+
+\newpage
+
+En cuanto a las variaciones del tamaño de entrada, para el primer experimento fijamos la cantidad en un valor arbitrario $\#a = 5$, donde se eligieron amistades sin intencionalidad particular.
+\begin{figure}[H]
+\input{plots/Tp1Ej3Test1.tex}
+\caption{Comparación de tiempos sobre variaciones de $e$}
+\end{figure}
+
+En el segundo experimento consideramos variaciones de $\#a$ entre 5 y 40, a incrementos de 5, con una cantidad de exploradoras fija $\#e = 7$ que permite analizar este rango de amistades rápidamente. Dado que fijamos $e$, comparamos los resultados obtenidos con la complejidad lineal sobre $a$.
+
+\begin{figure}[H]
+\input{plots/Tp1Ej3Test2.tex}
+\caption{Comparación de tiempos sobre variaciones de $a$}
+\end{figure}
+
+
+
+
+
+
+

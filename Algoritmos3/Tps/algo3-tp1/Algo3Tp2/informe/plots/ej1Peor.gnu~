@@ -1,0 +1,11 @@
+f(x) = ((x)**2)*0.006 
+set xlabel 'Cantidad de vértices'
+#set ylabel 'Tiempo'
+set ylabel "\\rotatebox{90}{Tiempo}" 
+set xrange [200:290]
+set yrange [0:500]
+set terminal latex
+set out 'Tp2Ej1ExpPeor.tex'
+plot 'ej1Peor.dat' using 1:2 smooth bezier title 'Peor caso', \
+'' using 1:3 smooth bezier title 'Caso Promedio', \
+f(x) with lines title 'O($N^2$)'

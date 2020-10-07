@@ -1,0 +1,11 @@
+set xlabel 'Cantidad de vértices'
+#set ylabel 'Fallos'
+set ylabel "\\rotatebox{90}{Tiempo}" 
+set xrange [10:100]
+set yrange [0:500]
+set terminal latex
+set key left top inside
+set out 'ej4TiemposCompletoGolosa.tex'
+plot 'ej4TiemposCompletoGolosa.dat' using 1:2 smooth bezier title 'Vecindad 1', \
+'' using 1:3 smooth bezier title 'Vecindad 2', \
+'' using 1:4 smooth bezier title 'Vecindad 3', \

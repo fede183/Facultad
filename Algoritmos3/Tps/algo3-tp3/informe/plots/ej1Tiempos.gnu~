@@ -1,0 +1,14 @@
+f(x) = ((x**2 * 15000))
+set xlabel 'Cantidad de vértices'
+#set ylabel 'Fallos'
+set ylabel "\\rotatebox{90}{Tiempos}" 
+set xrange [20:2200]
+set yrange [0.0:57000000000.0]
+#set terminal png size 1000,1000 enhanced font "Helvetica,20"
+#set output 'output.png'
+set terminal latex
+set key left top inside
+set out 'ej1Tiempos.tex'
+plot 'ej1Tiempos.dat' using 1:2 smooth bezier title 'Instancias', \
+f(x) with lines title 'O($n^2$)'
+set out

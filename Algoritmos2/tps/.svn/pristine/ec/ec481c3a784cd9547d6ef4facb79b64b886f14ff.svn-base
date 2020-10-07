@@ -1,0 +1,305 @@
+\section{Módulo DcNet}
+
+
+\begin{Interfaz}
+
+  \textbf{se explica con}: {\tadNombre{DCNet}}.
+
+  \textbf{géneros}:{ \TipoVariable{dcnet}}.
+
+  \Titulo{Operaciones básicas de DCNet}
+%iniciarDCNet:
+  \InterfazFuncion{iniciarDCNet}{\In {r}{red}}{dcnet}%
+  {res $\igobs$ iniciarDCNet(r)}%
+  [O(n x L)]
+  [genera una dcnet con la red r.]
+  
+%  crearPaquete:
+ \InterfazFuncion{crearPaquete}{\Inout {d} {dcnet} , \In {p} {paquete} }{} % {nombreFunción}{Signatura}{Res}
+  [$(\neg ( (\exists p':paquete) (paqueteEnTransito(s,p') \wedge id(p') = id(p))
+\wedge origen(p) \in computadoras(red(s))$
+\yluego $destino(p) \in computadoras(red(s))$
+\yluego $hayCamino?(red(s), origen(p), destino(p) )) \wedge d\igobs d_{0}$] % "Condición del tad" es: (\neg ( (\exists p':paquete) (paqueteEnTransito(s,p') \wedge id(p') = id(p))
+%\wedge origen(p) \in computadoras(red(s))$
+%\yluego $destino(p) \in computadoras(red(s))$ está copiado textual del TAD, si hay que cambiarlo avisenme
+%\yluego $hayCamino?(red(s), origen(p), destino(p) ))
+  {$d \igobs crearPaquete(d_{0}, p)$} %POST
+  [O($L + log(k)$)] %COMPLEJIDAD
+  [Añade el paquete p a la dcnet d. Poniendolo en la cola de los paquetes de la computadora inicial.] %DESCRIPCIÓN
+  [] %ALIASING
+
+%avanzarSegundo:
+  \InterfazFuncion{avanzarSegundo}{\Inout {d} {dcnet}}{} % {nombreFunción}{Signatura}{Res}
+  [$d \igobs d_{0}$] %PRE
+  {$d \igobs avanzarSegundo(d_{0})$} %POST
+  [O(n x (L + log(n) + log(k)))] %COMPLEJIDAD
+  [genera la dcnet correspondiente a pasar un segundo en d.] %DESCRIPCIÓN
+  [] %ALIASING
+  
+%red:
+  \InterfazFuncion{red}{\In {d}{dcnet}}{red} % {nombreFunción}{Signatura}{Res}
+  %PRE es true
+  {$res \igobs red(d)$} %POST
+  [O(1)] %COMPLEJIDAD
+  [Devuelve la red asosiada a la dcnet.] %DESCRIPCIÓN
+  [] %ALIASING
+  
+%enEspera:
+  \InterfazFuncion{enEspera}{\In {d}{dcnet} , \In  {c}{compu}}{colaPriori} % {nombreFunción}{Signatura}{Res}
+  [$c \in computadoras(red(d))$] %PRE
+  {$res \igobs enEspera(d)$} %POST
+  [O(L)] %COMPLEJIDAD
+  [Devuelve los paquetes de la compu c en d.] %DESCRIPCIÓN
+  [res es modificables si y s\'olo si d es modificables.] %ALIASING
+  
+%caminoRecorrido:
+  \InterfazFuncion{caminoRecorrido}{\In {d}{dcnet} , \In {p}{paquete}}{secu(compu)} % {nombreFunción}{Signatura}{Res}
+  [$(\exists c:compu)(c \in computadoras(red(d)) \yluego $est\' a?$(p, enEspera(d, c)) )$] %PRE
+  {$res \igobs caminoRecorrido(d, p)$} %POST
+  [O(n + log(k))] %COMPLEJIDAD
+  [Devuelve el camino recorrido por el paquete p en la dcnet. (Este debe ser el más corto)] %DESCRIPCIÓN
+  [] %ALIASING
+  
+%cantidadEnviados:
+  \InterfazFuncion{cantidadEnviados}{\In {d}{dcnet}, \In {c}{compu}}{nat} % {nombreFunción}{Signatura}{Res}
+  [$c \in computadoras(red(d))$] %PRE
+  {$res \igobs cantidadEnviados(d, c)$} %POST
+  [O(L)] %COMPLEJIDAD
+  [Devuelve la cantidad de paquetes que envio la compu c.] %DESCRIPCIÓN
+  [res es modificables si y s\'olo si d es modificables.] %ALIASING
+  
+%paqueteEnTransito?:
+  \InterfazFuncion{paqueteEnTransito?}{\In {d}{dcnet}, \In {p}{paquete}}{bool} % {nombreFunción}{Signatura}{Res}
+%PRE es true
+  {$res \igobs paqueteEnTransito?(d, p)$} %POST
+  [O(n x (L + log(k)))] %COMPLEJIDAD
+  [Devuelve true si existe alguna computadora que tenga ese paquete.] %DESCRIPCIÓN
+  [] %ALIASING
+  
+%laQueMasEnvio:
+  \InterfazFuncion{laQueMasEnvio}{\In {d}{dcnet}}{compu} % {nombreFunción}{Signatura}{Res}
+%PRE es true
+  {$res \igobs LaQueMasEnvio(d)$} %POST
+  [O(1)] %COMPLEJIDAD
+  [Devuelve la computadora que envio más paquetes.] %DESCRIPCIÓN
+  [] %ALIASING
+
+
+%  \InterfazFuncion{}{}{} % {nombreFunción}{Signatura}{Res}
+%  [] %PRE
+%  {} %POST
+%  [] %COMPLEJIDAD
+%  [] %DESCRIPCIÓN
+%  [] %ALIASING
+
+ 
+\end{Interfaz}
+
+\begin{Representacion}
+ 
+  \Titulo{Representación de DCNet}
+
+  \begin{Estructura}{dcnet}[dc]
+    \begin{Tupla}[dc]
+      \tupItem{LaQueMasEnvio}{puntero(compu)}%
+      \tupItem{enEspera}{tried(hostname, colaPaquetes)}
+       \tupItem{\#Enviados}{tried(hostname, nat)}%
+       \tupItem{paquetesEnTransitoNoOrigen}{Avld(id, itLista(compu))} 
+        \tupItem{Red}{Red}%
+    \end{Tupla}
+    \end{Estructura}
+
+   
+
+  \Rep[dc][d]{($\forall$ c : compu)(c $\in$ Computadoras(d.Red) $\Leftrightarrow$ Definido?(d.enEspera, c.hostname) $\wedge$ Definido?(d.$\#$Enviados, c.hostname)) $\wedge$ *d.LaQueMasEnvio $\in$ Computadoras(d.Red) $\yluego$ ($\neg$(Existe ca : compu)(ca $\in$ Computadoras(d.Red) $\yluego$ Significado(d.$\#$Enviados,ca.hostname) > Significado(d.$\#$Enviados, *d.LaQueMasEnvio.hostname))) $\wedge$ ($\forall$ h : Computadoras(d.Red))($\forall$ p : paquete)((p $\in$ pasarColaAConjunto(Significado(d.enEspera, h.hostname)) $\wedge$ h.hostname $\neq$ p.origen.hostname) $\Leftrightarrow$ (Definido?AVL(d.paquetesEnTransitoNoOrigen,p.id) $\yluego$ h $=$ Siguiente(SignificadoAVL(d.paquetesEnTransitoNoOrigen, p.id))))}
+  ~
+  \tadOperacion{pasarColaAConjunto}{colaPrior(paquete)}{conj(paquete)}{}
+  \tadAxioma{pasarColaAConjunto(c)}{\IF vac\'ia?(c) THEN $\phi$ ELSE ag(Pr\'oximo(c) , pasarColaAConjunto(Desencolar(c))) FI}
+  ~
+
+  \Abs[dc]{dcnet}[d]{e}{d.Red $=$ red(e) $\wedge$ ($\forall$ c : compu)((c $\in$ Computadoras(red(e)) $\impluego$ (cantidadEnviados(e, c) $=$ Significado(d.$\#$Enviados, c.hostname) $\wedge$ enEspera(e, c) $=$ Significado(d.enEspera, c.hostname))) $\wedge$ ($\forall$ p : paquete)(p $\in$ pasarColaAConjunto(Significado(d.enEspera, c.hostname)) $\impluego$ \\($\neg$Definido?AVL(d.paquetesEnTransitoNoOrigen, p.id) $\Leftrightarrow$ caminoRecorrido(e,p) $=$ <>  $\wedge$ \\ Definido?AVL(d.paquetesEnTransitoNoOrigen, p.id) $\impluego$  caminoRecorrido(e,p) $=$ p.origen $\bullet$ \\ ContruirCamino(SignificadoAVL(d.paquetesEnTransitoNoOrigen, p.id)))))}
+  
+    ~
+    
+  \tadOperacion{ConstruirCamino}{itLista(compu))}{secu(compu)}{}
+  \tadAxioma{ConstruirCamino(c)}{\IF HayAnterior(c) THEN ConstruirCamino(Retroceder(c)) $\circ$ Anterior(c) ELSE <> FI}
+  
+\end{Representacion}% PARA ITERADORES SI USARAMOS	
+
+\begin{Algoritmos}
+
+%iIniciarDCNet:
+\begin{algorithm}[H]{\textbf{iIniciarDCNet}(\In{r}{red}) $\to$ $res$ : $dc$} 
+	\begin{algorithmic}
+			\State enviados : tried(hostname, nat) $\gets$  Vac\'io() 		   	\Comment O(1)    
+			\State iteradorCompu : itConj(compu) $\gets$ crearIT(r.Computadoras)	\Comment O(1)
+			\State enespera : tried(hostname, colaPaquetes) $\gets$ Vac\'io() 			\Comment O(1)
+			\State *laQueMasEnvio : puntero(compu) $\gets$ NULL 			\Comment O(1)
+			\If{HaySiguiente(iteradorCompu)} 		\Comment O(2)
+			   \State laQueMasEnvio $\gets$ Siguiente(iteradorCompu) 	\Comment O(1)
+			\EndIf
+			
+			\While{HaySiguiente(iteradorCompu)} \		Comment O(n x ((2 x L) + 1))  = O(n x L)
+				\State Definir(enviados, Siguiente(iteradorCompu).hostname, 0) 		\Comment O(long(Siguiente(iteradorCompu).hostname)) = O(L)
+				\State Definir(enespera, Siguiente(iteradorCompu).hostname, Vac\'io()) 	\Comment O(long(Siguiente(iteradorCompu).hostname)) = O(L)
+				\State Avanzar(iteradorCompu) 						 \Comment O(1)
+			\EndWhile
+			 
+			 \State res $\gets$ <laQueMasEnvio, enespera, enviados, Vac\'io(), r> 		\Comment O(1)
+
+			\medskip
+			\Statex \underline{Complejidad:} O(n x L)
+			\Statex \underline{Justificación:} O(n x L + 8) = O(n x L)
+    	\end{algorithmic}
+\end{algorithm}
+
+%icrearPaquete:
+\begin{algorithm}[H]{\textbf{iCrearPaquete}(\Inout{d}{dc}, \In {p}{paquete})} 
+	\begin{algorithmic}
+			\State Encolar(p, Significado(d.enEspera, p.origen.hostname))\Comment O(long(p.origen.hostname) + log(k))   
+
+			\medskip
+			\Statex \underline{Complejidad:} O(L + log(k))
+			\Statex \underline{Justificación:} O(long(p.origen.hostname) + log(k)) = O(L + log(k))
+    	\end{algorithmic}
+\end{algorithm}
+
+%iavanzarSegundo:
+
+
+
+
+
+\begin{algorithm}[H]{\textbf{iavanzarSegundo}(\Inout{d}{dc})} 
+	\begin{algorithmic}
+			\State ListaAEnviar : lista(tupla<hostname, paquete>) $\gets$ Vac\'io() 					\Comment O(1)
+			\State iteradorCompu : itConj(compu) $\gets$ crearIT(Computadoras(d.red)) 					\Comment O(1)
+			\While {HaySiguiente(iteradorCompu)}				\Comment O(n x (L + log(n) + log(k)))
+			
+			  \If{$\neg$Vac\'ia?(Significado(d.enEspera, iteradorCompu.hostname))} 			\Comment O(2 x L + log(n) + log(k)) = O(L + log(n) + log(k))
+				\State Significado(d.\#Enviados, Siguiente(iteradorCompu).hostname) + 1    	\Comment O(L)
+				\If{Significado(d.\#Enviados, Siguiente(iteradorCompu).hostname) > Significado(d.$\#$Enviados, *d.LaQueMasEnvio.hostname)}  	\Comment O(2 x L) = O(L)
+				  \State d.LaQueMasEnvio $\gets$ $\delta$Siguiente(iteradorCompu) 			\Comment O(1)
+				\EndIf
+				\State aEnviar : paquete $\gets$ Pr\'oximo(Significado(d.enEspera, Siguiente(iteradorCompu).hostname))   \Comment O(L + log(k))
+				\State Desencolar(Significado(d.enEspera, Siguiente(iteradorCompu).hostname)) 		\Comment O(L + log(k))
+				
+				\If{Definida?AVL(d.paquetesEnTransitoNoOrigen, p.id)} 			\Comment O(2x(log(n) + log(k))) = O(log(n) + log(k))
+				    \State cam : itLista(compu) $\gets$ SignificadoAVL(d.paquetesEnTransitoNoOrigen, p.id) 	\Comment O(log(n)+ log(k))
+				    \If{HaySiguiente(cam)}  					\Comment O(3)
+				      \State AgregarAtras(ListaAEnviar, <Siguiente(cam).hostname, aEnviar>) 		\Comment O(copy(<Siguiente(cam).hostname, aEnviar>)) = O(1)
+				      \State Avanzar(cam) 					\Comment O(1)
+				    \Else 								\Comment O(log(n) + log(k))
+				      \State BorrarAVL(d.paquetesEnTransitoNoOrigen, p.id) 		\Comment O(log(n) + log(k))
+				    \EndIf
+				\Else 										\Comment  O(L + 2 x log(k) + 2 x log(n)) = O(L + log(n) + log(k))
+				  \State camino : itLista(compu) $\gets$ crearIT(Siguiente(crearIT(caminosMinimos(d.red, p.origen, p.destino))))  \Comment O(L)
+				  \State Avanzar(camino) 			\Comment O(1)
+				  \If{HaySiguiente(camino)} 						\Comment O(2 + log(n) + 2 x log(k)) = O(log(n) + log(k))
+				      \State AgregarAtras(ListaAEnviar, <Siguiente(camino).hostname, aEnviar>) 	\Comment O(copy(<Siguiente(camino).hostname, aEnviar>)) = O(1)
+				      \State DefinirAVL(d.paquetesEnTransitoNoOrigen, p.id, camino) 	\Comment O(log(n) + log(k))
+				    \EndIf 
+				\EndIf
+				
+			  \EndIf
+			  \State Avanzar(iteradorCompu) 				\Comment O(1)
+			\EndWhile
+
+			\State iteradorEnviar : itLista(tupla<hostname, paquete>) $\gets$ crearIT(ListaAEnviar) 		\Comment O(1)
+			
+			\While{HaySiguiente(iteradorEnviar)} 				\Comment O(n x (L + log(k)))
+			  \State Encolar(Significado(d.enEspera, PI1(Siguiente(iteradorEnviar)) , PI2(Siguiente(iteradorEnviar)))) 	\Comment O(L + log(k))
+			  \State Avanzar(iteradorEnviar) 										\Comment O(1)
+			\EndWhile
+			
+			\medskip
+			\Statex \underline{Complejidad:} O(n x (L + log(n) + log(k)))
+			\Statex \underline{Justificación:} O(n x (L + log(k)) + n x (L + log(n) + log(k)) + 4) = O(n x (L + log(n) + log(k))). Para facilitar la escritura de las complejidades y embellecer el seudoc\'odigo. Se decidi\'o ahorrarnos un paso en el calculo de complejidades y lo que vale O(long(hostname)) o similar se lo escribe directamente como O(L).
+    	\end{algorithmic}
+\end{algorithm}
+
+%ired: 
+\begin{algorithm}[H]{\textbf{iRed}(\In{d}{dc}) $\to$ $res$ : $red$} 
+	\begin{algorithmic}
+			\State res $\gets d.Red$ \Comment O(1)
+			\medskip
+			\Statex \underline{Complejidad:} O(1)
+    	\end{algorithmic}
+\end{algorithm}
+
+%ienEspera:
+\begin{algorithm}[H]{\textbf{ienEspera}(\In{d}{dc}, \In {c}{compu}) $\to$ $res$ : $colaPaquetes$} 
+	\begin{algorithmic}
+			\State res $\gets$ Significado(c.hostname, d.enEspera) \Comment O(long(c.hostname)) 
+			\medskip
+			\Statex \underline{Complejidad:} O(L)
+			\Statex \underline{Justificación:} O(long(c.hostname)) = O(L)
+    	\end{algorithmic}
+\end{algorithm}
+
+%icaminoRecorrido(in d:dc, in p:paquete) -> res:  //
+\begin{algorithm}[H]{\textbf{icaminoRecorrido}(\In{d}{dc}, \In {p}{paquete}) $\to$ $res$ : $lista(compu)$} 
+	\begin{algorithmic}
+			\State res $\gets$ Vac\'ia()						\Comment O(1)
+			\If{$\neg$Definido?AVL(d.paquetesEnTransitoNoOrigen, p.id)} 			\Comment O(2 x n + 2 x log(n) + 2 x log(k)) = O(n + log(n) + log(k)) = O(n + log(k))
+			    \State cam : itLista(compu) $\gets$ SignificadoAVL(d.paquetesEnTransitoNoOrigen, p.id)	\Comment O(log(n) + log(k))
+			    \State i : nat $\gets$ 0 									\Comment O(1)
+			    
+			    \While{HayAnterior(cam)} 					\Comment O(4 x n) = O(n)	    
+			      \State AgregarAdelante(res, Anterior(cam)) 	\Comment O(copy(Anterior(cam))) = O(1)
+			      \State Retroceder(cam) 				\Comment O(1)
+			      \State i $\gets$ i + 1 				\Comment O(1)
+			    \EndWhile
+			    
+			     \While{i $\neq$ 0} 					\Comment O(3 x n) = O(n)
+			      \State Avanzar(cam) 				\Comment O(1)
+			      \State i $\gets$ i - 1 				\Comment O(1)
+			    \EndWhile
+			    
+			\EndIf
+			\medskip
+			\Statex \underline{Complejidad:} O(n + log(k))
+			\Statex \underline{Justificación:} Qvq O(n + log(k)) $\subseteq$ O(n x log(n + k)) = O(MAX(n,log(k))) $\subseteq$ O(n x log(MAX(n,k))). Si n<=k entonces O(MAX(n, log(k))) $\subseteq$ O(n x log(k)). Si n<=log(k) entonces O(log(k)) $\subseteq$ O(n x log(k)) esto es correcto, para el caso n>log(k) O(n) $\subseteq$ O(n x log(k)) esto es correcto. Para el caso n>k tenemos que O(n) $\subseteq$ O(n x log(n)) y esto tambi\'en es correcto. Con esto vemos que en todos los casos es correcto.
+    	\end{algorithmic}
+\end{algorithm}
+
+%icantidadEnviados:
+\begin{algorithm}[H]{\textbf{icantidadEnviados}(\In{d}{dc}, \In {c}{compu}) $\to$ $res$ : $nat$} 
+	\begin{algorithmic}
+			\State res $\gets$ Significado(c.hostname, d.\# Enviados)     \Comment O(long(c.hostname))
+			\medskip
+			\Statex \underline{Complejidad:} O(L)
+			\Statex \underline{Justificación:} O(long(c.hostname)) = O(L)
+    	\end{algorithmic}
+\end{algorithm}
+
+%iPaqueteEnTransito?:
+\begin{algorithm}[H]{\textbf{iPaqueteEnTransito?}(\In{d}{dc}, \In {p}{paquete}) $\to$ $res$ : $bool$} 
+	\begin{algorithmic}
+			\State res $\gets$ false	\Comment O(1)
+			\State iteradorCompu : itConj(compu) $\gets$ crearIT(Computadoras(d.red))  \Comment O(1)
+			\While {HaySiguiente(iteradorCompu) $\wedge$ $\neg$ res} 		\Comment O(n x (L + log(k) + 1)) $=$ O(n x (L + log(k)))
+				\State res $\gets$ Pertenece(p, Significado(d.enEspera, hostname(Siguiente(c)))))		\Comment O(long(hostname(Siguiente(c))) + log(k)) $=$ O(L + log(k))	
+				\State Avanzar(iteradorCompu) 					\Comment O(1)  
+			\EndWhile
+			\medskip
+			\Statex \underline{Complejidad:} O(n x (L + log(k)))
+			\Statex \underline{Justificación:} O(n x (L + log(k)) + 2) = O(n x (L + log(k)))
+    	\end{algorithmic}
+\end{algorithm}
+
+%iLaQueMasEnvio:
+
+\begin{algorithm}[H]{\textbf{iLaQueMasEnvio}(\In{d}{dc}) $\to$ $res$ : $compu$} 
+	\begin{algorithmic}
+			\State res $\gets$ *d.LaQueMasEnvio \Comment O(1)
+			\medskip
+			\Statex \underline{Complejidad:} O(1) 
+    	\end{algorithmic}
+\end{algorithm}
+
+
+
+
+\end{Algoritmos}
+

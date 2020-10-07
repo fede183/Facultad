@@ -1,0 +1,20 @@
+<vacia>
+Pepe Australia 14 196 
+Peped Australia 16 178 
+Pepea Australia 16 178 
+Pepeb Australia 16 178 
+Pepec Australia 16 178 
+Uruguay 0.00 
+Uruguay 156.00 
+Jose Uruguay 8 156 
+Peru 171.50 
+Carlos Peru 8 156 
+Jorge Peru 8 187 
+<vacia>
+<vacia>
+Federico Holanda 10 165 
+FEDERICO Holanda 10 5 
+Federico Holanda 10 165 
+Javier Holanda 5 178 
+FEDERICO Holanda 10 5 
+JAVIER Holanda 5 5 

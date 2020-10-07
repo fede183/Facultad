@@ -1,0 +1,182 @@
+
+\section{Ejercicio 2}
+\subsection{Introducción}
+En este problema buscamos minimizar el tiempo necesario para llegar desde el principio del pasillo en la planta baja al final del pasillo en el último piso.
+Se garantiza que existe al menos un camino entre estos puntos.
+
+
+\subsection{Desarrollo}
+Para resolver este ejercicio en la complejidad pedida consideramos usar un algoritmo Breadth-First Search.
+Sin embargo, como usar un portal tiene costo distinto a caminar en el mismo piso y los portales pueden estar a cualquier distancia entre si, necesitamos primero normalizar los costos.
+Para ello consideramos en lugar de un grafo con solo portales como vértices, uno donde cada posición de cada piso esta representada.
+De ésta forma, entre portales del mismo piso hay tantos vértices como posiciones intermedias, y atravesar cada una tiene costo 1, por lo que es suficiente contar la cantidad vértices.
+Como utilizar un portal tiene costo 2, agregamos un nodo intermedio entre las ubicaciones que comunica cada portal.
+De esta forma, la distancia entre cada posición y portal queda definida por la cantidad de vértices intermedios, con lo cual podemos aplicar BFS para obtener el resultado.
+
+
+Para representar esta conversión, usamos una matriz de $N+1 \times  L+1$ posiciones (incluimos desde la posición $0$ a la $L$ de cada piso), donde cada posición almacena su piso, metro, distancia hasta ella -inicialmente 0, indicando que no fue calculada- y sus vecinos. 
+Para cada una, sus vecinos son los destinos de cualquier portal que este ubicado allí y las posiciones contiguas a izquierda y derecha, si existen. A partir de los parámetros de entrada $N$, $L$ y la lista de portales, se construye esta matriz de acuerdo al siguiente procedimiento:
+
+
+\begin{algorithm}[H]
+\caption{Inicialización de Camino Mínimo}\label{init-ej2}
+\begin{algorithmic}[3]
+\Procedure{Init}{}
+\State $\textit{N} \gets \text{cantidad de pisos}$
+\State $\textit{L} \gets \text{largo de pasillos}$
+\State $\textit{portales} \gets \text{lista de portales}$
+\State $mapaPortales \gets $matriz de $N+1$ filas y $L+1$ columnas
+
+\for {$i = 0\text{ hasta }N$}
+\for{$j = 0\text{ hasta }L$}
+\State $vecinos \gets \text{nueva lista vacía de}Posicion$
+\State $pos \gets \text{nueva }Posicion(i,j,vecinos) $
+\State $mapaPortales_{i,j} \gets pos$
+\EndFor
+\EndFor
+
+\for {$i = 0\text{ hasta }N$}
+\for{$j = 0\text{ hasta }L$}
+\If{$j > 0$}
+\State $mapaPortales_{i,j}.vecinos.agregarAtras(mapaPortales_{i,j-1})$
+\EndIf
+\If{$j < l$}
+\State $mapaPortales_{i,j}.vecinos.agregarAtras(mapaPortales_{i,j+1})$
+\EndIf
+\EndFor
+\EndFor
+
+
+\for {cada $portal$ en $portales$}
+\State $d \gets portal.desde$
+\State $h \gets portal.hasta$
+\State $mapaPortales_{d.piso, d.metros}.vecinos.agregarAtras(mapaPortales_{h.piso, h.metros})$
+\State $mapaPortales_{h.piso, h.metros}.vecinos.agregarAtras(mapaPortales_{d.piso, d.metros})$
+\EndFor
+  
+
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+Mientras calculamos distancias entendemos que hay un portal entre una posición y su vecino si están en diferentes pisos, o a mas de un metro de distancia en el mismo piso. 
+Si hubiera un portal entre dos ubicaciones contiguas no lo consideramos, dado que es más barato caminar entre ellas.
+Cuando existe un portal, encolamos el vértice intermedio, cuyo único vecino es el nodo destino del portal al que corresponde.\\
+Se implementa este comportamiento por medio del siguiente algoritmo:
+
+
+
+\begin{algorithm}[H]
+\caption{Camino Mínimo}\label{alg-ej2}
+\begin{algorithmic}[4]
+\Procedure{CaminoMinimo}{}
+\State $mapaPortales \gets$ matriz de $N$ filas y $L$ columnas construida con el procedimiento \ref{init-ej2}
+\State $\textit{verticesRestantes} \gets \text{cola de }Posicion$
+\State $\textit{verticesRestantes}.encolar(mapaPortales_{0,0})$
+
+\while {$verticesRestantes$ no vacía}
+\State $pos \gets verticesRestantes.desencolar()$
+\for{$Posicion destino$ en $pos.vecinos$}
+\If{$destino.distancia = 0$}
+\If{$hayPortal(pos,destino)$}
+\State $portalBuffer \gets$ nueva $Posicion(destino.piso, destino.metro)$
+\State $portalBuffer.distancia = pos.distancia + 1$
+\State $portalBuffer.vecinos.agregarAtras(destino)$
+\State $verticesRestantes.encolar(portalBuffer)$
+\Else
+\State $destino.distancia = pos.distancia + 1$
+\State $verticesRestantes.encolar(destino)$
+\EndIf
+\EndIf
+\EndFor
+\EndWhile
+
+\Return $mapaPortales_{N,L}.distancia$
+
+
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+Al terminar el algoritmo, devolvemos el costo de llegar a la última posición del último piso.
+
+
+
+
+\subsection{Correctitud}
+
+Tal como describimos en la sección anterior, representamos los costos añadiendo nodos intermedios. El costo de moverse entre dos posiciones en un piso es de un segundo por metro, es decir, igual a la cantidad de metros. 
+En el algoritmo propuesto, construimos la matriz $mapaPortales$ de tamaño $N+1 \times L+1$ donde cada elemento $mapaPortales_{i,j}$ representa la posición en el piso $i$ a los $j$ metros del inicio del pasillo. 
+De esta manera, todos los metros de cada pasillo están representados en la matriz. 
+Adicionalmente, como se puede observar en el pseudocódigo \ref{init-ej2} (lineas 11 a 16), cada elemento tiene como vecinos a sus posiciones aledañas.
+
+Durante la ejecución del algoritmo tomamos cada elemento de la matriz como un vértice, por lo que la distancia en metros entre dos posiciones del mismo piso resulta ser igual a la cantidad de vértices intermedios.
+
+
+Análogamente, al agregar un nodo intermedio para cada portal, igualamos el costo de utilizarlos al número de vértices a recorrer para llegar a destino agregando un nodo intermedio, de acuerdo a lo expuesto en el pseudocódigo \ref{alg-ej2} (lineas 9 a 13). 
+
+Finalmente, el algoritmo se reduce a BFS: Se encola un nodo inicial y mientras la cola no este vacía, se desencola un nodo $n$, se encolan todos sus vecinos y se le asigna a cada uno la distancia de $n$ al origen más uno, si no estaba ya calculada.
+Por lo tanto, podemos asegurar que el algoritmo es correcto a partir de la correctitud de BFS, probada en la bibliografía \cite{Cormen}.
+
+
+\subsection{Complejidad}
+
+Para la inicialización de la estructura en la que se basa el algoritmo, de acuerdo a lo descrito en el pseudocódigo \ref{init-ej2}, se itera sobre las $N+1$ filas y $L+1$ columnas de la matriz para inicializarla y luego asignar los vecinos adyacentes a cada posición. Finalmente, se itera sobre la cantidad de portales para añadir las posiciones conectadas a las listas de vecinos correspondientes. La lista de vecinos se implementa sobre una lista enlazada y sus inserciones se realizan en tiempo constante. De igual manera, la construcción de instancias del tipo $Posicion$ también tiene costo $O(1)$. A partir de esto, podemos acotar el costo de inicialización por $O(NL + P)$
+
+
+Dada la representación elegida, tenemos $NL + P$ vértices, uno por cada metro en cada pasillo, y uno intermedio por cada portal.
+Asimismo, la cantidad de aristas por cada posición $p_{i,j}$ es $2 + Portales(p_{i,j})$, donde $i$ es el piso, $j$ el metro y $Portales(x)$ la cantidad de portales con un extremo en la posición $x$.
+
+Como cada portal es bidireccional, se representa en ambos extremos (ver pseudo \ref{alg-ej2}, lineas 18 a 21), por lo que durante la ejecución de BFS se suma dos veces.
+Luego, la cantidad de aristas del grafo es $2 (NL + P)$
+
+Durante la ejecución del algoritmo, por cada vértice en la cola se ejecutan operaciones, que dadas las estructuras utilizadas son $O(1)$, tantas veces como vecinos tenga ese nodo.
+Si el grafo es conexo, como para cada vértice se encolan sus vecinos no visitados, el ciclo se ejecuta una vez por nodo. Si no fuera conexo, se visitarán menos vértices.
+
+Entonces, cada ejecución del ciclo principal sobre un vértice $v$ tiene un costo $O(1 + E_v)$, con $E_v$ la cantidad de aristas incidentes a $v$. Como en el peor caso (grafo conexo) se visitan todos los nodos del grafo, la sumatoria de este costo sobre todos ellos es $O(|V| + |E|)$, donde $V$ y $E$ son los conjuntos de vértices y aristas del grafo respectivamente. 
+
+Como establecimos previamente, la cantidad de vértices del grafo que consideramos es $NL + P$, y la de aristas es $2 (NL + P)$, por lo que el costo en peor caso suma $O((NL + P) + 2(NL + P))$, que queda acotado por $O( NL + P )$.
+
+\subsection{Experimentación}
+
+Dado que la complejidad temporal del código de inicialización es igual al del algoritmo, decidimos obviarlo de las mediciones de tiempos y concentrar nuestro análisis en el código que resuelve el problema.
+
+Consideramos el grafo completo como el peor caso, ya que al ser conexo se analizan todos los vertices, y cada uno tiene la máxima cantidad de vecinos. En particular, al haber un portal entre el principio del pasillo en planta baja y el final en el último piso, el resultado esperado es $2$.
+Al estar dado por la máxima cantidad de portales, que depende del tamaño del grafo ya que cada posición puede tener un portal a cada una de las $NL - 1$ posiciones restantes, observamos los tiempos variando $NL$.
+
+Para el mejor caso consideramos que al tener como única restricción la existencia de un camino entre la primer posición de la planta baja y la última de la mas alta, basta incluir un portal desde el piso $0$ al $N$. Elegimos un portal entre la posición inicial y final, con lo que el resultado esperado es el mismo al del caso anterior.
+Análogamente al anterior, este caso se da en la mínima cantidad de portales, por lo que realizamos el mismo análisis en función de $NL$.
+
+En los experimentos realizados se observaron resultados similares al fijar una variable del producto $NL$, aumentando la otra para variarlo.
+
+\begin{figure}[H]
+\input{plots/Tp2Ej2Exp1.tex}
+\caption{Comparación de tiempos variando NL}
+\end{figure}
+
+Omitimos de esta figura las mediciones del mejor caso, dado que involucra $2L$ vértices, pues la componente conexa que contiene la primer posición del piso 0 y la última del piso N esta compuesta por los nodos de ambos pasillos, sus tiempos de ejecución son mucho menores a los de peor caso, aun aumentando $L$ para variar $NL$.
+
+
+Como no realizamos optimizaciones sobre BFS para especializarlo al problema de la búsqueda de camino mínimo de uno a uno, el costo del algoritmo es el mismo para cualquier par de metros en los pisos elegidos, pues se analizan la misma cantidad de nodos y ejes.
+Esto es porque se calcula la distancia a todos los vértices de la componente conexa del nodo original. Debido a la forma de representar el problema que elegimos, en la ausencia de portales tenemos por cada piso una componente conexa. Al agregar portales entre pisos, las unimos. 
+
+
+Dado que para este algoritmo, una vez que se calcula la distancia a un nodo sabemos que su valor es final, podríamos detener la ejecución ni bien se calcule la distancia a la posición final. Para esto, agregamos al algoritmo descrito en el pseudocódigo \ref{alg-ej2} un chequeo sobre la distancia a la posición en $mapaPortales_{N,L}$ luego de calcular la distancia para cada vecino de una posición, y devolvemos ese valor si ya fue calculado.
+
+La complejidad temporal sigue estando acotada por $O(NL+P)$, pero en ciertos casos 
+mejora considerablemente el tiempo de ejecución. 
+
+Con esta modificación, entendemos que el peor caso se dará cuando se deban visitar todos los nodos antes de llegar al vértice objetivo. Esto sucede cuando se cuenta con un grafo completo entre los pisos 0 y N-1, con el último piso conectado en su posición 0 con algún nodo del anterior.
+
+\begin{figure}[H]
+\input{plots/Tp2Ej2Exp2.tex}
+\caption{Comparación de tiempos variando NL}
+\end{figure}
+
+Nuevamente omitimos de la figura el mejor caso. Con esta modificación, en ese escenario solo se calcula la distancia al vértice objetivo independientemente de la cantidad de vértices o portales, por lo que su tiempo de ejecución es casi inmediato.
+
+
+
+

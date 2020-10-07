@@ -1,0 +1,5 @@
+#vecindario solucionInicial cantNodos cantColores conflictos tiempoEnMS
+1 0 10 10 0 3
+1 0 20 10 10 9
+1 0 30 10 30 6
+1 0 40 10 60 9

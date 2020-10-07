@@ -1,0 +1,25 @@
+1) Versión levemente modificada de un programa.
+2) Regla para derivar mutantes a partir de un programa.
+3) Se realizan las mutaciones(#M) en el programa P, se ejecuta el test T, se obtienen la cantidad de mutantes vivos(#MV)(los cuales no modificaron 
+el resultado del test) y el mutation scope = #MV/#M.
+4) Un mutante es una modificación de la sintaxis, si dicha modificación no altera la semántica se tiene un mutante equivalente
+5)
+boolean containsElem(List l, int elem) {
+	Node curr = l.header;
+	while (curr!=null) {
+		if (curr.value==abs(elem)) {
+			return true;
+		}
+		curr = curr.next;
+	}
+	return false;
+}
+6)
+@Test 
+void test(){
+	List<Node> l = new List<Node>();
+	Node node = new Node();
+	node.value = -1;
+	l.add(node);
+	assertTrue(containsElem(l, node));
+}

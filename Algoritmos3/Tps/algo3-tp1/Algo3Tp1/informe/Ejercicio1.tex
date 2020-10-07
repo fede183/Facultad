@@ -1,0 +1,123 @@
+
+\section{Ejercicio 1}
+\subsection{Introducción}
+
+El problema a resolver consiste en lograr conectar la mayor cantidad de ciudades con los metros asignados(sin hacer cortes en el cable). La complejidad pedida es $O(n)$, con $n$ la cantidad de ciudades.
+
+\underline{\textbf{Ejemplos}}
+
+Para los ejemplos denotaremos:
+
+\emph{K}, a la cantidad de kilómetros de cable.\\
+\emph{L}, a la lista de los kilometrajes de las estaciones en el ramal sin cosiderar el 0.
+
+
+\begin{enumerate}
+\item 
+K = 6, L = [6 8 12 15]\\
+El algoritmo debería devolver: 3
+
+\item
+K = 35, L = [8 14 20 40 45 54 60 67 74 89 99]\\
+El algoritmo debería devolver: 6
+
+\item
+K = 4, L = [5 13 19 26 35]\\
+El algoritmo debería devolver: 0
+
+\end{enumerate}
+
+\subsection{Desarrollo}
+
+Para simplificar los cálculos, construimos un arreglo a partir de los kilometrajes de entrada que contiene la diferencia entre el kilometraje de una ciudad y su inmediata anterior. Esto representará el costo, en kilómetros de cable, de conectar una ciudad con la más próxima.
+
+Consideramos dos indices sobre el arreglo de costos, que denotarán el inicio y fin de una ruta.
+Mientras podemos agregar ciudades a esta ruta, las recorremos con el indice fin.
+Cuando el cable restante no es suficiente para agregar una nueva ciudad, corremos el indice de inicio la hasta poder agregar una nueva en el otro extremo de la ruta.
+Si no fuera posible, habremos corrido el indice de inicio a la misma posición que la de fin, de manera que contamos con todo el cable posible y aun no pudimos conectar la siguiente ciudad. 
+En este caso se sigue a partir de la próxima, ya que era imposible conectar las dos anteriores.
+
+Mantenemos la cantidad de ciudades en la ruta a medida que las sacamos o agregamos, y a partir de esto guardamos la mayor cantidad de ciudades conectadas por una ruta. 
+Al agregar o restar ciudades consideramos que al conectar la primer ciudad, estamos implícitamente conectándola con la anterior, y análogamente, al sacar la ultima ciudad, desconectamos dos.
+
+\subsection{Correctitud}
+Recibimos una secuencia T de ciudades y un cable de M kilómetros. Tenemos que devolver el tamaño de la mayor subsecuencia de ciudades contiguas en T, que tiene la condición de cubrir una longitud menor o igual a M. Llamaremos $C_i$ a la subsecuencia de mayor tamaño con inicio en la ciudad $i$, y \#$C_i$ a la cantidad de ciudades que cubre.
+
+Lograremos obtener la mayor subsecuencia posible recorriendo todas las subsecuencias maximales (que no se les puede agregar otra ciudad sin superar la distancia M) posibles y quedándonos con la de mayor tamaño.
+
+\newpage
+
+El algoritmo construye todos los $C_{i}$ posicionándose en una ciudad y extendiendo el cable hacia adelante lo más que puede. De ésta forma, crea el $C_{i}$ más largo con ciudad inicial en $i$. Ésto significa que todas las ciudades aparecen como el comienzo de $C_{i}$ para algún $i$, salvo las ciudades que sean parte de la ruta maximal que incluye la última ciudad, que denotaremos $C_f$.
+Asimismo, en cada paso guarda el máximo entre \#$C_{i}$ y el máximo guardado a partir de las iteraciones anteriores (o 0, si es la primera), que llamaremos \#$C_{max}$.
+
+Por lo tanto, como todas las secuencias maximales fueron consideradas y ninguna tuvo mayor tamaño, \#$C_{max}$ es el tamaño de la subsecuencia mas grande que se puede cubrir con M kilómetros de cable.
+
+
+\subsection{Complejidad}
+
+Para la construcción del arreglo de costos recorremos linealmente la lista de kilometrajes de entrada, esto tiene una complejidad $O(n)$.
+Luego, para la resolución del problema, recorremos este arreglo a lo sumo dos veces, con costo lineal cada una, por lo que la complejidad final del algoritmo queda acotada por $O(n)$.
+
+
+\subsection{Experimentación}
+Consideramos que el mejor caso para este algoritmo se dará cuando no sea necesario mover el indice de inicio y se itere solo una vez sobre la secuencia de entrada una vez construida la secuencia de costos. Por otro lado, el peor caso se dará cuando ambos indices lleguen al final, iterando dos veces sobre la entrada. 
+Sin embargo, en los resultados experimentales observamos que el caso aleatorio tuvo mayor tiempo de ejecución. Relacionamos esto a los distintos costos constantes incurridos en cada ciclo.
+
+
+\begin{figure}[H]
+  \centering
+  \input{plots/Tp1Ej1.tex}
+   %\includegraphics[width=1.1\textwidth]{imagenes/ExperimentoEj2.png}
+  \caption{Tiempos de ejecución para ej.1}
+\end{figure}
+
+\newpage
+
+Para mostrar el correcto funcionamiento del algoritmo usaremos los siguientes tests, que corren con TelegrafoTestCorrectitud.java.
+
+Caso 1:
+Km cable: 10
+
+kilometrajes: 23 55 84 113 140 190 234 302 543
+
+En el primer lugar tenemos un caso donde los kilómetros de cable que se tienen son insuficientes para conectar cualquiera de los puntos.
+
+Caso 2:
+Km cable: 1000
+
+kilometrajes: 32 43 65 345 458 679 789 912 934
+
+En este hacemos lo contrario del anterior y le damos suficiente como para conectarlas a todas.
+
+Caso 3:
+Km cable: 234
+
+kilometrajes: 2 45 78 90 137 159 563 982 142
+
+En el tercer caso tenemos la cantidad de cable como para llegar a la sexta posición y este nos da la máxima cantidad posible. En otras palabras, nuestro resultado es conectar
+las primeras ciudades.
+
+Caso 4:
+Km cable: 158
+
+kilometrajes:  451 675 921 1678 2762 2789 2793 2801
+
+Contrario al anterior, conectamos las últimas cuatro.
+
+
+Caso 5:
+Km cable: 19
+
+kilometrajes: 34 59 93 167 192 194 198 254 452
+
+Por último, en vez de conectar las primeras o las segundas, nos queda unido un tramo en la mitad. Osea no las primeras o las últimas sino las que se encuentran en el medio de
+la ruta. Y con esto cubrimos todos los hipotéticos casos en cuanto a la ubicación del resultado buscado.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+f(x) = ((x-500)**2) * 0.00000004+0.2
+set xlabel 'N L'
+#set ylabel 'Tiempo'
+set ylabel "\\rotatebox{90}{Tiempo}" 
+set xrange [500:5000]
+set yrange [0:1]
+#set terminal latex
+set out 'Tp2Ej2Exp2.tex'
+plot 'Tp2Ej2.opt.time.out' using 1:3 smooth bezier title 'Grafo completo' lw 2, \
+'' using 1:2 smooth bezier title 'Mejor caso' lw 2, \
+f(x) with lines title 'O(NL + P)' lw 2
+set out

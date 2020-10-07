@@ -1,0 +1,99 @@
+
+
+unsigned int posicionMin(int A[], int inicio, int fin){
+	unsigned int posMin = inicio;
+	for(unsigned int i = inicio + 1; i < fin; i++){
+		if(A[posMin] > A[i]){
+			posMin = i;
+		}
+	}
+	return posMin;
+}
+
+void SelectionSort(int A[], int n){
+	unsigned int MinPos;
+	int Aux;
+	for(unsigned int i = 0; i < n; i++){
+		MinPos = posicionMin(A, i, n);
+		Aux = A[i];
+		A[i] = A[MinPos];
+		A[MinPos] = Aux;
+	}
+}
+
+void InsertionSort(int A[], int n){
+	unsigned int j;
+	int elem;
+	bool NoEncontre;
+	for(unsigned int i = 1; i < n ; i++){
+		j = i - 1;
+		elem = A[i];
+		NoEncontre = true;
+		while(j >= 0 && NoEncontre){
+			if(A[j] > elem){
+				A[j + 1] = A[j];
+				j--;
+			}
+			else{
+				NoEncontre = false;
+			}
+		}
+	}
+}
+
+void merge(int A[], int inicio, int destino, int mitad){
+	int i, j, k;
+    int n1 = m - l + 1;
+    int n2 =  r - m;
+
+	for(i = 0; i < n1; i++)
+        L[i] = A[l + i];
+    for(j = 0; j < n2; j++)
+        R[j] = A[m + 1+ j];
+
+    i = 0;
+    j = 0;
+    k = l;
+    while (i < n1 && j < n2){
+        if (L[i] <= R[j]){
+            A[k] = L[i];
+            i++;
+        }
+        else{
+            A[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1){
+        A[k] = L[i];
+        i++;
+        k++;
+    }
+
+    while (j < n2){
+        A[k] = R[j];
+        j++;
+        k++;
+    }
+} 
+
+
+
+void MergeSort(int A[], int inicio = 0, int destino){
+	if (n >= 2){
+		unsigned int mitad = n/2;
+		MergeSort(A, inicio, mitad);
+		MergeSort(A, mitad + 1, fin);
+		merge(A, inicio, destino, mitad);
+	}
+	
+}
+
+
+
+int main(){
+
+	return 0;
+}

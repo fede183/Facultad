@@ -1,0 +1,172 @@
+#include "Driver.h"
+#include "ArbolSintactico.h"
+
+namespace aed2 {
+
+Driver::Driver(){
+    // TODO
+    _ID = 0;
+    driver_dcnet = NULL;
+}
+
+Driver::~Driver() {
+    // TODO
+    if(driver_dcnet != NULL){
+        delete driver_dcnet;
+    }
+    
+    for(Nat i = 0; i < ListaPaquetesABorrar.Longitud(); i++){
+        delete ListaPaquetesABorrar[i];
+    }
+}
+
+// TAD RED
+Nat Driver::CantidadComputadoras() {
+    // TODO
+    return driver_red.Computadoras().Cardinal();
+
+}
+
+const Computadora& Driver::IesimaComputadora(const Nat i) {
+    // TODO
+    typename Conj<compu>::const_Iterador iter = driver_red.Computadoras().CrearIt();
+    Nat j = i;
+    while(j > 0){
+        iter.Avanzar();
+        j--;
+    }
+    return iter.Siguiente().hostname;
+}
+        
+Nat Driver::CantidadInterfacesDe(const Computadora& c) {
+    // TODO
+    typename Conj<compu>::const_Iterador iter = driver_red.Computadoras().CrearIt();
+    while(iter.Siguiente().hostname != c){
+        iter.Avanzar();
+    }
+    return iter.Siguiente().interfaces.Cardinal();
+
+}
+
+const Interfaz& Driver::IesimaInterfazDe(const Computadora& c, const Nat i){
+    // TODO
+    typename Conj<compu>::const_Iterador iter = driver_red.Computadoras().CrearIt();
+
+    while(iter.Siguiente().hostname != c){
+        iter.Avanzar();
+    }
+    typename Conj<interfaz>::const_Iterador interfazIter = iter.Siguiente().interfaces.CrearIt();
+    Nat j = i;
+    while(j > 0){
+        interfazIter.Avanzar();
+        j--;
+    }
+    return interfazIter.Siguiente();
+
+} 
+
+const Interfaz& Driver::IntefazUsada(const Computadora& c1, const Computadora& c2)  {
+    // TODO
+
+    return driver_red.interfazUsada(*CompusPorHostname.obtener(c1), *CompusPorHostname.obtener(c2));
+
+}
+
+bool Driver::conectadas(const Computadora& c1, const Computadora& c2)  {
+    // TODO
+
+    return driver_red.Conectadas((*CompusPorHostname.obtener(c1)), (*CompusPorHostname.obtener(c2)));
+}
+
+// TAD DCNET
+void Driver::AgregarComputadora(const Computadora& ip, const Conj<Interfaz>& ci) {
+    // TODO
+    compu c(ip, ci);
+    CompusPorHostname.definir(ip, c);
+    driver_red.AgregarComputadora(c);
+}
+        
+void Driver::Conectar(const Computadora& c1, const Interfaz& i1, const Computadora& c2, const Interfaz& i2) {
+    // TODO
+    return driver_red.Conectar(*CompusPorHostname.obtener(c1), *CompusPorHostname.obtener(c2), i1, i2);
+}
+    
+    
+Nat Driver::CantidadNodosRecorridosPor(const Paquete& p) {
+    // TODO
+    return driver_dcnet->CaminoRecorrido(TodosLosPaquetes.SignificadoNat(p)).Longitud();
+}
+
+const Computadora Driver::IesimoNodoRecorridoPor(const Paquete& p, const Nat i)  {
+    // TODO
+    string resu = (driver_dcnet->CaminoRecorrido(TodosLosPaquetes.SignificadoNat(p)))[i].hostname;
+    return resu;
+}
+
+Nat Driver::CantidadEnviadosPor(const Computadora& c) {
+    // TODO
+    return driver_dcnet->CantidadEnviados(*CompusPorHostname.obtener(c));
+}
+    
+Nat Driver::CantidadEnEsperaEn(const Computadora& c) {
+    // TODO
+    return driver_dcnet->EnEspera(*CompusPorHostname.obtener(c)).cantidad();
+}
+
+Nat Driver::IesimoEnEsperaEn(const Computadora& c, const Nat i) {
+    // TODO
+    //cout << ((driver_dcnet->EnEspera(*CompusPorHostname.obtener(c)).aLista())[i]).id<< '\n'; 
+    return ((driver_dcnet->EnEspera(*CompusPorHostname.obtener(c)).aLista())[i]).id;
+}
+
+void Driver::CrearPaquete(const Computadora& origen, const Computadora& destino, Nat prioridad) {
+    // TODO
+    if(driver_dcnet == NULL){
+        driver_dcnet = new DCNet(driver_red);
+    }
+    paquete* p1 = new paquete((*CompusPorHostname.obtener(origen)), (*CompusPorHostname.obtener(destino)));
+    p1->id = _ID;
+    //cout << "El _ID es:"<<_ID <<'\n';
+    _ID ++;
+    p1->prioridad = prioridad; //Prio no se asigna
+    //p1.origen = (*CompusPorHostname.obtener(origen));
+    //p1.destino = (*CompusPorHostname.obtener(destino));
+    TodosLosPaquetes.DefinirNat(p1->id, *p1);
+    driver_dcnet->CrearPaquete(*p1);
+    ListaPaquetesABorrar.AgregarAtras(p1);
+    //cout << p1.origen.hostname;
+}
+        
+void Driver::AvanzarSegundo() {
+    // TODO
+    //assert(driver_dcnet != NULL);
+    //if(driver_dcnet == NULL){
+    //    driver_dcnet = new DCNet(driver_red);
+    //}
+    driver_dcnet->AvanzarSegundo();
+}
+        
+const Computadora& Driver::laQueMasEnvio() const {
+    // TODO 
+    return driver_dcnet->LaQueMasEnvio().hostname;
+}
+
+const Computadora& Driver::origen(const Paquete& p) const {
+    // TODO 
+    
+    return TodosLosPaquetes.SignificadoNat(p).origen.hostname;
+} 
+
+const Computadora& Driver::destino(const Paquete& p) const { 
+    // TODO 
+    return TodosLosPaquetes.SignificadoNat(p).destino.hostname;
+}
+
+Nat Driver::prioridad(const Paquete& p) const { 
+    // TODO 
+    return TodosLosPaquetes.SignificadoNat(p).prioridad;
+}
+        
+
+} // namespace aed2
+

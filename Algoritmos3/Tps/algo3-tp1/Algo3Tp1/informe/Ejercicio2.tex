@@ -1,0 +1,130 @@
+
+\section{Ejercicio 2}
+\subsection{Introducción}
+El problema consiste en recorrer una secuencia de n\'umeros y, por cada posición, devolver la mediana de los valores hasta ese punto. Se tiene una complejidad objetivo estrictamente menor a $O(n^2)$
+
+
+\subsection{Desarrollo}
+
+Para resolver el problema en la complejidad pedida utilizaremos dos estructuras que nos permitir\'an guardar los valores por los que ya hallamos pasado. Estas ser\'an dos colas de prioridad (una max Heap y otra min Heap).
+
+Guardamos en el max Heap todos los valores menores al mediano y la min Heap los  mayores. Mientras cada cola tenga los elementos vistos ordenados de esta manera tendremos la seguridad de que al observar un elemento nuevo, para introducirlo al sistema solamente tendremos que ver si el nuevo elemento es mayor o menor al próximo de cada una.
+Para calcular la mediana, sabremos que si las dos colas tienen la misma cantidad de números esteremos en el caso par. Si la diferencia es 1, estamos en el caso impar.
+Para mantenernos en estos dos casos, si al insertar un elemento la diferencia entre los tamaños de las colas es mayor a 1, balanceamos las colas. Es decir, desencolamos para la cola más grande e introducimos el valor quitado en la más pequeña. 
+
+
+Con el siguiente ejemplo podemos ver como funcionan las colas cuando el arreglo es [80, 50].
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.45\textwidth]{imagenes/ej2-ejemplo.png}
+\end{figure}
+
+\newpage
+
+Vemos en el primer paso se pone a 80 en menores ya que no hay ninguno más en las colas. En el segundo, el 50 es menor que el único valor de la cola menores. 
+Por lo tanto se lo coloca en está y queda en el segundo lugar, pero entonces tenemos una cola con dos elementos y la otra con ninguno. Para resolver esto pasamos el 80
+a la cola mayores y continua respetando su invariante. En el primer lugar la media es 80 (es el único que hay) y en el segundo es 65(80 + 50/2).
+
+
+\subsection{Correctitud}
+
+
+Podemos demostrar que el algoritmo es correcto por construcción.
+Partiendo de una lista de números considerados vacía, al agregar el primero se lo coloca en una de las colas. Al tener una cantidad impar de números, el mediano es el próximo de la cola con mayor elementos, que en este caso es el mismo número, lo que es correcto. 
+
+A partir de este punto, cada vez que se agrega un elemento, la cantidad de enteros considerados sera par e impar sucesivamente.
+ En ambos casos, al agregar el número se lo insertará en la cola correspondiente, según sea mayor que el mínimo de la cola de enteros mayores a la mediana, o menor al máximo de la cola de menores a la mediana. 
+Tras balancear las colas si fuera necesario, si la cantidad de números es par cada cola tiene la mitad de ellos. De esta manera, la mediana se calcula a partir de los próximos de cada cola y el resultado es correcto.
+ Si fueran impares, el próximo de la cola con más elementos tiene exactamente la misma cantidad de enteros menores a el como mayores, por lo que el resultado del algoritmo es la mediana.
+
+\begin{comment}
+Para demostrar que el algoritmo usado es correcto utilizaremos indución sobre el tamaño del arreglo.
+
+Quiero ver que: CB y ($\forall$ a : Lista(int))(P(a) $\Rightarrow$ ($\forall$ i : int)(P(AgregarAtras(a, i)))) 
+
+Siendo P(a) = true $\Leftrightarrow$ aMedias(a) es igual a la respuesta correcta esperada por el algoritmo.
+
+CB = P(b) donde b es una lista con un solo elemento.
+
+CB = La lista soló tiene un elemento, cuando esto ocurra entrará en el primer si y pondra el elemento en el arreglo resultado. No entrará en la guarda del mientras y
+con esto terminara. Devolviendo como resultado la mismo lista, esto es correcto ya que al soló haber un elemento el único mediano es el mismo.
+
+Resuelto el caso base, pasemos ahora al paso inductivo. Supongamos que sabemos que vale para n elementos, osea que dandole un arreglo de n elementos devuelve el resultado correcto. Veamos ahora que vale para n + 1 elementos. 
+
+Por hipotesis inductiva el resultado que nos da en n elementos es correcto y el arreglo de n + 1 elementos lo consideramos como agregarle un elemento al final del arreglo. Entonces irá construyendo el resultado correcto hasta llegar al último valor. Primero decidimos si pasarlo a la cola de menores o de mayores y si debemos reacomodarlas posteriormente.
+
+Supongamos el caso de que n sea par, entonces al ponerlo en una de las dos colas no hay necesidad de más cambios en la estructura. Si el nuevo elemento es el mediano del arreglo entonces quedará como menor a todos los mayores y mayor a todos los menores. Entonces ese mismo será último del resultado. En caso contrario se irá o bien a la de menores o a la de mayores y el mediano se decidirá por los valores que ya hay en las colas. Como se va a la de mayores (o menores) entonces hay un elemento más que es mayor(o menor) al mediano. entonces el que quede en la cola con un elemento mayor que la otra será el resultado(Es impar). 
+
+En el caso de que n sea impar, tenemos que al agregarlo en la respectiva estructura tendremos dos casos. Los cuales son si las desequilibra o si no.
+Si las desequilibra, entonces se las tendrá que reacomodar pasando el próximo de la que tiene más elementos a la otra. Nos quedará dos colas con la misma cantidad de valores. Pero si o si uno de los próximos es el mediano anterior. El otro puede ser el ingresado o uno que estuviese anteriormente. Suponiendo que fuese uno anterior, entonces sabemos que es correcto por HI, ya que lo único que hará el nuevo es decidir si es el de menores o el de mayores. Esto último significa que tenemos un nuevo elemento que será el que sea o bien mayor de los menores o el menor de los mayores(de los que están en el medio). En el caso contrario, este es menor que todos los mayores o mayor que todos los mayores. Por lo tanto el último valor del resultado se hará sumando el mediano anterior con el nuevo elemento, lo cual es correcto por lo que sabemos de este.
+
+Y con esto cubrimos todos los casos planteados y demostramos de forma semi-formal que el algoritmo es correcto.
+\end{comment}
+\subsection{Complejidad}
+La complejidad del algoritmo es O(n log n) en el peor caso. 
+Mientras que la complejidad pedida, por enunciado, es una estrictamente mejor a O($n^2$). Por lo tanto este cumple con lo pedido. 
+
+Esto lo podemos ver porque el peso de la complejidad recae principalmente en las operaciones con las colas de prioridad, las mismas según la documentacion de java es 
+O(log n) para la inserción y el borrado y O(1) para acceder al próximo. Con n cantidad de elementos. Tenemos un ciclo que se repite la cantidad de veces como el tamaño de 
+la entrada, en este mismo realizamos unas pocas operaciones constantes y cuanto mucho dos inserciones y un borrado. Entonces la complejidad nos cuesta O(n log n) con n
+la cantidad de elementos de la entrada.
+
+\subsection{Experimentación}
+
+Elegimos las siguientes entradas para experimentar la correctitud del ejercicio:
+
+Caso1: 2 6 11 45 89 192
+
+Caso2: 192 89 45 11 6 2
+
+La primera viene siendo una en la cual los elementos están ordenados de menor a mayor, la segunda es al revés. Con esto podemos ver si funciona correctamente en el caso en que
+la muestra tenga siempre que migrar entre las colas por cada elemento. 
+
+Caso 3: 54 54 54 54 54 54
+
+La tercera es simplemente una en la cual todos los elementos son iguales. Veremos que en este caso la entrada es igual a la salida, es un experimento sencillo para ver como se
+comporta en este caso borde. 
+
+Caso 4: 34 35 25 59 18 98
+
+Caso 5: 98 18 59 25 35 34
+
+\newpage
+
+La cuarta tiene sus valores saltando de uno menor otro mayor y así sucesivamente, al revés en el último. Esto nos permite saber si funciona en un caso en el cual no se da muy
+seguido la migración de elementos entre las colas.
+
+Los experimentos anteriores se pueden corroborar usando AMediasTest.java.
+
+
+Utilizando el archivo AMediasTestTiempo.java podemos calcular los tiempos de ejecución del algoritmo para muestras de gran tamaño. Utilizaremos tres entradas: peor caso, mejor caso y caso promedio
+. El peor caso en este algoritmo es obviamente en el cual tengamos que reacomodar los elementos de las colas una mayor cantidad de veces, para lograr esto simplemente le 
+daremos una muestra que esté ordenada (en nuestro caso de mayor a menor) y por ende siempre se la encolara en menores para, posteriormente, tener que pasar el próximo elemento
+de esta a la de mayores. Para el mejor caso lo que buscamos es, contrario al anterior, que nunca tenga caiga en el caso de tener que reacomodar los valores de las colas, 
+para esto la secuencia de valores deberá estar ordenada de tal forma que tengamos uno que vaya a la de mayores y el siguiente a la de menores y así sucesivamente. 
+Ej: [50, 49, 51, 48, 52, 47]. Por último tenemos el caso promedio, para este simplemente nos generamos valores aleatorios usando el tipo Random.
+
+
+\begin{figure}[H]
+  \centering
+  \input{plots/Tp1Ej2.tex}
+   %\includegraphics[width=1.1\textwidth]{imagenes/ExperimentoEj2.png}
+  \caption{Tiempos de ejecución para ej.2}
+\end{figure}
+
+
+Como podemos ver el caso promedio está siempre acotado por el mejor y el peor caso(abajo y arriba respectivamente).
+Se utilizaron muestras de esos tamaños simplemente porque eran lo suficientemente grandes como para que fueran apreciables los tiempos, pero a la vez no lo suficiente como para que replicar el experimente tardara excesivamente.
+Para que las mediciones sean correctas, se repite el proceso para cada una de las muestras 100 veces y se toma el promedio de los tiempos. 
+
+\begin{figure}[H]
+  \centering
+    \input{plots/Tp1Ej2.2.tex}
+    %\includegraphics[width=1.1\textwidth]{imagenes/Experimento2Ej2.png}
+  \caption{Tiempos de ejecución sobre complejidad teórica superior}
+\end{figure}
+
+Con este segundo gráfico se pretende mostrar de forma experimental que la complejidad es correcta. El propio enunciado pedía una complejidad menor a O($n^2$), entonces
+para mostrar que se cumple simplemente dividiremos los resultados de cada uno de los tiempos por el tamaño de la muestra al cuadrado. Podemos ver que para los tres casos
+la función parece tender a 0 y esto nos da la idea que el algoritmo es mejor que O($n^2$).

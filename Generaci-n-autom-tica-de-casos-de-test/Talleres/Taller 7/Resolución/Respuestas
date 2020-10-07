@@ -1,0 +1,8 @@
+Ejercicio 1)
+	-A) No generó ningún error.
+	-B) 1 chashes. 0 hangs. El tamaño mínimo de los inputs que generan crashes es de 0.
+	-C) 0.
+Ejercicio 2)
+	-A) No generó ningún error.
+	-B) 1 chashes. 6 hangs. El tamaño mínimo de los inputs que generan crashes es de 5.
+	-C) 8.

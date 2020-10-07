@@ -1,0 +1,1 @@
+C |Hoits| [] [(3,0),(1,0)] [(3,0),(1,0)] [(3,(P |Hola| [|Aventura|] [|Pedro|] 1)),(1,(P |jfsdanhfgdfsg| [|Aventura|,|Comedia|,|Drama|] [|Mas dame c++|,|dsdsds|,|ckuc|] 1))]

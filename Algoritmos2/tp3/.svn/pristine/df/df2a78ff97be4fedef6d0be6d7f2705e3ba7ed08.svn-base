@@ -1,0 +1,235 @@
+#ifndef RED_
+#define RED_
+
+#include <assert.h>
+#include <iostream>
+#include <cassert>
+#include <math.h>
+#include "aed2.h"
+
+using namespace std;
+
+typedef int interfaz;
+struct compu{
+    string hostname;
+    Conj<interfaz> interfaces;
+};
+
+class Red
+{
+	public:
+		// Constructor. Genera una red sin computadoras.
+		Red();
+
+		// Destructor. Debe dejar limpia la memoria.
+		~Red();
+
+		//Agrega una computadora a la red.
+		void AgregarComputadora(compu&);
+
+		//Conecta dos computadoras en una red.
+		void Conectar(compu&, compu&, interfaz, interfaz);
+
+		//Devuelve un conjunto con todas las computadoras de la red.
+		Conj<compu> Computadoras() const;
+
+		//Devuelve true si y solo si las dos computadoras estan conectadas.
+		bool Conectadas(compu&, compu&) const;
+
+		//Devuelve la interfaz que conecta dos computadoras.
+		interfaz interfazUsada(compu&, compu&) const;
+
+		//Devuelve el conjunto de computadoras conectadas a compu pasada.
+		Conj<compu> Vecinos(compu&);
+
+		//Devuelve true si y solo si la interfaz de la compu esta siendo usada.
+		bool UsaInterdaz(compu&, interfaz&);
+
+		//Devuelve todos los caminos minimos para llegar de la primera computadora a la segunda.
+		Conj<Lista<compu> > CaminoMinimo(compu&, compu&);
+
+		//Devuelve true si y solo si existe uno o mas caminos por los cuales se puede llegar desde la primer compu hasta la segunda.
+		bool HayCamino(compu& ,compu&);
+
+
+		//Auxiliares 
+		Conj<Lista<compu> > AuxCaminos(Red r, compu c1, compu c2, Lista<compu> recorrido, Conj<compu> candidatos);
+		Conj<Lista<compu > > ConstruirCaminosMinimos(Red &r, compu c1, compu c2);
+
+	private:
+		
+		Conj<compu> Compus;
+		DiccString<	DiccString< Conj<compu> > > Conexiones;
+		DiccString<	DiccString< interfaz > > InterfacesQueConectan;
+		DiccString<	DiccString< Conj<Lista<compu> > > > caminosMinimos;
+
+};
+
+
+Red::Red(){}
+
+Red::~Red(){}
+
+
+void Red::AgregarComputadora(compu& c){
+	Compus.Agregar(c);
+	DiccString< Conj<compu> > l1;
+	DiccString< interfaz> l2;
+	DiccString< Conj<Lista<compu> > > l;
+
+	Conexiones._definir(c.hostname, l1, 0);
+	InterfacesQueConectan._definir(c.hostname, l2, 0);
+	caminosMinimos._definir(c.hostname, l, 0);
+
+	typename Conj<compu>::Iterador iteradorCompu = Compus.CrearIt();
+
+	while (iteradorCompu.HaySiguiente()){
+
+		if (iteradorCompu.Siguiente().hostname != c.hostname){
+			Conj<Lista<compu> > vacia1;
+			Conj<Lista<compu> > vacia2;
+			Lista<compu> Aux1;
+			Lista<compu> Aux2;
+			vacia1.Agregar(Aux1);
+			vacia2.Agregar(Aux2);
+			(*caminosMinimos._obtener(c.hostname, 0))._definir(iteradorCompu.Siguiente().hostname, vacia1, 0);
+			(*caminosMinimos._obtener(iteradorCompu.Siguiente().hostname, 0))._definir(c.hostname, vacia2, 0);
+		}
+		iteradorCompu.Avanzar();
+	}
+
+}
+
+void Red::Conectar(compu& c1, compu& c2, interfaz i1, interfaz i2){
+	(*Conexiones._obtener(c1.hostname, 0)).AgregarRapido(c2);
+	(*Conexiones._obtener(c2.hostname, 0)).AgregarRapido(c1);
+	if (!InterfacesQueConectan._definido(c1.hostname, 0)){
+		DiccString<interfaz> vacio1;
+		InterfacesQueConectan._definir(c1.hostname, vacio1, 0);
+	}
+	if (!InterfacesQueConectan._definido(c2.hostname, 0)){
+		DiccString<interfaz> vacio2;
+		InterfacesQueConectan._definir(c2.hostname, vacio2, 0);
+	}
+	(*InterfacesQueConectan._obtener(c1.hostname, 0))._definir(c2.hostname, i2, 0);
+	(*InterfacesQueConectan._obtener(c2.hostname, 0))._definir(c1.hostname, i1, 0);
+	typename Conj<compu>::Iterador iteradorCompu1 = Compus.CrearIt();
+	while (iteradorCompu1.HaySiguiente()){
+		typename Conj<compu>::Iterador iteradorCompu2 = Compus.CrearIt();
+		while (iteradorCompu2.HaySiguiente()){
+			if (iteradorCompu1.Siguiente().hostname = iteradorCompu2.Siguiente().hostname){
+				(*caminosMinimos._obtener(iteradorCompu1.Siguiente().hostname, 0))._definir( iteradorCompu2.Siguiente().hostname, ConstruirCaminosMinimos(r, iteradorCompu1.Siguiente(), iteradorCompu2.Siguiente()), 0);
+				(*caminosMinimos._obtener(iteradorCompu2.Siguiente().hostname, 0))._definir( iteradorCompu1.Siguiente().hostname, ConstruirCaminosMinimos(r, iteradorCompu2.Siguiente(), iteradorCompu1.Siguiente()), 0);
+			}
+			iteradorCompu2.Avanzar();
+		}
+		iteradorCompu1.Avanzar();
+	}
+
+}
+
+Conj<compu> Red::Computadoras() const{
+	return Compus;
+}
+
+bool Red::Conectadas(compu& c1, compu& c2) const{
+	return (*Conexiones._obtener(c1.hostname, 0)).Pertenece(c2);
+}
+
+interfaz Red::interfazUsada(compu& c1, compu& c2) const{
+	return (*InterfacesQueConectan._obtener(c1.hostname, 0))._obtener(c2.hostname, 0);
+}
+
+Conj<compu> Red::Vecinos(compu& c){
+	return *Conexiones._obtener(c.hostname, 0);
+}
+
+bool Red::UsaInterdaz(compu& c, interfaz& i){
+	typename Conj<string>::Iterador iteradorConexion = InterfacesQueConectan._obtener(c.hostname, 0).Claves().CrearIt();
+	bool encontre = false;
+	while (iteradorConexion.HaySiguiente() && !encontre){
+		if (*(*InterfacesQueConectan._obtener(c.hostname, 0))._obtener(iteradorConexion.Siguiente().hostname, 0) == i){
+			encontre = true;
+
+		}
+		iteradorConexion.Avanzar();
+	}
+	return iteradorConexion.HaySiguiente();
+}
+
+Conj<Lista<compu> > Red::CaminoMinimo(compu& c1, compu& c2){
+	return *(*caminosMinimos._obtener(c1.hostname, 0))._obtener(c2.hostname, 0);
+}
+
+bool Red::HayCamino(compu& c1,compu& c2){
+	return !(*(*caminosMinimos._obtener(c1.hostname, 0))._obtener(c2.hostname, 0)).CrearIt().Siguiente().EsVacia();
+}
+
+Conj<Lista<compu> > Red::AuxCaminos(Red r, compu c1, compu c2, Lista<compu> recorrido, Conj<compu> candidatos){
+	if (candidatos.EsVacio()){
+		Conj<Lista<compu> > res;
+		Lista<compu> l;
+		return res.AgregarRapido(l);
+	}
+	else if (recorrido.Ultimo().hostname == c2.hostname){ 
+		Conj<Lista<compu> > res;
+		return res.AgregarRapido(recorrido);
+	}
+	else{
+		typename Lista<compu>::Iterador iterador = recorrido.CrearIt();
+		compu dameUno = candidatos.CrearIt().Siguiente();
+		bool loEncontre = false;
+		while (iterador.HaySiguiente() && !loEncontre){
+			if (dameUno.hostname == iterador.Siguiente().hostname){
+				loEncontre = true;
+			}
+			iterador.Avanzar();
+		}
+		if(!loEncontre){
+			Lista<compu> recorridoAux = recorrido;
+			recorridoAux.AgregarAtras(dameUno);
+			Conj<Lista<compu> > camino1 = AuxCaminos(r, c1 , c2 , recorridoAux, *(r.Conexiones._obtener(dameUno.hostname)));
+			candidatos.Eliminar(dameUno);
+			Conj<Lista<compu> > camino2 = AuxCaminos(r, c1 , c2 , recorrido, candidatos);
+			typename Conj<Lista<compu> >::Iterador iteradorCamino = camino2.CrearIt();
+			while (iteradorCamino.HaySiguiente()){
+				camino1.AgregarRapido(iteradorCamino.Siguiente());
+				iteradorCamino.Avanzar();
+			}
+		}
+		else{
+			candidatos.Eliminar(dameUno);
+			return AuxCaminos(r, c1 , c2 , recorrido, candidatos);
+		}
+	}
+}
+
+Conj<Lista<compu > > Red::ConstruirCaminosMinimos(Red &r, compu c1, compu c2){
+	Lista<compu> recorrido;
+	recorrido.AgregarAdelante(c1);
+	Conj<compu> candidatos = *(r.Conexiones._obtener(c1.hostname, 0));
+	Conj<Lista<compu > > camino = AuxCaminos(r, c1, c2, recorrido, candidatos); 
+	typename Conj<Lista<compu> >::Iterador iterador = camino.CrearIt();
+	Lista<compu> minimoActual  = iterador.Siguiente();
+	iterador.Avanzar();
+
+	while (iterador.HaySiguiente()){
+		if (minimoActual.Longitud() > iterador.Siguiente().Longitud()){
+			minimoActual = iterador.Siguiente();
+		}
+		iterador.Avanzar();
+	}
+	typename Conj<Lista<compu> >::Iterador iterador2 = camino.CrearIt();
+	while (iterador2.HaySiguiente()){
+		if (minimoActual.Longitud() < iterador2.Siguiente().Longitud()){
+			iterador2.EliminarSiguiente();
+		}
+		else{
+			iterador.Avanzar();
+		}
+	}
+	return camino;
+}
+
+
+#endif // RED_

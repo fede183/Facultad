@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0c295653-ed66-4145-8e19-7b04a04f2101" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/evosuite_1_0_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/evosuite_1_0_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Taller05-EvoSuite/stackar_src/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Taller05-EvoSuite/stackar_src/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Resolución/org/autotest/StackAr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Resolución/org/autotest/StackAr_ESTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Resolución/org/autotest/StackAr_ESTest_Original.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Resolución/org/autotest/StackAr_ESTest_scaffolding.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Resolución/org/autotest/StackAr_ESTest_scaffolding_Original.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../taller05.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Taller 6/Resolución/Taller6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Taller 6/Resolución/Taller6/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Taller 6/Resolución/Taller6/avltree.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../../Taller 6/Resolución/Taller6/avltree.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Taller 6/Resolución/Taller6/binarytree.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../../Taller 6/Resolución/Taller6/binarytree.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Taller 6/Resolución/korat-all-1.0.zip" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Taller05$StackAr_ESTest_Original.ic" NAME="StackAr_ESTest_Original Coverage Results" MODIFIED="1540046685572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.autotest.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Taller05$StackAr_ESTest.ic" NAME="StackAr_ESTest Coverage Results" MODIFIED="1540046756878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.autotest.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="241" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-779555674">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.42" value="1" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.48" value="1" />
+          <entry key="project.open.time.52" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="10" />
+          <entry key="java" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="10" />
+          <entry key="JAVA" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="1822" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1822" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="2098146663">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/autotest/StackAr.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="149" column="1" selection-start-line="149" selection-start-column="1" selection-end-line="149" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/autotest/StackAr_ESTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/autotest/StackAr_ESTest_Original.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>inc</find>
+      <find>top</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/org/autotest/StackAr_ESTest.java" />
+        <option value="$PROJECT_DIR$/src/org/autotest/StackAr_ESTest (copia).java" />
+        <option value="$PROJECT_DIR$/src/org/autotest/StackAr_ESTest_scaffolding (copia).java" />
+        <option value="$PROJECT_DIR$/src/org/autotest/StackAr_ESTest_Original.java" />
+        <option value="$PROJECT_DIR$/src/org/autotest/StackAr_ESTest_scaffolding_Original.java" />
+        <option value="$PROJECT_DIR$/src/org/autotest/StackAr.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="77" />
+    <option name="y" value="47" />
+    <option name="width" value="1279" />
+    <option name="height" value="701" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Taller05" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resolución" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taller05" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resolución" type="462c0819:PsiDirectoryNode" />
+              <item name=".evosuite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taller05" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resolución" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taller05" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resolución" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="autotest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taller05" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resolución" type="462c0819:PsiDirectoryNode" />
+              <item name="Taller05-EvoSuite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taller05" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resolución" type="462c0819:PsiDirectoryNode" />
+              <item name="Taller05-EvoSuite" type="462c0819:PsiDirectoryNode" />
+              <item name="stackar_src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taller05" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resolución" type="462c0819:PsiDirectoryNode" />
+              <item name="Taller05-EvoSuite" type="462c0819:PsiDirectoryNode" />
+              <item name="stackar_src" type="462c0819:PsiDirectoryNode" />
+              <item name=".evosuite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taller05" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resolución" type="462c0819:PsiDirectoryNode" />
+              <item name="Taller05-EvoSuite" type="462c0819:PsiDirectoryNode" />
+              <item name="stackar_src" type="462c0819:PsiDirectoryNode" />
+              <item name=".evosuite" type="462c0819:PsiDirectoryNode" />
+              <item name="best-tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taller05" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resolución" type="462c0819:PsiDirectoryNode" />
+              <item name="Taller05-EvoSuite" type="462c0819:PsiDirectoryNode" />
+              <item name="stackar_src" type="462c0819:PsiDirectoryNode" />
+              <item name=".evosuite" type="462c0819:PsiDirectoryNode" />
+              <item name="best-tests" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taller05" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resolución" type="462c0819:PsiDirectoryNode" />
+              <item name="Taller05-EvoSuite" type="462c0819:PsiDirectoryNode" />
+              <item name="stackar_src" type="462c0819:PsiDirectoryNode" />
+              <item name=".evosuite" type="462c0819:PsiDirectoryNode" />
+              <item name="best-tests" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="autotest" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="JAVA_HOME" value="/usr/lib/jvm/java-8-oracle" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540046819723" />
+    <property name="cores_evosuite_param" value="1" />
+    <property name="evosuite_gui_dialog_height" value="471" />
+    <property name="evosuite_gui_dialog_width" value="616" />
+    <property name="evosuite_jar_location" value="$USER_HOME$/Descargas/evosuite-1.0.6.jar" />
+    <property name="execution_mode" value="MVN" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/evosuite-1.0.6.jar!/" />
+    <property name="memory_evosuite_param" value="2000" />
+    <property name="mvn_location" value="" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="target_folder_evosuite_param" value="src/" />
+    <property name="time_evosuite_param" value="3" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/org/autotest" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.StackAr_ESTest">
+    <configuration name="StackAr_ESTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Resolución" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.autotest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.autotest" />
+      <option name="MAIN_CLASS_NAME" value="org.autotest.StackAr_ESTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StackAr_ESTest_Original" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Resolución" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.autotest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.autotest" />
+      <option name="MAIN_CLASS_NAME" value="org.autotest.StackAr_ESTest_Original" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.StackAr_ESTest" />
+      <item itemvalue="JUnit.StackAr_ESTest_Original" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.StackAr_ESTest" />
+        <item itemvalue="JUnit.StackAr_ESTest_Original" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c295653-ed66-4145-8e19-7b04a04f2101" name="Default Changelist" comment="" />
+      <created>1538415509385</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1538415509385</updated>
+      <workItem from="1540046515054" duration="288000" />
+      <workItem from="1540049741798" duration="41000" />
+      <workItem from="1540049832887" duration="9000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="StackAr_ESTest - 2018.10.09 at 10h 50m 13s.xml">
+      <configuration name="StackAr_ESTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackAr_ESTest - 2018.10.09 at 10h 51m 11s.xml">
+      <configuration name="StackAr_ESTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackAr_ESTest - 2018.10.09 at 10h 52m 05s.xml">
+      <configuration name="StackAr_ESTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackAr_ESTest - 2018.10.09 at 10h 52m 58s.xml">
+      <configuration name="StackAr_ESTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackAr_ESTest - 2018.10.09 at 10h 53m 30s.xml">
+      <configuration name="StackAr_ESTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackAr_ESTest - 2018.10.09 at 10h 54m 28s.xml">
+      <configuration name="StackAr_ESTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackAr_ESTest - 2018.10.09 at 10h 55m 45s.xml">
+      <configuration name="StackAr_ESTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackAr_ESTest_Original - 2018.10.20 at 11h 44m 23s.xml">
+      <configuration name="StackAr_ESTest_Original" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackAr_ESTest_Original - 2018.10.20 at 11h 45m 14s.xml">
+      <configuration name="StackAr_ESTest_Original" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackAr_ESTest - 2018.10.20 at 11h 46m 11s.xml">
+      <configuration name="StackAr_ESTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="338000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3001066" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Learn" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286334" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39967373" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="EvoSuite" order="7" weight="0.32626426" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32952693" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="JSF" order="8" />
+      <window_info anchor="right" id="CDI" order="9" />
+      <window_info anchor="right" id="Database" order="10" />
+      <window_info anchor="right" id="Coverage" order="11" side_tool="true" visible="true" weight="0.32995737" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/org/autotest/StackAr_ESTest (copia).java" />
+    <entry file="file://$PROJECT_DIR$/src/org/autotest/StackAr_ESTest_scaffolding (copia).java" />
+    <entry file="file://$PROJECT_DIR$/src/org/autotest/StackAr_ESTest_scaffolding_Original.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="86" column="110" selection-start-line="86" selection-start-column="110" selection-end-line="86" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.evosuite/best-tests/org/autotest/StackAr_ESTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
+          <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Taller05-EvoSuite/stackar_src/.evosuite/best-tests/org/autotest/StackAr_ESTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="48" column="3" selection-start-line="48" selection-start-column="3" selection-end-line="48" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/Resolución/org/autotest/StackAr_ESTest.class" />
+    <entry file="jar://$USER_HOME$/Descargas/evosuite-1.0.6.jar!/org/junit/internal/runners/statements/FailOnTimeout.class" />
+    <entry file="jar://$USER_HOME$/Descargas/evosuite-1.0.6.jar!/org/evosuite/runtime/thread/KillSwitchHandler.class" />
+    <entry file="jar://$USER_HOME$/Descargas/evosuite-1.0.6.jar!/org/junit/internal/runners/model/ReflectiveCallable.class" />
+    <entry file="file://$PROJECT_DIR$/src/org/autotest/StackAr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="149" column="1" selection-start-line="149" selection-start-column="1" selection-end-line="149" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/autotest/StackAr_ESTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/autotest/StackAr_ESTest_Original.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Resolución</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>evosuite-1.0.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

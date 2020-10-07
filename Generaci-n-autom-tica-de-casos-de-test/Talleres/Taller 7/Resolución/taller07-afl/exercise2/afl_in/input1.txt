@@ -1,0 +1,6 @@
+Hello
+How are you?
+What is your name?
+Are you a human?
+Are you a computer?
+Good bye!

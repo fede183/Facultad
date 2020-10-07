@@ -1,0 +1,31 @@
+1) Hay 19 links internos. No hay links rotos.
+
+2) Hay 250 links internos. Y los siguientes son urls rotas.
+https://icc.fcen.uba.ar/wp-content/uploads/2018/06/vinculacio´n_programar_icc.jpg
+https://icc.fcen.uba.ar/wp-content/uploads/2018/06/vinculacio´n_medalia_icc.jpg
+https://icc.fcen.uba.ar/wp-content/uploads/2018/06/vinculacio´n_tsu_icc.jpg
+Cada una de estas aparece en una sola página.
+No se detectaron otras excepciones IO.
+
+3) Hay 4491 links internos. Y los siguientes son urls rotas.
+https://www.dc.uba.ar/../../cursada/materias
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2012/dubisnki.pdf
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2010/taraciuk
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2016/taravilse.pdf
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2010/benavids.zip
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2007/debandiresumen
+https://www.dc.uba.ar/descargas/sigaos/netetec.pdf
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2001/barea.pdf
+https://www.dc.uba.ar/descargas/sigaos/SemAAP.pdf
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2010/grunberg-suplementario
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2007/desimoniresumen
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2007/yankelevich-suplementario
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2010/cura-suplementario
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2006/tesis-Lorena-Bourg.pdf
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2009/tajan-revert
+https://www.dc.uba.ar/aca/concursos/jurado-pad-exclu-239-159.pdf
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2010/dmarquez-suplementario
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2012/chicote
+https://www.dc.uba.ar/academica/tesis-de-licenciatura/2009/curiale-suplementario
+Cada una de estas aparece en una sola página.
+Se detecto la excepción "javax.net.ssl.SSLHandshakeException".

@@ -1,0 +1,78 @@
+struct pedido {
+	uint startsec,
+	char * buf,
+	uint len
+};
+cola<struct pedido> pendientes;
+mutex m_cola = mutex(1);
+
+escribir_sec_y_paridad(hdd, sec, buf) {
+	// 1. Calcular la nueva paridad
+	// 2. Escribir el nuevo sector
+	// 3. Escribir la nueva paridad
+	// Los discos van de 0 a 3
+	hdd_paridad = 3-(sec%4);
+
+	char * buf_aux = kmalloc(2*SECTOR_SIZE);
+
+	int segundo = 0;
+	for(int i = 0; i < 4; i++) {
+		if(i!=hdd && i!=hdd_paridad) {
+			hdd_read(i, sec, buf_aux[segundo*SECTOR_SIZE])
+			segundo++;
+		}
+	}
+	char * paridad = kmalloc(SECTOR_SIZE);
+	parity(buf, buf_aux, buf_aux+SECTOR_SIZE, paridad);
+
+	hdd_write(hdd, sec, buf);
+	hdd_write(hdd_paridad, sec, paridad);
+
+	kfree(buf_aux);
+	kfree(paridad);
+}
+
+driver_scheduled_writes() {
+	m_cola.wait();
+	while(pendientes.vacia() == 0) {
+		struct pedido este_pedido = pendientes.desencolar();
+		m_cola.signal();
+
+		// TODO: Descomponer el pedido en los N sectores a escribir
+		uint sectores = este_pedido.len/SECTOR_SIZE;
+		for(int i = 0; i < sectores; i++) {
+			uint usr_sector = este_pedido.startsec + i;
+			sec = usr_sector / 3;
+
+			algo = usr_sector % 12;
+			switch(algo) {
+				0: hdd = 0;
+				1: hdd = 1;
+				.
+				.
+				.
+				11: hdd = 3;
+			}
+
+			escribir_sec_y_paridad(hdd, sec, este_pedido.buf+(i*SECTOR_SIZE));
+		}
+
+		kfree(este_pedido.buf);
+
+		// Vuelvo a pedir el mutex de la cola
+		m_cola.wait();
+	}
+	m_cola.signal();
+}
+
+int driver_write(uint startsec, char * buf, uint len) {
+	struct pedido este_pedido;
+	este_pedido.startsec = startsec;
+	este_pedido.len = len;
+	este_pedido.buf = kmalloc(len);
+	copy_from_user(este_pedido.buf, buf, len);
+	m_cola.wait();
+	pendientes.encolar(este_pedido);
+	m_cola.signal();
+	return IO_OK;
+}

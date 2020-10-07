@@ -1,0 +1,25 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducci\'on}{4}
+\contentsline {section}{\numberline {2}Cropflip}{4}
+\contentsline {subsection}{\numberline {2.1}Descripci\'on}{4}
+\contentsline {subsection}{\numberline {2.2}Experimentos}{5}
+\contentsline {subsection}{\numberline {2.3}Experimento 1.1}{5}
+\contentsline {subsection}{\numberline {2.4}Experimento 1.2}{5}
+\contentsline {subsection}{\numberline {2.5}Experimento 1.3}{7}
+\contentsline {subsection}{\numberline {2.6}Experimento 1.4}{9}
+\contentsline {subsection}{\numberline {2.7}Experimento 1.5}{10}
+\contentsline {section}{\numberline {3}Sierpinski}{11}
+\contentsline {subsection}{\numberline {3.1}Descripci\'on}{11}
+\contentsline {subsection}{\numberline {3.2}Experimentos}{13}
+\contentsline {subsection}{\numberline {3.3}Experimento 2.1}{13}
+\contentsline {subsection}{\numberline {3.4}Experimento 2.2}{16}
+\contentsline {section}{\numberline {4}Bandas}{17}
+\contentsline {subsection}{\numberline {4.1}Descripci\'on}{17}
+\contentsline {subsection}{\numberline {4.2}Experimentos}{19}
+\contentsline {subsection}{\numberline {4.3}Experimento 3.1}{19}
+\contentsline {subsection}{\numberline {4.4}Experimento 3.2}{22}
+\contentsline {section}{\numberline {5}Motion Blur}{26}
+\contentsline {subsection}{\numberline {5.1}Descripci\'on}{26}
+\contentsline {subsection}{\numberline {5.2}Experimentos}{28}
+\contentsline {subsection}{\numberline {5.3}Experimento 4.1}{28}
+\contentsline {section}{\numberline {6}Conclusi\'on}{31}

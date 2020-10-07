@@ -1,0 +1,505 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[paper=a4paper, hmargin=1.5cm, bottom=1.5cm, top=3.5cm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{xspace}
+\usepackage{xargs}
+\usepackage{ifthen}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{aed2-tad,aed2-symb,aed2-itef}
+\usepackage[T1]{fontenc}
+\usepackage{selinput}
+\SelectInputMappings{%
+  aacute={á},
+  ntilde={ñ},
+  Euro={€}
+}
+\usepackage{babel}
+
+\newcommand{\moduloNombre}[1]{\textbf{#1}}
+
+\let\NombreFuncion=\textsc
+\let\TipoVariable=\texttt
+\let\ModificadorArgumento=\textbf
+\newcommand{\res}{$res$\xspace}
+\newcommand{\tab}{\hspace*{7mm}}
+
+\newcommandx{\TipoFuncion}[3]{%
+  \NombreFuncion{#1}(#2) \ifx#3\empty\else $\to$ \res\,: \TipoVariable{#3}\fi%
+}
+\newcommand{\In}[2]{\ModificadorArgumento{in} \ensuremath{#1}\,: \TipoVariable{#2}\xspace}
+\newcommand{\Out}[2]{\ModificadorArgumento{out} \ensuremath{#1}\,: \TipoVariable{#2}\xspace}
+\newcommand{\Inout}[2]{\ModificadorArgumento{in/out} \ensuremath{#1}\,: \TipoVariable{#2}\xspace}
+\newcommand{\Aplicar}[2]{\NombreFuncion{#1}(#2)}
+
+\newlength{\IntFuncionLengthA}
+\newlength{\IntFuncionLengthB}
+\newlength{\IntFuncionLengthC}
+%InterfazFuncion(nombre, argumentos, valor retorno, precondicion, postcondicion, complejidad, descripcion, aliasing)
+\newcommandx{\InterfazFuncion}[9][4=true,6,7,8,9]{%
+  \hangindent=\parindent
+  \TipoFuncion{#1}{#2}{#3}\\%
+  \textbf{Pre} $\equiv$ \{#4\}\\%
+  \textbf{Post} $\equiv$ \{#5\}%
+  \ifx#6\empty\else\\\textbf{Complejidad:} #6\fi%
+  \ifx#7\empty\else\\\textbf{Descripción:} #7\fi%
+  \ifx#8\empty\else\\\textbf{Aliasing:} #8\fi%
+  \ifx#9\empty\else\\\textbf{Requiere:} #9\fi%
+}
+
+\newenvironment{Interfaz}{%
+  \parskip=2ex%
+  \noindent\textbf{\Large Interfaz}%
+  \par%
+}{}
+
+\newenvironment{Representacion}{%
+  \vspace*{2ex}%
+  \noindent\textbf{\Large Representación}%
+  \vspace*{2ex}%
+}{}
+
+\newenvironment{Algoritmos}{%
+  \vspace*{2ex}%
+  \noindent\textbf{\Large Algoritmos}%
+  \vspace*{2ex}%
+}{}
+
+
+\newcommand{\Titulo}[1]{
+  \vspace*{1ex}\par\noindent\textbf{\large #1}\par
+}
+
+\newenvironmentx{Estructura}[2][2={estr}]{%
+  \par\vspace*{2ex}%
+  \TipoVariable{#1} \textbf{se representa con} \TipoVariable{#2}%
+  \par\vspace*{1ex}%
+}{%
+  \par\vspace*{2ex}%
+}%
+
+\newboolean{EstructuraHayItems}
+\newlength{\lenTupla}
+\newenvironmentx{Tupla}[1][1={estr}]{%
+    \settowidth{\lenTupla}{\hspace*{3mm}donde \TipoVariable{#1} es \TipoVariable{tupla}$($}%
+    \addtolength{\lenTupla}{\parindent}%
+    \hspace*{3mm}donde \TipoVariable{#1} es \TipoVariable{tupla}$($%
+    \begin{minipage}[t]{\linewidth-\lenTupla}%
+    \setboolean{EstructuraHayItems}{false}%
+}{%
+    $)$%
+    \end{minipage}
+}
+
+\newcommandx{\tupItem}[3][1={\ }]{%
+    %\hspace*{3mm}%
+    \ifthenelse{\boolean{EstructuraHayItems}}{%
+        ,#1%
+    }{}%
+    \emph{#2}: \TipoVariable{#3}%
+    \setboolean{EstructuraHayItems}{true}%
+}
+
+\newcommandx{\RepFc}[3][1={estr},2={e}]{%
+  \tadOperacion{Rep}{#1}{bool}{}%
+  \tadAxioma{Rep($#2$)}{#3}%
+}%
+
+\newcommandx{\Rep}[3][1={estr},2={e}]{%
+  \tadOperacion{Rep}{#1}{bool}{}%
+  \tadAxioma{Rep($#2$)}{true \ssi #3}%
+}%
+
+\newcommandx{\Abs}[5][1={estr},3={e}]{%
+  \tadOperacion{Abs}{#1/#3}{#2}{Rep($#3$)}%
+  \settominwidth{\hangindent}{Abs($#3$) \igobs #4: #2 $\mid$ }%
+  \addtolength{\hangindent}{\parindent}%
+  Abs($#3$) \igobs #4: #2 $\mid$ #5%
+}%
+
+\newcommandx{\AbsFc}[4][1={estr},3={e}]{%
+  \tadOperacion{Abs}{#1/#3}{#2}{Rep($#3$)}%
+  \tadAxioma{Abs($#3$)}{#4}%
+}%
+
+
+\newcommand{\DRef}{\ensuremath{\rightarrow}}
+
+\begin{document}
+
+\textbf{M\'odulos b\'asicos}
+hostname es string\\
+interfaz es nat\\
+prioridad es nat\\
+id es nat\\
+paquete es tupla<id:Id, prioridad : prioridad, origen : compu, destino : compu>\\
+compu es tupla<ip : ip, interfaces : conj(interfaz)>\\
+
+\textbf{Aclaraciones:}
+
+
+
+\section{Módulo Red}
+
+
+
+
+\begin{Interfaz}
+  
+	
+	\textbf{se explica con}: {\tadNombre{Red}}.
+
+	\textbf{géneros}:{\TipoVariable{red}}.
+
+	\Titulo{Operaciones b\'asicas de Red}
+	
+	%iniciarRed:
+	\InterfazFuncion{IniciarRed}{}{Red}%
+	{$res \igobs iniciarRed(r)$}%
+	[O(1)]%
+	[Crea una red vac\'ia]%
+	
+	\InterfazFuncion{AgregarComputadora}{\Inout {r}{Red} , \In {c}{compu}}{}
+	[$r \igobs r_{0}$]
+	{$r \igobs agregarComputadora(r_{0}, c)$}
+	[O(L)]
+	[Agrega una computadora a la red]
+	
+	\InterfazFuncion{Conectar}{\Inout {r}{Red} , \In {c1}{compu} , \In {i1}{interfaz}, \In {c2}{compu}, \In {i2}{interfaz}}{}
+	[$r \igobs r_{0} \wedge c1 \in computadoras(r_{0}) \wedge c2 \in computadoras(r_{0}) \wedge ip(c1) \neq ip(c2) \wedge \neg conectadas(r_{0}, c1, c2) \wedge \neg usaInterfaz(r_{0}, c1, i1) \wedge \neg usaInterfaz(r_{0}, c2, i2)$]
+	{$r \igobs conectar(r_{0}, c1, i1, c2, i2) \wedge conectadas(r_{0}, c1, c2) \wedge usaInterfaz(r_{0}, c1, i1) \wedge usaInterfaz(r_{0}, c2, i2)$}
+	[O((L x n + Cardinal(dU.interfaces))x $n^{3}$) donde dU es la computadora de la red con m\'as interfaces.]
+	[Modifica la red r conectando las computadoras c1 y c2 a trav\'es de las interfaces i1 e i2 respectivamente.]
+	
+	\InterfazFuncion{Computadoras}{\In {r}{Red}}{conj(compu)}
+	{$res \igobs computadoras(r) $} %POST
+	[O(1)]
+	[Devuelve un conjunto con todas las computadoras de la red]
+	
+	\InterfazFuncion{Conectadas?}{\In {r}{Red}, \In {c1}{compu}, \In {c2}{compu}}{bool}
+	[$c1 \in computadoras(r) \wedge c2 \in computadoras(r)$] %PRE
+	{$res \igobs conectadas(r, c1, c2)$} %POST
+	[O($\Sigma_{a' \in Significado(r.Conexiones, c1.hostname)} equal(c2.hostname,a'))$)]
+	[Devuelve true si c1 y c2 est\'an conectadas en la red r.]
+	
+	\InterfazFuncion{InterfazUsada}{\In {r} {Red}, \In {c1}{compu}, \In {c2}{compu}}{interfaz}
+	[$conectadas?(r, c1, c2)$] %PRE
+	{$res \igobs interfazUsada(r, c1, c2)$} %POST
+	[O(L)]
+	[Devuelve la interfaz de c1 que se conecta con c2 en la red r.]
+	
+	\InterfazFuncion{Vecinos}{\In {r} {Red}, \In {c}{compu}}{conj(compu)}
+	[$c \in computadoras(r)$] %PRE
+	{$res \igobs vecinos(r, c)$} %POST
+	[O(L)]
+	[Devuelve un conjunto de computadoras con las cuales est\'a conectada la computadora c.]
+	
+	\InterfazFuncion{UsaInterfaz?}{\In {r} {Red}, \In {c}{compu}, \In {i}{interfaz}}{bool}
+	[$c \in computadoras(r)$] %PRE
+	{$res \igobs usaInterfaz?(r, c, i)$} %POST
+	[O(n x L)]
+	[Devuelve true si la interfaz i de la computadora c est\'a siendo utilizada para conectarse con alguna computadora de la red r.]
+	
+	\InterfazFuncion{CaminosMinimos}{\In {r} {Red}, \In {c1}{compu}, \In {c2}{compu}} {conj(secu(compu)} %Esto hay que corregirlo
+	[$c1 \in computadoras(r) \wedge c2 \in computadoras(r)$] %PRE
+	{$res \igobs caminosMinimos(r, c1, c2)$} %POST
+	[O(L)]
+	[Devuelve todos los caminos m\'as cortos para llegar de c1 a c2.]
+	
+	\InterfazFuncion{HayCamino?}{\In {r} {Red}, \In {c1}{compu}, \In {c2}{compu}}{bool}
+	[$c1 \in computadoras(r) \wedge c2 \in computadoras(r)$] %PRE
+	{$res \igobs hayCamino?(r, c1, c2)$} %POST
+	[O(L)]
+	[Devuelve true si hay alg\'un camino que conduzca de c1 a c2.]
+	
+	
+	\textbf{Funciones auxiliares:}
+
+  ConstruirCaminosMinimos(in r : Red, in c1 : compu , in c2 : compu) $\rightarrow$ res : conj(lista(compu)) \\
+  -Dado unas computadoras c1 y c2 de una red r, se debe contruir un conj que contenga los caminos minimos para llegar desde la computadora c1 a c2. c1 y c2 deben tener distinto hostname.
+
+  AuxCaminos(in r : Red, in c1 : compu , in c2 : compu, in recorrido : lista(compu), in candidatos : conj(compu)) $\rightarrow$ res : conj(lista(compu)) \\
+  -Dado dos computadoras c1 y c2 de una red r, una lista de compu que estan conectadas cada una con la siguiente formando un camino que comienza con c1 y el conjunto de computadoras conectadas con el \'ultimo valor de recorrido en la red r.
+
+
+
+
+
+\end{Interfaz} 
+
+\begin{Representacion}
+ 
+  \Titulo{Representación de Red}
+
+  \begin{Estructura}{red}[rd]
+    \begin{Tupla}[rd]
+      \tupItem{Computadoras}{conj(compu)}
+      \tupItem{Conexiones}{tried(hostname, conj(compu))} 
+      \tupItem{InterfacesQueConectan}{tried(hostname,tried(hostname, interfaz))}%
+      \tupItem{caminosMinimos}{tried(hostname,tried(hostname, conj(lista(compu))))} 
+    \end{Tupla}
+    \end{Estructura}
+
+   
+
+  \Rep[rd][r]{($\forall$ c : compu)(c $\in$ r.Computadoras $\Leftrightarrow$ (Definido?(r.Conexiones, c.hostname) $\wedge$ Definido?(r.InterfacesQueConectan, c.hostname) $\wedge$ Definido?(r.caminosMinimos, c.hostname) $\yluego$ \\
+  ($\forall$ ca : compu)(ca $\in$ Significado(r.Conexiones, c.hostname) $\Leftrightarrow$ ca $\in$ r.Computadoras $\wedge$ (Definido?(Significado(r.InterfacesQueConectan, c.hostname), ca.hostname) $\yluego$ Significado(Significado(r.InterfacesQueConectan, c.hostname), ca.hostname) $\in$ c.interfaces) $\wedge$ (Definido?(Significado(r.InterfacesQueConectan, ca.hostname), c.hostname) $\yluego$ Significado(Significado(r.InterfacesQueConectan, ca.hostname), c.hostname) $\in$ ca.interfaces))))) $\wedge$ \\
+  ($\forall$ c1, c2 : compu)(c1 $\in$ r.Computadoras $\wedge$ c2 $\in$ r.Computadoras $\Leftrightarrow$ Definido?(Significado(r.caminosMinimos, c1.hostname), c2.hostname) $\wedge$ Definido?(Significado(r.caminosMinimos, c2.hostname), c1.hostname) $\yluego$ Significado(Significado(r.caminosMinimos,c1.hostname), c2.hostname)$=$construirCaminosMinimos(r.Conexiones, c1, c2) )}
+
+  ~
+  
+  \tadOperacion{construirCaminosMinimos}{diccionario(hostname,conj(compu)),compu,compu)}{conj(secu(compu))}{}
+  \tadAxioma{construirCaminosMinimos(cr, c1, c2)}{auxMinimos(caminos(cr, c1, c2))}
+  
+  ~
+  
+  \tadOperacion{caminos}{diccionario(hostname,conj(compu)),compu,compu)}{conj(secu(compu))}{}
+  \tadAxioma{caminos(cr, c1, c2)}{auxCaminos(cr, c1, c2, c1 $\bullet$ <>, Significado(cr, c1.hostname))}
+  
+  ~
+  
+  \tadOperacion{auxCaminos}{diccionario(hostname,conj(compu)),compu,compu,secu(compu),conj(compu)}{conj(secu(compu))}{}
+  \tadAxioma{auxCaminos(r, c1, c2, recorrido, candidatos)}{\IF $\phi$?(candidatos) THEN $ag(<>, \phi)$ ELSE {\IF ult(recorrido) = c2 THEN ag(recorrido, $\phi$) ELSE {\IF $\neg$esta?(dameUno(candidatos), recorrido) THEN auxCaminos(r, c1 , c2 , recorrido $\circ$ dameUno(candidatos), Significado(r, dameUno(candidatos).hostname)) $\cup$ auxCaminos(r, c1 , c2 , recorrido, sinUno(candidatos)) ELSE auxCaminos(r, c1 , c2 , recorrido, sinUno(candidatos)) FI} FI} FI}
+ 
+  ~
+  
+  \tadOperacion{auxMinimos}{conj(secu(compu))}{bool}{}
+  \tadAxioma{auxMinimos(cc)}{\IF $\phi$?(cc) THEN $\phi$ ELSE {\IF $\#$(cc) = 1 THEN ag(dameUno(c), $\phi$) ELSE {\IF long(dameUno(cc)) < long(dameUno(auxMinimos(sinUno(cc)))) THEN ag(dameUno(cc), $\phi$) ELSE {\IF long(dameUno(cc)) = long(dameUno(auxMinimos(sinUno(cc)))) THEN ag(dameUno(c), auxMinimos(sinUno(cc))) ELSE auxMinimos(sinUno(cc)) FI} FI} FI}FI}
+  
+  ~
+ 
+  \Abs[rd]{red}[r]{e}{Computadoras(e) $=$ r.Computadora $\yluego$ ($\forall$ c1, c2 : compu)(conectadas?(e, c1, c2) = (c2 $\in$ Significado(r.Conexiones, c1.hostname) $\wedge$ c1 $\in$ Significado(r.Conexiones, c2.hostname)) $\yluego$ interfazUsada(e, c1, c2) $=$ Significado(Significado(r.InterfacesQueConectan, c1.hostname), c2.hostname))}
+O(n x L + Cardinal(c.interfaces))
+  
+\end{Representacion}	
+
+
+\begin{Algoritmos}
+
+\begin{algorithm}[H]{\textbf{iIniciarRed}() $\to$ $res$ : $red$} 
+	\begin{algorithmic}
+	
+			\State res $\gets$ <Vac\'io(),Vac\'io(),Vac\'io(),Vac\'io()>  \Comment O(1) 
+			\medskip
+			\Statex \underline{Complejidad:} O(1)
+			\Statex \underline{Justificación:} 
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iAgregarCompu}(\Inout {r}{Red}, \In {c}{compu})} 
+	\begin{algorithmic}
+			\State Agregar(r.Computadoras, c) 		   \Comment $O(\sum_{a' \in r.Computadoras} equal(c,a'))$%costo de agregar c al conjunto lineal r.computadoras
+			\State Definir(r.Conexiones, c.hostname, Vac\'io())	\Comment O(long(c.hostname) + copy(c.hostname))	= O(long(c.hostname)) = O(L)
+			\State Definir(r.InterfacesQueConectan, c.hostname, Vac\'io())       \Comment O(long(c.hostname) + copy(c.hostname))	= O(long(c.hostname)) = O(L)
+			\State Definir(r.caminosMinimos, c.hostname, Vac\'io())       \Comment O(long(c.hostname) + copy(c.hostname))	= O(long(c.hostname)) = O(L)
+			\State iteradorCompu : itConj(compu) $\gets$ crearIT(r.Computadoras) 		\Comment O(1)
+			
+			\While{HaySiguiente(iteradorCompu)} 				\Comment O((n-1) x L) = O(n x L)
+			  \If{Siguiente(iteradorCompu).hostname $\neq$ c.hostname} 		\Comment O(3 x L + 4) = O(L)
+			    \State vacia1 : lista(compu) $\gets$ Vac\'ia()   			\Comment O(1)
+			    \State vacia2 : lista(compu) $\gets$ Vac\'ia()   			\Comment O(1)
+			    \State Agregar(vacia1, Vac\'ia()) 		\Comment O(1) ya que no hay elementos en vacia1
+			    \State Agregar(vacia1, Vac\'ia()) 		\Comment O(1) ya que no hay elementos en vacia2
+			    \State Definir(Significado(r.caminosMinimos, c.hostname) , Siguiente(iteradorCompu).hostname, vacia1) 		\Comment O(2 x L) = O(L)
+			    \State Definir(Significado(r.caminosMinimos, Siguiente(iteradorCompu).hostname) , c.hostname, vacia2) 		\Comment O(2 x L) = O(L)
+			  \EndIf
+			  \State Avanzar(iteradorCompu)   \Comment O(1)
+			\EndWhile
+			
+			
+			\medskip
+			\Statex \underline{Complejidad:} O(n x L + Cardinal(c.interfaces))
+			\Statex \underline{Justificación:} O(n x L + 3 x L + $\sum_{a' \in r.Computadoras} equal(c,a')$ +1) = O(n x L + $\sum_{a' \in r.Computadoras} equal(c,a')$). El costo de ver si dos computadoras son iguales es O(Cardinal(c.interfaces) + L), por las interfaces y el hostname. Nos queda O(n x L + Cardinal(c.interfaces) + L) = O(n x L + Cardinal(c.interfaces))  
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iConectar}(\Inout {r}{Red}, \In {c1}{compu}, \In {c2}{compu}, \In {i1}{interfaz}, \In {i2}{interfaz})} 
+	\begin{algorithmic}
+			\State AgregarRapido(Significado(r.Conexiones, c1.hostname), c2) 		\Comment O(copy(c2)) = O(Cardinal(c2.interfaces) + long(c2.hostname)) = O(Cardinal(c2.interfaces) + L)
+			\State AgregarRapido(Significado(r.Conexiones, c2.hostname), c1)		\Comment O(copy(c1)) = O(Cardinal(c1.interfaces) + long(c1.hostname)) = O(Cardinal(c1.interfaces) + L)
+			\If{$\neg$Definido?(r.InterfacesQueConectan, c1.hostname)} 	\Comment O(logn(c1.hostname)) = O(L)
+			  \State Definir(r.InterfacesQueConectan, c1.hostname, Vac\'io()) \Comment O(logn(c1.hostname)) = O(L)
+			\EndIf
+			
+			\If{$\neg$Definido?(r.InterfacesQueConectan, c2.hostname)} 		\Comment O(logn(c2.hostname)) = O(L)
+			  \State Definir(r.InterfacesQueConectan, c2.hostname, Vac\'io()) 	\Comment O(logn(c2.hostname)) = O(L)
+			\EndIf
+			
+			\State Definir(Significado(r.InterfacesQueConectan,c1.hostname), c2.hostname, i2) 	\Comment O(logn(c2.hostname) + logn(c1.hostname)) = O(L + L) = O(L)
+			\State Definir(Significado(r.InterfacesQueConectan,c2.hostname), c1.hostname, i1) 	\Comment O(logn(c2.hostname) + logn(c1.hostname)) = O(L + L) = O(L)
+			%ALGO PARA Los caminos minimos!
+			
+			
+			\State iteradorCompu1 : itConj(compu) $\gets$ crearIT(r.Computadoras) 		\Comment O(1)
+			\While{HayCamino(iteradorCompu1)} \Comment =O((L x n + Cardinal(dU.interfaces))x $n^{3}$ + n) = O((L x n + Cardinal(dU.interfaces))x $n^{3}$)
+			  \State iteradorCompu2 : itConj(compu) $\gets$ crearIT(r.Computadoras) 		\Comment O(1)
+			  \While{HayCamino(iteradorCompu2)} 	\Comment O(2 x (L x n + Cardinal(dU.interfaces))x $n^{2}$ + n) = O((L x n + Cardinal(dU.interfaces))x $n^{2}$)
+			    \If{Siguiente(iteradorCompu1).hostname $\neq$ Siguiente(iteradorCompu2).hostname} \Comment O(L + (L x n + Cardinal(dU.interfaces))x n) = O((L x n + Cardinal(dU.interfaces))x n)
+			      \State Definir(Significado(r.caminosMinimos, Siguiente(iteradorCompu1).hostname), Siguiente(iteradorCompu2).hostname, ConstruirCaminosMinimos(r, Siguiente(iteradorCompu1), Siguiente(iteradorCompu2))) \Comment O(2 x L + (L x n + Cardinal(dU.interfaces))x n)=O((L x n + Cardinal(dU.interfaces))x n) donde dU es la computadora entre los candidatos con mayor cantidad de interfaces conectadas.
+			      \State Definir(Significado(r.caminosMinimos, Siguiente(iteradorCompu2).hostname), Siguiente(iteradorCompu1).hostname, ConstruirCaminosMinimos(r, Siguiente(iteradorCompu2), Siguiente(iteradorCompu1))) \Comment O(2 x L + (L x n + Cardinal(dU.interfaces))x n)=O((L x n + Cardinal(dU.interfaces))x n) donde dU es la computadora entre los candidatos con mayor cantidad de interfaces conectadas.
+			    \EndIf
+			  
+			    \State Avanzar(iteradorCompu2) 	\Comment O(1)
+			  \EndWhile
+			  \State Avanzar(iteradorCompu1) 	\Comment O(1)
+			\EndWhile
+			
+			
+			\medskip
+			\Statex \underline{Complejidad:} O((L x n + Cardinal(dU.interfaces))x $n^{3}$) donde dU es la computadora de la red con m\'as interfaces.
+			\Statex \underline{Justificación:} O(Cardinal(c1.interfaces) + Cardinal(c2.interfaces) + 8 x L + 1 + (L x n + Cardinal(dU.interfaces))x $n^{3}$) = O((L x n + Cardinal(dU.interfaces))x $n^{3}$) . Podemos usar AgregarRapido ya que la precondici\'on de conectar nos dice que las computadoras c1 y c2 est\'an en la red y no estan conectadas entre si. Como Cardinal(dU.interfaces) es la cantidad de interfaces de la compu con m\'as interfaces esta le gana a los cardinales de c1.interfaces y c2.interfaces
+    	\end{algorithmic}
+\end{algorithm}
+
+
+
+\begin{algorithm}[H]{\textbf{iComputadoras}(\In {r}{Red}) $\to$ $res$ : $conj(compu)$} 
+	\begin{algorithmic}
+			\State res $\gets$ r.Computadoras  		   \Comment O(1)
+			\medskip
+			\Statex \underline{Complejidad:} O(1)
+			\Statex \underline{Justificación:} 
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iConectadas?}(\In {r}{Red}, \In {c1}{compu}, \In {c2}{compu}) $\to$ $res$ : $bool$} 
+	\begin{algorithmic}
+			\State res $\gets$ Pertenece?(Significado(r.Conexiones, c1.hostname), c2)   \Comment O($\Sigma_{a' \in Significado(r.Conexiones, c1.hostname)} equal(c2.hostname,a'))$ + long(c1.hostname))
+			\medskip
+			\Statex \underline{Complejidad:} O($\Sigma_{a' \in Significado(r.Conexiones, c1.hostname)} equal(c2.hostname,a'))$)
+			\Statex \underline{Justificación:} O($\Sigma_{a' \in Significado(r.Conexiones, c1.hostname)} equal(c2.hostname,a'))$ + long(c1.hostname)) = O($\Sigma_{a' \in Significado(r.Conexiones, c1.hostname)} equal(c2.hostname,a'))$ + L) = O($\Sigma_{a' \in Significado(r.Conexiones, c1.hostname)} equal(c2.hostname,a'))$). Como comparar las computadoras es hacerlo con sus hostname e interfaces entonces puedo decir que L pierde contra la comparaci\'on de todas las computadoras que puede tener el conjunto. 
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iInterfazUsada}(\In {r}{Red}, \In {c1}{compu}, \In {c2}{compu}) $\to$ $res$ : $interfaz$} 
+	\begin{algorithmic}
+			\State res $\gets$ Significado(Significado(r.InterfacesQueConectan, c1.hostname), c2.hostname) 	\Comment O(long(c1.hostname) + long(c2.hostname))
+			
+
+			\medskip
+			\Statex \underline{Complejidad:} O(L)
+			\Statex \underline{Justificación:} O(long(c1.hostname) + long(c2.hostname)) = O(L + L) = O(L)
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iVecinos}(\In {r}{Red}, \In {c}{compu}, \In {i}{interfaz}) $\to$ $res$ : $conj(compu)$} 
+	\begin{algorithmic}
+			\State res $\gets$ Significado(r.Conexiones, c.hostname) 		   \Comment O(long(c.hostname))
+			 
+			\medskip
+			\Statex \underline{Complejidad:} O(L)
+			\Statex \underline{Justificación:} O(long(c.hostname)) = O(L)
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iUsaInterfaz?}(\In {r}{Red}, \In {c}{compu}, \In {i}{interfaz}) $\to$ $res$ : $bool$} 
+	\begin{algorithmic}
+			\State iteradorConexion : itConj(hostname)$\gets$ crearIT(Claves(Significado(r.InterfacesQueConectan, c1.hostname))) 	\Comment O(long(c1.hostname)) = O(L)
+			\State encontre : bool $\gets$ false 		\Comment O(1)
+			\While{HaySiguiente(iteradorConexion) $\wedge$ $\neg$encontre}  \Comment O(n x L)
+			  \If{Significado(Significado(r.InterfacesQueConectan, c1.hostname), Siguiente(iteradorConexion)) $\neq$ i} 	\Comment O(1 + long(c1.hostname) + long(Siguiente(iteradorConexion)) = O(1 + L + L) = O(L)
+			    \State encontre $\gets$ true 		\Comment O(1)
+			  \EndIf
+			  \State Avanzar(iteradorConexion) 					\Comment O(1)
+			\EndWhile
+			
+			 \State res $\gets$ HaySiguiente(iteradorConexion)  			\Comment O(1)			 
+			 
+			\medskip
+			\Statex \underline{Complejidad:} O(n x L)
+			\Statex \underline{Justificación:} O(n x L + 1 + L) = O(n x L)
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iCaminosMinimos}(\In {r}{Red}, \In {c1}{compu}, \In {c2}{compu}) $\to$ $res$ : $bool$} 
+	\begin{algorithmic}
+			\State res $\gets$ Significado(Significado(r.caminosMinimos, c1.hostname), c2.hostname) 		\Comment O(long(c1.hostname) + long(c2.hostname))
+			 
+			\medskip
+			\Statex \underline{Complejidad:} O(L)
+			\Statex \underline{Justificación:} O(long(c1.hostname) + long(c2.hostname)) = O(L + L) = O(L)
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iHayCamino?}(\In {r}{Red}, \In {c1}{compu}, \In {c2}{compu}) $\to$ $res$ : $bool$} 
+	\begin{algorithmic}
+
+			\State res $\gets$ $\neg$EsVac\'ia?(Siguiente(crearIT(Significado(Significado(r.caminosMinimos, c1.hostname), c2.hostname), Vac\'ia()))) \Comment O(long(c1.hostname) + long(c2.hostname) + 2)
+			\medskip
+			\Statex \underline{Complejidad:} O(L)
+			\Statex \underline{Justificación:} O(long(c1.hostname) + long(c2.hostname) + 2) = O(L + L) = O(L)
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iConstruirCaminosMinimos}(\In {r}{Red}, \In {c1}{compu} , \In {c2}{compu}) $\to$ $res$ : $conj(lista(compu))$} 
+	\begin{algorithmic}
+	
+	\State recorrido $\gets$ AgregarAdelante(Vac\'ia(), c1)  		\Comment O(1)
+	\State candidatos $\gets$ Significado(r.Conexiones, c1.hostname)   \Comment O(long(c1.hostname)) = O(L)
+	\State camino $\gets$ AuxCaminos(r, c1, c2, recorrido, candidatos) 	\Comment O((L x n + Cardinal(dU.interfaces))x n) donde dU es la computadora entre los candidatos con mayor cantidad de interfaces conectadas.
+	\State iterador : itConj(lista(compu)) $\gets$ crearIT(camino) 	\Comment O(1)
+	\State minimoActual : lista(compu) $\gets$ Siguiente(iterador) 	\Comment O(1)
+	\State Avanzar(iterador) 					\Comment O(1)
+	\While{HaySiguiente(iterador)} 					\Comment O(3 x n)
+	  \If{Longitud(minimoActual) > Longitud(Siguiente(iterador))} 	\Comment O(2)
+	    \State minimoActual $\gets$ Siguiente(iterador) 		\Comment O(1)
+	  \EndIf
+	  \State Avanzar(iterador) 					\Comment O(1)
+	\EndWhile 
+	\State iterador2 : itConj(lista(compu)) $\gets$ crearIT(camino) 	\Comment O(1)
+	\While{HaySiguiente(iterador2)} 				\Comment O(3 x n)
+	  \If{Longitud(minimoActual) < Longitud(Siguiente(iterador2))}  	\Comment O(2)
+	    \State EliminarSiguiente(iterador2) 			 \Comment O(1)
+	  \Else
+	    \State Avanzar(iterador) 					\Comment O(1)
+	  \EndIf
+
+	\EndWhile
+	\State res $\gets$ camino  	\Comment O(1)
+			\medskip
+			\Statex \underline{Complejidad:} O((L x n + Cardinal(dU.interfaces))x n) donde dU es la computadora entre los candidatos con mayor cantidad de interfaces conectadas.
+			\Statex \underline{Justificación:} O(6 x n + 6 + L + (L x n + Cardinal(dU.interfaces))x n) = O((L x n + Cardinal(dU.interfaces))x n) donde dU es la computadora entre los candidatos con mayor cantidad de interfaces conectadas.
+    	\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}[H]{\textbf{iAuxCaminos}(\In {r}{Red}, \In {c1}{compu} , \In {c2}{compu}, \In {recorrido}{lista(compu)}, \In {candidatos}{conj(compu)}) $\to$ $res$ : $conj(lista(compu))$} 
+	\begin{algorithmic}
+			\If {EsVac\'io?(candidatos)} 	\Comment O(2)
+			  \State res $\gets$ AgregarRapido(Vac\'io(), Vac\'ia())  \Comment O(copy(Vac\'ia())) = O(1)
+			\ElsIf {Ultimo(recorrido).hostname = c2.hostname} 	        \Comment O(n x (Cardinal(recorrido[j].interfaces)+L)) donde j es el indice de la compu con mayor cantidad de interfaces conectadas. 
+			    \State res $\gets$ AgregarRapido(Vac\'io(), recorrido) 	\Comment O(copy(recorrido))=O(Copiar(recorrido))=O($\sum_{i=1}^{long(recorrido)}copy(recorrido[i])$)=O($\sum_{i=1}^{long(recorrido)}$ \\$(Cardinal(recorrido[i].interfaces) + long(recorrido[i].hostname))$)$=$O($\sum_{i=1}^{long(recorrido)}$ \\$(Cardinal(recorrido[i].interfaces) + L))$)$=$O(n x (Cardinal(recorrido[j].interfaces)+L))donde j es el indice de la compu con mayor cantidad de interfaces conectadas.
+			  \Else  						\Comment O(3 + n x L + $Cardinal(dUno.interfaces)+L$ + 2 x (AuxCaminos(r, c1, c2, recorrido, candidatos) - 1) + 1 + n) = O(n x L + $Cardinal(dUno.interfaces)+L$ + (AuxCaminos(r, c1, c2, recorrido, candidatos) - 1))
+			      \State iterador : itLista(compu) $\gets$ crearIT(recorrido)   	\Comment O(1)
+			      \State dameUno : compu $\gets$ Siguiente(crearIT(candidatos))     \Comment O(1)
+			      \State loEncontre : bool $\gets$ false 				\Comment O(1)
+			      \While{HaySiguiente(iterador) $\wedge$ $\neg$loEncontre}   \Comment O(L x n)
+				\If{dameUno.hostname $=$ Siguiente(iterador).hostname}   \Comment O(MAX(long(Siguiente(iterador).hostname), long(dameUno.hostname)) + 1) = O(L)
+				  \State loEncontre $\gets$ true 			\Comment O(1)
+				\EndIf
+				\State Avanzar(iterador) 				\Comment O(1)
+			      \EndWhile
+			      
+			      \If {$\neg$loEncontre} 			\Comment O($Cardinal(dUno.interfaces)+L$ + 2 x (AuxCaminos(r, c1, c2, recorrido, candidatos) - 1) + 1 + n) donde dU es la computadora entre los candidatos con mayor cantidad de interfaces conectadas.
+				  \State camino1 : conj(lista(compu)) $\gets$ AuxCaminos(r, c1 , c2 , AgregarAtras(recorrido, dameUno), Significado(r, dameUno.hostname)) \Comment O(long(dameUno.hostname) + (AuxCaminos(r, c1, c2, recorrido, candidatos) - 1))
+				  \State camino2 : conj(lista(compu)) $\gets$ AuxCaminos(r, c1 , c2 , recorrido, Eliminar(candidatos, dameUno)) 			\Comment O($\sum_{a' \in candidatos} equal(dameUno,a')$ + (AuxCaminos(r, c1, c2, recorrido, candidatos) - 1)) = O($Cardinal(dUno.interfaces)+L$ + (AuxCaminos(r, c1, c2, recorrido, candidatos) - 1)) donde dU es la computadora entre los candidatos con mayor cantidad de interfaces conectadas.
+				  \State iteradorCamino : itConj(lista(compu)) $\gets$ crearIT(camino2) 	\Comment O(1)
+				  \While{HayCamino(iteradorCamino)} 		\Comment O((1 + 1)x n)=O(2 x n) = O(n)
+				    \State AgregarRapido(camino1, Siguiente(iteradorCamino))  \Comment O(copy(Siguiente(iteradorCamino))) $\leq$ O(1), pues O(siguiente(iteradorCamino))=O(1).
+				    \State Avanzar(iteradorCamino) \Comment O(1)
+				  \EndWhile
+			      \Else
+				\State res $\gets$ AuxCaminos(r, c1 , c2 , recorrido, Eliminar(candidatos, dameUno)) 		\Comment O((AuxCaminos(r, c1, c2, recorrido, candidatos) - 1))
+			      \EndIf
+			  \EndIf      
+			\medskip
+			\Statex \underline{Complejidad:} O((L x n + 1+ Cardinal(dU.interfaces)+ L)x n) = O((L x n + Cardinal(dU.interfaces))x n) donde dU es la computadora entre los candidatos con mayor cantidad de interfaces conectadas.%Creo  que es así porque tenemos a lo sumo n llamados recursivos y lo peor que puede pasar es que no encontremos el candidato hasta la última iteración
+			\Statex \underline{Justificación:} Como cada vez que llamamos recursivamente a la funcion AuxCaminos estamos continuando con la contrucci\'on del mismo a travez de recorrido, podemos decir que la funci\'on demora a lo sumo n en cada recurci\'on. Esto se debe a que el camino no tiene repetidos.
+    	\end{algorithmic}
+\end{algorithm}
+
+
+\end{Algoritmos}
+\end{document}
+

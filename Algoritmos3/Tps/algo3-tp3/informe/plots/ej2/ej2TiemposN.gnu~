@@ -1,0 +1,14 @@
+set terminal pngcairo
+set out 'ej2TiemposN.png'
+
+f(x) = ((x*x)**(x*x))*0.000000000000000000000000001
+set xlabel 'Cantidad de vértices'
+set ylabel 'Tiempos' 
+set xrange [2:11]
+set yrange [0:80]
+
+set key left top inside
+
+plot 'ej2TiemposN.dat' using 1:2 smooth bezier title 'Peor caso', \
+f(x) with lines title 'Complejidad'
+set out

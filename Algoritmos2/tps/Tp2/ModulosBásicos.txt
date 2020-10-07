@@ -1,0 +1,9 @@
+Modulos Básicos:
+
+interfaz es nat
+
+compu = tupla<hostname : string, conexiones : Vector(tupla<interfaz,compu>), numeroDeAignacion : nat>  //Modular para que tenga coherencia.
+
+paquete = tupla<id : nat, prioridad : nat, origen : compu, destino : compu, actual : nat>  //Hay que modular para garantizar orden
+
+

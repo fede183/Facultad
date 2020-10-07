@@ -1,0 +1,3 @@
+2) PiTest reporta que cubrio el 100% de las lineas(52 de 52). Además se reportan 30 mutantes vivos de un total de 37(82%).
+3) Pude obtener un mutation score de 97%(36/37). Encontré un mutante equivalente que consistía en remplazar una multiplicación de enteros por una divición. Es equivalente porque la multiplicación se hacia con el segundo valor en 1, con lo cual no alterava el primero. En una divición ocurre lo mismo.
+

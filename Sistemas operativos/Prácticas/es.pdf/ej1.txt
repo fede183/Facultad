@@ -1,0 +1,36 @@
+int seek = 0;
+
+driver_seek(int new_seek) {
+	seek = new_seek;
+}
+
+driver_read(int * data) {
+	// Paso 1: Espero a que esté RDY
+	while(IN(HDD_STATUS) != HDD_STAT_RDY){}
+
+	// Paso 2: Indicar el sector inicial a ser leído
+	OUT(HDD_SECTOR, seek);
+
+	// Paso 3: Indicar cant. de sectores
+	OUT(HDD_COUNT, 1);
+
+	// Paso 4: Indicar la operación
+	OUT(HDD_OPERATION, HDD_OP_READ);
+
+	// Paso 5: Esperar a que comience la operación
+	while(IN(HDD_STATUS) != HDD_STAT_BSY){}	
+	// Paso 6: Esperar a que finalice la operación
+	while(IN(HDD_STATUS) != HDD_STAT_RDY){}
+
+	data' = kmalloc(SECTOR_SIZE);
+
+	// Paso 7: Leer la información
+	for(i = 0; i < SECTOR_SIZE/4; i++)
+		data'[i] = IN(HDD_DATA)
+
+	// Paso 7': Copiar la información a la memoria del usuario
+	copy_to_user(data', data, SECTOR_SIZE);
+	kfree(data');
+
+	return IO_OK;
+}

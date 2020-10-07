@@ -1,0 +1,25 @@
+#cant	Vacindario 1	Vacindario 2	Vacindario 3
+15	8		8		8		
+31	16		16		16
+63	32		32		32
+127	64		64		64
+255	128		128		128
+511	256		256		256
+1023	512		512		512
+2047	1024		1024		1024
+4095	2048		2048		2048
+8191	4096		4096		4096
+
+
+Vecindad 1 Tiempos con familia 1:
+0 0 0 0 0 0 0 0 1 2 
+Vecindad 1 Fallos con familia 1:
+8 16 32 64 128 256 512 1024 2048 4096 
+Vecindad 2 Tiempos con familia 1:
+0 0 0 0 0 0 0 0 0 2 
+Vecindad 2 Fallos con familia 1:
+8 16 32 64 128 256 512 1024 2048 4096 
+Vecindad 3 Tiempos con familia 1:
+0 0 0 0 0 2 10 43 205 1197 
+Vecindad 3 Fallos con familia 1:
+8 16 32 64 128 256 512 1024 2048 4096

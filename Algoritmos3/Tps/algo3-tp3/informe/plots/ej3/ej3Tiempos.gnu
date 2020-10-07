@@ -1,0 +1,14 @@
+set terminal pngcairo
+set out 'Ej3Tiempos.png'
+
+f(x) = (x+20)**6 * 0.00000000002
+set xlabel 'Cantidad de vértices'
+set ylabel 'Tiempo'
+#set ylabel "\\rotatebox{90}{Tiempo}" 
+set xrange [20:200]
+set yrange [0:410]
+set key left top inside
+
+plot 'ej3Tiempos.dat' using 1:2 smooth bezier title 'Peor caso', \
+f(x) with lines title 'O(mn^3c^2)'
+set out

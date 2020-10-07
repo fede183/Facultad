@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "stackar",
+                "projectName": "stackar",
+                "workingDirectory": "/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 3/Resolución/Taller03/stackar",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "stackar",
+                "projectName": "stackar",
+                "workingDirectory": "/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 3/Resolución/Taller03/stackar",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}

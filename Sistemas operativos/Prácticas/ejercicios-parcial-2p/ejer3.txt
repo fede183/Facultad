@@ -1,0 +1,21 @@
+a) No. Se requieren varios mecanismos del hardware. Principalmente, la MMU para traducir direcciones. También se necesitan interrupciones (para Page Fault).
+
+b) Porque permite cargar en memoria esas bibliotecas una vez y que puedan ser utilizadas por varios procesos mapeando páginas virtuales al mismo marco de página.
+
+c) No, ya que las páginas de código nunca se escriben.
+
+d) Debe limpiar la TLB (flush_tlb()) cada vez que se actualiza un mapeo o se produce un context-switch. Aumentando el quantum de cada proceso, se incrementa el rendimiento de la TLB.
+
+e) i) 33 bits
+   ii) 12 bits
+   iii) 21 bits
+
+f) No. Al igual que con paginación, el procesador debe traducir las direcciones y manejar las interrupciones (Segmentation Fault). Además, debe contener los registros de segmento correspondientes (CS y DS).
+
+g) Paginación puede producir fragmentación interna ya que cuando se asigna memoria, se asigna una página entera. Si un proceso no utiliza toda la página, la memoria que no use es memoria desperdiciada. No puede producir fragmentación externa ya que todas las páginas son del mismo tamaño entonces nunca voy a tener un 'cacho' de memoria que no voy a poder asignar.
+
+Segmentación puede producir fragmentación externa ya que los segmentos no son de tamaño fijo y, por lo tanto, puede quedar espacio entre segmentos demasiado chico como para ser asignado. También puede producir fragmentación interna. Si bien los segmentos son de tamaño variable (es decir que si un proceso no utiliza toda la memoria que tiene asignada, podría achicar su segmento), podría liberarse memoria en el medio del segmento pero seguir utilizando memoria al final del segmento.
+
+# --------------------------------------------------------------------------- #
+
+NOTA: Posibles respuestas a los items del ejercicio de memoria visto el jueves. Recuerden que las respuestas pueden ser muy variadas y la corrección se basa más en la justificación que en la respuesta en sí.

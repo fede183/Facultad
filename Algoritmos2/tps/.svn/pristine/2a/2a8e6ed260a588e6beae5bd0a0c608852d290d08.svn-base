@@ -1,0 +1,109 @@
+red = tupla<Computadoras: Conj(Compu), Conexiones : trie(hostname, Conj(Compu)), "Algo para las interfaces">
+
+Modulo Red
+iniciar () -> r: Red
+{true}
+{r^ =obs iniciarRed()}
+Descripción: Crea una red vacía
+
+agregarCompu (in/out r: red, in c: compu)
+{r^ =obs r0}
+{r^ =obs agregarComputadora(r0,c^)}
+Descripción: Agrega una computadora a la red
+
+conectar (in/out r: red, in c1: compu, in i1: interfaz, in c2: compu, in i2: interfaz)
+{r^ =obs r0 ^ c1^ € computadoras(r0) ^ c2^ € computadoras(r0)
+^ ip(c1^) != ip(c2^) ^ ~conectadas(r0, c1^, c2^) ^ ~usaInterfaz(r0, c1^, i1^) ^ ~usaInterfaz(r0, c2^, i2^)}
+{r^ =obs conectar(r0, c1, i1, c2, i2) ^ conectadas(r0, c1^, c2^) ^ usaInterfaz(r0, c1^, i1^) ^ usaInterfaz(r0, c2^, i2^)}
+Descripción: Modifica la red r conectando las computadoras c1 y c2 a través de las interfaces i1 e i2 respectivamente.
+
+computadoras (in r: red) -> res: conj(compu)
+{true}
+{res =obs computadoras(r)}
+Descripción: Da un conjunto con todas las computadoras de la red
+
+conectadas? (in r: red, in c1: compu, in c2: compu) -> res: bool
+{c1 € computadoras(r) ^ c2 € computadoras(r)}
+{res =obs conectadas(r, c1, c2)}
+Descripción: Devuelve true si c1 y c2 están conectadas en la red r.
+
+interfazUsada (in r: red, in c1: compu, in c2: compu) -> res: interfaz
+{conectadas?(r, c1, c2)}
+{res =obs interfazUsada(r, c1, c2)}
+Descripción: Devuelve la interfaz de c1 que se conecta con c2 en la red r.
+
+vecinos (in r: red, in c: compu) -> vec: conj(compu)
+{c^ =obs c0}
+{vec^ =obs vecinos(r^, c^)}
+Descripción: Devuelve un conjunto de computadoras con las cuales está conectada la computadora c.
+
+usaInterfaz? (in r: red, in c: compu, in i: interfaz) -> res: bool
+{c € computadoras(r)}
+{res =obs usaInterfaz?(r, c, i)}
+Descripción: Devuelve true si la interfaz i de la computadora c está siendo utilizada para conectarse con alguna computadora de la red r.
+
+caminosMinimos (in r: red, in c1: compu, in c2: compu) -> res: conj(secu(compu))
+{c1 € computadoras(r) ^ c2 € computadoras(r)}
+{res =obs caminosMinimos(r, c1, c2)}
+Descripción: Devuelve todos los caminos más cortos para llegar de c1 a c2.
+
+hayCamino? (in r: red, in c1: compu, in c2: compu) -> res: bool
+{c1 € computadoras(r) ^ c2 € computadoras(r)}
+{res =obs hayCamino?(r, c1, c2)}
+Descripción: Devuelve true si hay algún camino que conduzca de c1 a c2.
+
+
+Algoritmos
+
+iiniciar() -> r: Red
+r <- <Vacía(), Vacío(), interfazVacía()> //Arreglar lo de interfazVacía
+ 
+iagregarCompu(in/out r:red, in c:compu)
+Agregar(r.Computadoras, c)              <O(agregar de conjunto lineal)
+Definir(r.Conexiones, c.hostname, Vacía()) 	<O(long(c.hostname) + copy(c.hostname))
+
+iconectar(in/out r:red, in c1:compu, in i1:interfaz, in c2:compu, in i2:interfaz)
+Agregar(Significado(r.Conexiones, c1.hostname), c2)
+Agregar(Significado(r.Conexiones, c2.hostname), c1)
+//Algo para las interfaces
+
+icomputadoras (in r: red) -> res: conj(compu)
+res <- r.computadores
+
+iconectadas? (in r: red, in c1: compu, in c2: compu) -> res: bool
+res <- c2 € Significado(c1.hostname, r.conexiones)
+
+iinterfazUsada (in r: red, in c1: compu, in c2: compu) -> res: interfaz
+long <-Longitud(c1.interfaces)
+i <- 1
+while(i <= long){
+	if(PI2(c1.interfaces[i]) = c2){
+		i <- long
+		res <- PI1(c1.interfaces[i])
+	}
+	i <- i + 1
+}
+
+ivecinos (in r: red, in c: compu) -> vec: conj(compu)
+res <- Significado(r.conexiones, hostname(c)) 			<O(long(hostname(c)))<=O(L)
+
+usaInterfaz? (in r: red, in c: compu, in i: interfaz) -> res: bool
+long <-Longitud(c1.interfaces)
+i <- 1
+res <- false
+while(i <= long){
+	if(PI1(c1.interfaces[i]) = i && PI2(c1.interfaces[i]) !=null){
+		i <- long
+		res <- true
+	}
+	i <- i + 1
+}
+
+Idea super divertida:
+-Caminos como lista(tupla<compu, conj(tupla<compu,secu(interfaz)>)>) //compu tiene el problema de cuanto nos cuesta la comparación. Una solución es asignarle a cada una un numero. (preguntar)
+-Las compu tienen las interfaces como un vector. Para que teniendo una interfaz nos cueste log(n) conseguir la compu a la que está conectada. Preguntar si podemos poner el conjunto de interfaces de la compu como un vector.
+
+Interfaces : vector(tupla<interfaz, puntero(compu)>)  //Está ordenada
+caminosMinimos : lista(tupla<compu, conj(tupla<compu,secu(interfaz)>)>)
+
+Fin Modulo

@@ -1,0 +1,17 @@
+Informe de modificaicones:
+
+Ejercicio 1:
+Código:
+	Se modifica el procesamiento de la entrada
+	Archivos Ejercicio1.java y Piso.java
+Informe:
+	Se agrega pseudocódigo del algoritmo y preprocesamiento necesario.
+	Se agrega explicación de la implementación del pseudocódigo presentado en la sección Desarrollo.
+	Se reescriben las secciones de Correctitud y Complejidad para referenciar al pseudocódigo en sus argumentos.
+	Se agrega análisis de complejidad del preprocesamiento.
+	Se modifica la introducción de la sección de Experimentación para reflejar
+		que no se pretende probar correctitud a través de los tests.
+	Se modifica la escala de la función de cota en los gráficos para reflejar
+		que los resultados obtenidos son coeherentes con ella.
+	Se agrega un desarrollo de la estructura Union-Find utilizada en el tercer ejercicio, se añade descripción paso a paso de su funcionamiento.
+	Se modifica el desarrollo de Kruskal agragando más explicación y descripción por pasos del funcionamiento.

@@ -1,0 +1,16 @@
+1) 9 instancias válidas instancias 90 instancias totales.
+
+2) 76 instancias válidas contra 16389 instancias totales.
+
+3) bugs:
+-Contiene:
+	-contains no funciona correctamente.
+-Inserción:
+	-size no se actualiza correctamente al insertar un nuevo elemento.
+	-height no se actualiza correctamente al insertar un nuevo elemento.
+	-no queda ordenado.
+	-no queda como árbol binario.
+	-aparecen repetidos.
+-Borrado:
+	-height no se actualiza correctamente al insertar un nuevo elemento.
+	-no queda ordenado.

@@ -1,0 +1,247 @@
+
+\section{Módulo colaPaquetes}
+
+
+\begin{Interfaz}
+
+
+  \textbf{se explica con}: \tadNombre{Cola de Prioridad(paquete)}.
+
+  \textbf{géneros}: \TipoVariable{colaPaquetes}.
+
+  \Titulo{Operaciones básicas de colaPaquetes}
+
+  \InterfazFuncion{Vac\'ia}{}{colaPaquetes}
+  {$res \igobs $vac\'ia}
+  [$\Theta(1)$]
+  [genera un colaPaquetes vac\'ia.]
+
+  \InterfazFuncion{Encolar}{\Inout{c}{colaPaquetes(paquete)}, \In{a}{paquete}}{}
+  [$c \igobs c_0$]
+  {$c \igobs encolar(c_0, a)$}
+  [O(log(n))]
+  [pone en la posici\'on adecuada al orden al paquete a en la colaPaquetes c.]
+  
+  \InterfazFuncion{Vac\'ia?}{\In{c}{colaPaquetes(paquete)}}{bool}
+  {$res \igobs $vac\'ia?(c)}
+  [$\Theta(1)$]
+  [devuelve true si y s\'olo la colaPaquetes est\'a vac\'ia o, lo que es lo mismo, que no posee paquetes.]
+
+  \InterfazFuncion{Pr\'oximo}{\In{c}{colaPaquetes(paquete)}}{paquete}
+  [$\neg $vac\'ia?(c)]
+  {$alias(res \igobs$ pr\'oximo(c))}
+  [$\Theta(1)$]
+  [devuelve el pr\'oximo paquete de la colaPaquetes. Este es el de mayor prioridad]
+  [res es modificable si y s\'olo si d es modificable.]
+
+  \InterfazFuncion{Desencolar}{\Inout{c}{colaPaquetes(paquete)}}{}
+  [$c \igobs c_0 \wedge \neg$vac\'ia?(c)]
+  {$c \igobs desencolar(c_0)$}
+  [O(log(n))]
+  [modifica la colaPaquetes quitando el pr\'oximo paquete y despu\'es reordenandola.]
+
+ 
+\end{Interfaz}
+
+\begin{Representacion}
+  %Tiene que ser un heap minimo
+  \Titulo{Representación de la colaPaquetes}
+
+  \begin{Estructura}{colaPaquetes(paquete)}[heap]
+    \begin{Tupla}[heap]
+      \tupItem{raiz}{puntero(paquete)}%
+      \tupItem{izq}{puntero(heap)}%
+      \tupItem{der}{puntero(heap)}%
+       \tupItem{cantidadElementos}{nat}%
+    \end{Tupla}
+
+
+  \end{Estructura}
+
+
+  \Rep[heap][c]{(c.cantidadElementos $=$ 0 $\Leftrightarrow$ (c.raiz $=$ NULL $\wedge$ c.izq $=$ NULL $\wedge$ c.der $=$ NULL)) $\wedge$ (c.cantidadElementos $=$ 1 $\Leftrightarrow$ (c.raiz $\neq$ NULL $\wedge$ c.izq $=$ NULL $\wedge$ c.der $=$ NULL)) $\wedge$ (c.cantidadElementos $=$ 2 $\Leftrightarrow$ (c.raiz $\neq$ NULL $\wedge$ c.izq $\neq$ NULL $\wedge$ c.der $=$ NULL)) $\wedge$ (c.cantidadElementos $>=$ 3 $\Leftrightarrow$ (c.raiz $\neq$ NULL $\wedge$ c.izq $\neq$ NULL $\wedge$ c.der $\neq$ NULL)) $\yluego$ (c.cantidadElementos $>=$ 3 $\Rightarrow$ c.cantidadElementos $=$ *c.izq.cantidadElementos + *c.der.cantidadElementos+1) $\wedge$ (c.izq $\neq$ NULL $\Rightarrow$ (*c.raiz.prioridad <= *c.izq.raiz.prioridad $\wedge$ Rep(*c.izq))) $\wedge$ (c.der $\neq$ NULL $\Rightarrow$ (*c.raiz.prioridad <= *c.der.raiz.prioridad $\wedge$ Rep(*c.der)))\\
+  -Como se utilizan punteros tenemos que decir que no se permite que dos heap en un \'arbol tengan como punteros izq o der a otros iguales. En otras palabras que no se formen bucles en el \'arbol}
+  
+  
+  \AbsFc[heap]{colaPaquetes(paquete)}[c]{e}{
+      -vac\'ia?(e) $\Leftrightarrow$ c.raiz $=$ NULL $\yluego$ (vac\'ia?(e) $\impluego$  pr\'oximo(e) $=$  *c.raiz $\wedge$ desencolar(e) = funcionParaDesencolar(c)) \\
+      -funcionParaDesencolar consiste en tomar el valor de el \'ultimo elemento del heap y colocarlo en la posici\'on del primero(esto es suponiendo que exista alguno a parte del primero, en caso contrario la funci\'on terminar\'ia aqui). Con esto nos desasemos del elemento que teniamos que desencolar. Ahora para que restablesca el invariante de heap tenemos que tomar el primer elemnto, que es el que agregamos, e ir bajandolo por izquieda o derecha hasta que encontremos un lugar donde no tenga hijos o los que tenga sean menores en prioridad a él.\\
+  }
+ 
+
+\end{Representacion}
+
+\begin{Algoritmos}
+
+
+
+\begin{algorithm}[H]{\textbf{iVac\'ia}() $\to$ $res$ : heap}
+	\begin{algorithmic}
+			\State $res \gets$ <NULL, NULL, NULL, 0>   			\Comment O(1)
+			 \medskip
+			  \Statex \underline{Complejidad:} $\Theta(1)$
+	
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iEncolar}(\Inout{c}{heap}, \In {p}{paquete})}
+	\begin{algorithmic}
+		\State *aPoner : puntero(paquete) $\gets$ $\delta$p 		\Comment O(1)
+		\If{c.raiz $=$ NULL} 				\Comment O(3)
+		  \State c.raiz $\gets$ aPoner 			\Comment O(1)
+		  \State c.cantidadElementos $\gets$ 1 		\Comment O(1)
+		\Else 			\Comment O(2 + log(n)) = O(log(n))
+			
+			\State *recorrido : puntero(heap) $\gets$ $\delta$c 		\Comment O(1)
+			\State llegoAPosicion : bool $\gets$ false 		\Comment O(1)
+			\While{$\neg$ llegoAPosicion} 					\Comment O(12 x log(n)) = O(log(n))
+			    \State *recorrido.cantidadElementos $\gets$ *recorrido.cantidadElementos + 1
+			    \If{recorrido.izq $=$ NULL} 					\Comment O(3)
+			      \State llegoAPosicion $\gets$ true			     	\Comment O(1)
+			      \State *nuevaRaiz : puntero(paquete) $\gets$ aPoner 				\Comment O(1)
+			      
+			      \If{**recorrido.raiz.prioridad > *aPoner.prioridad}        \Comment O(5)
+				 \State *aux : puntero(paquete) $\gets$ *recorrido.raiz 			\Comment O(1)
+				 \State *nuevoHeap : puntero(heap) $\gets$ $\delta$<aux,NULL,NULL,1> 		\Comment O(1)
+				 \State *recorrido.izq $\gets$ nuevoHeap 		\Comment O(1)
+				 \State *recorrido.raiz $\gets$ nuevaRaiz 		\Comment O(1)
+			      \Else		   					\Comment O(3)
+				 \State *nuevoHeap : puntero(heap) $\gets$ $\delta$<nuevaRaiz,NULL,NULL,1> 	\Comment O(1)
+				 \State *recorrido.izq $\gets$ nuevoHeap 		\Comment O(1)
+			      \EndIf
+			      
+			    \ElsIf{recorrido.der $=$ NULL} 					\Comment O(10)
+			      \State llegoAPosicion $\gets$ true			     	\Comment O(1)
+			      \State *nuevaRaiz : puntero(paquete) $\gets$ *aPoner 				\Comment O(1)
+			      \If{**recorrido.raiz.prioridad > *aPoner.prioridad} 		\Comment O(8)
+				 \State *aux1 : puntero(paquete)$\gets$ *recorrido.raiz 				\Comment O(1)
+				 \State *aux2 : puntero(paquete) $\gets$ *recorrido.izq.raiz 			\Comment O(1)
+				 \State *nuevoHeap1 : puntero(heap) $\gets$ $\delta$<aux1,NULL,NULL,1> 			\Comment O(1)
+				 \State *nuevoHeap2 : puntero(heap) $\gets$ $\delta$<aux2,NULL,NULL,1> 			\Comment O(1)
+				 \State *recorrido.izq $\gets$ nuevoHeap1 			\Comment O(1)
+				 \State *recorrido.der $\gets$ nuevoHeap2 			\Comment O(1)
+				 \State *recorrido.raiz $\gets$ nuevaRaiz 			\Comment O(1)
+
+			      \Else		  	 					\Comment O(2)
+				 \State *nuevoHeap  : puntero(heap)$\gets$ $\delta$<nuevaRaiz,NULL,NULL,1> 		\Comment O(1)
+				 \State *recorrido.der $\gets$ nuevoHeap			\Comment O(1)
+			      \EndIf
+			      
+			    \Else \Comment O(12)
+			      \State nivelCompleto  : bool $\gets$ (2 x *recorrido.der.cantidadElementos) + 1 => *recorrido.izq.cantidadElementos \Comment O(1)
+			      \If{**recorrido.raiz.prioridad > *aPoner.prioridad} 		\Comment O(11)
+				\State *nuevaRaiz  : puntero(paquete)$\gets$ *aPoner 		\Comment O(1)
+				\State *aux1  : puntero(paquete)$\gets$ *recorrido.raiz 		\Comment O(1)
+				\State *aux2  : puntero(paquete)$\gets$ *recorrido.izq.raiz 	\Comment O(1)
+				\State *aux3  : puntero(paquete)$\gets$ *recorrido.der.raiz 	\Comment O(1)
+				\State *recorrido.raiz $\gets$ nuevaRaiz 	\Comment O(1)
+				\State *recorrido.izq.raiz $\gets$ aux1 	\Comment O(1)
+				\State *recorrido.der.raiz $\gets$ aux2 	\Comment O(1)
+				\State aPoner $\gets$ aux3 			\Comment O(1)
+			      \EndIf
+			      
+			      \If{nivelCompleto} 		\Comment O(2)
+				  \State recorrido $\gets$ *recorrido.izq 	\Comment O(1)
+			      \Else 				\Comment O(2)
+				  \State recorrido $\gets$ *recorrido.der 	\Comment O(1)
+			      \EndIf 
+			       
+			       
+			    \EndIf
+			  \EndWhile
+			\EndIf
+			 \medskip
+			  \Statex \underline{Complejidad:} O(log(n))
+			  \Statex \underline{Justificaci\'on:} O(log(n) + 1) = O(log(n)). Tomamos en consideraci\'on el camino más costoso del if.
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{Vac\'ia?}(\In{c}{heap})$\to$ $res$ : bool}
+	\begin{algorithmic}
+	
+			\State $res \gets$ c.cantidadElementos $=$ 0    			\Comment O(1)
+			 \medskip
+			  \Statex \underline{Complejidad:} O(1)
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iPr\'oximo}(\In{c}{heap})$\to$ $res$ : paquete}
+	\begin{algorithmic}
+			\State $res \gets$ *c.raiz    			\Comment O(1)
+			 \medskip
+			  \Statex \underline{Complejidad:} O(1)
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iDesencolar}(\Inout{c}{heap})}
+	\begin{algorithmic}
+	
+		\If{c.izq $=$ NULL} 					\Comment O(3)
+		  \State c.raiz $\gets$ NULL 				\Comment O(1)
+		  \State c.cantidadElementos $\gets$ 0 			\Comment O(1)
+		\Else 				\Comment O(2 + 2 x log(n)) = O(2 x log(n)) = O(log(n))
+			  \State *recorrido  : puntero(heap)$\gets$ $\delta$c 					\Comment O(1)
+			  \State final  : bool $\gets$ false 					\Comment O(1)
+			  \While{$\neg$ final} 						\Comment O(4 x log(n)) = O(log(n))
+			    \If{*recorrido.izq $=$ NULL} 				\Comment O(2)
+			      \State final $\gets$ true 				\Comment O(1)
+			    \ElsIf{*recorrido.der $=$ NULL} 						\Comment O(4)
+			      \State final $\gets$ true 						\Comment O(1)
+			      \State *recorrido.cantidadElementos = *recorrido.cantidadElementos - 1 	\Comment O(1)
+			      \State recorrido $\gets$ *recorrido.izq 				\Comment O(1)
+
+			     \Else 				\Comment O(4)
+			      \State nivelCompleto  : bool $\gets$ (2 x *recorrido.der.cantidadElementos) + 1 => **recorrido.izq.cantidadElementos 	\Comment O(1)
+			      \State *recorrido.cantidadElementos = *recorrido.cantidadElementos - 1 		\Comment O(1)
+			      \If{nivelCompleto} 						\Comment O(2)
+				\State recorrido $\gets$ *recorrido.der 			\Comment O(1)
+			      \Else 								\Comment O(2)
+				\State recorrido $\gets$ *recorrido.izq 			\Comment O(1)
+			      \EndIf
+			    \EndIf
+			  \EndWhile
+			  
+			  \State c.raiz $\gets$ *recorrido.raiz 				\Comment O(1)
+			  \State recorrido $\gets$ NULL 					\Comment O(1)
+			  \State *recorrido2  : puntero(heap) $\gets$ $\delta$c 						\Comment O(1)
+			  \State llegoAPosicion  : bool $\gets$ false 					\Comment O(1)
+			  
+			  \While{$\neg$ llegoAPosicion} 					\Comment O(6 x log(n)) = O(log(n))
+			    \If{*recorrido2.izq $=$ NULL} 					\Comment O(2)
+			      \State llegoAPosicion $\gets$ true			      \Comment O(1)
+			    \ElsIf{*recorrido2.der $=$ NULL} 					\Comment O(1)
+			      \State llegoAPosicion $\gets$ true 				\Comment O(1)
+			      \If{***recorrido2.izq.raiz.prioridad < **recorrido2.raiz.prioridad} 	\Comment O(4)
+				\State *aux  : puntero(paquete) $\gets$ *recorrido2.raiz 				\Comment O(1)
+				\State *recorrido2.raiz $\gets$ **recorrido2.izq.raiz 		\Comment O(1)
+				\State **recorrido2.izq.raiz  $\gets$ aux 			\Comment O(1)
+			      \EndIf
+			    \Else \Comment O(6)
+			      \State nivelCompleto $\gets$ (2 x **recorrido2.der.cantidadElementos) + 1 => **recorrido2.izq.cantidadElementos \Comment O(1)
+			      \If{**recorrido2.raiz.prioridad > ***recorrido2.izq.raiz.prioridad $\wedge$ $\neg$ nivelCompleto} 		\Comment O(5)
+				\State *aux  : puntero(paquete) $\gets$ *recorrido2.raiz 				\Comment O(1)
+				\State *recorrido2.raiz $\gets$ **recorrido2.izq.raiz 	\Comment O(1)
+				\State **recorrido2.izq.raiz $\gets$ aux 	\Comment O(1)
+				\State recorrido2 $\gets$ *recorrido2.izq	 \Comment O(1)
+			      \ElsIf{**recorrido2.raiz.prioridad > ***recorrido2.der.raiz.prioridad $\wedge$ nivelCompleto} 	\Comment O(5)
+				\State *aux  : puntero(paquete) $\gets$ *recorrido2.raiz 	\Comment O(1)
+				\State *recorrido2.raiz $\gets$ **recorrido2.der.raiz 	\Comment O(1) 
+				\State **recorrido2.der.raiz $\gets$ aux \Comment O(1)
+				\State recorrido2 $\gets$ *recorrido2.der \Comment O(1)
+			      \Else \Comment O(2)
+				\State llegoAPosicion $\gets$ true  	\Comment O(1)
+			      \EndIf
+			    \EndIf
+			  \EndWhile
+			  \EndIf
+			 \medskip
+			  \Statex \underline{Complejidad:} O(log(n))
+			  \Statex \underline{Justificaci\'on:} Tomamos en consideraci\'on el camino más costoso del if.
+    	\end{algorithmic}
+\end{algorithm}
+
+
+
+\end{Algoritmos}
+
+

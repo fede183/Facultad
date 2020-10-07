@@ -1,0 +1,91 @@
+* Starting client
+* Connecting to master process on port 9927
+* Analyzing classpath: 
+  - /home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/out/production/Resolución
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar
+  - /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar
+  - /home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/out/production/Resolución
+* Finished analyzing classpath
+* Generating tests for class org.autotest.StackAr
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+  - Mutation testing (weak)
+  - Method-Output Coverage
+  - Top-Level Method Coverage
+  - No-Exception Top-Level Method Coverage
+  - Context Branch Coverage
+* Setting up search algorithm for whole suite generation
+* Loaded 35 tests from /home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/evosuite-seeds/org.autotest.StackAr.seed
+* Total number of test goals: 
+  - Line 78
+  - Branch 39
+  - Exception 0
+  - MutationFactory 150
+  - Output 16
+  - Method 11
+  - MethodNoException 11
+  - CBranchFitnessFactory 39
+* Using seed 1539090760436
+* Starting evolution
+* Search finished after 99s and 292 generations, 43611 statements, best individual has fitness: 6.090909090909091
+* Writing sequences to pool
+* Minimizing test suite
+[MASTER] 10:14:41.609 [pool-2-thread-1] WARN  TestSuiteMinimizer - Minimization timeout. Roll back to original test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 100%
+* Total number of goals: 78
+* Number of covered goals: 78
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 100%
+* Total number of goals: 39
+* Number of covered goals: 39
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 10
+* Number of covered goals: 10
+* Coverage analysis for criterion WEAKMUTATION
+* Coverage of criterion WEAKMUTATION: 96%
+* Total number of goals: 150
+* Number of covered goals: 144
+* Coverage analysis for criterion OUTPUT
+* Coverage of criterion OUTPUT: 81%
+* Total number of goals: 16
+* Number of covered goals: 13
+* Coverage analysis for criterion METHOD
+* Coverage of criterion METHOD: 100%
+* Total number of goals: 11
+* Number of covered goals: 11
+* Coverage analysis for criterion METHODNOEXCEPTION
+* Coverage of criterion METHODNOEXCEPTION: 100%
+* Total number of goals: 11
+* Number of covered goals: 11
+* Coverage analysis for criterion CBRANCH
+* Coverage of criterion CBRANCH: 100%
+* Total number of goals: 39
+* Number of covered goals: 39
+* Generated 37 tests with total length 365
+* Resulting test suite's coverage: 97% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 81%
+* Compiling and checking tests
+* Writing JUnit test case 'StackAr_ESTest' to /home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_09_10_12_36/tests
+* Done!
+

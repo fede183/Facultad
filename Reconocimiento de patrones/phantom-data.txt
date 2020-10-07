@@ -1,0 +1,6 @@
+verde claro:   123,239,134
+azul:          126,123,239
+verde oscuro:   80,147, 53
+verde seco:    201,199, 60
+marron:        188,152, 81
+marron rojizo: 239,124, 67

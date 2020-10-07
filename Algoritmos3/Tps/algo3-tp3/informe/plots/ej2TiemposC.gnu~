@@ -1,0 +1,14 @@
+f(x) = ((x*x)**(x*x))*0.0000000000000000000000000000000000000001
+set xlabel 'Cantidad de vértices'
+set ylabel "\\rotatebox{90}{Tiempos}" 
+set xrange [2:10]
+set yrange [0:11190]
+set terminal latex
+set terminal png size 1000,1000 enhanced font "Helvetica,20"
+set output 'output.png'
+#set terminal latex
+#set key left top inside
+#set out 'ej2TiemposC.tex'
+plot 'ej2TiemposC.dat' using 1:2 smooth bezier title 'Peor caso', \
+f(x) with lines title 'Complejidad'
+set out

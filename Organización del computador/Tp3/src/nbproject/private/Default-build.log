@@ -1,0 +1,105 @@
+Limpiando todo...
+rm -f *.o
+rm -f *.bin
+rm -f *.tmp
+rm -f *.ctsko
+rm -f kernel.sym
+rm -f *.ctsk
+rm -f *.tsko
+rm -f *.tsk
+rm -f diskette.img
+rm -rf *~
+
+Compilando tarea...
+nasm -fbin -o idle.tsk idle.asm
+
+Generando imagen de la tarea idle...
+mv idle.tsk idle.tsk.tmp
+dd if=/dev/zero bs=1 count=4K of=idle.tsk status=noxfer > /dev/null 2>&1
+dd if=idle.tsk.tmp bs=1 count=4K seek=0 conv=notrunc of=idle.tsk status=noxfer > /dev/null 2>&1
+rm idle.tsk.tmp
+
+gcc -m32 -g -ggdb -Wall -Werror -O0 -fno-zero-initialized-in-bss -fno-stack-protector -ffreestanding -c -o taskAG.tsko tareaAG.c
+In file included from game.h:12:0,
+                 from tareaAG.c:9:
+mmu.h:22:1: note: offset of packed bit-field ‘ign_2’ has changed in GCC 4.4
+ } __attribute__((__packed__)) cr3;
+ ^
+Linkeando tarea...
+ld -s -static -m elf_i386 --oformat binary -b elf32-i386 -e task -Ttext 0x40000000 -o taskAG.ctsk.tmp taskAG.tsko
+
+mv taskAG.ctsk.tmp taskAG.ctsk
+gcc -m32 -g -ggdb -Wall -Werror -O0 -fno-zero-initialized-in-bss -fno-stack-protector -ffreestanding -c -o taskAM.tsko tareaAM.c
+In file included from game.h:12:0,
+                 from tareaAM.c:9:
+mmu.h:22:1: note: offset of packed bit-field ‘ign_2’ has changed in GCC 4.4
+ } __attribute__((__packed__)) cr3;
+ ^
+Linkeando tarea...
+ld -s -static -m elf_i386 --oformat binary -b elf32-i386 -e task -Ttext 0x40000000 -o taskAM.ctsk.tmp taskAM.tsko
+
+mv taskAM.ctsk.tmp taskAM.ctsk
+gcc -m32 -g -ggdb -Wall -Werror -O0 -fno-zero-initialized-in-bss -fno-stack-protector -ffreestanding -c -o taskAC.tsko tareaAC.c
+In file included from game.h:12:0,
+                 from tareaAC.c:9:
+mmu.h:22:1: note: offset of packed bit-field ‘ign_2’ has changed in GCC 4.4
+ } __attribute__((__packed__)) cr3;
+ ^
+Linkeando tarea...
+ld -s -static -m elf_i386 --oformat binary -b elf32-i386 -e task -Ttext 0x40000000 -o taskAC.ctsk.tmp taskAC.tsko
+
+mv taskAC.ctsk.tmp taskAC.ctsk
+gcc -m32 -g -ggdb -Wall -Werror -O0 -fno-zero-initialized-in-bss -fno-stack-protector -ffreestanding -c -o taskBG.tsko tareaBG.c
+In file included from game.h:12:0,
+                 from tareaBG.c:9:
+mmu.h:22:1: note: offset of packed bit-field ‘ign_2’ has changed in GCC 4.4
+ } __attribute__((__packed__)) cr3;
+ ^
+Linkeando tarea...
+ld -s -static -m elf_i386 --oformat binary -b elf32-i386 -e task -Ttext 0x40000000 -o taskBG.ctsk.tmp taskBG.tsko
+
+mv taskBG.ctsk.tmp taskBG.ctsk
+gcc -m32 -g -ggdb -Wall -Werror -O0 -fno-zero-initialized-in-bss -fno-stack-protector -ffreestanding -c -o taskBM.tsko tareaBM.c
+In file included from game.h:12:0,
+                 from tareaBM.c:9:
+mmu.h:22:1: note: offset of packed bit-field ‘ign_2’ has changed in GCC 4.4
+ } __attribute__((__packed__)) cr3;
+ ^
+Linkeando tarea...
+ld -s -static -m elf_i386 --oformat binary -b elf32-i386 -e task -Ttext 0x40000000 -o taskBM.ctsk.tmp taskBM.tsko
+
+mv taskBM.ctsk.tmp taskBM.ctsk
+gcc -m32 -g -ggdb -Wall -Werror -O0 -fno-zero-initialized-in-bss -fno-stack-protector -ffreestanding -c -o taskBC.tsko tareaBC.c
+In file included from game.h:12:0,
+                 from tareaBC.c:9:
+mmu.h:22:1: note: offset of packed bit-field ‘ign_2’ has changed in GCC 4.4
+ } __attribute__((__packed__)) cr3;
+ ^
+Linkeando tarea...
+ld -s -static -m elf_i386 --oformat binary -b elf32-i386 -e task -Ttext 0x40000000 -o taskBC.ctsk.tmp taskBC.tsko
+
+mv taskBC.ctsk.tmp taskBC.ctsk
+Generando imagen de las tareas...
+
+nasm -felf32 -o kernel.o kernel.asm
+gcc -m32 -g -ggdb -Wall -Werror -O0 -fno-zero-initialized-in-bss -fno-stack-protector -ffreestanding -c -o gdt.o gdt.c
+gcc -m32 -g -ggdb -Wall -Werror -O0 -fno-zero-initialized-in-bss -fno-stack-protector -ffreestanding -c -o pic.o pic.c
+gcc -m32 -g -ggdb -Wall -Werror -O0 -fno-zero-initialized-in-bss -fno-stack-protector -ffreestanding -c -o idt.o idt.c
+nasm -felf32 -o isr.o isr.asm
+gcc -m32 -g -ggdb -Wall -Werror -O0 -fno-zero-initialized-in-bss -fno-stack-protector -ffreestanding -c -o mmu.o mmu.c
+In file included from mmu.c:8:0:
+mmu.h:22:1: note: offset of packed bit-field ‘ign_2’ has changed in GCC 4.4
+ } __attribute__((__packed__)) cr3;
+ ^
+mmu.c: In function ‘mmu_mapear_pagina’:
+mmu.c:115:28: error: initialization makes pointer from integer without a cast [-Werror]
+  page_dir* page_dir_algo = cr3;
+                            ^
+mmu.c:117:11: error: unused variable ‘fruta’ [-Werror=unused-variable]
+  page_dir fruta = page_dir_algo[directory_index]; 
+           ^
+mmu.c:107:15: error: unused variable ‘offset’ [-Werror=unused-variable]
+  unsigned int offset = virtual;
+               ^
+cc1: all warnings being treated as errors
+make: *** [mmu.o] Error 1

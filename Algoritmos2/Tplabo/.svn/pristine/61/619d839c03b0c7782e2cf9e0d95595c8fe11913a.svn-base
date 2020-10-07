@@ -1,0 +1,401 @@
+#ifndef CORREPOCOYO_H_
+#define CORREPOCOYO_H_
+
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+/* 
+ * Se puede asumir que el tipo T tiene constructor por copia y operator==
+ * No se puede asumir que el tipo T tenga operator=
+ */
+template<typename T>
+class CorrePocoyo{
+
+  public:
+
+	/*
+	 * Crea una nueva carrera
+	 */	
+	CorrePocoyo();
+
+	/*
+	 * Una vez copiada, ambas CorrePocoyos deben ser independientes, 
+	 * es decir, cuando se borre una no debe borrar la otra.
+	 */	
+	CorrePocoyo(const CorrePocoyo<T>&);
+	
+	/*
+	 * Acordarse de liberar toda la memoria!
+	 */	 
+	~CorrePocoyo();
+
+	/*
+	 * Agrega un nuevo corredor al CorrePocoyo. Lo agregará al final 
+	 */
+	void nuevoCorredor(const T&);
+	
+	/*
+	 * Agrega un nuevo corredor al CorrePocoyo. El primer T es el corredor a agregar y lo hace delante del segundo
+	 *
+	 * PRE: Existe el segundo corredor 
+	 */
+	void nuevoCorredor(const T&, const T&);
+	
+	/*
+	 * Elimina del pocoyo al que se envía
+	 *
+	 * PRE: Existe el corredor
+	 */
+	void seCansa(const T&);
+	/*
+	 * El corredor pasa al que está adelante 
+	 *
+	 * PRE: Existe un corredor delante de él y T es un corredor 
+	 */
+	void sobrepasar(const T&);
+	
+	/*
+	 * Devuelve el corredor que está siendo filmado.
+	 *
+	 * PRE: Hay adeptos en la CorrePocoyo.
+	 */
+	const T& corredorFilmado() const;
+	
+    /*
+	 * Devuelve el próximo elemento según el orden dado.
+	 * Pasa a filmar al corredor de atás 
+	 *
+	 * PRE: Hay corredore en la CorrePocoyo.
+	 */
+	void filmarProxPerdedor();
+	    /*
+	 * Devuelve el próximo elemento según el orden dado.
+	 * Pasa a filmar al corredor de adelante 
+	 *
+	 * PRE: Hay corredore en la CorrePocoyo.
+	 */
+	void filmarProxExitoso();
+	
+	/*
+	 * Devuelve al Primero. 
+	 *
+	 * PRE: Hay elementos 
+	 */
+	const T& damePrimero() const;	
+
+	/*
+	 * Devuelve la posición del elemento pasado por parámetro. 
+	 *
+	 * PRE: Existe ese corredor 
+	 */
+	int damePosicion(const T& ) const;	
+
+	/*
+	 * Devuelve el corredor de la posición. 
+	 *
+	 * PRE: Existe al menos esa cantidad de corredores en la carrera
+	 */
+	const T& dameCorredorEnPos(int) const;	
+
+
+
+
+	/*
+	 * Dice si la CorrePocoyo tiene o no corredores.
+	 */
+	bool esVacia() const;
+
+	
+	/*
+	 * Devuelve la cantidad de corredores de la CorrePocoyo.
+	 */
+	int tamanio() const;	
+
+	/*
+	 * Devuelve true si las CorrePocoyos son iguales.
+	 */
+	bool operator==(const CorrePocoyo<T>&) const;	
+	
+	/*
+	 * Debe mostrar la carrera por el ostream (y retornar el mismo).
+	 * CorrePocoyo vacio: []
+	 */
+	ostream& mostrarCorrePocoyo(ostream&) const;
+	
+  private:
+	/*
+	 * No se puede modificar esta funcion.
+	 */
+	CorrePocoyo<T>& operator=(const CorrePocoyo<T>& otra) {
+		assert(false);
+		return *this;
+	}
+
+	/*
+	 * Aca va la implementación del nodo.
+	 */
+	struct Nodo {
+		T jugador;
+		Nodo* atras;
+		Nodo* adelante;
+		Nodo(T dato) 
+			:adelante(NULL), atras(NULL), jugador(dato) {
+		}
+	};
+
+	
+
+	int len;
+	Nodo* primero;
+	Nodo* camara;
+
+};
+
+template<typename T>
+ostream& operator<<(ostream& out, const CorrePocoyo<T>& a) {
+	return a.mostrarCorrePocoyo(out);
+}
+
+template<typename T>
+CorrePocoyo<T>::CorrePocoyo() 
+	:len(0), primero(NULL), camara(NULL){}
+
+template<typename T>
+CorrePocoyo<T>::CorrePocoyo(const CorrePocoyo<T>& C){
+	len = C.len;
+	if(len == 0){
+		primero = NULL;
+		camara = NULL;
+	}
+	else{
+		Nodo* recorrido = C.primero;
+		Nodo* resultado = new Nodo(recorrido->jugador);
+		resultado->adelante = NULL;
+		primero = resultado;
+		if(C.camara == C.primero){
+			camara = resultado;
+		}
+
+		recorrido = recorrido->atras;
+		while(recorrido != NULL){
+			Nodo* nuevo = new Nodo(recorrido->jugador);
+			nuevo->adelante = resultado;
+			resultado->atras = nuevo;
+			if(C.camara == recorrido){
+				camara = nuevo;
+			}
+			resultado = resultado->atras;
+			recorrido = recorrido->atras;
+		}
+		resultado->atras = NULL;
+	}
+}
+	
+template<typename T>
+CorrePocoyo<T>::~CorrePocoyo(){
+	if(len != 0){
+		Nodo* recorrido = this->primero;
+		while(recorrido != NULL){
+			Nodo* aBorrar = recorrido;
+			recorrido = recorrido->atras;
+			delete aBorrar;
+		}
+	}
+}
+
+template<typename T>
+void CorrePocoyo<T>::nuevoCorredor(const T& jugador){
+	this->len ++;
+	Nodo* nuevo = new Nodo(jugador);
+
+	if(len == 1){
+		nuevo->adelante = NULL;
+		nuevo->atras = NULL;
+		primero = nuevo;
+		camara = nuevo;
+	}
+	else{
+		Nodo* recorrido = primero;
+		while(recorrido->atras != NULL){
+			recorrido = recorrido->atras;
+		}
+		recorrido->atras = nuevo;
+		nuevo->atras = NULL;
+		nuevo->adelante = recorrido;
+	}
+
+}
+	
+template<typename T>
+void CorrePocoyo<T>::nuevoCorredor(const T& jugador, const T& delante){
+	this->len ++;
+	Nodo* nuevo = new Nodo(jugador);
+
+	if(primero->jugador == delante){
+		nuevo->atras = primero;
+		primero->adelante = nuevo;
+		primero = nuevo;
+	}
+	else{
+		Nodo* recorrido = primero;
+		while(recorrido->atras->jugador != delante){
+			recorrido = recorrido->atras;
+		}
+		recorrido->atras->adelante = nuevo;
+		nuevo->atras = recorrido->atras;
+		nuevo->adelante = recorrido;
+		recorrido->atras = nuevo;
+	}
+
+}
+
+
+
+template<typename T>
+void CorrePocoyo<T>::seCansa(const T& c){ 
+	Nodo* aBorrar;
+	if(primero->jugador == c){
+		aBorrar = primero;
+		if(len != 1){
+			if(camara = primero){
+				camara =primero->atras;
+			}
+			primero->atras->adelante = NULL;
+			primero = primero->atras;
+		}
+	}
+	else{
+		Nodo* recorrido = primero->atras;
+		while(recorrido->jugador != c){
+			recorrido = recorrido->atras;
+		}
+		recorrido->adelante->atras = recorrido->atras;
+		if(recorrido->atras != NULL){
+			recorrido->atras->adelante = recorrido->adelante;
+		}
+		if(recorrido == camara){
+			camara = recorrido->adelante;
+		}
+		aBorrar = recorrido;
+	}
+
+	len--;
+	delete aBorrar;
+}
+
+template<typename T>
+void CorrePocoyo<T>::sobrepasar(const T& c){
+	if(primero->jugador != c){
+		Nodo* recorrido = primero->atras;
+		while(recorrido ->jugador != c){
+			recorrido = recorrido->atras;
+		}
+
+		recorrido->atras->adelante = recorrido->adelante; //27->adelante = 20
+		recorrido->adelante->atras = recorrido->atras;    //20->atras = 27
+		recorrido->atras = recorrido->adelante;			  //22->atras = 20
+		recorrido->adelante->adelante->atras = recorrido; //10->atras = 22
+		Nodo* temporal = recorrido->adelante;												
+		recorrido->adelante = temporal->adelante;				//22->adelante = 10								
+		temporal->adelante = recorrido;				
+		if(recorrido->adelante == primero){
+			primero = recorrido;
+		}									
+	}
+	
+}
+
+	
+template<typename T>
+const T& CorrePocoyo<T>::corredorFilmado() const{
+	return camara->jugador;
+}
+	
+template<typename T>
+void CorrePocoyo<T>::filmarProxPerdedor(){
+	if(camara->atras != NULL){
+		camara = camara->atras;
+	}
+}
+
+template<typename T>
+void CorrePocoyo<T>::filmarProxExitoso(){
+	if(camara->adelante != NULL){
+		camara = camara->adelante;
+	}
+}
+	
+template<typename T>
+const T& CorrePocoyo<T>::damePrimero() const{
+	return primero->jugador;
+}	
+
+template<typename T>
+int CorrePocoyo<T>::damePosicion(const T& c) const{
+	int resultado = 1;
+	Nodo* recorrido = primero;
+	while(recorrido->jugador != c){
+		resultado++;
+	}
+	return resultado;
+}	
+
+template<typename T>
+const T& CorrePocoyo<T>::dameCorredorEnPos(int i) const{
+	Nodo* recorrido = primero;
+	while(i==1){
+		i--;
+	}
+	return recorrido->jugador;
+}	
+
+
+template<typename T>
+bool CorrePocoyo<T>::esVacia() const{
+	return len == 0;
+}
+
+	
+template<typename T>
+int CorrePocoyo<T>::tamanio() const{
+	return len;
+}	
+
+template<typename T>
+bool CorrePocoyo<T>::operator==(const CorrePocoyo<T>& c) const{
+	bool resultado = true;
+	if(c.len == len){
+		if(len==0){
+			return true;
+		}
+		Nodo* recorrido1 = primero;
+		Nodo* recorrido2 = c.primero;
+
+		while(recorrido1 != NULL){
+			resultado = resultado && (recorrido1->jugador == recorrido2->jugador);
+			recorrido1 = recorrido1->atras;
+			recorrido2 = recorrido2->atras;
+		}
+	}
+	return (resultado && camara->jugador == c.camara->jugador);  
+}	
+	
+template<typename T>
+ostream& CorrePocoyo<T>::mostrarCorrePocoyo(ostream& os) const{
+	os<<'[';
+	if(len !=0){
+		os<< primero->jugador;
+		Nodo* recorrido = primero->atras;
+		while(recorrido != NULL){
+			os<< ", " <<recorrido->jugador;
+
+			recorrido = recorrido->atras;
+		}
+	}
+	os<<']';
+}
+
+
+
+#endif //CORREPOCOYO_H_

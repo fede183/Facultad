@@ -1,0 +1,109 @@
+#include "Heap.h"
+#include "mini_test.h"
+
+struct compu
+{
+  string hostname;
+};
+
+struct paquete
+{
+  unsigned int id;
+  unsigned int prioridad;
+  //compu origen;
+  //bcompu destino;
+};
+
+void heap_test() {
+  Heap<paquete> l;
+  ASSERT_EQ(l.cantidad(), 0);
+
+  paquete p1, p2, p3, p4, p5, p6, p7;
+  p1.id = 1;
+  p2.id = 2;
+  p3.id = 3;
+  p4.id = 4;
+  p5.id = 5;
+  p6.id = 6;
+  p7.id = 7;
+  p1.prioridad = 45;
+  p2.prioridad = 4;
+  p3.prioridad = 48;
+  p4.prioridad = 85;
+  p5.prioridad = 5;
+  p6.prioridad = 28;
+  p7.prioridad = 15;
+
+  l.encolar(p1);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 1);
+  ASSERT_EQ(l.proximo().id, 1);
+  l.encolar(p2);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 2);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.encolar(p3);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 3);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.encolar(p4);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 4);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.encolar(p5);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 5);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.encolar(p6);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 6);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.encolar(p7);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 7);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 6);
+  ASSERT_EQ(l.proximo().id, 5);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 5);
+  ASSERT_EQ(l.proximo().id, 7);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 4);
+  ASSERT_EQ(l.proximo().id, 6);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 3);
+  ASSERT_EQ(l.proximo().id, 1);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 2);
+  ASSERT_EQ(l.proximo().id, 3);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 1);
+  ASSERT_EQ(l.proximo().id, 4);
+}
+
+int main() {
+  RUN_TEST(heap_test);
+ 
+
+  return 0;
+}

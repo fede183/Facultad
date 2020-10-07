@@ -1,0 +1,25 @@
+¿C ́omo es el c ́odigo generado? 
+Indicar 
+a) Por qu ́e cree que hay otras funciones adem ́as de cropflip_c 
+b) C ́omo se manipulan las variables locales 
+c) Si le parece que ese c ́odigo generado podr ́ıa optimizarse
+
+3.1 muy largo y engorroso
+
+a) 
+secciones .debug*
+	es información para que utilizen los debuggers. funciones que necesitan los debuggers para realizar "debugueo simbolico". 
+seccion .comment
+	This section holds version control information. "seccion donde se encuentra la informacion de control de version"
+seccion eh_frame
+	This section contains information necessary for frame unwinding during exception handling. "Esta seccion contiene información necesaria para desentramar el frame durante el manejo de excepciones"
+	
+b)
+mete todos los parametros en la pila
+mete en la pila las variables locales y cada vez que las necesita modificar, las modifica en la porcion de memoria.
+
+c)
+Claramente no es necesario meter tantas cosas a la pila, de esa manera se evitan acceso a memoria innecesarios. 
+las comparaciones de los indices de los "for",se hacen en una seccion apartada de codigo, y cada vez que se desea ver si un ciclo debe seguir o terminar se realizan 2 jumps.
+en cada iteracion se calcula la posicion de memoria a ser copiada, eso se podría evitar usando indices móviles dentro del codigo.
+	

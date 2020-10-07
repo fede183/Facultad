@@ -1,0 +1,273 @@
+# depslib dependency file v1.0
+1383826942 source:/home/gmatles/svn/test/TPI/codigo/interfaz.cpp
+	<iostream>
+	<string>
+	<locale>
+	<stdlib.h>
+	"interfaz.h"
+	"test.h"
+
+1384018553 
+
+1379342047 /home/gmatles/svn/test/TPI/codigo/interfaz.h
+	<iostream>
+	<fstream>
+	"pelicula.h"
+	"ticket.h"
+	"cine.h"
+
+1382988751 /home/gmatles/svn/test/TPI/codigo/pelicula.h
+	"lista.h"
+	"tipos.h"
+	<utility>
+
+1377638181 /home/gmatles/svn/test/TPI/codigo/lista.h
+	<list>
+	<iostream>
+
+1377638181 /home/gmatles/svn/test/TPI/codigo/tipos.h
+	<string>
+	<iostream>
+
+1383929867 /home/gmatles/svn/test/TPI/codigo/ticket.h
+	"lista.h"
+	"pelicula.h"
+	"tipos.h"
+
+1382988734 /home/gmatles/svn/test/TPI/codigo/cine.h
+	"lista.h"
+	"pelicula.h"
+	"tipos.h"
+	"ticket.h"
+	<utility>
+
+1379342047 /home/gmatles/svn/test/TPI/codigo/test.h
+	"tipos.h"
+
+1382032242 source:/home/gmatles/svn/test/TPI/codigo/main.cpp
+	"interfaz.h"
+
+1384018553 h"
+
+1383930035 source:/home/gmatles/svn/test/TPI/codigo/pelicula.cpp
+	<iostream>
+	"pelicula.h"
+	<fstream>
+
+1383678334 source:/home/gmatles/svn/test/TPI/codigo/test.cpp
+	<iostream>
+	"test.h"
+	<vector>
+	"cine.h"
+
+1383929941 source:/home/gmatles/svn/test/TPI/codigo/ticket.cpp
+	<iostream>
+	"ticket.h"
+	<fstream>
+
+1383934054 source:/home/gmatles/svn/test/TPI/codigo/cine.cpp
+	<iostream>
+	"cine.h"
+	<fstream>
+
+1383953299 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/interfaz.cpp
+	<iostream>
+	<string>
+	<locale>
+	<stdlib.h>
+	"interfaz.h"
+	"test.h"
+
+1379342047 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/interfaz.h
+	<iostream>
+	<fstream>
+	"pelicula.h"
+	"ticket.h"
+	"cine.h"
+
+1383953299 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/pelicula.h
+	"lista.h"
+	"tipos.h"
+	<utility>
+
+1377638181 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/lista.h
+	<list>
+	<iostream>
+
+1377638181 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/tipos.h
+	<string>
+	<iostream>
+
+1383678368 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/ticket.h
+	"lista.h"
+	"pelicula.h"
+	"tipos.h"
+
+1383953299 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/cine.h
+	"lista.h"
+	"pelicula.h"
+	"tipos.h"
+	"ticket.h"
+	<utility>
+
+1379342047 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/test.h
+	"tipos.h"
+
+1382032242 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/main.cpp
+	"interfaz.h"
+
+1383953299 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/pelicula.cpp
+	<iostream>
+	"pelicula.h"
+	<fstream>
+
+1383678334 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/test.cpp
+	<iostream>
+	"test.h"
+	<vector>
+	"cine.h"
+
+1383953298 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/ticket.cpp
+	<iostream>
+	"ticket.h"
+	<fstream>
+
+1384086030 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/cine.cpp
+	<iostream>
+	"cine.h"
+	<fstream>
+
+1384018553 source:c:\users\fede\desktop\nueva carpeta\tpi\codigo\interfaz.cpp
+	<iostream>
+	<string>
+	<locale>
+	<stdlib.h>
+	"interfaz.h"
+	"test.h"
+
+1384018553 c:\users\fede\desktop\nueva carpeta\tpi\codigo\interfaz.h
+	<iostream>
+	<fstream>
+	"pelicula.h"
+	"ticket.h"
+	"cine.h"
+
+1384018553 c:\users\fede\desktop\nueva carpeta\tpi\codigo\pelicula.h
+	"lista.h"
+	"tipos.h"
+	<utility>
+
+1384018553 c:\users\fede\desktop\nueva carpeta\tpi\codigo\lista.h
+	<list>
+	<iostream>
+
+1384018553 c:\users\fede\desktop\nueva carpeta\tpi\codigo\tipos.h
+	<string>
+	<iostream>
+
+1384018553 c:\users\fede\desktop\nueva carpeta\tpi\codigo\ticket.h
+	"lista.h"
+	"pelicula.h"
+	"tipos.h"
+
+1384018553 c:\users\fede\desktop\nueva carpeta\tpi\codigo\cine.h
+	"lista.h"
+	"pelicula.h"
+	"tipos.h"
+	"ticket.h"
+	<utility>
+
+1384018553 c:\users\fede\desktop\nueva carpeta\tpi\codigo\test.h
+	"tipos.h"
+
+1384018553 source:c:\users\fede\desktop\nueva carpeta\tpi\codigo\main.cpp
+	"interfaz.h"
+
+1384115581 source:c:\users\fede\desktop\nueva carpeta\tpi\codigo\pelicula.cpp
+	<iostream>
+	"pelicula.h"
+	<fstream>
+
+1384018553 source:c:\users\fede\desktop\nueva carpeta\tpi\codigo\test.cpp
+	<iostream>
+	"test.h"
+	<vector>
+	"cine.h"
+
+1384018553 source:c:\users\fede\desktop\nueva carpeta\tpi\codigo\ticket.cpp
+	<iostream>
+	"ticket.h"
+	<fstream>
+
+1384115419 source:c:\users\fede\desktop\nueva carpeta\tpi\codigo\cine.cpp
+	<iostream>
+	"cine.h"
+	<fstream>
+
+1383953299 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/interfaz.cpp
+	<iostream>
+	<string>
+	<locale>
+	<stdlib.h>
+	"interfaz.h"
+	"test.h"
+
+1379342047 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/interfaz.h
+	<iostream>
+	<fstream>
+	"pelicula.h"
+	"ticket.h"
+	"cine.h"
+
+1384119183 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/pelicula.h
+	"lista.h"
+	"tipos.h"
+	<utility>
+
+1377638181 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/lista.h
+	<list>
+	<iostream>
+
+1377638181 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/tipos.h
+	<string>
+	<iostream>
+
+1384119093 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/ticket.h
+	"lista.h"
+	"pelicula.h"
+	"tipos.h"
+
+1384119319 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/cine.h
+	"lista.h"
+	"pelicula.h"
+	"tipos.h"
+	"ticket.h"
+	<utility>
+
+1379342047 /home/gabriel/Documentos/UBA/svn/test/TPI/codigo/test.h
+	"tipos.h"
+
+1382032242 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/main.cpp
+	"interfaz.h"
+
+1384120164 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/pelicula.cpp
+	<iostream>
+	"pelicula.h"
+	<fstream>
+
+1383678334 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/test.cpp
+	<iostream>
+	"test.h"
+	<vector>
+	"cine.h"
+
+1384132183 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/ticket.cpp
+	<iostream>
+	"ticket.h"
+	<fstream>
+
+1384121497 source:/home/gabriel/Documentos/UBA/svn/test/TPI/codigo/cine.cpp
+	<iostream>
+	"cine.h"
+	<fstream>
+

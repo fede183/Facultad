@@ -1,0 +1,126 @@
+Modulo DcNet
+
+Interfaz
+
+	se explica con: DcNet
+	género: dcnet
+
+Operaciones básicas de dcnet
+
+iniciarDCNet(in r:red)-> res:dcnet
+Pre = {true}
+Post = {res =obs iniciarDCNet(r)}
+Complejidad: O(n x L)
+Descripción: genera una dcnet con la red r.
+
+crearPaquete(in/out d: dcnet, in p:paquete)
+Pre = { "Condición del tad" && d = obs d0}
+Post = {d =obs crearPaquete(d0) }
+Complejidad: O(L + log(k))
+Descripción: Añade el paquete p a la dcnet d. Poniendolo en la cola de los paquetes de la computadora inicial.
+
+avanzarSegundo(in/out d:dcnet)
+Pre = {d =obs d0}
+Post = {d =obs avanzarSegundo(d0)}
+Complejidad: O(n x (L + log(n) + log(k)))
+Descripción: genera la dcnet correspondiente a pasar un segundo en d.
+
+red(in d:dcnet) -> res:red
+Pre = {true}
+Post = {res =obs red(d)}
+Complejidad: O(1)
+Descripción: Devuelve la red asosiada a la dcnet.
+
+enEspera{in d:dcnet, in c:compu} -> res:secu(compu)
+Pre = {c € Computadoras(red(d))}
+Post = {res =obs enEspera(d)}
+Complejidad: O(L)
+Descripción: Devuelve los paquetes de la compu c en d.
+
+caminoRecorrido(in d:dcnet, in p:paquete) -> res:secu(compu)
+Pre = {(Existe c:compu)(c € Computadoras(red(d)) &&l está?(p, enEspera(d, c)) )}
+Post = {res =obs caminoRecorrido(d, p) }
+Complejidad: O(n x log(n))
+Descripción: Devuelve el camino recorrido por el paquete p en la dcnet. Este debe ser el más corto. 
+
+cantidadEnviados(in d:dcnet, in c:compu) -> res:nat
+Pre = {c € Computadoras(red(d))}
+Post = {res =obs cantidadEnviados(d, c)}
+Complejidad: O(long(c.hostname))
+Descripción: Devuelve la cantidad de paquetes que envio la compu c.
+
+PaqueteEnTransito?(in d:dcnet, in p:paquete) -> res:bool
+Pre = {true}
+Post = {res =obs paqueteEnTransito?(d, p)}
+Complejidad: O()
+Descripción: Devuelve true si existe alguna computadora que tenga ese paquete.
+
+LaQueMasEnvio(in d:dcnet) -> res:compu
+Pre = {true}
+Post = {res =obs LaQueMasEnvio(d)}
+Complejidad: O(1)
+Descripción: Devuelve la computadora que envio más paquetes.
+
+Representación de dcnet:
+
+dcnet se representa con dc = tupla<LaQueMasEnvio : Compu, #EnvioLaQueMasEnvio : nat, enEspera : tried(hostname, ColaPaquetes) , #Enviados : tried(hostname, nat), Red:Red, "Estructura para encargarnos del camino recorrido">
+
+Algoritmos:
+
+iiniciarDCNet(in r:red)-> res:dc 	<O(n x L + 4) = O(n x L)
+enviados <- Vacio() 		   <O(1)    //Diccionario trie
+cola <- Vacio() 		       <O(1) 	//Diccionario trie
+iteradorCompu <- crearIT(r.Computadoras)    <O(1)
+while(HaySiguiente(iteradorCompu)){ 		<O(n x ((2 x L) + 1))  = O(n x L)
+	Definir(enviados, Siguiente(iteradorCompu).hostname, 0) 	<O(long(Siguiente(iteradorCompu).hostname)) <= O(L)
+	Definir(cola, Siguiente(iteradorCompu).hostname, Vacío())   <O(long(Siguiente(iteradorCompu).hostname)) <= O(L)
+	Avanzar(iteradorCompu) 										<O(1)
+}
+res<-<dameUno(Computadoras(r)), 0, cola, enviados, r, "Estructura para encargarnos del camino recorrido"> <O(1)
+
+icrearPaquete(in/out d: dc, in p:paquete) 						<O(L + log(k))
+Encolar(p, Significado(d.enEspera, p.origen.hostname))         <O(long(p.origen.hostname) + log(k)) <= O(L + log(k))
+
+iavanzarSegundo(in/out d:dc)
+iteradorCompu <- crearIT(Computadoras(d.red))    <O(1)
+while(HaySiguiente(iteradorCompu)){ 			<O(n x ...)
+	aEnviar <- ProximoDesencolar(Significado(d.enEspera, hostname(Siguiente(iteradorCompu))))    <O(1 + 1 + long(hostname(Siguiente(iteradorCompu))) + log(k)) <= O(2 + L + log(k)) = O(L + log(k))
+	compuAEnviar <- proximaComputadora(d, aEnviar)    <O(log(n + k))
+
+	if(compuAEnviar != destino(aEnviar)){ 	 
+		Encolar(Significado(d.enEspera, hostname(compuAEnviar)), aEnviar) 			O(hostname(compuAEnviar) + log(k)) <=O(L + log(k))
+	}
+	else{
+		//Hay que pregutar como borrar el paquete
+	}
+
+	Avanzar(iteradorCompu)	     <O(1)
+}
+
+ired(in d:dc) -> res:red   <O(1)
+res <- d.Red 			   <O(1)
+
+ienEspera{in d:dc, in c:compu} -> res:ColaPaquetes <O(L)
+res <- Significado(c.hostname , d.enEspera)         				<O(long(c.hostname)) <= O(L)
+
+icaminoRecorrido(in d:dc, in p:paquete) -> res:secu(compu)  //El resultado depende de como elijamos las estructuras
+
+
+icantidadEnviados(in d:dc, in c:compu) -> res:nat
+res <- Significado(c.hostname, d.#Enviados)    			<O(long(c.hostname)) <= O(L)
+
+iPaqueteEnTransito?(in d:dcnet, in p:paquete) -> res:bool <O(n x (L + log(k)) + 2) = O(n x (L + log(k)))
+res <- false 											<O(1)
+iteradorCompu <- crearIT(Computadoras(d.red))    		<O(1)
+while(HaySiguiente(iteradorCompu) && ¬res){ 			<O(n x (L + log(k)))
+	res <- Pertenece(p, Significado(d.enEspera, hostname(Siguiente(c))))) 	<O(long(hostname(Siguiente(c))) + log(k)) <= O(L + log(k))
+	Avanzar(iteradorCompu)                              <O(1)
+}
+
+iLaQueMasEnvio(in d:dc) -> res:compu
+res <- d.LaQueMasEnvio 									<O(1)
+
+
+Fin Modulo
+
+

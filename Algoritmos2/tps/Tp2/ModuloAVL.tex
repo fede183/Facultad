@@ -1,0 +1,615 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[paper=a4paper, hmargin=1.5cm, bottom=1.5cm, top=3.5cm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{xspace}
+\usepackage{xargs}
+\usepackage{ifthen}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{aed2-tad,aed2-symb,aed2-itef}
+
+
+\newcommand{\moduloNombre}[1]{\textbf{#1}}
+
+\let\NombreFuncion=\textsc
+\let\TipoVariable=\texttt
+\let\ModificadorArgumento=\textbf
+\newcommand{\res}{$res$\xspace}
+\newcommand{\tab}{\hspace*{7mm}}
+
+\newcommandx{\TipoFuncion}[3]{%
+  \NombreFuncion{#1}(#2) \ifx#3\empty\else $\to$ \res\,: \TipoVariable{#3}\fi%
+}
+\newcommand{\In}[2]{\ModificadorArgumento{in} \ensuremath{#1}\,: \TipoVariable{#2}\xspace}
+\newcommand{\Out}[2]{\ModificadorArgumento{out} \ensuremath{#1}\,: \TipoVariable{#2}\xspace}
+\newcommand{\Inout}[2]{\ModificadorArgumento{in/out} \ensuremath{#1}\,: \TipoVariable{#2}\xspace}
+\newcommand{\Aplicar}[2]{\NombreFuncion{#1}(#2)}
+
+\newlength{\IntFuncionLengthA}
+\newlength{\IntFuncionLengthB}
+\newlength{\IntFuncionLengthC}
+%InterfazFuncion(nombre, argumentos, valor retorno, precondicion, postcondicion, complejidad, descripcion, aliasing)
+\newcommandx{\InterfazFuncion}[9][4=true,6,7,8,9]{%
+  \hangindent=\parindent
+  \TipoFuncion{#1}{#2}{#3}\\%
+  \textbf{Pre} $\equiv$ \{#4\}\\%
+  \textbf{Post} $\equiv$ \{#5\}%
+  \ifx#6\empty\else\\\textbf{Complejidad:} #6\fi%
+  \ifx#7\empty\else\\\textbf{Descripción:} #7\fi%
+  \ifx#8\empty\else\\\textbf{Aliasing:} #8\fi%
+  \ifx#9\empty\else\\\textbf{Requiere:} #9\fi%
+}
+
+\newenvironment{Interfaz}{%
+  \parskip=2ex%
+  \noindent\textbf{\Large Interfaz}%
+  \par%
+}{}
+
+\newenvironment{Representacion}{%
+  \vspace*{2ex}%
+  \noindent\textbf{\Large Representación}%
+  \vspace*{2ex}%
+}{}
+
+\newenvironment{Algoritmos}{%
+  \vspace*{2ex}%
+  \noindent\textbf{\Large Algoritmos}%
+  \vspace*{2ex}%
+}{}
+
+
+\newcommand{\Titulo}[1]{
+  \vspace*{1ex}\par\noindent\textbf{\large #1}\par
+}
+
+\newenvironmentx{Estructura}[2][2={estr}]{%
+  \par\vspace*{2ex}%
+  \TipoVariable{#1} \textbf{se representa con} \TipoVariable{#2}%
+  \par\vspace*{1ex}%
+}{%
+  \par\vspace*{2ex}%
+}%
+
+\newboolean{EstructuraHayItems}
+\newlength{\lenTupla}
+\newenvironmentx{Tupla}[1][1={estr}]{%
+    \settowidth{\lenTupla}{\hspace*{3mm}donde \TipoVariable{#1} es \TipoVariable{tupla}$($}%
+    \addtolength{\lenTupla}{\parindent}%
+    \hspace*{3mm}donde \TipoVariable{#1} es \TipoVariable{tupla}$($%
+    \begin{minipage}[t]{\linewidth-\lenTupla}%
+    \setboolean{EstructuraHayItems}{false}%
+}{%
+    $)$%
+    \end{minipage}
+}
+
+\newcommandx{\tupItem}[3][1={\ }]{%
+    %\hspace*{3mm}%
+    \ifthenelse{\boolean{EstructuraHayItems}}{%
+        ,#1%
+    }{}%
+    \emph{#2}: \TipoVariable{#3}%
+    \setboolean{EstructuraHayItems}{true}%
+}
+
+\newcommandx{\RepFc}[3][1={estr},2={e}]{%
+  \tadOperacion{Rep}{#1}{bool}{}%
+  \tadAxioma{Rep($#2$)}{#3}%
+}%
+
+\newcommandx{\Rep}[3][1={estr},2={e}]{%
+  \tadOperacion{Rep}{#1}{bool}{}%
+  \tadAxioma{Rep($#2$)}{true \ssi #3}%
+}%
+
+\newcommandx{\Abs}[5][1={estr},3={e}]{%
+  \tadOperacion{Abs}{#1/#3}{#2}{Rep($#3$)}%
+  \settominwidth{\hangindent}{Abs($#3$) \igobs #4: #2 $\mid$ }%
+  \addtolength{\hangindent}{\parindent}%
+  Abs($#3$) \igobs #4: #2 $\mid$ #5%
+}%
+
+\newcommandx{\AbsFc}[4][1={estr},3={e}]{%
+  \tadOperacion{Abs}{#1/#3}{#2}{Rep($#3$)}%
+  \tadAxioma{Abs($#3$)}{#4}%
+}%
+
+
+\newcommand{\DRef}{\ensuremath{\rightarrow}}
+
+\begin{document}
+
+\section{Módulo Avld(nat, itLista(compu))}
+
+
+\begin{Interfaz}
+  
+  \textbf{parámetros formales}\hangindent=2\parindent\\
+%  \parbox{1.7cm}{\textbf{géneros}} $\alpha$\\
+%  \parbox[t]{1.7cm}{\textbf{función}}\parbox[t]{\textwidth-2\parindent-1.7cm}{%
+%    \InterfazFuncion{Copiar}{\In{a}{$\alpha$}}{$\alpha$}
+%    {$res \igobs a$}
+%    [$\Theta(copy(a))$]
+%    [función de copia de $\alpha$'s]
+%  } %No sé si es necesario la función copy por las dudas lo dejé
+
+  \textbf{se explica con}: {\tadNombre{Diccionario(nat, itLista(compu))}}.
+
+  \textbf{géneros}:{ \TipoVariable{avld(nat, itLista(compu))}}.
+
+  \Titulo{Operaciones básicas de Avld}
+
+
+  \InterfazFuncion{Vacío}{}{avld} % {nombreFunción}{Signatura}{Res}
+  {res $\igobs$ vacio()} %POST
+  [O(1)] %COMPLEJIDAD
+  [Crea un AVL vacío.] %DESCRIPCIÓN
+  [] %ALIASING
+
+  \InterfazFuncion{Definido?AVL}{\In {A}{avld}, \In {id}{nat}}{bool} % {nombreFunción}{Signatura}{Res}
+  {res $\igobs$ def?(id,A)} %POST
+  [O(log(n) + log(k))] %COMPLEJIDAD
+  [Indica si hay un nodo en el AVL cuyo id es el nat pasado por parámetro.] %DESCRIPCIÓN
+  [] %ALIASING
+
+  \InterfazFuncion{SignificadoAVL}{\In {A}{avld}, \In {id}{nat}}{itLista(compu)} % {nombreFunción}{Signatura}{Res}
+  [def?(id,A)] %PRE
+  {res $\igobs$ obtener(id,A)} %POST
+  [O(log(n) + log(k))] %COMPLEJIDAD
+  [Busca el nodo del AVL cuyo id es el pasado por parámetro y devuelve su camino. ] %DESCRIPCIÓN
+  [res es modificable si y s\'olo si A es modificable.] %ALIASING
+ 
+  \InterfazFuncion{DefinirAVL}{\Inout {A}{avld},\In {id}{nat},\In {camino}{itLista(compu)}}{} % {nombreFunción}{Signatura}{Res}
+  [$A \equiv A_0$] %PRE
+  {$A \igobs definir(id,camino,A_0)$} %POST
+  [O(log(n) + log(k))] %COMPLEJIDAD
+  [Inserta un Nodo al AVL, que tiene como id y camino los pasados por parámetro. ] %DESCRIPCIÓN
+  [] %ALIASING
+  
+%		Pre{def?(id,A) && A=A'}
+%		Post{A=borrar(id,A')}
+  \InterfazFuncion{BorrarAVL}{\Inout {A}{avld},\In {id}{nat}}{} % {nombreFunción}{Signatura}{Res}
+  [def?(id,A) $\wedge A \equiv A_0$] %PRE
+  {$A \igobs borrar(id,A_0)$} %POST
+  [O(log(n) + log(k))] %COMPLEJIDAD
+  [] %DESCRIPCIÓN
+  [] %ALIASING
+
+  \InterfazFuncion{ClavesAVL}{\In {A}{avld}}{conj(nat)} % {nombreFunción}{Signatura}{Res}
+  {$A \igobs claves(A)$} %POST
+  [O(n x k)] %COMPLEJIDAD
+  [Devuelve un conjunto que contiene todas las claves definidas en el AVL] %DESCRIPCIÓN
+
+\textbf{Funciones auxiliares:}
+
+  ConstruirClaves(inout p : puntero(nodo)) $\rightarrow$ res : conj(nat)
+-Dado un puntero a nodo de un avl, se agrega la id de ese nodo a un conjunto vac\'io. Despu\'es se hace lo mismo con los dos hijos del nodo y se agregan los resultados al conjunto. Con esto recorremos todo el \'arbol guardando las claves de los nodos y devolviendo las mismas como resultado en un conjunto.
+
+
+  FactorDeBalanceo(inout p : puntero(nodo))$\rightarrow$ res : int
+-Dado un puntero a nodo de un avl, se calcula su factor de balanceo. Esta valor num\'erico se consigue restando la altura de su hijo derecho con el izquierdo.
+
+
+BalancearNodo(inout p : puntero(nodo)) $\rightarrow$ res : puntero(nodo)
+-Dado un puntero a nodo de un avl, se lo balancea si es necesario. B\'asicamente se trata de si el factor de balanceo del nodo es 2 o -2 realizar las operaciones pertinentes para restablecer el invariante de balanceo del avl. 
+
+  Balancear(inout iteradorRama : itLista(puntero(nodo))
+-Dado el iterador de una lista de punteros a nodo de un avl, se busca aplicar la funci\'on BalancearNodo a cada uno de los miembros de la lista. .La lista en la que se itera representa una rama del avl invertida. Exceptuando al \'ultimo que es el de raiz. Esto ultimo se encarga la funci\'on que lo llama.
+
+CorreguirAlturas(inout iteradorRama: itLista(puntero(nodo))
+-Dado el iterador de una lista de punteros a nodo de un avl, se busca recalcular las alturas de todos los miembros de la lista. La lista en la que se itera representa una rama del avl invertida. Para cada uno se toma la altura máxima entre su hijo izquierdo y derecho y se le suma 1(Esto es porque el propio nodo también cuenta en la altura). 
+
+BuscarElRemplazo(inout listaABalancear : lista(puntero(nodo), in aBorrar : puntero(nodo))$\rightarrow$ res : puntero(nodo)
+-Cuando se elimina un nodo que tiene hijo izquierdo y derecho, esta funci\'on se encarga de buscar un candidato para remplazar el nodo eliminado. Se toma la una lista de punteros a nodos que forman la rama en la que se estuvo recorriendo para llegar al nodo que se busca quitar, solo que sin este \'ultimo. También se utiliza un puntero al nodo que se pretende quitar. La funci\'on además va guardando los nodos que recorre en la lista de punteros a nodos ya que estos se tendrán que recalcular las alturas y balancear. Finalmente cuando se encuentra el candidato se debe devolver, no sin antes asegurarse que no se pierdan sus hijos si es que los tiene.
+ 
+
+
+\end{Interfaz}
+
+\begin{Representacion}
+ 
+  \Titulo{Representación de AVL}
+%Tengo que usar esta estructura porque sino tengo que hacer un iterador para moverme por el avl!
+  \begin{Estructura}{avld}[avl]
+    \begin{Tupla}[avl]
+    	\tupItem{raiz}{puntero(nodo)}
+    \end{Tupla}
+		
+    \begin{Tupla}[nodo]
+	\tupItem{id}{nat}
+	\tupItem{camino}{itLista(compu)}
+	\tupItem{izq}{puntero(nodo)}
+	\tupItem{der}{puntero(nodo)}
+	\tupItem{altura}{nat} 
+    \end{Tupla}	
+  \end{Estructura}
+
+	\textbf{Invariante de representación en castellano: }
+	-El puntero raiz es NULL\\
+	-Si el puntero raiz no es NULL entonces la altura es 1 sii izq y der son NULL. Adem\'as es 2 sii o izq o der son NULL pero no ambos y adem\'as la suma entre la altura del hijo distinto de NULL debe ser 1. Y es 3 o mayor sii la suma de las alturas de izq y der mas 1 es de como resultado la altura del nodo padre.\\ 
+	-La resta de la altura del hijo derecho con el hijo izquierdo, si ninguno es vac\'io, de cualquier nodo no puede ser mayor en modulo a 1.\\
+	-Para todo nodo el hijo izquierdo tiene un id menor y el derecho mayor, si es que tiene alguno.\\
+	-Al ser un \'arbol y usar punteros tenemos que pedir que cada uno de los nodos no tenga punteros derecho o izquierdo a nodos que sean apuntados por otro. Osea que no de un bucle.\\
+	-Tanto el hijo izquierdo y derecho, si los hay, cumplen estas condiciones.\\
+	
+	
+  \Abs[avl]{Avld(nat, itLista(compu))}[a]{e}{($\forall$ n : nat)(def?(n, e) $\Leftrightarrow$ ExisteNodoConClave(*a.raiz, n) $\yluego$ (def?(n, e) $\impluego$  obtener(n, e) = ObtenerAVL(*a.raiz, n)))}
+  
+  \tadOperacion{ExisteNodoConClave}{nodo , nat}{bool}{}
+  \tadAxioma{ExisteNodoConClave(nodo, n)}{\IF nodo.id = n THEN true ELSE {\IF nodo.id < n  THEN ExisteNodoConClave(*nodo.izq, n) ELSE ExisteNodoConClave(*nodo.der, n) FI} FI}
+  
+  \tadOperacion{ObtenerAVL}{nodo , nat}{itLista(compu)}{}
+  \tadAxioma{ObtenerAVL(nodo, n)}{\IF nodo.id = n THEN nodo.camino ELSE {\IF nodo.id < n  THEN ObtenerAVL(*nodo.izq, n) ELSE ObtenerAVL(*nodo.der, n) FI} FI}
+  
+  
+\end{Representacion}	
+
+
+
+\begin{Algoritmos}
+
+%iVacío:
+
+\begin{algorithm}[H]{\textbf{iVacío}() $\to$ $res$ : $avl$} 
+	\begin{algorithmic}
+			\State res $\gets$ <NULL> \Comment O(1)
+			\medskip
+			\Statex \underline{Complejidad:} O(1)
+			\Statex \underline{Justificación:} 
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iDefinido?AVL}(\In {A}{avl}, \In {i}{nat}) $\to$ $res$ : $bool$} 
+	\begin{algorithmic}
+			\State recorrido : puntero(nodo) $\gets$ A.raiz		\Comment O(1)
+			 \State res $\gets$ false 				\Comment O(1)
+			 \While{$\neg$res $\wedge$ recorrido $\neq$ NULL} 						\Comment O(2 x log(n)) = O(log(n))
+			    \If{id $=$ *recorrido.id} 	 \Comment O(2)
+			      \State res $\gets$ true    \Comment O(1)
+			    \ElsIf{id < *recorrido.id} 			\Comment O(2)
+			      \State recorrido $\gets$ *recorrido.izq 	\Comment O(1)
+			    \Else 					\Comment O(2)
+			      \State recorrido $\gets$ *recorrido.der 	\Comment O(1)
+			    \EndIf
+			 \EndWhile
+
+			\medskip
+			\Statex \underline{Complejidad:} O(log(n))
+			\Statex \underline{Justificación:} O(log(n) + 2) = O(log(n))
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{SignificadoAVL}(\In {A}{avl}, \In {id}{nat}) $\to$ $res$ : itLista(compu)} 
+	\begin{algorithmic}
+			 \State recorrido : puntero(nodo) $\gets$ A.raiz		\Comment O(1)
+			 \State llegue : bool $\gets$ false 				\Comment O(1)
+			 \While{$\neg$llegue} 						\Comment O(2 x log(n)) = O(log(n))
+			    \If{id $=$ *recorrido.id} 	 \Comment O(2)
+			      \State llegue $\gets$ true    \Comment O(1)
+			    \ElsIf{id < *recorrido.id} 			\Comment O(2)
+			      \State recorrido $\gets$ *recorrido.izq 	\Comment O(1)
+			    \Else 					\Comment O(2)
+			      \State recorrido $\gets$ *recorrido.der 	\Comment O(1)
+			    \EndIf
+			 \EndWhile
+			 \State res $\gets$ *recorrido.camino 		\Comment O(1)
+			\medskip
+			\Statex \underline{Complejidad:} O(log(n))
+			\Statex \underline{Justificación:} O(3 + log(n)) = O(log(n))
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{DefinirAVL}(\Inout {A}{avl},\In {id}{nat},\In {camino}{itLista(compu)})} 
+	\begin{algorithmic}
+			
+			\If{A.raiz $=$ NULL} 						\Comment O(2)
+			  \State *A.raiz $\gets$ $\delta$<id, camino, NULL, NULL, 1>  		\Comment O(1)
+			\Else   \Comment O(3 x log(n) + 4) = O(log(k))
+			  \State recorrido : puntero(nodo) $\gets$ A.raiz			\Comment O(1)
+			  \State llegue : bool $\gets$ false 					\Comment O(1)
+			  \State necesitaBalancear : bool $\gets$ true 				\Comment O(1)
+			  \State listaABalancear : lista(puntero(nodo)) $\gets$ Vac\'ia()  	\Comment O(1)
+			  \While{$\neg$llegue} 						\Comment O(5 x log(n)) = O(log(n))
+			      \State AgregarAdelante(listaABalancear, recorrido)   	\Comment O(copy(recorrido)) = O(1)
+			      \If{id $=$ *recorrido.id} 				\Comment O(4)
+				\State recorrido $\gets$ $\delta$<id, camino, *recorrido.izq, *recorrido.der, *recorrido.altura> 	\Comment O(1)
+				\State llegue $\gets$ true 				\Comment O(1)
+				\State necesitaBalancear $\gets$ false 			\Comment O(1)
+			      \ElsIf{id < *recorrido.id} 				\Comment O(4)
+				\If{*recorrido.izq $=$ NULL} 				\Comment O(3)
+				  \State llegue $\gets$ true 				\Comment O(1)
+				  \State *recorrido.izq $\gets$ $\delta$<id,camino,NULL,NULL,1>  \Comment O(1)
+				\Else 							\Comment O(2)
+				  \State recorrido $\gets$ *recorrido.izq 		\Comment O(1)
+				\EndIf
+			      \Else 							\Comment O(4)
+				\If{*recorrido.der $=$ NULL} 				\Comment O(3)
+				  \State llegue $\gets$ true 				\Comment O(1)
+				  \State *recorrido.der $\gets$ $\delta$<id,camino,NULL,NULL,1>  \Comment O(1)
+				\Else 							\Comment O(2)
+				  \State recorrido $\gets$ *recorrido.der 	\Comment O(1)
+				\EndIf
+			      \EndIf
+			  \EndWhile
+			  \If{necesitaBalancear} 		\Comment O(log(n) + 3) = O(log(n))
+			    \State iteradorRama : itLista(puntero(nodo)) $\gets$ crearIT(listaABalancear) 	\Comment O(1)
+			    \State CorreguirAlturas(iteradorRama) 			\Comment O(log(n))
+			    \State iteradorRama2 : itLista(puntero(nodo)) $\gets$ crearIT(listaABalancear) 	\Comment O(1)
+			    \State Balancear(iteradorRama2)			\Comment O(log(n))
+			    \State A.raiz $\gets$ BalancearNodo(Anterior(iteradorRama2)) 	\Comment O(1)
+			  \EndIf
+			\EndIf
+			\medskip
+			\Statex \underline{Complejidad:} O(log(n))
+			\Statex \underline{Justificación:} O(2 x log(n) + 4) = O(log(n))
+    	\end{algorithmic}
+\end{algorithm}
+
+
+
+\begin{algorithm}[H]{\textbf{BorrarAVL}(\Inout {A}{avl},\In {id}{nat})} 
+	\begin{algorithmic}
+			\State listaABalancear : lista(nodo) $\gets$ Vac\'ia() 		\Comment O(1)
+			\If{*A.raiz.id = id} 		\Comment O(log(n))
+			  \If{*A.raiz.izq = NULL $\wedge$ *A.raiz.der = NULL} 	\Comment O(4)
+			    \State A.raiz $\gets$ NULL 		\Comment O(1)
+			  \ElsIf{*A.raiz.izq = NULL} 		\Comment O(2)
+			    \State A.raiz $\gets$ *A.raiz.der 		\Comment O(1)
+			  \ElsIf{*A.raiz.der = NULL} 		\Comment O(2)
+			    \State A.raiz $\gets$ *A.raiz.izq	   \Comment O(1)  
+			  \Else 		\Comment O(3 x log(n) + 8) = O(log(n))
+			    \State remplazo : puntero(compu) $\gets$ BuscarElRemplazo(listaABalancear, A.raiz)  \Comment O(log(n))
+			    \State *remplazo.der $\gets$ *A.raiz.der 	\Comment O(1)
+			    \If{Longitud(listaABalancear) $\neq$ 1} 	\Comment O(2)
+			      \State *remplazo.izq $\gets$ *A.raiz.izq 	\Comment O(1)
+			    \EndIf
+			    \State A.raiz $\gets$ remplazo 		\Comment O(1)
+			    \State iteradorRama : itLista(puntero(nodo)) $\gets$ crearIT(listaABalancear) 	\Comment O(1)
+			    \State CorreguirAlturas(iteradorRama) 			\Comment O(log(n))
+			    \State iteradorRama2 : itLista(puntero(nodo)) $\gets$ crearIT(listaABalancear) 	\Comment O(1)
+			    \State Balancear(iteradorRama2)			\Comment O(log(n))
+			    \State A.raiz $\gets$ BalancearNodo(Anterior(iteradorRama2)) 	\Comment O(1)
+			  \EndIf
+			 \Else 				\Comment O(2 x log(n) + 2) = O(log(n))
+			  \State recorrido : puntero(nodo) $\gets$ A.raiz 			\Comment O(1)
+			  \State llegue : bool $\gets$ false 				\Comment O(1)
+			  \While{$\neg$llegue} 						 \Comment O(5 x log(n)) = O(log(n))
+				\State AgregarAdelante(listaABalancear, recorrido)   	\Comment O(copy(recorrido)) = O(1)
+				\If{*recorrido.id $=$ id}  			\Comment O(2)
+				  \State llegue $\gets$ true 			\Comment O(1)
+				\ElsIf{*recorrido.id $<$ id} 			\Comment O(2)
+				  \State recorrido $\gets$ *recorrido.izq 	\Comment O(1)
+				\ElsIf{*recorrido.id $>$ id} 			\Comment O(2)
+				  \State recorrido $\gets$ *recorrido.der 	\Comment O(1)
+				\EndIf
+			  \EndWhile
+			  \If{*recorrido.izq = NULL $\wedge$ *recorrido.der = NULL} 	\Comment O(5)
+			      \If{*listaABalancear[2].izq.id = *recorrido.id} 	 	\Comment O(2)
+				\State *listaABalancear[2].izq $\gets$ NULL 		\Comment O(1)
+			      \Else 							\Comment O(2)
+				\State *listaABalancear[2].der $\gets$ NULL 		\Comment O(1)
+			      \EndIf
+			  \ElsIf{*recorrido.izq = NULL} 				\Comment O(3)
+			      \If{*listaABalancear[2].izq.id = *recorrido.id} 		\Comment O(2)
+				\State *listaABalancear[2].izq $\gets$ *recorrido.der 	\Comment O(1)
+			      \Else 							\Comment O(2)
+				\State *listaABalancear[2].der $\gets$ *recorrido.der 	\Comment O(1)
+			      \EndIf
+			  \ElsIf{*recorrido.der = NULL} 					\Comment O(3)
+			      \If{*listaABalancear[2].izq.id = *recorrido.id} 			\Comment O(2)
+				\State *listaABalancear[2].izq $\gets$ *recorrido.izq 		\Comment O(1)
+			      \Else 								\Comment O(2)
+				\State *listaABalancear[2].der $\gets$ *recorrido.izq 		\Comment O(1)
+			      \EndIf	    
+			  \Else 				\Comment O(3 x log(n) + 6) = O(log(n))
+			      \State Aux $\gets$ listaABalancear[2] 		\Comment O(1)
+			      \State remplazo $\gets$ BuscarElRemplazo(listaABalancear, recorrido) 	\Comment O(log(n))
+			      \State El resto de else est\'a en la siguiente hoja
+			  \EndIf
+			  
+			\EndIf
+			\medskip
+			\Statex \underline{Complejidad:} O(log(n))
+			\Statex \underline{Justificación:} O(log(n) + 1) = O(log(n))
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{} 
+	\begin{algorithmic}
+			      \If{*Aux.izq.id = *recorrido.id} 						\Comment O(2)
+				\State *Aux.izq $\gets$ remplazo 					\Comment O(1)
+			      \Else 									\Comment O(2)
+				\State *Aux.der $\gets$ remplazo 					\Comment O(1)
+			      \EndIf
+			      \State iteradorRama : itLista(puntero(nodo)) $\gets$ crearIT(listaABalancear) 	\Comment O(1)
+			      \State CorreguirAlturas(iteradorRama) 						\Comment O(log(n))
+			      \State iteradorRama2 : itLista(puntero(nodo)) $\gets$ crearIT(listaABalancear) 	\Comment O(1)
+			      \State Balancear(iteradorRama2)							\Comment O(log(n))
+			      \State A.raiz $\gets$ BalancearNodo(Anterior(iteradorRama2)) 			\Comment O(1)
+	 
+    	\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}[H]{\textbf{ClavesAVL}(\In {A}{avl}) $\to$ $res$ : conj(nat)} 
+	\begin{algorithmic}
+			\State res $\gets$ ConstruirClaves(A.raiz) \Comment O(n)
+			\medskip
+			\Statex \underline{Complejidad:} O(n)
+
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iConstruirClaves}(\In {p}{puntero(nodo)}) $\to$ $res$ : conj(nat)} 
+	\begin{algorithmic}
+			\State res $\gets$ Vac\' io() 	\Comment O(1)
+			\If{p $=$ NULL} 	\Comment O(3 + Cardinal(resIzq) + Cardinal(resDer) + ($2^{*(*p.izq.altura)} - 1) + (2^{*(*p.izq.altura)} - 1)$)
+			  \State AgregarRapido(res, *p.id)  \Comment O(1)
+			  \State resIzq : conj(nat) $\gets$ ConstruirClaves(*p.izq) 	\Comment O($(2^{*(*p.izq.altura)} - 1)$)
+			  \State resDer : conj(nat) $\gets$ ConstruirClaves(*p.der) 	\Comment O($(2^{*(*p.izq.altura)} - 1)$)
+			  \State iteradorIzq : itConj(compu) $\gets$ crearIT(resIzq) 	\Comment O(1)
+			  \State iteradorDer : itConj(compu) $\gets$ crearIT(resDer) 	\Comment O(1)
+			  
+			  \While{HaySiguiente(iteradorIzq)} 	\Comment O(3 x Cardinal(resIzq)) = O(Cardinal(resIzq))
+			    \State AgregarRapido(res, *Siguiente(iteradorIzq).id) 	\Comment O(copy(*Siguiente(iteradorIzq).id)) = O(1)
+			    \State Avanzar(iteradorIzq) 	\Comment O(1)
+			  \EndWhile
+			  
+			  \While{HaySiguiente(iteradorDer)} \Comment O(3 x Cardinal(resDer)) = O(Cardinal(resDer))
+			    \State AgregarRapido(res, *Siguiente(iteradorDer).id) \Comment O(copy(*Siguiente(iteradorDer).id)) = O(1)
+			    \State Avanzar(iteradorDer) 	\Comment O(1)
+			  \EndWhile
+			\EndIf
+			\medskip
+			\Statex \underline{Complejidad:} O(n)
+			\Statex \underline{Justificación:} O(4 + Cardinal(resIzq) + Cardinal(resDer) + $(2^{*(*p.izq.altura)} - 1)$ + $2^{*(*p.izq.altura))}$ = O(6 + 2 x n) = O(n). $(2^{*(*p.izq.altura)}- 1)$ es una cota superior para la cantidad de elementos del sub\'arbol izquierdo, idem derecho. Ya que la suma de los dos cardinales representan a la totalidad de elemntos del diccionario menos uno. AgregarRapido se puede usar porque la id no se repite nunca en la recurci\'on(es un \'arbol binario).
+    	\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}[H]{\textbf{iFactorDeBalanceo}(\In {p}{puntero(nodo)}) $\to$ $res$ : int} 
+	\begin{algorithmic}
+			\State res $\gets$ 0 	   \Comment O(1)	 
+			\If{*p.izq $\neq$ NULL} 	\Comment O(2)
+			  \State res $\gets$ res - *p.izq.altura 	\Comment O(1)
+			\EndIf
+			\If{*p.der $\neq$ NULL} 	\Comment O(2)
+			  \State res $\gets$ res + *p.der.altura 	\Comment O(1)
+			\EndIf
+			\medskip
+			\Statex \underline{Complejidad:} O(1)
+			\Statex \underline{Justificación:} O(2 + 2 + 1) = O(5) = O(1)
+    	\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}[H]{\textbf{iBalancearNodo}(\Inout {p}{puntero(nodo)})$\to$ $res$ : puntero(nodo)} 
+	\begin{algorithmic}
+			\If{FactorDeBalanceo(p) $=$ 2} 			\Comment O(12)
+				\State P : puntero(nodo) $\gets$ p 	 \Comment O(1)
+				\State Q : puntero(nodo) $\gets$ *P.izq  \Comment O(1)
+				
+				\If{FactorDeBalanceo(Q) $=$ 1} 	\Comment O(4)
+				  \State *P.der $\gets$ *Q.izq 		\Comment O(1)
+				  \State *Q.izq $\gets$ P 		\Comment O(1)
+				  \State *P.altura $\gets$ *P.altura - 2 	\Comment O(1)
+				  \State res $\gets$ Q 				\Comment O(1)
+				\Else 						\Comment O(10)
+				  \State R : puntero(nodo) $\gets$ *Q.izq 	\Comment O(1)
+				  \State *P.der $\gets$ *R.izq 			\Comment O(1)
+				  \State *Q.izq $\gets$ *R.der 			\Comment O(1)
+				  \State *R.izq $\gets$ P  			\Comment O(1)
+				  \State *R.der $\gets$ Q 			\Comment O(1)
+				  \State *P.altura $\gets$ *P.altura - 2 	\Comment O(1)
+				  \State *Q.altura $\gets$ *Q.altura - 1 	 \Comment O(1)
+				  \State *R.altura $\gets$ *R.altura + 1   	 \Comment O(1)
+				  \State res $\gets$ R 				\Comment O(1)
+				\EndIf
+			    
+			    \ElsIf{FactorDeBalanceo(p) $=$ -2} 			\Comment O(12)
+			      \State P : puntero(nodo) $\gets$ p 		\Comment O(1)
+			      \State Q : puntero(nodo) $\gets$ *P.der  		\Comment O(1)
+			       
+			      \If{FactorDeBalanceo(Q) $=$ -1} 		\Comment O(5)
+				  \State *P.izq $\gets$ *Q.der 			\Comment O(1)
+				  \State *Q.der $\gets$ P 			\Comment O(1)
+				  \State *P.altura $\gets$ *P.altura - 2 	\Comment O(1)
+				  \State res $\gets$ Q 				\Comment O(1)
+			      \Else 						\Comment O(10)
+				  \State R : puntero(nodo) $\gets$ *Q.der 	\Comment O(1)
+				  \State *P.izq $\gets$ *R.izq 	\Comment O(1)
+				  \State *Q.der $\gets$ *R.der 	\Comment O(1)
+				  \State *R.izq $\gets$ P 	\Comment O(1)
+				  \State *R.der $\gets$ Q 	\Comment O(1)
+				  \State *P.altura $\gets$ *P.altura - 2 	\Comment O(1)
+				  \State *Q.altura $\gets$ *Q.altura - 1 	\Comment O(1)
+				  \State *R.altura $\gets$ *R.altura + 1 	\Comment O(1)
+				  \State res $\gets$ R 				\Comment O(1)
+			      \EndIf 
+			    
+			    \EndIf
+			\medskip
+			\Statex \underline{Complejidad:} O(1)
+			\Statex \underline{Justificación:} O(12) = O(1)
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iCorreguirAlturas}(\Inout {iteradorRama}{itLista(puntero(nodo)})} 
+	\begin{algorithmic}
+			\While{HaySiguiente(iteradorRama)} 							\Comment O(8 x log(n))
+			      \State auxAltura : nat $\gets$ 1 							\Comment O(1)
+			      \If{*Siguiente(iteradorRama).izq $\neq$ NULL  $\wedge$ *Siguiente(iteradorRama).der $\neq$ NULL} 		\Comment O(5)
+				\If{*Siguiente(iteradorRama).der.altura < *Siguiente(iteradorRama).izq} 	\Comment O(2)
+				  \State auxAltura $\gets$ auxAltura + *Siguiente(iteradorRama).izq.altura 	\Comment O(1)
+				\Else 										\Comment O(2)
+				  \State auxAltura $\gets$ auxAltura + *Siguiente(iteradorRama).der.altura 	\Comment O(1)
+				\EndIf
+			      \ElsIf{*Siguiente(iteradorRama).izq $\neq$ NULL} 					\Comment O(2)
+				\State auxAltura $\gets$ auxAltura + *Siguiente(iteradorRama).izq.altura 	\Comment O(1)
+			      \ElsIf{*Siguiente(iteradorRama).der $\neq$ NULL} 					\Comment O(2)
+				\State auxAltura $\gets$ auxAltura + *Siguiente(iteradorRama).der.altura 	\Comment O(1)
+			      \EndIf
+			      \State *Siguiente(iteradorRama).altura $\gets$ auxAltura  			\Comment O(1)
+			      \State Avanzar(iteradorRama) 	     						\Comment O(1)
+			\EndWhile
+			\medskip
+			\Statex \underline{Complejidad:} O(log(n))
+			\Statex \underline{Justificación:} O(8 x log(n)) = O(log(n)). El iteradorRama recorre una rama del \'arbol y esta mide log(n) siendo n la cantidad de nodos del avl.
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iBalancear}(\Inout {iteradorRama}{itLista(puntero(nodo))})} 
+	\begin{algorithmic}
+			\While{HaySiguiente(iteradorRama)} 							\Comment O(4 x log(n))
+			      \State Avanzar(iteradorRama) 	     				\Comment O(1)
+			      \If{HaySiguiente(iteradorRama)} 	\Comment O(3)
+				  \If{Anterior(iteradorRama) $=$ *Siguiente(iteradorRama).izq}   	\Comment O(2)
+				    \State *Siguiente(iteradorRama).izq $\gets$ BalancearNodo(Anterior(iteradorRama)) 	\Comment O(1)
+				  \Else 		\Comment O(2)
+				    \State *Siguiente(iteradorRama).der $\gets$ BalancearNodo(Anterior(iteradorRama)) 	\Comment O(1)
+				  \EndIf
+			      \EndIf
+			    \EndWhile
+			\medskip
+			\Statex \underline{Complejidad:} O(log(n))
+			\Statex \underline{Justificación:} O(4 x log(n)) = O(log(n))
+    	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]{\textbf{iBuscarElRemplazo}(\Inout {listaABalancear}{lista(puntero(nodo))}, \In aBorrar{puntero(nodo)})$\to$ $res$ : puntero(nodo)} 
+	\begin{algorithmic}
+
+			 \State recorrido : puntero(nodo) $\gets$ *aBorrar.izq 		\Comment O(1)
+			 \State llegue $\gets$ false 					\Comment O(1)
+			 \If{*recorrido.der $\neq$ NULL} 				\Comment O(8 + log(n)) = O(log(n))
+			  \State i : nat $\gets$ 1 					\Comment O(1)
+			  \While{$\neg$llegue} 						\Comment O(6 x log(n)) = O(log(n))
+				\State AgregarAdelante(listaABalancear, recorrido)   	\Comment O(copy(recorrido)) = O(1). Porque es un puntero.
+				\If{*recorrido.der = NULL} 				\Comment O(4)
+				  \State listaABalancear[2].der $\gets$ *recorrido.izq 	\Comment O(1)
+				  \State listaABalancear[i] $\gets$ recorrido 		\Comment O(1)
+				  \State llegue $\gets$ true 				\Comment O(1)
+				\Else 							\Comment O(2)
+				  \State recorrido $\gets$ *recorrido.der	        \Comment O(1)
+				\EndIf
+				\State i $\gets$ i + 1 					\Comment O(1)
+			  \EndWhile
+			\Else
+			  \State AgregarAdelante(listaABalancear, recorrido)   	\Comment O(copy(recorrido)) = O(1)
+			\EndIf
+			\State res $\gets$ recorrido    \Comment O(1)
+
+			\medskip
+			\Statex \underline{Complejidad:} O(log(n))
+			\Statex \underline{Complejidad:} O(log(n) + 11) = O(log(n))
+    	\end{algorithmic}
+\end{algorithm}
+
+
+\end{Algoritmos}
+
+\end{document}

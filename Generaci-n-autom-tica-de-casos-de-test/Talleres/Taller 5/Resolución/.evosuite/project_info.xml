@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project>
+    <totalNumberOfTestableClasses>1</totalNumberOfTestableClasses>
+    <cut>
+        <fullNameOfTargetClass>org.autotest.StackAr</fullNameOfTargetClass>
+        <fullNameOfTestSuite>org.autotest.StackAr_ESTest</fullNameOfTestSuite>
+        <generation>
+            <id>0</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>180</timeBudgetInSeconds>
+            <memoryInMB>2000</memoryInMB>
+            <std_err_CLIENT>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_01_14_40_41/logs/org.autotest.StackAr/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_01_14_40_41/logs/org.autotest.StackAr/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_01_14_40_41/logs/org.autotest.StackAr/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_01_14_40_41/logs/org.autotest.StackAr/std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_01_14_40_41/tests/org/autotest/StackAr_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>35</numberOfTests>
+                <totalNumberOfStatements>361</totalNumberOfStatements>
+                <totalEffortInSeconds>137</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111111111111111111111111111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111111111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>0.97</coverageValue>
+                    <coverageBitString>11111111110111011111111111111111111111111111111111111111111111111111111111111110111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.81</coverageValue>
+                    <coverageBitString>1111111101101011</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111111111111111111111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+        <generation>
+            <id>1</id>
+            <failed>true</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>180</timeBudgetInSeconds>
+            <memoryInMB>2000</memoryInMB>
+            <std_err_CLIENT>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_08_13_15_50/logs/org.autotest.StackAr/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_08_13_15_50/logs/org.autotest.StackAr/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_08_13_15_50/logs/org.autotest.StackAr/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_08_13_15_50/logs/org.autotest.StackAr/std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>2</id>
+            <failed>true</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>180</timeBudgetInSeconds>
+            <memoryInMB>2000</memoryInMB>
+            <std_err_CLIENT>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_08_13_25_35/logs/org.autotest.StackAr/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_08_13_25_35/logs/org.autotest.StackAr/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_08_13_25_35/logs/org.autotest.StackAr/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_08_13_25_35/logs/org.autotest.StackAr/std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>3</id>
+            <failed>true</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>180</timeBudgetInSeconds>
+            <memoryInMB>2000</memoryInMB>
+            <std_err_CLIENT>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_09_09_52_50/logs/org.autotest.StackAr/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_09_09_52_50/logs/org.autotest.StackAr/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_09_09_52_50/logs/org.autotest.StackAr/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_09_09_52_50/logs/org.autotest.StackAr/std_out_MASTER.log</std_out_MASTER>
+        </generation>
+        <generation>
+            <id>4</id>
+            <failed>false</failed>
+            <modified>true</modified>
+            <timeBudgetInSeconds>180</timeBudgetInSeconds>
+            <memoryInMB>2000</memoryInMB>
+            <std_err_CLIENT>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_09_10_12_36/logs/org.autotest.StackAr/std_err_CLIENT.log</std_err_CLIENT>
+            <std_out_CLIENT>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_09_10_12_36/logs/org.autotest.StackAr/std_out_CLIENT.log</std_out_CLIENT>
+            <std_err_MASTER>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_09_10_12_36/logs/org.autotest.StackAr/std_err_MASTER.log</std_err_MASTER>
+            <std_out_MASTER>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_09_10_12_36/logs/org.autotest.StackAr/std_out_MASTER.log</std_out_MASTER>
+            <suite>
+                <fullPathOfTestSuite>/home/federico/Generaci-n-autom-tica-de-casos-de-test/Talleres/Taller 5/Resolución/.evosuite/tmp_2018_10_09_10_12_36/tests/org/autotest/StackAr_ESTest.java</fullPathOfTestSuite>
+                <numberOfTests>37</numberOfTests>
+                <totalNumberOfStatements>365</totalNumberOfStatements>
+                <totalEffortInSeconds>140</totalEffortInSeconds>
+                <coverage>
+                    <criterion>LineCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111111111111111111111111111111111111111111111111111111111111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>BranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111111111111111111111111111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>ExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>1111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>WeakMutationScore</criterion>
+                    <coverageValue>0.96</coverageValue>
+                    <coverageBitString>111111111111111111111101110111111111111011111111111111111111111111111111111111111111111111111111111110111111111111111111111111111111011111111111101111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>OutputCoverage</criterion>
+                    <coverageValue>0.81</coverageValue>
+                    <coverageBitString>1111111101101011</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>MethodNoExceptionCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>11111111111</coverageBitString>
+                </coverage>
+                <coverage>
+                    <criterion>CBranchCoverage</criterion>
+                    <coverageValue>1.0</coverageValue>
+                    <coverageBitString>111111111111111111111111111111111111111</coverageBitString>
+                </coverage>
+            </suite>
+        </generation>
+    </cut>
+</Project>

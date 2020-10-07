@@ -1,0 +1,7 @@
+Modulos Básicos:
+
+interfaz es nat
+
+compu es tupla<hostname : string, interfaces : conj(interfaz), numeroOrden : nat>
+
+paquete es tupla<id : nat, prioridad : nat, origen : compu, destino : compu>

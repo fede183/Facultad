@@ -1,0 +1,7 @@
+Errores encontrados:
+
+1) La función size utiliza un post increment y como consecuencia devuelve un valor incorrecto, debido a que se espera el valor de readIndex mas 1 y termina devolviendo el valor original. 
+
+2) La función toString concluye con una letra "b" en vez de un caracter "]".
+
+

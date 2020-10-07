@@ -1,0 +1,122 @@
+#include "dcnet.h"
+
+DCNet::DCNet(Red& r) : _red(r){
+    typename Conj<compu>::const_Iterador iteradorCompu = _red.Computadoras().CrearIt();
+    _laQueMasEnvio = NULL;
+    if(iteradorCompu.HaySiguiente()){
+        _laQueMasEnvio = &iteradorCompu.Siguiente(); // CONSULTAR!!!!
+    }
+    while(iteradorCompu.HaySiguiente()){
+        Nat i = 0;
+        _cantEnviados.definir(iteradorCompu.Siguiente().hostname, i);// cambiar _cantEnviados por enviados
+        Heap<paquete> Aux; // ver que onda
+        _enEspera.definir(iteradorCompu.Siguiente().hostname, Aux); 
+        iteradorCompu.Avanzar();
+    }
+}
+
+DCNet::~DCNet(){
+    _laQueMasEnvio = NULL;
+}
+
+void DCNet::CrearPaquete(const paquete& p){
+    _enEspera.obtener(p.origen.hostname)->encolar(p);   // igual p._origane._hostname
+}
+
+
+void DCNet::AvanzarSegundo(){
+
+    Lista<tupla> listaAEnviar;
+    typename Conj<compu>::Iterador itCompu = _red.Computadoras().CrearIt();
+    while(itCompu.HaySiguiente()){
+        if(!(_enEspera.obtener(itCompu.Siguiente().hostname)->vacia())){
+            Nat i = (*_cantEnviados.obtener(itCompu.Siguiente().hostname)) + 1 ; 
+            _cantEnviados.definir(itCompu.Siguiente().hostname, i) ;
+            if( _cantEnviados.obtener(itCompu.Siguiente().hostname) > _cantEnviados.obtener(_laQueMasEnvio->hostname)){
+                    _laQueMasEnvio = &itCompu.Siguiente();
+            }
+            const paquete* aEnviar = &_enEspera.obtener(itCompu.Siguiente().hostname)->proximo();
+            _enEspera.obtener(itCompu.Siguiente().hostname)->desencolar(); 
+            if( _paquetesEnTransitoNoOrigen.DefinidoNat(aEnviar->id) ){ 
+                typename Lista<compu>::const_Iterador cam = _paquetesEnTransitoNoOrigen.SignificadoNat(aEnviar->id);
+                if(cam.HaySiguiente()){
+                    tupla tup1 = tupla(cam.Siguiente().hostname, *aEnviar); 
+                    listaAEnviar.AgregarAtras(tup1);
+                    cam.Avanzar();
+                }else{
+                    _paquetesEnTransitoNoOrigen.BorrarNat(aEnviar->id);
+                }
+            }else{
+                cout<< "La id del paquete es: "<< aEnviar->id << " Y su compu es: " << aEnviar->origen.hostname << '\n';
+                typename Lista<compu>::const_Iterador camino = _red.CaminoMinimo(aEnviar->origen,aEnviar->destino).CrearIt().Siguiente().CrearIt();
+                // //camino.Avanzar();
+                if(camino.HaySiguiente()){
+                    tupla tup2 = tupla(camino.Siguiente().hostname, *aEnviar);
+                    listaAEnviar.AgregarAtras(tup2);
+                    _paquetesEnTransitoNoOrigen.DefinirNat(aEnviar->id, camino);
+                }
+            }
+
+        }
+        itCompu.Avanzar();
+    }
+    typename Lista<tupla >::Iterador itEnviar = listaAEnviar.CrearIt();
+    while(itEnviar.HaySiguiente()) {
+
+        paquete p = itEnviar.Siguiente().seg;
+        _enEspera.obtener(itEnviar.Siguiente().prim)->encolar(p);
+        itEnviar.Avanzar();
+    }
+}
+
+Red DCNet::DarRed(){
+    return _red;
+}
+
+
+Heap<paquete> DCNet::EnEspera(const compu& c){
+    return *_enEspera.obtener(c.hostname);
+}
+
+
+Lista<compu> DCNet::CaminoRecorrido(const paquete& p) const{
+    Lista<compu> res;
+    if(!_paquetesEnTransitoNoOrigen.DefinidoNat(p.id) ){
+        Nat i = 0 ;
+        typename Lista<compu>::const_Iterador cam =  _paquetesEnTransitoNoOrigen.SignificadoNat(p.id);
+        while(cam.HayAnterior()){
+            res.AgregarAdelante(cam.Anterior());
+            cam.Retroceder() ;
+            ++i;
+        }
+        while(i != 0){
+            cam.Avanzar();
+            --i;
+        }
+    }
+    return res;
+}
+
+
+Nat DCNet::CantidadEnviados(const compu& c){
+    return *_cantEnviados.obtener(c.hostname);
+}
+
+
+bool DCNet::PaqueteEnTransito(const paquete& p) {
+    bool res = false;
+    typename Conj<compu>::const_Iterador itCompu = _red.Computadoras().CrearIt();
+    while(itCompu.HaySiguiente() && !res ){
+        const string s = itCompu.Siguiente().hostname;
+        //Heap<paquete> *cola = _enEspera.obtener(s);
+        //res = true;
+        res = (_enEspera.obtener(itCompu.Siguiente().hostname))->pertenece(p);
+        itCompu.Avanzar();
+    }
+    return res;
+}
+
+
+const compu& DCNet::LaQueMasEnvio() const{
+    return *_laQueMasEnvio;
+}

@@ -1,0 +1,289 @@
+\documentclass[spanish,a4paper]{article}
+
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+%\usepackage{bbm}
+\usepackage{framed}
+\input{macrosAlgo1}
+
+\newcommand{\comen}[2]{%
+\begin{framed}
+\noindent \textsf{#1:} #2
+\end{framed}
+}
+
+\begin{document}
+
+\materia{Algoritmos y Estructura de Datos I}
+\cuatrimestre{2}
+\anio{2013}
+
+\nombre{\LARGE TPE Cine}
+
+\titulotp
+
+
+\sinonimo{Actor}{String}
+\sinonimo{Sala}{\ent}
+\enumerado{género}{Aventura, Comedia, Drama, Romántica, Terror}
+
+\vspace{0.5cm}
+
+\begin{tipo}{Pelicula}
+	\observador{nombre}{p: Pelicula}{String}
+	\observador{géneros}{p: Pelicula}{[Género]}
+	\observador{actores}{p: Pelicula}{[Actor]}
+	\observador{es3D}{p: Pelicula}{Bool}
+	\invariante[sinActoresRepetidos]{sinRepetidos(actores(p))}
+	\invariante[sinGénerosRepetidos]{sinRepetidos(generos(p))}
+	\invariante[génerosOrdenados]{(\forall i \selec [0..|generos(p)|-2])ord((generos(p))_{i}) \le ord((generos(p))_{i+1})}
+	\invariante[actoresOrdenados]{(\forall i \selec [0..|actores(p)|-2])(actores(p))_{i} \le (actores(p))_{i+1}} % Corregido
+\end{tipo}
+
+\begin{problema}{agruparPelisPorGenero}{ps:[Pelicula]}{[(Genero, [Pelicula])]}
+\requiere{SinRepetidos(ps)}
+
+\asegura[Longitud]{|result|==|SinRep(SacarGeneros(ps))|}
+\asegura{(\forall g \selec SinRep(SacarGeneros(ps)), \ \exists h \selec [0..|result|-1])prm(result)==g \\ \wedge mismos(sgd(result_{h}),AsociarConGenero(ps,g))}
+\aux{SacarGeneros}{d:[Pelicula]}{[Genero]}{[x \ | x \selec [Aventura,Comedia,Drama,Romantica,Terror], \\ i \selec [0..|d|-1], \ x \in generos(d_{i})]}
+\aux{AsociarConGenero}{m:[Pelicula],g:Genero}{[Pelicula]}{[m_{x} \ | x \selec [0..|m|-1], \ g \in generos(m_{x})]}
+\aux{SinRep}{s: [String]}{[String]}{[s_{i}|i \selec [0..|s|-1], \ i==0 \ \vee \  (\forall(j \selec [0..i-1])s_{i} \not= s_{j})]}
+\end{problema}
+
+
+\begin{problema}{generarSagaDePeliculas}{as:[Actor], gs:[Genero], nombres:[String]}{[Pelicula]}
+\requiere{sinRepetidos(as)}
+\requiere{sinRepetidos(gs)}
+\asegura[Longitud]{|nombres|==|result|}
+\asegura{(\forall i \selec [0..|nombres|-1])nombre(result_{i}) \in nombres_{i}}
+\asegura{sinRepetidos([nombre(result_{i})|i \selec [0..|nombres|-1]])}
+\asegura{(\forall i \selec [0..|nombres|-1])mismos(generos(result_{i}),gs)}
+\asegura{(\forall i \selec [0..|nombres|-1])(\forall j \selec [0..|gs| -2])ord((generos(result_{i}))_{j}) \le ord((generos(result_{i}))_{j+1})}
+\asegura{(\forall i \selec [0..|nombres|-1])mismos(actores(result_{i}),as)}
+%\asegura{MenorStr(actores(result))} % Corregido
+\end{problema}
+
+\begin{tipo}{Ticket}
+	\observador{película}{t: Ticket}{Pelicula}
+	\observador{sala}{t: Ticket}{Sala}
+	\observador{usado}{t: Ticket}{Bool}
+\end{tipo}
+
+\begin{problema}{películaMenosVista}{ts : [Ticket]}{Pelicula}
+
+\asegura{result \in menosvistas(pvs(ts))} % Corregido
+\aux{pvs}{ts: [Ticket]}{[(Pelicula,\ent)]}{[(pelicula(ts_{j}),\sum [\beta(usado(ts_{i}))|i \selec [0..|ts|-1], \ pelicula(ts_{i})==pelicula(ts_{j})] ) | \\ j \selec [0..|ts|-1], \ j==0 \vee (\forall n \selec[0..j-1])pelicula(ts_{j}) \not= pelicula(ts_{n})]}
+\aux{menosvistas}{pvs: [(Pelicula,\ent)]}{[Pelicula]}{[prm(pvs_{i})|i \selec [0..|pvs|-1], \ sgd(pvs_{i})==min(pvs)]}
+\aux{min}{pvs: [(Pelicula,\ent)]}{\ent}{cab[sgd(pvs_{i})|i \selec [0..|pvs|-1],(\forall j \selec [0..|pvs|-1])sgd(pvs_{i}) \le sgd(pvs_{j})]}
+\end{problema}
+
+\begin{problema}{todosLosTicketsParaLaMismaSala}{ts:[Ticket]}{\bool}
+\asegura{result==(\forall i \selec [0..|ts|-1]) (\forall j \selec [0..|ts|-1]) sala(ts_{i})==sala(ts_{j})}
+\end{problema}
+
+\begin{problema}{cambiarSala}{ts:[Ticket], vieja: Sala, nueva: Sala}{}{}
+\requiere{|ts| > 0}
+\modifica{ts}
+\asegura[CambiaSala]{(\forall i [0..|ts|-1], \ sala(pre(ts)_{i})==vieja)sala(ts_{i})==nueva, \ pelicula(ts_{i})==pelicula(pre(ts)_{i}), \\ usado(ts_{i})==usado(pre(ts)_{i})}
+\asegura[MantieneSalas]{(\forall i [0..|ts|-1], \ sala(pre(ts)_{i}) \not= vieja)sala(ts_{i})==sala(pre(ts)_{i}), \ pelicula(ts_{i})== \\ pelicula(pre(ts)_{i}), usado(ts_{i})==usado(pre(ts)_{i})}
+\end{problema}
+
+
+
+
+\begin{tipo}{Cine}
+	\observador{nombre}{c: Cine}{String}
+	\observador{películas}{c: Cine}{[Peliculas]}
+	\observador{salas}{c: Cine}{[Sala]}
+	\observador{sala}{c: Cine, p: Pelicula}{Sala}
+		\requiere{p \in peliculas(c)}
+	\observador{espectadores}{c: Cine, s: Sala}{\ent}
+		\requiere{s \in salas(c)}
+	\observador{ticketsVendidosSinUsar}{c: Cine}{[Ticket]}
+
+	\invariante[sinPeliculasRepetidas]{sinRepetidos(nombresDePeliculas(c))}
+	\invariante[sinSalasRepetidas]{sinRepetidos(salas(c))}
+	\invariante[salasDeCineSonSalas]{(\forall p \leftarrow peliculas(c)) sala(c,p) \in salas(c) }
+	\invariante[espectadoresNoNegativos]{(\forall s \leftarrow salas(c)) espectadores(c,s) \geq 0 }
+	\invariante[losTicketsVendidosEstanSinUsar]{(\forall t \selec ticketsVendidosSinUsar(c)) \lnot usado(t) }
+	\invariante[salasConsistentes]{(\forall i \selec peliculas(c)) (\forall  j \selec peliculas(c) , i \neq j)  sala(c,i)\neq sala(c,j) }
+	\invariante[losTicketsVendidosSonParaPeliculasDelCine]{(\forall t \selec [Tickets]) t \in ticketsVendidosSinUsar(c) \ \wedge \newline tienePeli(c, sala(t))}
+\end{tipo}
+
+\begin{problema}{cineVacio}{n: String}{Cine}
+\asegura{nombre(result)==n}
+\asegura{|salas(result)|==0}
+\asegura{|peliculas(result)|==0}
+%\asegura{|ticketsVendidosSinUsar(result)|==0} % Corregido
+\end{problema}
+
+\begin{problema}{agregarPelicula}{c: Cine, p: Pelicula, s: Sala}{}{}
+\requiere{s \in salas(c)}
+\requiere{\lnot ((\exists j \selec peliculas(c)) sala(c,j)==s)}
+\requiere{p \notin peliculas(c)}
+\modifica{c}
+\asegura{nombres(pre(c))==nombres(c)}
+\asegura{(\forall d \selec salas(c)) espectadores(c,d)==espectadores(pre(c),d)}
+\asegura{(\forall e \selec peliculas(pre(c)))e \in peliculas(c)}
+\asegura{p \in peliculas(c)}
+\asegura{|peliculas(c)|==|peliculas(pre(c))|+1}
+\asegura{mismos(salas(c),salas(pre(c)))} % Corregido
+\asegura{(\forall z \selec peliculas(pre(c)))sala(pre(c),z)==sala(c,z)}
+\asegura{sala(c,p)==s}
+\asegura{mismos(ticketsVendidosSinUsar(pre(c)),ticketsVendidosSinUsar(c))}
+\end{problema}
+
+
+\begin{problema}{cerrarSala}{c: Cine, s: Sala}{}{}
+\requiere{s \in salas(c)}
+\modifica{c}
+\asegura{nombre(c)==nombre(pre(c))}
+\asegura{mismos(salas(c),SalasSinEsa(pre(c),s))}
+\asegura{mismos(peliculas(c),PelisSinEsa(pre(c),s))}
+\asegura{mismos(ticketsVendidosSinUsar(c),TiketsSinEsos(pre(c),s))}
+\asegura{(\forall m \selec peliculas(c))sala(c,m) == sala(pre(c),m)}
+\asegura{(\forall i \selec salas(c))espectadores(c,i) == espectadores(pre(c),i)}
+\aux{PelisSinEsa}{c:Cine,s:Sala}{[Pelicula]}{[(peliculas(c))_{x}|x \selec [0..|peliculas(c)|-1], \ sala(c,(peliculas(c))_{x}) \not= s]}
+\aux{SalasSinEsa}{c:Cine,s:Sala}{[Sala]}{[(salas(c))_{x}|x \selec [0..|salas(c)|-1], \ (salas(c))_{x} \not= s]}
+\aux{TiketsSinEsos}{c:Cine,s:Sala}{[Ticket]}{[(ticketsVendidosSinUsar(c))_{x}|x \selec [0..|ticketsVendidosSinUsar(c)|-1], \ sala(c,(ticketsVendidosSinUsar(c))_{x}) \not= s]}
+\end{problema}
+
+\begin{problema}{cerrarSalas}{c: Cine, e: \ent}{}{}
+%\requiere{e \ge 0} % Corregido
+\modifica{c}
+\asegura{nombre(c) == nombre(pre(c))}
+\asegura{mismos(salas(c),[(salas(pre(c)))_{x} | x \selec [0..|salas(pre(c))| -1], \ espectadores(pre(c),(salas(pre(c)))_{x}) \ge e ])} % Corregido
+\asegura{(\forall d \selec [0..|salas(pre(c))|-1], \ espectadores(pre(c),(salas(pre(c)))_{d}) \ge e) espectadores(pre(c),(salas(pre(c)))_{d}) == espectadores(c,(salas(pre(c)))_{d})} % Corregido
+\asegura{mismos(peliculas(c),[(peliculas(pre(c)))_{i} | i \selec [0..|peliculas(pre(c))|-1], \\ (peliculas(pre(c)))_{i} \notin peliculasconmenosde(pre(c),e)])}
+\asegura{(\forall i \selec peliculas(c)) sala(c,i) == sala(pre(c),i)}
+\asegura{mismos(ticketsVendidosSinUsar(c),[(ticketsVendidosSinUsar(pre(c)))_{i} | i \selec [0..|ticketsVendidosSinUsar( \\ pre(c))|-1], \ pelicula((ticketsVendidosSinUsar(pre(c)))_{i}) \notin peliculasconmenosde(pre(c),e)])}
+\aux{peliculasconmenosde}{c:Cine, e \ent}{[Pelicula]}{[(peliculas(c))_{z} | z \selec [0..|peliculas(c)|-1], \\ espectadores(c,sala(c,(pelicula(c))_{z})) < e]}
+\end{problema}
+
+\begin{problema}{cerrarSalasDeLaCadena}{cs: [Cine], e: \ent}{}{}
+\requiere{e \ge 0}
+\requiere{sinRepetidos(nombresC(cs))}
+\modifica{cs}
+\asegura{|cs| == |pre(cs)|}
+%\asegura{((\forall j \selec [0..|cs|-1])(\exists i \selec [0..|cs|-1]) nombre(cs_{i}) == nombre((pre(cs))_{j})) \wedge \\ 
+%mismos(salas(cs_{i}),[(salas((pre(cs))_{j}))_{x} | x \selec [0..|salas((pre(cs))_{j})|-1], \ (salas((pre(cs))_{j}))_{x} \ge e]) \wedge \\
+%mismos(peliculas(cs_{i}),[(peliculas((pre(cs))_{j}))_{x} | x \selec [0..|peliculas((pre(cs))_{j})|-1], \\ (peliculas((pre(cs))_{j}))_{x} \notin peliculasconmenosde((pre(cs))_{j},e)]) \wedge \\
+%mismos(ticketsVendidosSinUsar(cs_{i}),[(ticketsVendidosSinUsar((pre(cs))_{j}))_{x} | \\ x \selec [0..|ticketsVendidosSinUsar((pre(cs))_{j})|-1], \\ (pelicula(ticketsVendidosSinUsar((pre(cs))_{j}))_{x}) \notin peliculasconmenosde((pre(cs))_{j},e)]) \wedge \\
+%(\forall h \selec peliculas(cs_{i})) sala(cs_{i},h) == sala((pre(cs))_{j},h) \wedge \\
+%(\forall k \selec salas(cs_{i})) espectadores((pre(cs))_{j},k) == espectadores(cs_{i},k)}
+\asegura{(\forall j \selec [0..|cs|-1])(\exists i \selec [0..|cs|-1]) (mismoNombre(cs_{i},(pre(cs))_{j}) \wedge salasModif(cs_{i},(pre(cs))_{j}) \wedge \\ pelis(cs_{i},(pre(cs))_{j}) \wedge pelisYsalas(cs_{i},(pre(cs))_{j}) \wedge especModif(cs_{i},(pre(cs))_{j}) \wedge tvsu(cs_{i},(pre(cs))_{j})) }
+\aux{mismoNombre}{c:cine pc:cine}{\bool}{nombre(c) == nombre(pc)}
+\aux{salasModif}{c:cine pc:cine}{\bool}{mismos(salas(c),[(salas(pc))_{x} | x \selec [0..|(salas(pc))|-1], \\ espectadores(pc,(salas(pc))_{x}) \ge e])}
+\aux{pelisYsalas}{c:cine pc:cine}{\bool}{(\forall h \selec peliculas(c)) sala(c,h) == sala(pc,h)}
+\aux{pelis}{c:cine pc:cine}{\bool}{mismos(peliculas(c),[(peliculas(pc))_{x} | x \selec [0..|peliculas(pc)|-1], \\ (peliculas(pc))_{x} \notin peliculasconmenosde(pc,e)])}
+\aux{tvsu}{c:cine pc:cine}{\bool}{mismos(ticketsVendidosSinUsar(c),[(ticketsVendidosSinUsar(pc))_{x} | \\ x \selec [0..|ticketsVendidosSinUsar(pc)|-1], \\ (pelicula(ticketsVendidosSinUsar(pc))_{x}) \notin peliculasconmenosde(pc,e)])}
+\aux{especModif}{c:cine pc:cine}{\bool}{(\forall k \selec salas(c)) espectadores(pc,k) == espectadores(c,k)}
+\aux{peliculasconmenosde}{c:Cine, e \ent}{[Pelicula]}{[(peliculas(c))_{z} | z \selec [0..|peliculas(c)|-1], \\ espectadores(c,sala(c,(pelicula(c))_{z})) < e]}
+\aux{nombresC}{cs:[cine]}{[String]}{[nombre(c)|c \selec cs]}
+
+\end{problema}
+
+\begin{problema}{pelicula}{c: Cine, s: Sala}{Pelicula}
+\requiere{s \in salas(c)}
+\requiere{listaconpeliensalaS(c,s) \not= []}
+\asegura{result == cab(listaconpeliensalaS(c,s))}
+\aux{listaconpeliensalaS}{c:Cine, s:Sala}{[Pelicula]}{[p | p \selec peliculas(c), \ sala(c,p) == s]}
+\end{problema}
+
+\begin{problema}{venderTicket}{c: Cine, p: Pelicula}{Ticket}
+\requiere {\ p \in pelicula(c)}
+\modifica {c}
+\asegura {pelicula(result) == p}
+\asegura {sala(result) == sala(p)}
+\asegura { sinUsar: usado(result) == False}
+%todo lo que permanece igual:
+\asegura {nombre(c) == nombre(pre(c))}
+\asegura {mismos(salas(c), salas(pre(c)))} % Corregido
+\asegura {sala(c,p) == sala(pre(c),p)}
+\asegura {espectadores(c,p) == espectadores(pre(c),p)}
+% lo que modifico:
+\asegura { mismos(ticketsVendidosSinUsar(c), \  [result] ++ \  ticketsVendidosSinUsar(pre(c)))} % Ya está arreglado
+\end{problema}
+
+\begin{problema}{ingresarASala}{c: Cine, s: Sala, t: Ticket}{}
+
+\requiere{s \in salas(c)}
+\requiere{sala(t)==s}
+\requiere{pelicula(t) \in peliculas(c)}
+\requiere{sala(c,pelicula(t))==s}
+\requiere {t \in ticketsVendidosSinUsar(c)}
+\modifica {c}
+\asegura {nombre(c)==nombre(pre(c))}
+\asegura { mismos(peliculas(c),\ peliculas(pre(c)))}
+\asegura { mismos(salas(c),\ salas(pre(c)))}
+\asegura {( \forall d \selec  pelicula(c)) sala(c,d) == sala(pre(c),d)}
+\asegura {( \forall m \selec  [0..|salas(pre(c))|-1], \ (salas(pre(c)))_{m} \not= s) espectadores(c,(salas(pre(c)))_{m}) == \\ espectadores(pre(c),(salas(pre(c)))_{m})} % Corregido
+\asegura { espectadores(c,s) == (espectadores(pre(c),s)+1)}
+\asegura{( \forall d \selec  [0..|ticketsVendidosSinUsar(pre(c))|-1], \ (ticketsVendidosSinUsar(pre(c)))_{d} \not= t) \\ cuenta((ticketsVendidosSinUsar(pre(c)))_{d},ticketsVendidosSinUsar(pre(c))) == \\ cuenta((ticketsVendidosSinUsar(pre(c)))_{d},ticketsVendidosSinUsar(c))}
+\asegura{|ticketsVendidosSinUsar(c)| == |ticketsVendidosSinUsar(pre(c))| -1}
+\asegura{cuenta(t,ticketsVendidosSinUsar(pre(c))) == cuenta(t,ticketsVendidosSinUsar(c)) -1}
+\end{problema}
+
+\begin{problema}{pasarA3DUnaPelicula}{c: Cine, nombre: String}{Pelicula}{}
+\requiere { nombre \in nombresDePeliculas(c)}
+\modifica {c}
+\asegura { nombre(c) == nombre(pre(c)) }
+\asegura { mismos( salas(c) , \ salas(pre(c)))}
+\asegura { nombre(result) == nombre}
+\asegura { es3D(result) == True}
+\asegura {(\exists p \selec peliculas(pre(c))) \ nombre(p)== nombre \wedge \newline 
+	mismos ( \ generos(p), \  generos(result)) \wedge \newline 
+	mismos ( \ actores(p), \ actores(result)) \wedge \newline 				
+	mismos ( \ peliculas(c), \  modificaListaDePeliculas(pre(c), \ result, \ p)) \wedge \newline 
+	sala(c, \ result) == \  sala(pre(c), \  p)}
+\asegura { ( \forall p \selec peliculas(c) , \  p \ne \ result) \  sala(c, \ p) == \ sala(pre(c),p) }
+\asegura { ( \forall s \selec salas(c)) \ espectadores(c, \ s) == espectadores(pre(c), \ s) }
+\asegura { ( \forall t \selec ticketsVendidosSinUsar(c), \ pelicula(t) \ne \ result) \newline
+	t  \in ticketsVendidosSinUsar(pre(c))  }
+\asegura {( \forall t \selec ticketsVendidosSinUsar(pre(c)), \ nombre(  pelicula(t)) \ne \ nombre) \newline
+	t  \in ticketsVendidosSinUsar(c) }
+\asegura { ( \forall t \selec ticketsVendidosSinUsar(pre(c)), \ nombre(  pelicula(t)) == \ nombre) \newline
+	( \exists t_1 \selec ticketsVendidosSinUsar(pre(c)) ) \  pelicula(t_1)== \ result \ \wedge \newline
+	sala(t_1) == \ sala(t) \ \wedge \ usado(t_1) == \ usado(t)}
+\asegura { | \ ticketsVendidosSinUsar(pre(c)) | == \ | \ ticketsVendidosSinUsar(c)|}
+\aux{modificaListaDePelculas}{Pc: Cine, r: Pelicula, p: Pelicula}{[Pelicula]}{[r] ++ peliculasSinLaDelNombre(Pc, p)} 
+\aux{ peliculasSinLaDelNombre}{Pc: Cine, p: Pelicula}{[Pelicula]}{ [ x | \  x \selec peliculas(c), \ x \ne \  p] } 
+\end{problema}
+
+\begin{problema}{espectadoresPorActor}{c: Cine, la: [Actor]}{[(Actor, \ent)]}
+\requiere {( \forall a \selec la) \ ( \exists p \selec Peliculas(c)) \ a \in actores(p)}
+\asegura {mismos(result, listaDelResultado(c,la))}
+\aux{espectadoresDelActor}{a: Actor, c:Cine}{\ent}{ \newline \sum [espectadores(c,s) |  s \selec salas(c), p \selec peliculas(c),  s==salas(c,p) \wedge a \in actores(p)]}
+\aux {listaDelResultado}{c: Cine, la: [Actor]}{[(Actor, \ent]}{ [(a,espectadoresDelActor(a,c)) | a \selec la]}
+\end{problema}
+
+\begin{problema}{agregarGeneros}{c: Cine, lp: [Pelicula], g: Genero}{}
+\requiere{|lp|> 0 \wedge (\forall p \selec lp) p \in peliculas(c)}
+\modifica{c}
+\asegura{nombre(c)==nombre(pre(c))}
+\asegura{mismos(salas(c),salas(pre(c)))}
+\asegura{|peliculas(c)|==|peliculas(pre(c))|}
+\asegura{(\forall p \selec peliculas(pre(c)), p \notin lp) p \in peliculas(c)}
+\asegura{(\forall p \selec peliculas(pre(c)), p \in lp) (\exists p2 \selec peliculas(c)) distintoPorUnGenero(p,p2,g)}
+\asegura{(\forall p \selec peliculas(pre(c)), p \notin lp) (sala(c,p) == sala(pre(c),p) \wedge espectadores(c,sala(c,p)) == \\ espectadores(pre(c),sala(c,p)))}
+\asegura{(\forall p \selec peliculas(pre(c)), p \in lp) (\exists p2 \selec peliculas(c) , distintosPorUnGenero(p,p2,g)) (sala(c,p2) == sala(pre(c),p) \\ \wedge espectadores(c,sala(c,p2)) == espectadores(pre(c),sala(pre(c),p)))}
+\asegura{|ticketsVendidosSinUsar(c)| == |ticketsVendidosSinUsar(pre(c))|}
+\asegura{(\forall i \selec ticketsNoLp(pre(c),lp)) cuenta(i,ticketsVendidosSinUsar(pre(c))) == \\ cuenta(i,ticketsVendidosSinUsar(c))}
+\asegura{(\forall t \selec ticketsVendidosSinUsar(pre(c)),t \notin ticketsNoLp(pre(c),lp)) (\exists t2 \selec ticketsVendidosSinUsar(c)) \\ (distintosPorUnGenero(pelicula(t),pelicula(t2),g) \wedge sala(t) == sala(t2) \wedge cuenta(t,ticketsVendidosSinUsar(pre(c))) == cuenta(t2,ticketsVendidosSinUsar(c)))}
+
+\aux{distintosPorUnGenero}{p1: Pelicula, p2: Pelicula, g: Genero}{Bool}{((es3D(p1) == es3D(p2) \wedge actores(p1) == actores(p2)) \wedge (nombre(p1)== nombre(p2) \wedge mismos(limpiarRepetidos(generos(p1)++[g]), generos(p2))))}
+\aux{ticketsNoLp}{c:cine, lp: [Pelicula]}{[Ticket]}{[ticketsVendidosSinUsar(c)_{i} | i \selec [0..|ticketsVendidosSinUsar(c)|-1], pelicula(ticketsVendidosSinUsar(c)_{i}) \notin lp]}
+\aux{limpiarRepetidos}{d:[T]}{[T]}{[d_{i} | i \selec [0..|d|-1], \lnot (\exists e \selec [0..i-1]) d_{e} == d_{i} ]}
+
+\end{problema}
+
+\section{Auxiliares}
+
+\aux{pelisConExito}{c: Cine, e: \ent}{[Pelicula]}{[peli | sala \selec salasConExito(c, e), peli \selec peliculas(c), sala(c, peli) == sala]}
+\aux{nombresDePeliculas}{c: Cine}{[String]}{[nombre(p) | p \selec peliculas(c)]}
+\aux{tienePeli}{c: Cine, s:Sala}{\bool}{(\exists p \selec pelicula(c)) sala(c,p) = s}
+
+\aux{min}{x,y \ent}{\ent}{If \ (x \ge y) \ Then \ y \ Else \ x}
+
+\end{document}

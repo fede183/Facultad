@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1389359560 source:c:\users\fede\desktop\nueva carpeta\algoritmosvarios\main.cpp
+	<iostream>
+	<stdio.h>
+	"include\Algoritmos.h"
+	<conio.h>
+
+1389357994 source:c:\users\fede\desktop\nueva carpeta\algoritmosvarios\src\algoritmos.cpp
+	"include\Algoritmos.h"
+	<iostream>
+	<conio.h>
+	<stdio.h>
+
+1389355733 c:\users\fede\desktop\nueva carpeta\algoritmosvarios\\include\algoritmos.h
+	<string>
+
+1389355733 c:\users\fede\desktop\nueva carpeta\algoritmosvarios\include\algoritmos.h
+	<string>
+

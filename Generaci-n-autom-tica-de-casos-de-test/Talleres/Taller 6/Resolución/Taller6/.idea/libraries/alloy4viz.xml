@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="alloy4viz">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../korat-all-1.0/korat/alloy4viz.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../korat-all-1.0/korat/commons-cli-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../korat-all-1.0/korat/javassist.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../korat-all-1.0/korat/junit.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../korat-all-1.0/korat/korat.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../korat-all-1.0/korat/alloy4viz.jar!/" />
+    </SOURCES>
+  </library>
+</component>

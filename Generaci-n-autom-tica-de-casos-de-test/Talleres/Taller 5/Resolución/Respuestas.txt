@@ -1,0 +1,2 @@
+1) Evosuit crea 31 tests. Pasan en su totalidad salvo el primero que consiste en añadir el stack como elemento de sí mismo.
+2) Si se ejecutan los test con los cambios realizados se obtiene el mismo resultado. Re-ejecutando evosuit se obtienen 34 tests, pasan todos.

@@ -1,0 +1,255 @@
+\section{Ejercicio 3}
+
+\subsection{Introducción}
+
+El problema consiste en obtener la mínima suma posible de las longitudes de los pasillos que debemos clausurar para que no existan ciclos en el grafo y además sea conexo. 
+
+\subsection{Desarrollo}
+
+Lo que se nos pide sobre el grafo(debe ser conexo y no tener ciclos), es similar a buscar un árbol generador mínimo, con el detalle que tenemos que quedarnos con los pasillos
+con mayor costo de cierre. Para lograr esto tenemos el algoritmo de Kruskal que, utilizando una estructura de Union-Find, podemos resolver correctamente este problema. 
+
+Nuestro Union-Find utiliza dos diccionarios que reciben un tipo T (Nosotros lo usamos con enteros) y devuelven el padre y rango respectivamente. La inicialización de misma 
+toma una lista de los elementos y les asigna a todos rango 0 y los pone como padre de si mismo. Para obtener el representante del grupo de un elemento(find) usaremos lo 
+siguiente:
+
+\begin{itemize}
+    \item Obtenemos el padre del elemento.
+    \item Mientras el padre no sea igual a su padre(el único elemento de un conjunto que tiene como padre a si mismo es el representante) buscamos el siguiente padre.
+    \item Asignamos al elemento al representante que encontramos en el anterior.
+    \item Devolvemos el representante.
+\end{itemize}
+
+
+Esto también se conoce como path compression. Para unir dos conjuntos disjuntos(union) realizamos los siguientes pasos:
+
+\begin{itemize}
+    \item Nos conseguimos los representantes de ambos conjuntos(usando find).
+    \item Si son iguales, quiere decir que ambos elementos ya pertenecen al mismo conjunto.
+    \item Caso contrario:
+    \begin{itemize}
+         \item Nos conseguimos el rango de los dos y comparamos.
+         \item Si el rango de uno es mayor que el de otro entonces el representante de ese pasa a ser el representante del representante del otro, en otras palabras ahora son un solo 
+conjunto.
+	 \item Para el caso en que sean iguales, hacemos el desempate a favor del primero. Este último se le incrementa el rango en 1, ya que tiene que pasar a ser mayor al otro
+    \end{itemize}
+\end{itemize}
+
+
+Para empezar, vamos a inicializar la estructura. Nos pasan una lista con los pasillos y lo primero que hacemos es pasarla a un maxHeap(Esto nos sirve para ordenarla). Lo segundo
+que haremos será. Luego tomamos los nodos de las aristas y los pasamos todos a un Union-Find. Para la ejecución de Kruskal recorreremos la cola de prioridad hasta que esta 
+termine vacia y realizaremos los siguientes pasos por cada elemento:
+
+\begin{itemize}
+    \item Obtenemos el pasillo de mayor costo de la cola. Esto nos cuesta O(Log M) con M cantidad de pasillos.
+    \item Si los extremos del mismo están conectados en nuestra Union-Find, entonces acumulamos el costo de cortar ese pasillo ya que no podemos tenerlo porque formaría un 
+    ciclo. Ver si están conectados es comparar el representante de ambos. Obtenerlos nos cuesta O(Log M) y compararlos es O(1) en peor caso, por lo tanto el costo de este 
+    paso es O(Log M).
+    \item En el caso contrario simplemente unimos los dos conjuntos que tienen a esos extremos. Como no se conectaban antes, entonces ahora estarán unidos sin formar ciclo.
+    El costo del union esta medido por el de encontrar el representante(mediante find) de los elementos a unir. Y esto es O(Log M).
+    \item Al terminar devolvemos el costo de haber cortado todos esos pasillos. 
+\end{itemize}
+
+Integer sumaPasillosEliminados = 0;
+		
+
+
+\begin{algorithm}
+\caption{Desarmar Ciclos(Kruskal)}\label{init-ej1}
+\begin{algorithmic}[2]
+\Procedure{Init}{}
+\State sumaPasillosEliminados $\gets$ 0
+
+
+\While{vacia?(pasillos)}
+
+
+\EndWhile
+
+while (pasillos.peek() != null) {
+			// Desencolamos
+			Pasillo pasillo = pasillos.poll();
+
+			// Pasamos a Integer, java generics no se banca clases parametricas
+			// con tipos primitivos
+			Integer e1 = Integer.valueOf(pasillo.getExtremo1());
+			Integer e2 = Integer.valueOf(pasillo.getExtremo2());
+
+			// Buscamos en que conjunto esta cada extremo
+			if (grafoUnionFind.connected(e1, e2)) {
+				// Estan el mismo: se forma un ciclo, sacamos esta arista
+				sumaPasillosEliminados += pasillo.getLongitud();
+			} else {
+				// No se forma un ciclo, agregamos esta arista al AGM
+				grafoUnionFind.union(e1, e2);
+			}
+		}
+		return sumaPasillosEliminados;
+
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Correctitud}
+
+La demostración de correctitud de este algoritmo es equivalente al de Kruskal para árbol generador mínimo. Utilizamos la demo de la teórica cambiando los detalles necesarios
+para adecuarlo al árbol generador máximo.
+
+Para ver que el algoritmo construye un árbol generador, como en cada paso el subgrafo B elegido hasta el momento es generador y acíclico, basta ver que el algoritmo termina
+con $m_{B}$ = $n_{G}$ − 1. Si $m_{B}$ $<$ $n_{G}$ − 1, B es no conexo. Sea $B_{1}$ una componente conexa de B. Como G es conexo, va a existir alguna arista con un extremo en $B_{1}$ y el otro en V(G) − $B_{1}$, 
+que por lo tanto no forma ciclo con las demás aristas de B. Entonces, si $m_{B}$ $<$ $n_{G}$ − 1, el algoritmo puede realizar un paso más.
+
+Sea G un grafo, $T_{K}$ el árbol generado por el algoritmo de Kruskal y {$e_{1}$, $e_{2}$, . . . , $e_{n-1}$} la secuencia de aristas de $T_{K}$ en el orden en que fueron elegidas por el algoritmo 
+de Kruskal. Para cada árbol generador T de G definimos l(T) como el máximo k $<=$ n tal que $\forall$j $<$ k, $e_{j}$ $\not\in$ T.
+
+Ahora, sea T un AGM que minimizar l(T). Si l(T) = n, entonces T coincide con $T_{K}$ , con lo cual $T_{K}$ resulta ser máximo. Si $T_{K}$ no es máximo, entonces l(T) $<$ n y $e_{l(T)}$ $\not\in$ T. 
+Como T es conexo, en T hay un camino C que une los extremos de $e_{l(T)}$.
+
+Como $T_{K}$ es acíclico, hay alguna arista e en C tal que e $\not\in$ $T_{K}$. Como $e_{1}$, . . . , $e_{l(T)−1}$ $\in$ T y T es acíclico, e no forma ciclos con $e_{1}$, . . . , $e_{l(T)−1}$. Por la forma en 
+que fue elegida $e_{l(T)}$ por el algoritmo de Kruskal, peso($e_{l(T)}$) $>=$ peso(e). Pero entonces $T_{0}$ = T − e $\cup$ {$e_{l(T)}$} es un árbol generador de G de peso mayor o igual a T y 
+l($T_{0}$) $<$ l(T), absurdo.
+
+Luego $T_{K}$ es un árbol generador máximo. 
+
+
+
+\subsection{Complejidad}
+
+La complejidad de armar la estructura es de O(M log M) para añadir los pasillos en el maxHeap(Heap Sort) y en la estructura Union-Find es de O(M) que es lo que nos cuesta, por cada pasillo, 
+agregar sus extremos. Para la resolución usando Kruskal ya señalamos la complejidad de los pasos en la sección de desarrollo, consideremos que la complejidad de esos pasos 
+está acotada por O(Log M) en el peor caso, con M cantidad de aristas. Y además repetimos los mismos para todas las aristas, por lo tanto la complejidad de resolver por Kruskal
+es O(M Log M). Por último tenemos que la complejidad de armar la estructura y de resolver por Kruskal es, en peor caso, O(M Log M). Por lo tanto la complejidad con la que 
+se resuelve el problema es de O(M Log M)
+
+
+
+\subsection{Experimentación}
+
+Se plantean una serie de casos de prueba para los cuales esperamos obtener resultados correctos en base a lo expuesto en las secciones anteriores.
+
+Para empezar haremos un test usando un árbol que se forma por un camino lineal entre los nodos (del 1 al 4). Como lo que buscamos es el árbol generador entonces si el grafo
+dado ya es un árbol entonces el resultado de aplicarle el algoritmo es 0 ya que no cerramos ningún camino.
+
+%Tengo que hacer gráficos ilustrativos para todos estos experimentos.
+
+
+\begin{tikzpicture}
+\node(pseudo) at (-1,0){};
+\node(0) at (0,0)[shape=circle,draw]        {$1$};
+\node(1) at (2,0)[shape=circle,draw]        {$2$};
+\node(2) at (4,0)[shape=circle,draw]        {$3$};
+\node(3) at (6,0)[shape=circle,draw] 	   {$4$};
+\path [-]
+  (0)      edge                 node [above]  {2}     (1)
+  (1)      edge                 node [above]  {3}     (2)
+  (2)      edge                 node [above]  {4}     (3);
+
+\end{tikzpicture}
+
+Para el segundo haremos lo mismo pero esta ves el árbol será un vértice unido a todas las demás aristas. Nuevamente el resultado es el mismo.
+
+\begin{tikzpicture}
+\node(pseudo) at (-1,0){};
+\node(0) at (0,0)[shape=circle,draw]        {$1$};
+\node(1) at (2,-2)[shape=circle,draw]        {$2$};
+\node(2) at (2,0)[shape=circle,draw]        {$3$};
+\node(3) at (2,2)[shape=circle,draw] 	   {$4$};
+\path [-]
+  (0)      edge                 node [above]  {2}     (1)
+  (0)      edge                 node [above]  {3}     (2)
+  (0)      edge                 node [above]  {4}     (3);
+
+\end{tikzpicture}
+
+En el tercero usaremos un grafo que sea un circuito simple con una arista menos pesada que las otras. Lógicamente se eliminarla esta sola y el resultado será el peso de la 
+misma.
+
+\begin{tikzpicture}
+\node(pseudo) at (-1,0){};
+\node(0) at (0,0)[shape=circle,draw]        {$1$};
+\node(1) at (2,0)[shape=circle,draw]        {$2$};
+\node(2) at (4,0)[shape=circle,draw]        {$3$};
+\node(3) at (6,0)[shape=circle,draw] 	   {$4$};
+\node(4) at (4,2)[shape=circle,draw] 	   {$4$};
+\path [-]
+  (0)      edge                 node [above]  {200}     (1)
+  (1)      edge                 node [above]  {300}     (2)
+  (2)      edge                 node [above]  {4}     (3)
+  (0)      edge                 node [above]  {200}     (4)
+  (4)      edge                 node [above]  {100}     (3);
+
+\end{tikzpicture}
+
+El siguiente es similar al anterior solo que usando una arista muy pesada y las otras poco pesadas. Nuevamente tenemos el mismo resultado, se elimina la menos pesada.
+
+\begin{tikzpicture}
+\node(pseudo) at (-1,0){};
+\node(0) at (0,0)[shape=circle,draw]        {$1$};
+\node(1) at (2,0)[shape=circle,draw]        {$2$};
+\node(2) at (4,0)[shape=circle,draw]        {$3$};
+\node(3) at (6,0)[shape=circle,draw] 	   {$4$};
+\node(4) at (4,2)[shape=circle,draw] 	   {$4$};
+\path [-]
+  (0)      edge                 node [above]  {2}     (1)
+  (1)      edge                 node [above]  {3}     (2)
+  (2)      edge                 node [above]  {4}     (3)
+  (0)      edge                 node [above]  {200}     (4)
+  (4)      edge                 node [above]  {5}     (3);
+
+\end{tikzpicture}
+
+
+Por último tenemos un caso de circuitos múltiples. Variaremos los pesos de las aristas, dejando una mucho menos pesada que las otras.
+
+\begin{tikzpicture}
+\node(pseudo) at (-1,0){};
+\node(0) at (0,4)[shape=circle,draw]        {$1$};
+\node(1) at (2,0)[shape=circle,draw]        {$2$};
+\node(2) at (4,4)[shape=circle,draw]        {$3$};
+\node(3) at (2,2)[shape=circle,draw] 	   {$4$};
+\node(4) at (2,4)[shape=circle,draw] 	   {$5$};
+\node(5) at (2,6)[shape=circle,draw]        {$6$};
+\node(6) at (2,8)[shape=circle,draw] 	   {$7$};
+\node(7) at (2,10)[shape=circle,draw] 	   {$8$};
+\path [-]
+  (0)      edge                 node [above]  {200}   (1)
+  (0)      edge                 node [above]  {4}     (3)
+  (0)      edge                 node [above]  {200}   (4)
+  (0)      edge                 node [above]  {100}   (5)
+  (0)      edge                 node [above]  {100}   (6)
+  (0)      edge                 node [above]  {100}   (7)
+  
+  (1)      edge                 node [above]  {300}   (2)
+  (3)      edge                 node [above]  {100}   (2)
+  (4)      edge                 node [above]  {100}   (2)
+  (5)      edge                 node [above]  {100}   (2)
+  (6)      edge                 node [above]  {100}   (2)
+  (7)      edge                 node [above]  {100}   (2);
+
+\end{tikzpicture}
+
+El resultado de este último es 404 que es lo que sale de haber cortado el pasillo de costo mínimo(4) y 4 pasillos de costo 100. Y con esto tenemos los distintos casos que Kruskal
+resuelve correctamente, los demás grafos se conformaran de combinaciones de los anteriores entonces, si el algoritmo resuelve correctamente ejemplos similares a estos, 
+podrá resolver los demás.
+ 
+
+Para hacer las mediciones de tiempos generaremos los casos mejor y peor, luego tomaremos el tiempo de cada uno ejecutándolo 100 veces y tomando el promedio para 
+garantizar que la medición es creíble. Variaremos la cantidad de vértices de los grafos generados así como las aristas que los unen.
+
+El peor caso en nuestro algoritmo de Kruskal es cuando debemos conectar muchos de los vértices en el Union-Find. En otras palabras, no tenemos que quitar a nadie del grafo
+para que este sea un árbol. La idea más obvia es usar un grafo que conecte linealmente los vértices, el primero con el segundo , el segundo con la tercero y así hasta
+llegar al último. Los pesos de las aristas van variando entre más pesados y menos pesados para hacer más costoso el ordenamiento en la cola de prioridad. 
+Para el mejor caso debemos considerar que, contrario a lo anterior, el mejor escenario es cuando tenemos que conectar pocas aristas respecto al total. La idea a la que se 
+llego es un grafo completo, ya que debemos conectar n-1 aristas en comparación a las n-1*n/2 que tenemos para formar un árbol. Utilizamos todas las aristas con el mismo 
+peso para no tener impacto en el orden.
+
+\begin{figure}[H]
+\input{plots/Tp2Ej3Exp1.tex}
+\caption{Comparación de tiempos variando la cantidad de aristas, los valores del gráfico están escalados. El escalado es de 1:100}
+\end{figure}
+
+Para generar estas variaciones lo que hacemos es, en el mejor caso, tenemos un grafo completo lo que significa que para una cantidad de 100 vértices tendremos 4950 aristas.
+Variamos la cantidad de vértices de 100 a 1000 con saltos de 100 para armar estos ejemplos. Para el peor caso tenemos un grafo en linea, por lo tanto tomamos las variaciones
+del anterior y le aplicamos la función $i(i-1)/2$ para asegurarnos que los dos tienen la misma cantidad de aristas. 
+
+

@@ -1,0 +1,323 @@
+#ifndef HEAP_HPP_
+#define HEAP_HPP_
+
+#include <assert.h>
+#include <iostream>
+#include <cassert>
+#include <math.h>
+#include "aed2.h"
+using namespace std;
+
+template <class T>
+class Heap
+{
+	public:
+
+		// Constructor. Genera un conjunto vacío.
+		Heap();
+
+		// Destructor. Debe dejar limpia la memoria.
+		~Heap();
+
+		// Devuelve el elemento de mayor prioridad.
+		T proximo();
+
+		// Encolar un elemento en el cola de prioridad. 
+		void encolar(const T&);
+
+		// Quita el elemento proximo de la cola de prioridad.
+		void desencolar();
+
+		// devuelve la cantidad de elementos que tiene el conjunto.
+		unsigned int cantidad() const;
+
+		//Devuelve true si y solo si el heap no posee elementos.
+		bool vacia() const;
+
+		//Muestra el la cola de prioridad como arbol.
+		void mostrar(std::ostream &) const;
+
+		//Devuelve true si y solo si el elemento pasado esta en la cola.
+		bool pertenece(const T&) const;
+
+		//Devuelve el Iesimo elemento de la cola.
+		Lista<T> aLista() const;
+
+	private:
+		
+		unsigned int cantidadElementos;
+		const T* raiz;
+        Heap* izq;
+        Heap* der;
+};
+
+template <class T>
+Heap<T>::Heap() :  cantidadElementos(0), raiz(NULL), izq(NULL), der(NULL)
+{}
+
+template <class T>
+Heap<T>::~Heap(){ 
+	if(raiz != NULL){
+		//delete raiz;
+		if(izq != NULL){
+			delete izq;
+		}
+		if(der != NULL){
+			delete der;
+		}
+	}
+}
+
+
+template <class T>
+T Heap<T>::proximo(){
+	#ifdef DEBUG
+    assert(!vacia());
+    #endif
+	
+	return *(this->raiz);
+}
+
+int CantidadNivelesCompletos(int n){
+	return (int)log2(n+1); //Asumo que el costo de esta operacion es O(1)
+}
+
+
+template <class T>
+void Heap<T>::encolar(const T& p){
+		const T *aPoner = &p; 		
+		if(raiz == NULL){				//Caso base: No hay elementos en la cola, entonces introduzco el elemento como el proximo
+			raiz = aPoner; 			
+		  	cantidadElementos = 1; 	
+		}	
+		else{ 			
+			Heap<T> *recorrido = this; 		
+			bool llegoAPosicion = false; 		
+			while(!llegoAPosicion){ 		
+				recorrido->cantidadElementos = recorrido->cantidadElementos + 1; 			
+			    if(recorrido->izq == NULL){ 					//Posicion de hoja, no puedo avanzar mas
+			      	llegoAPosicion = true;	
+			      	Heap<T> *nuevoHeap = new Heap;
+					nuevoHeap->cantidadElementos = 1;		     			
+			     	if(recorrido->raiz->prioridad > aPoner->prioridad){        			
+					 	nuevoHeap->raiz = recorrido->raiz;   			//nuevoHeap = <aux,NULL,NULL,1> 		
+					 	recorrido->izq = nuevoHeap; 		
+					 	recorrido->raiz = aPoner; 		
+			      	}
+			      	else{	   					
+					 	nuevoHeap->raiz = aPoner;   			//nuevoHeap = <aPoner,NULL,NULL,1>
+				 		recorrido->izq = nuevoHeap; 		
+			      	}
+			    }
+			    else if(recorrido->der == NULL){ 					//Posicion donde a lo sumo hay un elemento debajo
+			      	llegoAPosicion = true;		
+			      	Heap* nuevoHeap = new Heap;	 
+			      	nuevoHeap->cantidadElementos = 1;    					
+			      	if(recorrido->raiz->prioridad > aPoner->prioridad){ 						
+				 		nuevoHeap->raiz = recorrido->izq->raiz;
+				 		recorrido->izq->raiz = recorrido->raiz; 			
+				 		recorrido->der = nuevoHeap;			
+				 		recorrido->raiz = aPoner; 			
+				 	}
+				 	else if(recorrido->izq->raiz->prioridad > aPoner->prioridad){
+				 		nuevoHeap->raiz = recorrido->izq->raiz;
+				 		recorrido->izq->raiz = aPoner;
+				 		recorrido->der = nuevoHeap;
+				 	}
+			      	else{
+					 	nuevoHeap->raiz = aPoner;   					
+				 		recorrido->der = nuevoHeap;			
+			      	}
+			    }
+			    else{ 					//Se debe ver a que direccion se debe bajar
+			      	bool voyALaIzquierda = recorrido->izq->cantidadElementos == recorrido->der->cantidadElementos || CantidadNivelesCompletos(recorrido->izq->cantidadElementos) == CantidadNivelesCompletos(recorrido->der->cantidadElementos);
+			      	if(recorrido->raiz->prioridad > aPoner->prioridad){	//En el caso que la posicion del elemento a poner sea esta, se coloca el elemento y se elije el nuevo elemento que se debe agregar a la cola en su lugar
+						const T *aux1  = recorrido->raiz;
+						const T *aux2  = recorrido->izq->raiz;
+						const T *aux3  = recorrido->der->raiz;
+						recorrido->raiz = aPoner;
+						recorrido->izq->raiz = aux1;
+						recorrido->der->raiz = aux2;
+						aPoner = aux3;
+			      	}
+			      	if(voyALaIzquierda){ 		
+				  		recorrido = recorrido->izq;
+				  	}
+			      	else{				
+				  		recorrido = recorrido->der;
+			      	}
+			    }     	
+			}
+		}
+}
+
+template <class T>
+void Heap<T>::desencolar(){
+	#ifdef DEBUG
+    assert(!vacia());
+    #endif
+
+	if(this->izq == NULL){ 					 //Caso base: solo hay un elemento. Por lo tanto quito este.
+		this->raiz = NULL; 				 
+		this->cantidadElementos = 0;
+	}			 
+	else{ 				 
+		Heap<T> *recorrido = this; 		
+		Heap<T> *Aux;			 
+		bool final = false; 					 
+		while(!final){ 		//Busco la hoja que pretendo poner en la raiz.				
+			if(recorrido->izq == NULL){ 				 //Ya estoy en la hoja. Entonces se termino el recorrido.
+				final = true;
+				recorrido->cantidadElementos = recorrido->cantidadElementos - 1; 
+			} 				 
+			else if(recorrido->der == NULL){ 		//Ya se que la hoja es el elemento que esta a la izquierda.
+				Aux = recorrido;				 
+				final = true; 						 
+				recorrido->cantidadElementos = recorrido->cantidadElementos - 1; 	 
+				recorrido = recorrido->izq; 				 
+			}
+			else{ 
+				Aux = recorrido;	
+				// Nos preguntamos si la ultima hoja esta a la izquierda o a la derecha	 
+				bool voyALaDerecha = recorrido->der->cantidadElementos == recorrido->izq->cantidadElementos || log2(recorrido->der->cantidadElementos + 1) != (double)(CantidadNivelesCompletos(recorrido->der->cantidadElementos));
+				recorrido->cantidadElementos = recorrido->cantidadElementos - 1; 		 
+				if(voyALaDerecha){ 						 
+					recorrido = recorrido->der; 
+				}			 
+				else{ 								 
+					recorrido = recorrido->izq; 		 
+				}
+			}
+		}
+		
+		//Pongo la hoja en la raiz del arbol. Y borro el nodo sobrante(la hoja).	  
+		this->raiz = recorrido->raiz;
+		recorrido->raiz = NULL;
+		delete recorrido; 		
+		//Tengo que asegurarme que el anterior que llevo arriva ya no apunte al que movi.
+		if(Aux->izq == recorrido){
+			Aux->izq = NULL;	
+		}
+		else{
+			Aux->der = NULL;
+		}	 
+		
+		
+		Heap<T> *recorrido2 = this; 						 
+		bool llegoAPosicion = false; 					 
+			  
+		while(!llegoAPosicion){ 			//Posiciono la hoja en el lugar correcto para no romper el invariante.		 
+		    if(recorrido2->izq == NULL){ 	//LLega a la posicion de hoja por lo tanto no puede avanzar mas. 					 
+		        llegoAPosicion = true;
+			}			       
+		    else if(recorrido2->der == NULL){ 			//LLega a la posicion donde a lo sumo hay uno debajo de el. 
+			    llegoAPosicion = true; 				 
+				if(recorrido2->izq->raiz->prioridad < recorrido2->raiz->prioridad){ 	 
+					const T *aux = recorrido2->raiz; 				 
+					recorrido2->raiz = recorrido2->izq->raiz; 		 
+					recorrido2->izq->raiz  = aux; 			 
+				}
+			}
+			else{   		//Tenemos que decidir por que parte del arbol nos vamos
+				if(recorrido2->raiz->prioridad > recorrido2->izq->raiz->prioridad){  //Caso en que la hoja izquierda tiene mayor prioridad que la raiz 	  		 
+					//Se deben intercambiar los nodos para asegurarce que quede arriva el que posee mayor prioridad
+					const T *aux = recorrido2->raiz; 				 
+					recorrido2->raiz = recorrido2->izq->raiz; 	 
+					recorrido2->izq->raiz = aux; 
+					if(recorrido2->izq->raiz->prioridad > recorrido2->der->raiz->prioridad){
+						const T *aux2 = recorrido2->izq->raiz;
+						recorrido2->izq->raiz = recorrido2->der->raiz;
+						recorrido2->der->raiz = aux2;
+					}	 
+					recorrido2 = recorrido2->izq;
+				}	  
+				else if(recorrido2->raiz->prioridad > recorrido2->der->raiz->prioridad){ 	 //Caso idem con la hoja derecha
+					const T *aux = recorrido2->raiz; 	 
+					recorrido2->raiz = recorrido2->der->raiz; 	  
+					recorrido2->der->raiz = aux;  
+					recorrido2 = recorrido2->der;
+				}  
+				else{  	//Caso en que el elemento este en su posicion(Invariante restablesido).
+				  	llegoAPosicion = true;  	 
+				}
+			}
+		}
+	}	 
+}
+
+
+template <class T>
+unsigned int Heap<T>::cantidad() const{
+    return this->cantidadElementos;
+}
+
+template <class T>
+bool Heap<T>::vacia() const{
+	return this->raiz == NULL;
+}
+
+template <class T>
+void Heap<T>::mostrar(std::ostream &o) const{
+
+	o << this->raiz->id << '\n';
+
+    if(this->izq != NULL){
+    	o << "izq:" << '\n';
+    	(*this->izq).mostrar(o);
+    }
+    if(this->der != NULL){
+    	o << "der:" << '\n';
+    	(*this->der).mostrar(o);
+    }
+}
+
+template <class T>
+bool Heap<T>::pertenece(const T& e) const{
+	if(cantidadElementos == 0){
+		return false;
+	}
+
+	if(*raiz == e){
+		return true;
+	}
+	else{
+		return (izq->pertenece(e) && der->pertenece(e));
+
+	}
+}
+
+template <class T>
+Lista<T> Heap<T>::aLista() const{
+	Lista<T> resultado;
+	resultado.AgregarAtras(*raiz);
+	if(der == NULL){
+		if(izq != NULL){
+			resultado.AgregarAtras(*(izq->raiz));
+		}
+	}
+	else{
+		Lista<T> resulIzq = izq->aLista(), resulDer = der->aLista();
+		typename Lista<T>::Iterador iterIzq = resulIzq.CrearIt(), iterDer = resulDer.CrearIt();
+
+		int i = cantidad() - 1, j = 1, k;
+
+		while(i > 0){
+			k = 0;
+			while(iterIzq.HaySiguiente() && k < j){
+				resultado.AgregarAtras(iterIzq.Siguiente());
+				iterIzq.Avanzar();
+				k++;
+			}
+			k = 0;
+			while(iterDer.HaySiguiente() && k < j){
+				resultado.AgregarAtras(iterDer.Siguiente());
+				iterDer.Avanzar();
+				k++;
+			}
+			i = i - (j*2);
+		}
+	}
+	return resultado;
+}
+
+#endif // HEAP_HPP_

@@ -1,0 +1,11 @@
+set xlabel 'Cantidad de vértices'
+#set ylabel 'Fallos'
+set ylabel "\\rotatebox{90}{Fallos}" 
+set xrange [8000:1050000]
+set yrange [0:1300]
+set terminal latex
+set key left top inside
+set out 'ej4TiemposArbol.tex'
+plot 'ej4TiemposArbol.dat' using 1:2 smooth bezier title 'Vecindad 1', \
+'' using 1:3 smooth bezier title 'Vecindad 2', \
+'' using 1:4 smooth bezier title 'Vecindad 3', \

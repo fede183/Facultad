@@ -1,1 +1,0 @@
-+ time java -Dlog4j.configurationFile=dist/log4j2.xml -jar dist/orbs.jar

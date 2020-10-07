@@ -1,0 +1,23 @@
+#cant	Vacindario 1	Vacindario 2	Vacindario 3
+8191	7		3		3
+16383	11		14		7
+32767	24		27		15
+65535	57		71		52
+131071	141		146		120
+262143	246		305		278
+524287	379		574		534
+1048575	1243		805		793
+
+
+Vecindad 1 Tiempos con familia 1:
+7 11 24 57 141 246 379 1243 
+Vecindad 1 Fallos con familia 1:
+2048 4096 8192 16384 32768 65536 131072 262144 
+Vecindad 2 Tiempos con familia 1:
+3 14 27 71 146 305 574 805 
+Vecindad 2 Fallos con familia 1:
+2048 4096 8192 16384 32768 65536 131072 262144 
+Vecindad 3 Tiempos con familia 1:
+3 7 15 52 120 278 534 793 
+Vecindad 3 Fallos con familia 1:
+2048 4096 8192 16384 32768 65536 131072 262144 

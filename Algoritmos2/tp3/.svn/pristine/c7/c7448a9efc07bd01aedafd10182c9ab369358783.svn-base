@@ -1,0 +1,317 @@
+#include "Heap.h"
+#include "mini_test.h"
+#include "Red.h"
+#include "Tried.h"
+#include "aed2.h"
+#include "avld.h"
+
+void heap_test() {
+  Heap<paquete> l;
+  ASSERT_EQ(l.cantidad(), 0);
+
+  paquete p1, p2, p3, p4, p5, p6, p7;
+  p1.id = 1;
+  p2.id = 2;
+  p3.id = 3;
+  p4.id = 4;
+  p5.id = 5;
+  p6.id = 6;
+  p7.id = 7;
+  p1.prioridad = 45;
+  p2.prioridad = 4;
+  p3.prioridad = 48;
+  p4.prioridad = 85;
+  p5.prioridad = 5;
+  p6.prioridad = 28;
+  p7.prioridad = 15;
+
+  l.encolar(p1);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 1);
+  ASSERT_EQ(l.proximo().id, 1);
+  l.encolar(p2);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 2);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.encolar(p3);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 3);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.encolar(p4);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 4);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.encolar(p5);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 5);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.encolar(p6);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 6);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.encolar(p7);
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 7);
+  ASSERT_EQ(l.proximo().id, 2);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 6);
+  ASSERT_EQ(l.proximo().id, 5);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 5);
+  ASSERT_EQ(l.proximo().id, 7);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 4);
+  ASSERT_EQ(l.proximo().id, 6);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 3);
+  ASSERT_EQ(l.proximo().id, 1);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 2);
+  ASSERT_EQ(l.proximo().id, 3);
+  l.desencolar();
+  l.mostrar(std::cout);
+  std::cout << '\n';
+  ASSERT_EQ(l.cantidad(), 1);
+  ASSERT_EQ(l.proximo().id, 4);
+}
+
+
+void red_test(){
+  Red r;
+  compu c1;
+  c1.hostname = "compu1";
+  Conj<interfaz> i1;
+  i1.Agregar(1);
+  i1.Agregar(2);
+  c1.interfaces = i1;
+
+  compu c2;
+  c2.hostname = "compu2";
+  Conj<interfaz> i2;
+  i2.Agregar(3);
+  i2.Agregar(4);
+  c2.interfaces = i2;
+
+  compu c3;
+  c3.hostname = "compu3";
+  Conj<interfaz> i3;
+  i3.Agregar(5);
+  i3.Agregar(6);
+  i3.Agregar(7);
+  c3.interfaces = i3;
+
+  r.AgregarComputadora(c1);
+  r.AgregarComputadora(c2);
+  r.AgregarComputadora(c3);
+  r.Conectar(c1, c2, 1, 3);
+  r.Conectar(c2, c3, 4, 6);
+  r.Conectar(c1, c3, 2, 5);
+
+  ASSERT(r.Conectadas(c1, c2));
+  ASSERT(r.Conectadas(c2, c3));
+  ASSERT(r.Conectadas(c1, c3));
+
+  ASSERT_EQ(r.interfazUsada(c1, c2), 1);
+  ASSERT_EQ(r.interfazUsada(c2, c3), 4);
+  ASSERT_EQ(r.interfazUsada(c1, c3), 2);
+  ASSERT_EQ(r.interfazUsada(c2, c1), 3);
+  ASSERT_EQ(r.interfazUsada(c3, c2), 6);
+  ASSERT_EQ(r.interfazUsada(c3, c1), 5);
+
+  ASSERT(r.UsaInterfaz(c1, 1));
+  ASSERT(r.UsaInterfaz(c1, 2));
+  ASSERT(r.UsaInterfaz(c2, 3));
+  ASSERT(r.UsaInterfaz(c2, 4));
+  ASSERT(r.UsaInterfaz(c3, 5));
+  ASSERT(r.UsaInterfaz(c3, 6));
+  ASSERT(!r.UsaInterfaz(c3, 7));
+
+  ASSERT(r.Vecinos(c1).Pertenece(c2) && r.Vecinos(c1).Pertenece(c3) && r.Vecinos(c1).Cardinal() == 2);
+  ASSERT(r.Vecinos(c2).Pertenece(c1) && r.Vecinos(c2).Pertenece(c3) && r.Vecinos(c2).Cardinal() == 2);
+  ASSERT(r.Vecinos(c3).Pertenece(c1) && r.Vecinos(c3).Pertenece(c2) && r.Vecinos(c3).Cardinal() == 2);
+}
+
+void avl_test(){
+  DiccNat<Nat> avl1, avl2, avl3, avl4;
+
+  avl1.DefinirNat(1, 80);
+  ASSERT(avl1.Balanceado());
+  avl1.DefinirNat(2, 70);
+  ASSERT(avl1.Balanceado());
+  avl1.DefinirNat(3, 60);
+  ASSERT(avl1.Balanceado());
+  avl1.DefinirNat(4, 50);
+  ASSERT(avl1.Balanceado());
+  avl1.DefinirNat(5, 40);
+  ASSERT(avl1.Balanceado());
+  avl1.DefinirNat(6, 30);
+  ASSERT(avl1.Balanceado());
+  avl1.DefinirNat(7, 20);
+  ASSERT(avl1.Balanceado());
+  avl1.DefinirNat(8, 10);
+  ASSERT(avl1.Balanceado());
+  avl1.DefinirNat(9, 5);
+  ASSERT(avl1.Balanceado());
+
+  ASSERT(avl1.DefinidoNat(1));
+  ASSERT(avl1.DefinidoNat(2));
+  ASSERT(avl1.DefinidoNat(3));
+  ASSERT(avl1.DefinidoNat(4));
+  ASSERT(avl1.DefinidoNat(5));
+  ASSERT(avl1.DefinidoNat(6));
+  ASSERT(avl1.DefinidoNat(7));
+  ASSERT(avl1.DefinidoNat(8));
+  ASSERT(avl1.DefinidoNat(9));
+
+  ASSERT_EQ(avl1.SignificadoNat(1), 80);
+  ASSERT_EQ(avl1.SignificadoNat(2), 70);
+  ASSERT_EQ(avl1.SignificadoNat(3), 60);
+  ASSERT_EQ(avl1.SignificadoNat(4), 50);
+  ASSERT_EQ(avl1.SignificadoNat(5), 40);
+  ASSERT_EQ(avl1.SignificadoNat(6), 30);
+  ASSERT_EQ(avl1.SignificadoNat(7), 20);
+  ASSERT_EQ(avl1.SignificadoNat(8), 10);
+  ASSERT_EQ(avl1.SignificadoNat(9), 5);
+
+  avl2.DefinirNat(3, 60);
+  ASSERT(avl2.Balanceado());
+  avl2.DefinirNat(4, 50);
+  ASSERT(avl2.Balanceado());
+  avl2.DefinirNat(5, 40);
+  ASSERT(avl2.Balanceado());
+  avl2.DefinirNat(6, 30);
+  ASSERT(avl2.Balanceado());
+  avl2.DefinirNat(7, 20);
+  ASSERT(avl2.Balanceado());
+  avl2.DefinirNat(8, 10);
+  ASSERT(avl2.Balanceado());
+  avl2.DefinirNat(9, 5);
+  ASSERT(avl2.Balanceado());
+  avl2.DefinirNat(2, 70);
+  ASSERT(avl2.Balanceado());
+  avl2.DefinirNat(1, 80);
+  ASSERT(avl2.Balanceado());
+
+  ASSERT(avl2.DefinidoNat(1));
+  ASSERT(avl2.DefinidoNat(2));
+  ASSERT(avl2.DefinidoNat(3));
+  ASSERT(avl2.DefinidoNat(4));
+  ASSERT(avl2.DefinidoNat(5));
+  ASSERT(avl2.DefinidoNat(6));
+  ASSERT(avl2.DefinidoNat(7));
+  ASSERT(avl2.DefinidoNat(8));
+  ASSERT(avl2.DefinidoNat(9));
+
+  ASSERT_EQ(avl2.SignificadoNat(1), 80);
+  ASSERT_EQ(avl2.SignificadoNat(2), 70);
+  ASSERT_EQ(avl2.SignificadoNat(3), 60);
+  ASSERT_EQ(avl2.SignificadoNat(4), 50);
+  ASSERT_EQ(avl2.SignificadoNat(5), 40);
+  ASSERT_EQ(avl2.SignificadoNat(6), 30);
+  ASSERT_EQ(avl2.SignificadoNat(7), 20);
+  ASSERT_EQ(avl2.SignificadoNat(8), 10);
+  ASSERT_EQ(avl2.SignificadoNat(9), 5);
+
+  avl3.DefinirNat(4, 50);
+  ASSERT(avl3.Balanceado());
+  avl3.DefinirNat(3, 60);
+  ASSERT(avl3.Balanceado());
+  avl3.DefinirNat(8, 10);
+  ASSERT(avl3.Balanceado());
+  avl3.DefinirNat(9, 5);
+  ASSERT(avl3.Balanceado());
+  avl3.DefinirNat(5, 40);
+  ASSERT(avl3.Balanceado());
+  avl3.DefinirNat(6, 30);
+  ASSERT(avl3.Balanceado());
+  avl3.DefinirNat(7, 20);
+  ASSERT(avl3.Balanceado());
+  avl3.DefinirNat(2, 70);
+  ASSERT(avl3.Balanceado());
+  avl3.DefinirNat(1, 80);
+  ASSERT(avl3.Balanceado());
+
+  ASSERT(avl3.DefinidoNat(1));
+  ASSERT(avl3.DefinidoNat(2));
+  ASSERT(avl3.DefinidoNat(3));
+  ASSERT(avl3.DefinidoNat(4));
+  ASSERT(avl3.DefinidoNat(5));
+  ASSERT(avl3.DefinidoNat(6));
+  ASSERT(avl3.DefinidoNat(7));
+  ASSERT(avl3.DefinidoNat(8));
+  ASSERT(avl3.DefinidoNat(9));
+
+  ASSERT_EQ(avl3.SignificadoNat(1), 80);
+  ASSERT_EQ(avl3.SignificadoNat(2), 70);
+  ASSERT_EQ(avl3.SignificadoNat(3), 60);
+  ASSERT_EQ(avl3.SignificadoNat(4), 50);
+  ASSERT_EQ(avl3.SignificadoNat(5), 40);
+  ASSERT_EQ(avl3.SignificadoNat(6), 30);
+  ASSERT_EQ(avl3.SignificadoNat(7), 20);
+  ASSERT_EQ(avl3.SignificadoNat(8), 10);
+  ASSERT_EQ(avl3.SignificadoNat(9), 5);
+
+  avl4.DefinirNat(6, 30);
+  ASSERT(avl4.Balanceado());
+  avl4.DefinirNat(5, 40);
+  ASSERT(avl4.Balanceado());
+  avl4.DefinirNat(4, 50);
+  ASSERT(avl4.Balanceado());
+  avl4.DefinirNat(3, 60);
+  ASSERT(avl4.Balanceado());
+  avl4.DefinirNat(8, 10);
+  ASSERT(avl4.Balanceado());
+  avl4.DefinirNat(9, 5);
+  ASSERT(avl4.Balanceado());
+  avl4.DefinirNat(7, 20);
+  ASSERT(avl4.Balanceado());
+  avl4.DefinirNat(2, 70);
+  ASSERT(avl4.Balanceado());
+  avl4.DefinirNat(1, 80);
+  ASSERT(avl4.Balanceado());
+
+  ASSERT(avl4.DefinidoNat(1));
+  ASSERT(avl4.DefinidoNat(2));
+  ASSERT(avl4.DefinidoNat(3));
+  ASSERT(avl4.DefinidoNat(4));
+  ASSERT(avl4.DefinidoNat(5));
+  ASSERT(avl4.DefinidoNat(6));
+  ASSERT(avl4.DefinidoNat(7));
+  ASSERT(avl4.DefinidoNat(8));
+  ASSERT(avl4.DefinidoNat(9));
+
+  ASSERT_EQ(avl4.SignificadoNat(1), 80);
+  ASSERT_EQ(avl4.SignificadoNat(2), 70);
+  ASSERT_EQ(avl4.SignificadoNat(3), 60);
+  ASSERT_EQ(avl4.SignificadoNat(4), 50);
+  ASSERT_EQ(avl4.SignificadoNat(5), 40);
+  ASSERT_EQ(avl4.SignificadoNat(6), 30);
+  ASSERT_EQ(avl4.SignificadoNat(7), 20);
+  ASSERT_EQ(avl4.SignificadoNat(8), 10);
+  ASSERT_EQ(avl4.SignificadoNat(9), 5);
+}
+
+
+int main() {
+  RUN_TEST(heap_test);
+  RUN_TEST(avl_test);
+  RUN_TEST(red_test);
+  return 0;
+}

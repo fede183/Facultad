@@ -1,0 +1,452 @@
+#ifndef AVLD_H_INCLUDED
+#define AVLD_H_INCLUDED
+#include "aed2.h"
+
+using namespace aed2;
+
+template<class T>
+class DiccNat{
+
+public:
+
+    DiccNat();
+
+    DiccNat(const DiccNat<T>&);
+
+    ~DiccNat();
+
+    bool DefinidoNat(Nat) const;
+
+    const T& SignificadoNat(Nat) const;
+
+    void DefinirNat(Nat, const T&);
+
+    void BorrarNat(Nat);
+
+    Conj<Nat> ClavesNat() const;
+
+private:
+
+    struct Nodo{
+        Nat id;
+        Nat altura;
+        T camino;
+        Nodo* izq;
+        Nodo* der;
+
+        Nodo(T cam): camino(cam){}
+    };
+
+    Nodo* _raiz;
+
+
+//funciones auxiliares
+
+
+    Conj<Nat> ConstruirClaves(Nodo*);
+
+    int FactorDeBalanceo(Nodo*) const;
+
+    Nodo* BalancearNodo(Nodo*);
+
+    void Balancear(typename Lista<Nodo*>::Iterador);
+
+    void CorregirAlturas(typename Lista<Nodo*>::Iterador);
+
+    Nodo* BuscarElReemplazo(Lista<Nodo*>&, Nodo*);
+
+};
+
+template<class T>
+DiccNat<T>::DiccNat(): _raiz(NULL){}
+
+
+template<class T>
+DiccNat<T>::DiccNat(const DiccNat<T>& c){
+    this->_raiz = NULL;
+    Conj<Nat> claves = c.ClavesNat();
+    Conj<Nat>::const_Iterador itClaves = claves.CrearIt();
+    while (itClaves.HaySiguiente()){
+        Nat id = itClaves.Siguiente();
+        T elem = c.SignificadoNat(id);
+        DefinirNat(id, elem);
+        itClaves.Avanzar();
+    }
+}
+
+
+template<class T>
+DiccNat<T>::~DiccNat(){
+    while (_raiz != NULL){
+        BorrarNat(_raiz->id);
+    }
+}
+
+
+template<class T>
+bool DiccNat<T>::DefinidoNat(Nat id) const{
+    Nodo* rec = _raiz;
+    bool res = false;
+    while (!res && rec != NULL){
+        if (rec->id == id){
+            res = true;
+        } else if (id < rec->id){
+            rec = rec->izq;
+        } else {
+            rec = rec->der;
+        }
+    }
+    return res;
+}
+
+
+template<class T>
+const T& DiccNat<T>::SignificadoNat(Nat id) const{
+    Nodo* rec = _raiz;
+    bool llegue = false;
+    while (!llegue){
+        if (rec->id == id){
+            llegue = true;
+        } else if (id < rec->id){
+            rec = rec->izq;
+        } else {
+            rec = rec->der;
+        }
+    }
+    return rec->camino;
+}
+
+
+
+template<class T>
+void DiccNat<T>::DefinirNat(Nat id, const T& cam){
+    Nodo* nuevo = new Nodo(cam);
+    nuevo->altura = 1;
+    nuevo->izq = NULL;
+    nuevo->der = NULL;
+    nuevo->id = id;
+
+    if (_raiz == NULL){
+        _raiz = nuevo;
+    }else {
+        Nodo* rec = _raiz;
+        bool llegue = false;
+        bool balancear = true;
+        Lista<Nodo*>* rama = new Lista<Nodo*>();
+
+        while (!llegue){
+            rama->AgregarAdelante(rec);
+
+            if (rec->id == id){
+                llegue = true;
+                balancear = false;
+                rec = nuevo;
+
+            } else if (id < rec->id){
+
+                if (rec->izq == NULL){
+                   llegue = true;
+                   rec->izq = nuevo;
+                } else {
+                   rec = rec->izq;
+                }
+
+            } else {
+
+                if (rec->der == NULL){
+                   llegue = true;
+                   rec->der = nuevo;
+                } else {
+                   rec = rec->der;
+                }
+            }
+        }
+
+        if (balancear){
+            typename Lista<Nodo*>::Iterador itRama1 = rama->CrearIt();
+            typename Lista<Nodo*>::Iterador itRama2 = rama->CrearIt();
+            CorregirAlturas(itRama1);
+            Balancear(itRama2);
+            _raiz = BalancearNodo(itRama2.Anterior());
+        }
+    }
+}
+
+
+
+template<class T>
+void DiccNat<T>::BorrarNat(Nat id){
+    Lista<Nodo*>* lABalancear = new Lista<Nodo*>;
+    if (_raiz->id == id){
+
+        Nodo* nodo = _raiz;
+        if ((_raiz->izq == NULL) && (_raiz->der == NULL)){
+            _raiz = NULL;
+
+        } else if (_raiz->izq == NULL){
+            _raiz = _raiz->der;
+
+        } else if (_raiz->der == NULL) {
+            _raiz = _raiz->izq;
+
+        } else {
+            Nodo* reemplazo = BuscarElReemplazo(*lABalancear, _raiz);
+            reemplazo->der = _raiz->der;
+
+            if (lABalancear->Longitud() != 1){
+                reemplazo->izq = _raiz->izq;
+            }
+
+            _raiz = reemplazo;
+            typename Lista<Nodo*>::Iterador itRama1 = lABalancear->CrearIt();
+            typename Lista<Nodo*>::Iterador itRama2 = lABalancear->CrearIt();
+            CorregirAlturas(itRama1);
+            Balancear(itRama2);
+            _raiz = BalancearNodo(itRama2.Anterior()); //No debería ser '_raiz = BalancearNodo(_raiz);'?
+        }
+
+        delete nodo; //Hay que ver si realmente toda la memoria se está vaciando. Acordarse de que hay un elemento T adentro de ese nodo.
+
+    } else {
+
+        Nodo* rec = _raiz;
+        bool llegue = false;
+        while (!llegue){
+            if (rec->id == id){
+                llegue = true;
+            } else if (id < rec->id){
+                rec = rec->izq;
+            } else {
+                rec = rec->der;
+            }
+        }
+
+        Nodo* nodo = rec;
+        typename Lista<Nodo*>::Iterador it = lABalancear->CrearIt();
+        it.Avanzar();
+        Nodo* padre = it.Siguiente();
+        if ((rec->izq == NULL) && (rec->der == NULL)){
+            if (padre->izq->id == rec->id){
+                padre->izq = NULL;
+            } else {
+                padre->der = NULL;
+            }
+
+        } else if (rec->izq == NULL){
+            if (padre->izq->id == rec->id){
+                padre->izq = rec->der;
+            } else {
+                padre->der = rec->der;
+            }
+
+
+        } else if (rec->der == NULL){
+            if (padre->izq->id == rec->id){
+                padre->izq = rec->izq;
+            } else {
+                padre->der = rec->izq;
+            }
+
+        } else {
+            Nodo* reemplazo = BuscarElReemplazo(*lABalancear, rec);
+            if (padre->izq->id == rec->id){
+                padre->izq = reemplazo;
+            } else {
+                padre->der = reemplazo;
+            }
+
+        }
+        typename Lista<Nodo*>::Iterador itRama1 = lABalancear->CrearIt();
+        typename Lista<Nodo*>::Iterador itRama2 = lABalancear->CrearIt();
+        CorregirAlturas(itRama1);
+        Balancear(itRama2);
+        _raiz = BalancearNodo(itRama2.Anterior());
+        delete nodo; //Hay que ver si realmente toda la memoria se está vaciando. Acordarse de que hay un elemento T adentro de ese nodo.
+
+    }
+
+    
+
+}
+
+
+
+template<class T>
+Conj<Nat> DiccNat<T>::ClavesNat() const{
+    return ConstruirClaves(_raiz);
+}
+
+
+//auxiliares
+
+
+
+template<class T>
+Conj<Nat> DiccNat<T>::ConstruirClaves(Nodo* n){
+    Conj<Nat>* res = new Conj<Nat>();
+    if (n != NULL){
+        res->AgregarRapido(n->id);
+        Conj<Nat> conjIzq = ConstruirClaves(n->izq);
+        Conj<Nat> conjDer = ConstruirClaves(n->der);
+        Conj<Nat>::Iterador iterIzq = conjIzq.CrearIt();
+        Conj<Nat>::Iterador iterDer = conjIzq.CrearIt();
+        while (iterIzq.HaySiguiente()){
+            res->AgregarRapido(iterIzq.Siguiente());
+            iterIzq.Avanzar();
+        }
+        while (iterDer.HaySiguiente()){
+            res->AgregarRapido(iterDer.Siguiente());
+            iterDer.Avanzar();
+        }
+    }
+
+    return res;
+}
+
+
+
+template<class T>
+int DiccNat<T>::FactorDeBalanceo(Nodo* n) const{
+    int res = 0;
+
+    if (n->izq != NULL){
+        res = res - n->izq->altura;
+    }
+
+    if (n->der != NULL){
+        res = res + n->der->altura;
+    }
+
+    return res;
+}
+
+
+
+template<class T>
+typename DiccNat<T>::Nodo* DiccNat<T>::BalancearNodo(Nodo* n){
+    Nodo* res = NULL;
+    if (FactorDeBalanceo(n) == 2){
+        Nodo* p = n;
+        Nodo* q = n->der;
+        if (FactorDeBalanceo(q) == 1){          //RR
+            p->der = q->izq;
+            q->izq = p;
+            p->altura = p->altura - 2;
+            res = q;
+        } else {                                //LR
+            Nodo* r = q->izq;
+            p->der = r->izq;
+            q->izq = r->der;
+            r->izq = p;
+            r->der = q;
+            p->altura = p->altura - 2;
+            q->altura = q->altura - 1;
+            r->altura = r->altura + 1;
+            res = r;
+        }
+
+    } else if (FactorDeBalanceo(n) == -2){
+        Nodo* p = n;
+        Nodo* q = n->izq;
+        if (FactorDeBalanceo(q) == -1){         //LL
+            p->izq = q->der;
+            q->der = p;
+            p->altura = p->altura - 2;
+            res = q;
+        } else {                                //RL
+            Nodo* r = q->der;
+            p->izq = r->der;
+            q->der = r->izq;
+            r->der = p;
+            r->izq = q;
+            p->altura = p->altura - 2;
+            q->altura = q->altura - 1;
+            r->altura = r->altura + 1;
+            res = r;
+        }
+
+    }
+
+    return res;
+}
+
+
+
+template<class T>
+void DiccNat<T>::Balancear(typename Lista<Nodo*>::Iterador it){
+    while (it.HaySiguiente()){
+        it.Avanzar();
+
+        if (it.HaySiguiente()){
+            Nodo* siguiente = it.Siguiente();
+            Nodo* anterior = it.Anterior();
+
+            if (anterior == siguiente->izq){
+                siguiente->izq = BalancearNodo(anterior);
+            } else {
+                siguiente->der = BalancearNodo(anterior);
+            }
+        }
+
+    }
+
+}
+
+
+
+template<class T>
+void DiccNat<T>::CorregirAlturas(typename Lista<Nodo*>::Iterador it){
+    while (it.HaySiguiente()){
+        Nat aux = 1;
+        Nodo* izq = (it.Siguiente())->izq;
+        Nodo* der = (it.Siguiente())->der;
+
+        if ((izq != NULL) && (der != NULL)){
+            if (der->altura < izq->altura){
+                aux = aux + izq->altura;
+            } else {
+                aux = aux + der->altura;
+            }
+        } else if (izq != NULL){
+            aux = aux + izq->altura;
+        } else if (der != NULL){
+            aux = aux + der->altura;
+        }
+
+        (it.Siguiente())->altura = aux;
+        it.Avanzar();
+    }
+}
+
+
+
+template<class T>
+typename DiccNat<T>::Nodo* DiccNat<T>::BuscarElReemplazo(Lista<Nodo*>& lBalanceo, Nodo* eBorrado){
+    Nodo* rec = eBorrado->izq;
+    bool llegue = false;
+    if (rec->der != NULL){
+        Nat i = 1;
+        while (!llegue){
+            lBalanceo.AgregarAdelante(rec);
+            if (rec->der == NULL){
+                llegue = true;
+                lBalanceo[2]->der = rec->izq;
+                lBalanceo[i] = rec;
+            } else {
+                rec = rec->der;
+            }
+
+            i++;
+        }
+
+    } else {
+        lBalanceo.AgregarAdelante(rec);
+    }
+
+    return rec;
+}
+
+
+
+
+#endif // AVLD_H_INCLUDED

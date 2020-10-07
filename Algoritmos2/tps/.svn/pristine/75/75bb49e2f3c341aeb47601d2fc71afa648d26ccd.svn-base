@@ -1,0 +1,78 @@
+Modulo AVL //El nombre seguro hay que cambiarlo.
+( de Nodo: tupla<id, lista(compu), nat> ordenado con el id. Es para una idea que tengo que estoy seguro que nos anda.
+
+Esta consiste en meter un avl que tenga los id de todos los paquetes en dcnet que no estén en la computadora origen)
+
+Interfaz:
+
+	-Parametros formales:
+	-Se explica con: TAD Diccionario(clave, significado).
+	-Genero: avl
+	-Operaciones básicas del AVL:
+		Vacio()->res:avl
+		Pre{true}
+		Pos{res =obs vacío() }
+
+		Definido?AVL(In A:avl, In id:Nat)->res:bool
+		Pre{true}
+		Post{res=obs def?(id,A)}
+		
+		SignificadoAVL(In A:avl, In id:Nat)->res:iteradorLista(compu)
+		Pre{def?(A)}
+		Post{res=obs obtener(id,A)}
+		
+		DefinirAVL(In/out A:avl, In id:Nat, In camino: iteradorLista(compu)) //Asumo que esta va a ser la operación "Insertar"
+		Pre{true &&  A=A'}
+		Post{A=obs definir(id,camino,A')}
+
+		BorrarAVL(In/out A:avl, In id:Nat) //La operación borrar.
+		Pre{def?(id,A) && A=A'}
+		Post{A=borrar(id,A')}
+
+		Rep:
+			La raiz es un AVL
+			Los hijos izquierdo y derecho son avl  
+			(Los id no pueden estar repetidos
+			los id están ordenados) // creo que esto lo aseguro si hago una función esAVL? y digo lo que está arriba
+			(se agregan ordenados? /) luego de agregar siguesiendo AVL
+			al borrar sigue siendo AVL
+
+
+		avl se representa con tupla<raiz: puntero(nodo)>
+		donde nodo es tupla<id:Nat,camino: iteradorLista(compu),hIzquierdo: puntero(nodo), hDerecho:puntero(nodo), ...>
+		// creo que hace falta nivel:Nat
+		//Yo sigo pensando que la estructura debería ser:
+		avl se representa con tree 
+		donde tree es tupla<raiz: puntero(nodo), hijoIzq: puntero(nodo),hijoDer:puntero(nodo)>
+		donde nodo es tupla<id:Nat,camino: iteradorLista(compu), "un nat para indicar el nivel del arbol donde está">
+
+//Creo que hace falta agregar un iterador bidireccional para poder recorrer el avl, qué te parece?		
+
+Algoritmos:
+
+	iVacio()->res:avl{
+
+		res<- <null,null,null>    <O(1)
+	}
+
+	iDefinido?AVL(In A:avl, In i:Nat)->res:bool{
+		
+
+		
+	if (A == Vacío()){
+		res<-false;
+	}else{
+		if (A.raiz->id == i){
+			return true;
+			}
+		}else if (i < A.raiz->id){		
+			return Definido(A.hijoIzq,i);
+		}else{
+			return Pertenece(A.hijoDer, i);
+		}		
+	}
+}
+
+
+
+
