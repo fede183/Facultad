@@ -4,7 +4,51 @@
 %\vspace{1cm}
 \chapter{Práctico Tema 2: Agentes}
 
-1. Implementar Algoritmo genérico de búsqueda (ver Slide 63)
+\lstset{style=csharpstyle, escapeinside={<@}{@>}}
+
+\begin{center}
+	\begin{lstlisting}
+		funcion TreeSearch(Raiz, ArbolBusqueda, Estrategia) {
+			Frontera = []
+			Frontera.add(Raiz)
+			SelectElement = Raiz
+			PotencialesCaminos = [[Raiz]]
+			
+			while (!esMeta(SelectElement)) {
+				
+				Frontera = Estrategia.nuevaFrontera(ArbolBusqueda, Frontera, SelectElement)
+				
+				if (Frontera.lenght == 0) {
+					return failure
+				}
+				
+				SelectElement = Estrategia.select(ArbolBusqueda, Frontera)
+				
+				AgregarAPotencialesCaminos(ArbolBusqueda, PotencialesCaminos, SelectElement)
+			}
+		
+			AgregarAPotencialesCaminos(ArbolBusqueda, PotencialesCaminos, SelectElement)
+		
+			Camino = PotencialesCaminos.last()
+		
+			return Camino
+			
+		}
+	
+		function AgregarAPotencialesCaminos(ArbolBusqueda, PotencialesCaminos, Elemento) {
+			
+			foreach PotencialCamino en PotencialesCaminos {
+				UltimoElementoDelCamino = PotencialCamino.lastElement()
+				
+				if (Elemento en ArbolBusqueda.vecinos(UltimoElementoDelCamino)) {
+					UltimoElementoDelCamino.add(Elemento)
+				}
+			}
+				
+			
+		}
+	\end{lstlisting}
+\end{center}
 
 2. Modifique mínimamente el algoritmo del punto anterior para implementar los métodos de búsquedas “Primero en profundidad” y “Primero a lo ancho”.
 
