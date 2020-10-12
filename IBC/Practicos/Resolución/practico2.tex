@@ -185,6 +185,6 @@ Agente basado en utilidades: En lugar de metas se tiene una utilidad, en estos c
 
 
 
-6. Consideremos un termostato simple que enciende una caldera cuando la temperatura esta al menos tres grados por debajo de la temperatura seteada, y la apaga cuando la temperatura esta al menos 3 grados por encima de la temperatura seteada. El termostato, ¿es una instancia de un agente reactive? ¿un agente basado en metas? ¿o un agente basado en utilidad?\textbf{}
+6. Es una instancia de agente reactivo con estado interno, solo tiene dos acciones (apagar y encender) y si bien pueden haber muchas temperaturas diferentes; solo le interesan las que están por debajo de tres grados de la temperatura seteada o por encima de esta. Se necesita un estado para la temperatura seteada y para el estado actual de prendido o apagado, ya que da a entender que la acción apagar solamente está para cuando se encuentra encendida y viceversa. No hay metas, ya que solamente va cambiando entre dos estados sin fin. Por lo tanto, tampoco puede ser de utilidad.
 
 \bigskip
