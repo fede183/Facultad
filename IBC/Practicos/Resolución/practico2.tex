@@ -139,8 +139,51 @@ Agente basado en metas: Posee un estado interno que le permite determinar las co
 
 Agente basado en utilidades: En lugar de metas se tiene una utilidad, en estos casos puede haber más de una acción que lleva a la meta. La utilidad sirve para que se tomen las “mejores” decisiones.\\
 
+5. \\
 
-5. Escriba un programa en pseudo-codigo para los agentes basados en metas y basados en utilidad.
+\begin{center}
+	\begin{lstlisting}
+		funcion AgenteBasadoEnMetas(DatosDeSensores, ComoEvolucionaElMundo, ConsecuenciasDeLasAcciones, Estado, Metas) : Accion {
+			Acciones =  ObtenerPosiblesAcciones(DatosDeSensores, ComoEvolucionaElMundo, ConsecuenciasDeLasAcciones, Estado)
+			
+			foreach Accion en Acciones {
+				ConsecuenciasDeAccion = ObtenerConsecuenciasDeAccion(ComoEvolucionaElMundo, ConsecuenciasDeLasAcciones, Estado, Accion)
+				if (EstaMasCercaOEsMeta(ConsecuenciasDeAccion, Metas, Accion)) {
+					return Accion
+				}
+			}
+			
+			return AccionNula //No hace nada
+		}
+		
+		
+		funcion AgenteBasadoEnUtilidades(DatosDeSensores, ComoEvolucionaElMundo, ConsecuenciasDeLasAcciones, Estado, Utilidades) : Accion {
+			Acciones =  ObtenerPosiblesAcciones(DatosDeSensores, ComoEvolucionaElMundo, ConsecuenciasDeLasAcciones, Estado)
+			AccionATomar = AccionNula // Tiene Valor 0
+			
+			foreach Accion en Acciones {
+				ConsecuenciasDeAccionActual = ObtenerConsecuenciasDeAccion(ComoEvolucionaElMundo, ConsecuenciasDeLasAcciones, Estado, AccionATomar)
+				
+				ConsecuenciasDeAccion = ObtenerConsecuenciasDeAccion(ComoEvolucionaElMundo, ConsecuenciasDeLasAcciones, Estado, Accion)
+				
+				ValorDeEstadoAlQueLlegoActual = ValorDeEstado(Utilidades, ConsecuenciasDeAccionActual)
+				
+				ValorDeEstadoAlQueLlego = ValorDeEstado(Utilidades, ConsecuenciasDeAccion)
+				
+				if (ValorDeEstadoAlQueLlegoActual < ValorDeEstadoAlQueLlego) {
+					AccionATomar = Accion
+				}
+				
+			}
+			
+			return AccionATomar
+		}
+		
+		
+	\end{lstlisting}
+\end{center}
+
+
 
 6. Consideremos un termostato simple que enciende una caldera cuando la temperatura esta al menos tres grados por debajo de la temperatura seteada, y la apaga cuando la temperatura esta al menos 3 grados por encima de la temperatura seteada. El termostato, ¿es una instancia de un agente reactive? ¿un agente basado en metas? ¿o un agente basado en utilidad?\textbf{}
 
