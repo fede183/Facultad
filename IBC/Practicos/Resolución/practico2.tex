@@ -6,6 +6,8 @@
 
 \lstset{style=csharpstyle, escapeinside={<@}{@>}}
 
+1.\\
+
 \begin{center}
 	\begin{lstlisting}
 		funcion TreeSearch(Raiz, ArbolBusqueda, Estrategia) {
@@ -50,11 +52,93 @@
 	\end{lstlisting}
 \end{center}
 
-2. Modifique mínimamente el algoritmo del punto anterior para implementar los métodos de búsquedas “Primero en profundidad” y “Primero a lo ancho”.
+2.\\
 
-3. ¿Es el método de búsqueda “Iterative deeping” completo? ¿Por qué?
+\begin{center}
+	\begin{lstlisting}
+		funcion PrimeroProfundidad(Raiz, ArbolBusqueda) {
+			Frontera = []
+			Frontera.add(Raiz)
+			SelectElement = Raiz
+			PotencialesCaminos = [[Raiz]]
+			Visitados = []
+			
+			
+			while (!esMeta(SelectElement)) {
+				
+				Vecinos = ArbolBusqueda.vecinos(SelectElement)
+				
+				Frontera.remove(SelectElement)
+				
+				if (Vecinos != []) {
+					Frontera = Vecinos + Frontera			
+				}
+				
+				if (Frontera.lenght == 0) {
+					return failure
+				}
+				
+				SelectElement = Frontera.first()
+				
+				AgregarAPotencialesCaminos(ArbolBusqueda, PotencialesCaminos, SelectElement)
+			}
+			
+			AgregarAPotencialesCaminos(ArbolBusqueda, PotencialesCaminos, SelectElement)
+			
+			Camino = PotencialesCaminos.last()
+			
+			return Camino
+			
+		}
 
-4. Defina en sus propios términos los siguientes términos: autonomía, agente reflejo, agente basado en metas, agente basado en utilidades.
+
+		funcion PrimeroAncho(Raiz, ArbolBusqueda) {
+			Frontera = []
+			Frontera.add(Raiz)
+			SelectElement = Raiz
+			PotencialesCaminos = [[Raiz]]
+			
+			while (!esMeta(SelectElement)) {
+				
+				Vecinos = ArbolBusqueda.vecinos(SelectElement)
+				
+				Frontera.remove(SelectElement)
+				
+				Frontera = Frontera	+ Vecinos
+				
+				if (Frontera.lenght == 0) {
+					return failure
+				}
+				
+				SelectElement = Frontera.first()
+				
+				AgregarAPotencialesCaminos(ArbolBusqueda, PotencialesCaminos, SelectElement)
+			}
+			
+			AgregarAPotencialesCaminos(ArbolBusqueda, PotencialesCaminos, SelectElement)
+			
+			Camino = PotencialesCaminos.last()
+			
+			return Camino
+			
+		}
+	
+	\end{lstlisting}
+\end{center}
+
+
+3. El algoritmo de búsqueda Iterative deeping es completo. La razón es que al correr búsqueda en profundidad repetidamente con niveles de profundidades incrementales, se tiene efectivamente un algoritmo del cual el orden conmutativo de los nodos que visita es el de búsqueda en lo ancho. Este último es un algoritmo de búsqueda completo, con lo cual, Iterative deeping también lo és.\\
+
+4.\\
+
+Autonomía: La capacidad de elegir si actuar o no, y en que forma hacerlo.\\
+
+Agente reflejo: Es un tipo de agente que observa y si ve algo determinado realiza una acción. Caso contrario, no hace nada o hace otra cosa. Esto en base a reglas de condición-acción. No posee un estado interno. \\
+
+Agente basado en metas: Posee un estado interno que le permite determinar las consecuencias de realizar una acción. A su vez posee metas a alcanzar. De todas las acciones posibles, descarta las que no tienen que ver con las metas que posee, sin importar cual de las que la lleva a la meta es la mejor. \\
+
+Agente basado en utilidades: En lugar de metas se tiene una utilidad, en estos casos puede haber más de una acción que lleva a la meta. La utilidad sirve para que se tomen las “mejores” decisiones.\\
+
 
 5. Escriba un programa en pseudo-codigo para los agentes basados en metas y basados en utilidad.
 
