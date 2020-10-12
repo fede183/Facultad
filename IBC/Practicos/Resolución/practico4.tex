@@ -1,0 +1,19 @@
+%\begin{center}
+%\large \bf \runtitulo
+%\end{center}
+%\vspace{1cm}
+\chapter{Práctico Tema 4}
+
+1. Definir los siguientes conceptos usando los componentes y constructores de DLs: – “abuela materna” , “tío sin hijos”, “sobrino de una nuera”, “padre con al menos 3 hijos, dos de los cuales es una mujer”. Puede usar conceptos intermedios pero debe definirlos en términos de los conceptos definidos en la slide 28. 
+
+2. Dado el programa Datalog anterior, indique si: • Se puede derivar parent(evan, david)? • Se puede derivar ancestor(carla, david)? En el caso donde se pueda muestre el árbol de derivación. 
+
+3. Dada la consulta conjunctiva: Q(X,Y) = $\exists$Z.parent (X,Y) $\bigwedge$ parent (Z,Y) ¿Qué regla debemos agregarle a P (slide 49)? ¿Cual sería el conjunto de respuesta? Verifiquelo en ABCDatalog.
+
+4. ¿Cómo sería la regla que hay que agregar en P (slide 49) dada la consulta Booleana: Q1() = $\exists$Z.parent (X,Y) $\bigwedge$ parent (Z,Y)? 
+
+5. Escriba un programa Datalog para resolver el problema del mundo de bloques planteado en el práctico 3. Generalice su programa de manera que se pueda hacer las siguientes consultas: para cualquier bloque X, Y, “está el bloque X sobre la mesa”?, “está X apilado sobre Y”?, “está X debajo de Y?, “esta X inmediatamente sobre Y”?, “esta X inmediatamente por debajo de Y”? Pruebe la correctitud del programa utilizando la herramienta ABCDatalog. 
+
+6. Proponga un ejemplo de dos esquemas de bases de datos (fuente y destino), muestre las s-t-TGDs necesarias para pasar de uno a otro, similar a slide 91, explique la transformación necesaria. Defina una instancia de bases de datos en el esquema fuente y muestre cual seria la solución (la instancia destino) para el problema de intercambio de datos.
+
+\bigskip
