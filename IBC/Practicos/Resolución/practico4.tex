@@ -4,7 +4,26 @@
 %\vspace{1cm}
 \chapter{Práctico Tema 4}
 
-1. Definir los siguientes conceptos usando los componentes y constructores de DLs: – “abuela materna” , “tío sin hijos”, “sobrino de una nuera”, “padre con al menos 3 hijos, dos de los cuales es una mujer”. Puede usar conceptos intermedios pero debe definirlos en términos de los conceptos definidos en la slide 28. 
+1. AbuelaMaterna $\subseteq$ Madre $\sqcup$ $\exists$hijo-de.Madre
+
+
+PadreOMadreDeMasDeDos $\subseteq$ Persona $\sqcup$ <=2 ($\exists$hijo-de.Persona)
+
+HermanoOHermana $\subseteq$ Persona $\sqcup$ $\exists$hijo-de-.PadreOMadreDeMasDeDos
+
+TioSinHijos $\subseteq$ Hombre $\sqcup$ HermanoOHermana $\sqcup$ $\neg$ $\exists$hijo-de.Persona
+
+
+AbueloOAbuelaDeMasDeDos $\subseteq$ Persona $\sqcup$ <=2 ($\exists$hijo-de.PadreOMadre)
+
+HermanoOHermanaPadreOMadre $\subseteq$ Persona $\sqcup$ $\exists$hijo-de-.AbueloOAbuelaDeMasDeDos
+
+SobrinoDeUnaNuera $\subseteq$ Hombre $\sqcup$ $\exists$hijo-de-.(HermanoOHermanaPadreOMadre)
+
+
+PadreConAlMenos3HijosDosMujeres $\subseteq$ Persona $\sqcup$ <=3 ($\exists$hijo-de.Persona) $\sqcup$ <=2 ($\exists$hijo-de.Mujer) $\sqcup$ >=2 ($\exists$hijo-de.Mujer)
+
+
 
 2. Dado el programa Datalog anterior, indique si: • Se puede derivar parent(evan, david)? • Se puede derivar ancestor(carla, david)? En el caso donde se pueda muestre el árbol de derivación. 
 
