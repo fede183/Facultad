@@ -4,19 +4,48 @@
 %\vspace{1cm}
 \chapter{Práctico Tema 3}
 
-1. Las creencias del termostato son que siempre sabe cuando la temperatura, además de saber si la caldera está o no apagada.
-
-Sus deseo es que la temperatura siempre este entre 3 grados por debajo o por arriba de la temperatura dada.
-
-Su intención es que siempre que la temperatura este por debajo, encenderá la caldera para aumentarla, y la apagará cuando este por encima para disminuirla.
+1. Las creencias del termostato son que siempre sabe cuando la temperatura, además de saber si la caldera está o no apagada. Sus deseo es que la temperatura siempre este entre 3 grados por debajo o por arriba de la temperatura dada. Su intención es que siempre que la temperatura este por debajo, encenderá la caldera para aumentarla, y la apagará cuando este por encima para disminuirla. \\
 
 
-2. Notemos que este tipo de razonamiento no es monótono, i.e. puede suceder que KB1 $\subseteq$ KB2 y sin embargo CWA(KB1) $\nsubseteq$ CWA(KB2). Ejercicio: muestre un ejemplo concreto de este resultado. 
+2. La cantidad de semillas en una naranja específica. \\
 
-3. Mundo de bloques: modele el mundo de bloques en lógica proposicional. Debe modelar el estado de la mesa: tenemos 3 bloques (y solo 3) A, B y C. Debemos poder expresar que los bloques están sobre la mesa, o sobre otro bloque. También queremos expresar la siguiente propiedad (para los tres bloques): un bloque se puede desapilar siempre y cuando esté sobre otro bloque y no tenga un bloque encima. Cual sería la KB que represente como estado inicial el hecho de que A está sobre la mesa, B está sobre A y C está sobre la mesa? Muestre que para la consulta “se puede desapilar A?”, la respuesta es negativa, usando ambos algoritmos de inferencia (encadenamiento hacia atrás y hacia adelante). Asuma CWA. Recuerde que además de las reglas que defina en la teoría, puede utilizar las reglas de inferencia y equivalencias lógicas para la lógica proposicional (Artificial Intelligence A Modern Approach. Sección 7 – tercera Edición). Una lista completa de las reglas puede encontrarse en: https://es.wikipedia.org/wiki/Anexo:Reglas_de_inferencia
+Se que las frutas son frutas porque tienen semillas, mi naranja tiene semillas; por lo tanto, mi naranja es una fruta. \\
 
-4. ¿Que tipo de razonamiento cree usted que lleva a cabo un algoritmo de clasificación basado en datos, de acuerdo a los tipos vistos en clase? 
+En un grupo de amigos cada uno conoce los nombres, y o formas de referirse, a los otros. \\
 
-5. Describa otro ejemplo concreto que muestre la necesidad de razonamiento no monótono, similar al de “Tweety”; muestre por qué la lógica clásica falla en ese caso en particular.
+Conocimiento interno de conocimiento externo: conocimiento como una relación entre un sujeto cognitivo y partes de la realidad. 
+El conocimiento de que un perro desconocido mostrando los dientes es una señal de amenaza. \\
+
+3. Supongamos dos KBs, una cita a todas las personas registradas que son programadores, la segunda lista a todas las personas registradas que son mujeres.
+
+\begin{table}[]
+	\begin{tabular}{lllll}
+		Persona       & Especialidad &  &  &  \\
+		Karen Sanchez & Programadora &  &  &  \\
+		Karen Carles & Programadora  &  &  &  \\
+		&              &  &  & 
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+	\begin{tabular}{lllll}
+		Persona       & Especialidad &  &  &  \\
+		Karen Sanchez & Programadora &  &  &  \\
+		Karen Carles & Programadora  &  &  &  \\
+		Emma Perez & Medica       &  &  &  \\
+		&              &  &  & 
+	\end{tabular}
+\end{table}
+
+La segunda base claramente contiene a la primera. Si tuviéramos un programador hombre, que no estuviera en la primer base, entonces la suposición de mundo cerrado no se cumpliría porque la segunda no lo puede contener.
+
+
+4. Mundo de bloques: modele el mundo de bloques en lógica proposicional. Debe modelar el estado de la mesa: tenemos 3 bloques (y solo 3) A, B y C. Debemos poder expresar que los bloques están sobre la mesa, o sobre otro bloque. También queremos expresar la siguiente propiedad (para los tres bloques): un bloque se puede desapilar siempre y cuando esté sobre otro bloque y no tenga un bloque encima. ¿Cual sería la KB que represente como estado inicial el hecho de que A está sobre la mesa, B está sobre A y C está sobre la mesa? Muestre que para la consulta “¿se puede desapilar A?”, la respuesta es negativa, usando ambos algoritmos de inferencia (encadenamiento hacia atrás y hacia adelante). Asuma CWA. Recuerde que además de las reglas que defina en la teoría, puede utilizar las reglas de inferencia y equivalencias lógicas para la lógica proposicional (Artificial Intelligence A Modern Approach. Sección 7 – tercera Edición). Una lista completa de las reglas puede encontrarse en: https://es.wikipedia.org/wiki/Anexo:Reglas_de_inferencia
+
+5. ¿Qué tipo de razonamiento cree usted que lleva a cabo un algoritmo de clasificación basado en datos, de acuerdo a los tipos vistos en clase?
+
+6. Describa otro ejemplo concreto que muestre la necesidad de razonamiento no monótono, similar al de “Tweety”; muestre por qué la lógica clásica falla en ese caso en particular.
+
 
 \bigskip
