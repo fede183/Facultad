@@ -4,35 +4,36 @@
 %\vspace{1cm}
 \chapter{Práctico Tema 4}
 
-1. AbuelaMaterna $\subseteq$ Madre $\sqcup$ $\exists$hijo-de.Madre
+1. AbuelaMaterna $\subseteq$ Madre $\sqcup$ $\exists$hijo-de.Madre\\
 
 
-PadreOMadreDeMasDeDos $\subseteq$ Persona $\sqcup$ <=2 ($\exists$hijo-de.Persona)
+PadreOMadreDeMasDeDos $\subseteq$ Persona $\sqcup$ <=2 ($\exists$hijo-de.Persona)\\
 
-HermanoOHermana $\subseteq$ Persona $\sqcup$ $\exists$hijo-de-.PadreOMadreDeMasDeDos
+HermanoOHermana $\subseteq$ Persona $\sqcup$ $\exists$hijo-de-.PadreOMadreDeMasDeDos\\
 
-TioSinHijos $\subseteq$ Hombre $\sqcup$ HermanoOHermana $\sqcup$ $\neg$ $\exists$hijo-de.Persona
-
-
-AbueloOAbuelaDeMasDeDos $\subseteq$ Persona $\sqcup$ <=2 ($\exists$hijo-de.PadreOMadre)
-
-HermanoOHermanaPadreOMadre $\subseteq$ Persona $\sqcup$ $\exists$hijo-de-.AbueloOAbuelaDeMasDeDos
-
-SobrinoDeUnaNuera $\subseteq$ Hombre $\sqcup$ $\exists$hijo-de-.(HermanoOHermanaPadreOMadre)
+TioSinHijos $\subseteq$ Hombre $\sqcup$ HermanoOHermana $\sqcup$ $\neg$ $\exists$hijo-de.Persona\\
 
 
-PadreConAlMenos3HijosDosMujeres $\subseteq$ Persona $\sqcup$ <=3 ($\exists$hijo-de.Persona) $\sqcup$ <=2 ($\exists$hijo-de.Mujer) $\sqcup$ >=2 ($\exists$hijo-de.Mujer)
+AbueloOAbuelaDeMasDeDos $\subseteq$ Persona $\sqcup$ <=2 ($\exists$hijo-de.PadreOMadre)\\
+
+HermanoOHermanaPadreOMadre $\subseteq$ Persona $\sqcup$ $\exists$hijo-de-.AbueloOAbuelaDeMasDeDos\\
+
+SobrinoDeUnaNuera $\subseteq$ Hombre $\sqcup$ $\exists$hijo-de-.(HermanoOHermanaPadreOMadre)\\
+
+
+PadreConAlMenos3HijosDosMujeres $\subseteq$ Persona $\sqcup$ <=3 ($\exists$hijo-de.Persona) $\sqcup$ <=2 ($\exists$hijo-de.Mujer) $\sqcup$ >=2 ($\exists$hijo-de.Mujer)\\
 
 
 
-2. Dado el programa Datalog anterior, indique si: • Se puede derivar parent(evan, david)? • Se puede derivar ancestor(carla, david)? En el caso donde se pueda muestre el árbol de derivación. 
+2. Dado el programa Datalog anterior, indique si: • Se puede derivar parent(evan, david)? • Se puede derivar ancestor(carla, david)? En el caso donde se pueda muestre el árbol de derivación. \\
 
-3. Dada la consulta conjunctiva: Q(X,Y) = $\exists$Z.parent (X,Y) $\bigwedge$ parent (Z,Y) ¿Qué regla debemos agregarle a P (slide 49)? ¿Cual sería el conjunto de respuesta? Verifiquelo en ABCDatalog.
 
-4. ¿Cómo sería la regla que hay que agregar en P (slide 49) dada la consulta Booleana: Q1() = $\exists$Z.parent (X,Y) $\bigwedge$ parent (Z,Y)? 
+3. Dada la consulta conjunctiva: Q(X,Y) = $\exists$Z.parent (X,Y) $\bigwedge$ parent (Z,Y) ¿Qué regla debemos agregarle a P (slide 49)? ¿Cual sería el conjunto de respuesta? Verifiquelo en ABCDatalog.\\
 
-5. Escriba un programa Datalog para resolver el problema del mundo de bloques planteado en el práctico 3. Generalice su programa de manera que se pueda hacer las siguientes consultas: para cualquier bloque X, Y, “está el bloque X sobre la mesa”?, “está X apilado sobre Y”?, “está X debajo de Y?, “esta X inmediatamente sobre Y”?, “esta X inmediatamente por debajo de Y”? Pruebe la correctitud del programa utilizando la herramienta ABCDatalog. 
+4. ¿Cómo sería la regla que hay que agregar en P (slide 49) dada la consulta Booleana: Q1() = $\exists$Z.parent (X,Y) $\bigwedge$ parent (Z,Y)? \\
 
-6. Proponga un ejemplo de dos esquemas de bases de datos (fuente y destino), muestre las s-t-TGDs necesarias para pasar de uno a otro, similar a slide 91, explique la transformación necesaria. Defina una instancia de bases de datos en el esquema fuente y muestre cual seria la solución (la instancia destino) para el problema de intercambio de datos.
+5. Escriba un programa Datalog para resolver el problema del mundo de bloques planteado en el práctico 3. Generalice su programa de manera que se pueda hacer las siguientes consultas: para cualquier bloque X, Y, “está el bloque X sobre la mesa”?, “está X apilado sobre Y”?, “está X debajo de Y?, “esta X inmediatamente sobre Y”?, “esta X inmediatamente por debajo de Y”? Pruebe la correctitud del programa utilizando la herramienta ABCDatalog. \\
+
+6. Proponga un ejemplo de dos esquemas de bases de datos (fuente y destino), muestre las s-t-TGDs necesarias para pasar de uno a otro, similar a slide 91, explique la transformación necesaria. Defina una instancia de bases de datos en el esquema fuente y muestre cual seria la solución (la instancia destino) para el problema de intercambio de datos. \\
 
 \bigskip
