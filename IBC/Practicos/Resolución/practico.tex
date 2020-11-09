@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,oneside]{tesis}
+\documentclass[11pt,a4paper,oneside]{practico}
 %\documentclass[11pt,a4paper]{tesis}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
@@ -15,6 +15,7 @@
 \usepackage{ifthen}
 \usepackage{comment}
 \usepackage{array}
+\usepackage{amsmath}
 
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 \newboolean{showcomments}
@@ -77,6 +78,7 @@
 	tabsize=2
 }
 
+
 \newcommand\square[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
 \newcommand\sameline[1]{\colorbox{sameline}{#1}}
 \newcommand\diffline[1]{\colorbox{diffline}{#1}}
@@ -87,6 +89,8 @@
 }
 
 \setlength\parindent{0pt}
+
+\DeclareMathOperator{\enBloque}{en}
 
 \begin{document}
 

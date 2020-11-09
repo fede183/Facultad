@@ -18,30 +18,65 @@ El conocimiento de que un perro desconocido mostrando los dientes es una señal 
 
 3. Supongamos dos KBs, una cita a todas las personas registradas que son programadores, la segunda lista a todas las personas registradas que son mujeres.
 
-\begin{table}[]
-	\begin{tabular}{lllll}
-		Persona       & Especialidad &  &  &  \\
-		Karen Sanchez & Programadora &  &  &  \\
-		Karen Carles & Programadora  &  &  &  \\
-		&              &  &  & 
+\begin{table}[h]
+	\begin{tabular}{l|l}
+		Persona       & Especialidad \\ \hline
+		Karen Sanchez & Programadora \\
+		Karen Carles & Programadora  \\
 	\end{tabular}
 \end{table}
 
 
-\begin{table}[]
-	\begin{tabular}{lllll}
-		Persona       & Especialidad &  &  &  \\
-		Karen Sanchez & Programadora &  &  &  \\
-		Karen Carles & Programadora  &  &  &  \\
-		Emma Perez & Medica       &  &  &  \\
-		&              &  &  & 
+\begin{table}[h]
+	\begin{tabular}{l|l}
+		Persona       & Especialidad  \\ \hline
+		Karen Sanchez & Programadora  \\
+		Karen Carles & Programadora   \\
+		Emma Perez & Medica           \\
 	\end{tabular}
 \end{table}
 
 La segunda base claramente contiene a la primera. Si tuviéramos un programador hombre, que no estuviera en la primer base, entonces la monotonía derivada de la suposición de mundo cerrado no se cumpliría porque la segunda no lo puede contener.\\
 
-
 4. Mundo de bloques: modele el mundo de bloques en lógica proposicional. Debe modelar el estado de la mesa: tenemos 3 bloques (y solo 3) A, B y C. Debemos poder expresar que los bloques están sobre la mesa, o sobre otro bloque. También queremos expresar la siguiente propiedad (para los tres bloques): un bloque se puede desapilar siempre y cuando esté sobre otro bloque y no tenga un bloque encima. ¿Cual sería la KB que represente como estado inicial el hecho de que A está sobre la mesa, B está sobre A y C está sobre la mesa? Muestre que para la consulta “¿se puede desapilar A?”, la respuesta es negativa, usando ambos algoritmos de inferencia (encadenamiento hacia atrás y hacia adelante). Asuma CWA. Recuerde que además de las reglas que defina en la teoría, puede utilizar las reglas de inferencia y equivalencias lógicas para la lógica proposicional (Artificial Intelligence A Modern Approach. Sección 7 – tercera Edición). Una lista completa de las reglas puede encontrarse en: $https://es.wikipedia.org/wiki/Anexo:Reglas_de_inferencia$\\
+
+Si X en mesa lo que estoy diciendo es que el bloque representado por X está sobre la mesa. Si X en Y, con $X \neq Y$, digo que el bloque X está sobre el bloque Y. Además de esto tengo la siguientes reglas: \\
+
+
+$\neg X \enBloque X$ \\
+
+$\neg X \enBloque Y \wedge \neg X \enBloque Z \wedge Y \neq Z \wedge X \neq Y \wedge X \neq Z 	\Longrightarrow X \enBloque mesa$ \\
+
+$X = A \lor X = B \lor X = C$ \\
+
+$Y = A \lor Y = B \lor Y = C$ \\
+
+$Z = A \lor Z = B \lor Z = C$ \\
+
+La primera dice que un bloque no puede estar encima de si mismo, y la segunda que si el bloque X no está en encima de Y o Z, siendo estos tres bloques distintos, entonces X está sobre la mesa. Por último los valores de X, Y y Z se restringen a los tres bloques. Debemos considerar también el desapilar. Para eso tenemos esta regla:\\
+
+$X\ se\ puede\ desapilar \iff \neg X \enBloque mesa \wedge \neg Y \enBloque X \wedge \neg Z \enBloque X \wedge Y \neq Z \wedge X \neq Y \wedge X \neq Z$ \\
+
+Veremos ahora la KB sería: $\{B \enBloque A\}$. Dado que al no decir si A o C están sobre ningún bloque se pueden inferir, asumiendo CWA, que están sobre la mesa. Ahora procederemos a responder a la consulta de si se puede desapilar A. \\
+
+$\neg A \enBloque B$\\ 
+$\neg A \enBloque C$\\
+$B \enBloque A$\\
+$\neg B \enBloque C$\\
+$\neg C \enBloque A$\\
+$\neg C \enBloque B$\\
+$A \neq B$\\
+$A \neq C$\\
+$B \neq C$\\
+
+$\neg A \enBloque B \wedge \neg A \enBloque C \wedge B \neq C \wedge A \neq B \wedge A \neq C \Longrightarrow A \enBloque mesa$ \\
+
+$A\ se\ puede\ desapilar \iff \neg A \enBloque mesa \wedge \neg B \enBloque A \wedge \neg C \enBloque A \wedge B \neq C \wedge A \neq B \wedge A \neq C$ \\
+
+
+Encadenamiento para adelante: \\
+
+Encadenamiento para atrás: \\
 
 5. ¿Qué tipo de razonamiento cree usted que lleva a cabo un algoritmo de clasificación basado en datos, de acuerdo a los tipos vistos en clase?\\
 
