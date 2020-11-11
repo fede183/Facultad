@@ -1,5 +1,5 @@
 \babel@toc {spanish}{}
-\contentsline {chapter}{\numberline {1.}Pr\IeC {\'a}ctico Tema 1}{1}% 
-\contentsline {chapter}{\numberline {2.}Pr\IeC {\'a}ctico Tema 2: Agentes}{4}% 
-\contentsline {chapter}{\numberline {3.}Pr\IeC {\'a}ctico Tema 3}{8}% 
-\contentsline {chapter}{\numberline {4.}Pr\IeC {\'a}ctico Tema 4}{11}% 
+\contentsline {chapter}{\numberline {1.}Práctico Tema 1}{1}%
+\contentsline {chapter}{\numberline {2.}Práctico Tema 2: Agentes}{4}%
+\contentsline {chapter}{\numberline {3.}Práctico Tema 3}{8}%
+\contentsline {chapter}{\numberline {4.}Práctico Tema 4}{11}%

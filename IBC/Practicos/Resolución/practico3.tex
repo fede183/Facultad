@@ -40,12 +40,11 @@ La segunda base claramente contiene a la primera. Si tuviéramos un programador 
 
 4. Mundo de bloques: modele el mundo de bloques en lógica proposicional. Debe modelar el estado de la mesa: tenemos 3 bloques (y solo 3) A, B y C. Debemos poder expresar que los bloques están sobre la mesa, o sobre otro bloque. También queremos expresar la siguiente propiedad (para los tres bloques): un bloque se puede desapilar siempre y cuando esté sobre otro bloque y no tenga un bloque encima. ¿Cual sería la KB que represente como estado inicial el hecho de que A está sobre la mesa, B está sobre A y C está sobre la mesa? Muestre que para la consulta “¿se puede desapilar A?”, la respuesta es negativa, usando ambos algoritmos de inferencia (encadenamiento hacia atrás y hacia adelante). Asuma CWA. Recuerde que además de las reglas que defina en la teoría, puede utilizar las reglas de inferencia y equivalencias lógicas para la lógica proposicional (Artificial Intelligence A Modern Approach. Sección 7 – tercera Edición). Una lista completa de las reglas puede encontrarse en: $https://es.wikipedia.org/wiki/Anexo:Reglas_de_inferencia$\\
 
-Si X en mesa lo que estoy diciendo es que el bloque representado por X está sobre la mesa. Si X en Y, con $X \neq Y$, digo que el bloque X está sobre el bloque Y. Además de esto tengo la siguientes reglas: \\
-
+Si X en mesa lo que estoy diciendo es que el bloque representado por X está sobre la mesa. Si X en Y, con $X \neq Y$, digo que el bloque X está sobre el Y. Además de esto tengo la siguientes reglas: \\
 
 $\neg X \enBloque X$ \\
 
-$\neg X \enBloque Y \wedge \neg X \enBloque Z \wedge Y \neq Z \wedge X \neq Y \wedge X \neq Z 	\Longrightarrow X \enBloque mesa$ \\
+$\neg X \enBloque Y \wedge \neg X \enBloque Z \wedge Y \neq Z \wedge X \neq Y \wedge X \neq Z \iff X \enBloque mesa$ \\
 
 $X = A \lor X = B \lor X = C$ \\
 
@@ -57,26 +56,46 @@ La primera dice que un bloque no puede estar encima de si mismo, y la segunda qu
 
 $X\ se\ puede\ desapilar \iff \neg X \enBloque mesa \wedge \neg Y \enBloque X \wedge \neg Z \enBloque X \wedge Y \neq Z \wedge X \neq Y \wedge X \neq Z$ \\
 
-Veremos ahora la KB sería: $\{B \enBloque A\}$. Dado que al no decir si A o C están sobre ningún bloque se pueden inferir, asumiendo CWA, que están sobre la mesa. Ahora procederemos a responder a la consulta de si se puede desapilar A. \\
-
-$\neg A \enBloque B$\\ 
-$\neg A \enBloque C$\\
-$B \enBloque A$\\
-$\neg B \enBloque C$\\
-$\neg C \enBloque A$\\
-$\neg C \enBloque B$\\
-$A \neq B$\\
-$A \neq C$\\
-$B \neq C$\\
-
-$\neg A \enBloque B \wedge \neg A \enBloque C \wedge B \neq C \wedge A \neq B \wedge A \neq C \Longrightarrow A \enBloque mesa$ \\
-
-$A\ se\ puede\ desapilar \iff \neg A \enBloque mesa \wedge \neg B \enBloque A \wedge \neg C \enBloque A \wedge B \neq C \wedge A \neq B \wedge A \neq C$ \\
-
+Veremos ahora la KB sería: $\{B \enBloque A\}$. Dado que al no decir si A o C están sobre ningún bloque se pueden inferir, asumiendo CWA, que están sobre la mesa. Ahora procederemos a responder la consulta de si se puede desapilar A. \\
 
 Encadenamiento para adelante: \\
 
+Por CWA, podemos deducir los siguientes hechos:\\
+
+\begin{enumerate}
+	\item $\neg A \enBloque B$
+	\item $\neg A \enBloque C$
+	\item $B \enBloque A$
+	\item $\neg B \enBloque C$
+	\item $\neg C \enBloque A$
+	\item $\neg C \enBloque B$
+	\item $A \neq B$
+	\item $A \neq C$
+	\item $B \neq C$
+\end{enumerate}
+
+Si combinamos 1, 2, 7, 8 y 9 tenemos: \\
+
+$\neg A \enBloque B \wedge \neg A \enBloque C \wedge B \neq C \wedge A \neq B \wedge A \neq C$ \\
+
+Según la regla de mesa, esto implica que $A \enBloque mesa$. Si a su vez, combinamos está conclusión con los hechos 3, 5, 7, 8, 9, tenemos lo siguiente:\\ 
+
+$\neg A \enBloque mesa \wedge \neg B \enBloque A \wedge \neg C \enBloque A \wedge B \neq C \wedge A \neq B \wedge A \neq C$ \\
+
+Y con esto podemos derivar que A se puede desapilar por la regla de desapilación. Pero esto se deduce como falso ya que por un lado $A \enBloque mesa$, por la regla anterior, y $B \enBloque A$, este es un hecho.\\
+
 Encadenamiento para atrás: \\
+
+Comenzando por la regla del desapilado, que es lo que queremos probar. \\ 
+
+$\neg A \enBloque mesa \wedge \neg B \enBloque A \wedge \neg C \enBloque A \wedge B \neq C \wedge A \neq B \wedge A \neq C \iff A\ se\ puede\ desapilar$ \\
+
+Por el lado izquierdo, tenemos $\neg A \enBloque mesa$. Usando la regla de la mesa podemos ver que: \\
+
+$\neg A \enBloque B \wedge \neg A \enBloque C \wedge B \neq C \wedge A \neq B \wedge A \neq C \iff A \enBloque mesa$ \\
+
+Se puede ver que a la izquierda cada uno de los literales es un hecho de la lista; 1, 2, 7, 8 y 9. Por lo tanto podemos concluir que $A \enBloque mesa$. Pero esto no es lo que queríamos, entonces tenemos que A no se puede dasapilar.\\
+
 
 5. ¿Qué tipo de razonamiento cree usted que lleva a cabo un algoritmo de clasificación basado en datos, de acuerdo a los tipos vistos en clase?\\
 
