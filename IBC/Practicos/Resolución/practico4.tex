@@ -4,33 +4,72 @@
 %\vspace{1cm}
 \chapter{Práctico Tema 4}
 
-1. AbuelaMaterna $\subseteq$ Madre $\sqcup$ $\exists$hijo-de.Madre\\
+1. AbueloOAbuela $\equiv$ Persona $\sqcap$ $\exists$hijo-de.PadreOMadre\\ 
+
+AbuelaMaterna $\equiv$ Mujer $\sqcap$ AbueloOAbuela\\
 
 
-PadreOMadreDeMasDeDos $\subseteq$ Persona $\sqcup$ <=2 ($\exists$hijo-de.Persona)\\
+PadreOMadreDeMasDeDos $\equiv$ Persona $\sqcap >= $2 (hijo-de.Persona)\\
 
-HermanoOHermana $\subseteq$ Persona $\sqcup$ $\exists$hijo-de-.PadreOMadreDeMasDeDos\\
+HermanoOHermana $\equiv \exists$hijo-de$^-1$.PadreOMadreDeMasDeDos\\
 
-TioSinHijos $\subseteq$ Hombre $\sqcup$ HermanoOHermana $\sqcup$ $\neg$ $\exists$hijo-de.Persona\\
+SinHijos $\equiv$ Persona $\sqcap$ $\neg \exists$hijo-de.Persona\\
 
+TioTia $\equiv$ Persona $\sqcap$ HermanoOHermana $\sqcap \exists$hijo-de$^-1$.AbueloOAbuela\\
 
-AbueloOAbuelaDeMasDeDos $\subseteq$ Persona $\sqcup$ <=2 ($\exists$hijo-de.PadreOMadre)\\
-
-HermanoOHermanaPadreOMadre $\subseteq$ Persona $\sqcup$ $\exists$hijo-de-.AbueloOAbuelaDeMasDeDos\\
-
-SobrinoDeUnaNuera $\subseteq$ Hombre $\sqcup$ $\exists$hijo-de-.(HermanoOHermanaPadreOMadre)\\
+TioSinHijos $\equiv$ TioTia $\sqcap$ SinHijos\\
 
 
-PadreConAlMenos3HijosDosMujeres $\subseteq$ Persona $\sqcup$ <=3 ($\exists$hijo-de.Persona) $\sqcup$ <=2 ($\exists$hijo-de.Mujer) $\sqcup$ >=2 ($\exists$hijo-de.Mujer)\\
+AbueloOAbuelaDeMasDeDos $\equiv$ PadreOMadreDeMasDeDos $\sqcap$ AbueloOAbuela\\
+
+PadreDelSobrinoDeUnaNuera $\equiv \exists$ hijo-de$^-1$.AbueloOAbuelaDeMasDeDos \\
+
+SobrinoDeUnaNuera $\equiv$ Hombre $\sqcap$ $\exists$hijo-de$^-1$.(PadreDelSobrinoDeUnaNuera)\\
+
+
+PadreConAlMenos3HijosDosMujeres $\equiv$ Persona $\sqcap >=$3 (hijo-de.Persona) $\sqcap >=$2 (hijo-de.Mujer)\\
 
 
 
-2. Dado el programa Datalog anterior, indique si: • Se puede derivar parent(evan, david)? • Se puede derivar ancestor(carla, david)? En el caso donde se pueda muestre el árbol de derivación. \\
+2. Teniendo el siguiente programa en Datalog: \\
+
+\begin{enumerate}
+	\item $father(alice, bob).$
+	\item $mother(alice, carla).$
+	\item $mother(evan, carla).$
+	\item $father(carla, david).$
+
+	\item $parent(X, Y) \gets father(X, Y)$
+	\item $parent(X, Y) \gets mother(X, Y)$
+	\item $ancestor(X, Y) \gets parent(X, Y)$
+	\item $ancestor(X,Z) \gets parent(X, Y) \land ancestor(Y, Z)$
+\end{enumerate}
+
+Para derivar $parent(evan, david)$ uno debe apoyarse en las reglas 5 y 6 sería necesario que $father(evan, david).$ o $father(evan, david).$ existieran. Como no es el caso, $parent(evan, david)$ no se puede derivar. \\
+
+Para el caso de $ancestro(carla, david)$, si es posible la derivación. A continuación, se presenta el árbol: \\
+
+\begin{center}
+	\includegraphics[]{Images/guia4ejercicio2.png}
+	\captionof{figure}{Árbol de derivación}
+	\label{fig:overview}
+\end{center}
+
 
 
 3. Dada la consulta conjunctiva: Q(X,Y) = $\exists$Z.parent (X,Y) $\bigwedge$ parent (Z,Y) ¿Qué regla debemos agregarle a P (slide 49)? ¿Cual sería el conjunto de respuesta? Verifiquelo en ABCDatalog.\\
 
-4. ¿Cómo sería la regla que hay que agregar en P (slide 49) dada la consulta Booleana: Q1() = $\exists$Z.parent (X,Y) $\bigwedge$ parent (Z,Y)? \\
+Debemos agregar la regla:\\
+
+$Q(X, Y) \gets parent(X, Y) \land parent(Z, Y).$\\
+
+Este es el resultado de la consulta Q(X, Y) sería el equivalente a $parent(X, Y)$; en ABCDatalog: \\
+
+$\{Q(alice, bob), Q(alice, carla), Q(carla, david), Q(evan, carla)\}$ \\
+
+4. $Q_{1} \gets parent(X, Y) \land parent(Z, Y).$\\
+
+
 
 5. Escriba un programa Datalog para resolver el problema del mundo de bloques planteado en el práctico 3. Generalice su programa de manera que se pueda hacer las siguientes consultas: para cualquier bloque X, Y, “está el bloque X sobre la mesa”?, “está X apilado sobre Y”?, “está X debajo de Y?, “esta X inmediatamente sobre Y”?, “esta X inmediatamente por debajo de Y”? Pruebe la correctitud del programa utilizando la herramienta ABCDatalog. \\
 
