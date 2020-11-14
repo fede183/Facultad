@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.9)  14 NOV 2020 16:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.9)  14 NOV 2020 20:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -833,18 +833,85 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--81
+
+ []
+
+
+Overfull \hbox (17.0423pt too wide) in paragraph at lines 82--83
+[]$\OML/cmm/m/it/10.95 estaSobreTresBloques\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
+.95 X; Y\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10.95 tresBloq
+ues\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/1
+0.95 ; tresBloques\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OT1/cmr/m/n/10.95 )
+\OML/cmm/m/it/10.95 ; X\OT1/cmr/m/n/10.95 ! = \OML/cmm/m/it/10.95 Y; estaSobre\
+OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X; Y\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10
+.95 :$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
+
+ []
+
+
+Overfull \hbox (40.3866pt too wide) in paragraph at lines 86--88
+[]$\OML/cmm/m/it/10.95 estaApiladoSobre\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 
+X; Y\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10.95 estaApiladoS
+obreInmediatamente\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X; Y\OT1/cmr/m/n/10.9
+5 )\OML/cmm/m/it/10.95 :estaApiladoSobre\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95
+ X; Y\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--88
+
+ []
+
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
+[12 <./Images/guia4ejercicio2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
+
+ []
+
 )
 LaTeX Info: Redefining \. on input line 126.
 LaTeX Info: Redefining \% on input line 126.
- [12 <./Images/guia4ejercicio2.png>] (./practico.aux
+ [13] (./practico.aux
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 ) ) 
 Here is how much of TeX's memory you used:
- 7792 strings out of 480478
- 110414 string characters out of 5905959
+ 7793 strings out of 480478
+ 110429 string characters out of 5905959
  677025 words of memory out of 5000000
- 23701 multiletter control sequences out of 15000+600000
+ 23702 multiletter control sequences out of 15000+600000
  538548 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,49p,1516b,1922s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -859,10 +926,10 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 /cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on practico.pdf (14 pages, 219840 bytes).
+Output written on practico.pdf (15 pages, 222465 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 112 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

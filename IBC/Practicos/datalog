@@ -1,0 +1,39 @@
+father(alice, bob).
+mother(alice, carla).
+mother(evan, carla).
+father(carla, david).
+parent(X, Y) :- father(X, Y).
+parent(X, Y) :- mother(X, Y).
+ancestor(X, Y) :- parent(X, Y).
+ancestor(X, Z) :- parent(X, Y), ancestor(Y, Z).
+q(X, Y) :- parent(X, Y), parent(Z, Y).
+qb :- parent(X, Y), parent(Z, Y).
+qp :- parent(david, Y).
+
+
+estaSobre(b, a).
+
+tresBloques(a).
+tresBloques(b).
+tresBloques(c).
+
+estaSobreTresBloques(X, Y) :- tresBloques(X), tresBloques(Y), X != Y, estaSobre(X, Y). 
+
+estaSobreMesa(X) :- tresBloques(X), tresBloques(Y), tresBloques(Z), X != Y,  X != Z, Y != Z, not estaSobre(X, Y), not estaSobre(X, Z).
+
+estaApiladoSobre(X, Y) :- estaApiladoSobreInmediatamente(X, Y).
+estaApiladoSobre(X, Y) :- estaApiladoSobre(X, Z), estaApiladoSobre(Z, Y).
+
+estaDebajo(X, Y) :- estaApiladoSobre(Y, X).
+
+estaApiladoSobreInmediatamente(X, Y) :- estaSobreTresBloques(X, Y).
+
+estaDebajoInmediatamente(X, Y) :- estaSobreTresBloques(Y, X).
+
+puedeDesapilar(X) :- tresBloques(X), tresBloques(Y), tresBloques(Z), X != Y,  X != Z, Y != Z, not estaSobreMesa(X), not estaSobre(Y, X), not estaSobre(Z, X).
+
+
+
+
+
+

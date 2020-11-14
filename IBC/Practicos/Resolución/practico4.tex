@@ -71,7 +71,28 @@ $\{Q(alice, bob), Q(alice, carla), Q(carla, david), Q(evan, carla)\}$ \\
 
 
 
-5. Escriba un programa Datalog para resolver el problema del mundo de bloques planteado en el práctico 3. Generalice su programa de manera que se pueda hacer las siguientes consultas: para cualquier bloque X, Y, “está el bloque X sobre la mesa”?, “está X apilado sobre Y”?, “está X debajo de Y?, “esta X inmediatamente sobre Y”?, “esta X inmediatamente por debajo de Y”? Pruebe la correctitud del programa utilizando la herramienta ABCDatalog. \\
+5. De esta forma queda el mundo de bloques modelado en Datalog: \\
+
+$estaSobre(b, a).$\\
+
+$tresBloques(a).$
+$tresBloques(b).$
+$tresBloques(c).$\\
+
+$estaSobreTresBloques(X, Y) \gets tresBloques(X), tresBloques(Y), X != Y, estaSobre(X, Y).$ \\
+
+$estaSobreMesa(X) \gets tresBloques(X), tresBloques(Y), tresBloques(Z), X != Y,  X != Z, Y != Z, not estaSobre(X, Y), not estaSobre(X, Z).$\\
+
+$estaApiladoSobre(X, Y) \gets estaApiladoSobreInmediatamente(X, Y).
+estaApiladoSobre(X, Y) \gets estaApiladoSobre(X, Z), estaApiladoSobre(Z, Y).$\\
+
+$estaDebajo(X, Y) \gets estaApiladoSobre(Y, X).$\\
+
+$estaApiladoSobreInmediatamente(X, Y) \gets estaSobreTresBloques(X, Y).$\\
+
+$estaDebajoInmediatamente(X, Y) \gets estaSobreTresBloques(Y, X).$\\
+
+$puedeDesapilar(X) \gets tresBloques(X), tresBloques(Y), tresBloques(Z), X != Y,  X != Z, Y != Z, not estaSobreMesa(X), not estaSobre(Y, X), not estaSobre(Z, X).$\\
 
 6. Proponga un ejemplo de dos esquemas de bases de datos (fuente y destino), muestre las s-t-TGDs necesarias para pasar de uno a otro, similar a slide 91, explique la transformación necesaria. Defina una instancia de bases de datos en el esquema fuente y muestre cual seria la solución (la instancia destino) para el problema de intercambio de datos. \\
 
