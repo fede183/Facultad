@@ -96,4 +96,63 @@ $puedeDesapilar(X) \gets tresBloques(X), tresBloques(Y), tresBloques(Z), X != Y,
 
 6. Proponga un ejemplo de dos esquemas de bases de datos (fuente y destino), muestre las s-t-TGDs necesarias para pasar de uno a otro, similar a slide 91, explique la transformación necesaria. Defina una instancia de bases de datos en el esquema fuente y muestre cual seria la solución (la instancia destino) para el problema de intercambio de datos. \\
 
+Esquema fuente: relaciones transacción, usuario, transacción\_cuenta, transacción\_usuario.  \\
+Esquema destino: relaciones préstamo, usuario.  \\
+
+El esquema fuente la transacción está compuesta por un id, un id de usuario, un importe y una fecha. También posee un valor que le permite distinguir entre los distintos tipos de transacciones, entre ellas los préstamos. La relación  transacción\_cuenta, agrupa a una transacción con la cuenta que fue utilizada en su proceso, transacción\_usuario hace lo mismo con los usuarios. El préstamo por su lado tiene los mismos datos que la transacción, descartando el que indica su tipo y además posee un contrato asociado que deberá generarse y que no forma parte del esquema origen. Los usuarios son equivalentes. \\
+
+$\forall\ TID, UID, IMPORTE, FECHA, CUENTA$ 
+
+$(transaccion(TDI, "ES\_PRESTAMO", UID, IMPORTE, FECHA)\ \land$ 
+
+$transaccion\_cuenta(TDI, CUENTA) \longrightarrow$
+
+$\exists\ CONTRATO (prestamo(TID, UID, FECHA, IMPORTE, CUENTA, CONTRATO)))$\\
+
+$\forall\ UID, NOM\ (usuario(UID, NOM)\ \longrightarrow usuario(UID, NOM))$ \\
+
+Para el ejemplo, presento el siguiente: \\
+
+\begin{table}[h]
+	\begin{tabular}{c|c|c|c|c|c}
+		TDI  & UID & IMPORTE & FECHA & CUENTA & TIPO \\ \hline
+		1 & 1 & 10,2 & 12/10/1990 &  cuenta1 & $"ES\_PRESTAMO"$ \\
+		2 & 2 & 1232,12 & 25/09/2012 & cuenta2 & $"ES\_PAGO"$ \\
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\begin{tabular}{l|l}
+		TDI  & CUENTA \\ \hline
+		1 & cuenta1 \\
+		2 & cuenta2 \\
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\begin{tabular}{l|l}
+		UID & NOM\\ \hline
+		 1 & Karen Sanchez \\
+		 2 & Karen Carles  \\
+	\end{tabular}
+\end{table}
+
+Y el destino queda así: \\
+
+\begin{table}[h]
+	\begin{tabular}{c|c|c|c|c|c}
+		TDI  & UID & IMPORTE & FECHA & CUENTA & CONTRATO\\ \hline
+		1 & 1 & 10,2 & 12/10/1990 &  cuenta1 & contrato1 \\
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\begin{tabular}{l|l}
+		UID  & NOM\\ \hline
+		1 & Karen Sanchez \\
+		2 & Karen Carles  \\
+	\end{tabular}
+\end{table}
+
+
 \bigskip

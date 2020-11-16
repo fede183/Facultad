@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.9)  14 NOV 2020 20:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.9)  15 NOV 2020 21:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -900,21 +900,63 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
-)
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+
+Overfull \hbox (12.3434pt too wide) in paragraph at lines 110--111
+[]$\OMS/cmsy/m/n/10.95 9 \OML/cmm/m/it/10.95 CONTRATO\OT1/cmr/m/n/10.95 (\OML/c
+mm/m/it/10.95 prestamo\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 TID; UID; FECHA; 
+IMPORTE; CUENTA; CONTRATO\OT1/cmr/m/n/10.95 )))$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+
+ []
+
+LaTeX Info: Redefining \. on input line 147.
+LaTeX Info: Redefining \% on input line 147.
+[13])
 LaTeX Info: Redefining \. on input line 126.
 LaTeX Info: Redefining \% on input line 126.
- [13] (./practico.aux
+ [14] (./practico.aux
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 ) ) 
 Here is how much of TeX's memory you used:
- 7793 strings out of 480478
- 110429 string characters out of 5905959
+ 7794 strings out of 480478
+ 110447 string characters out of 5905959
  677025 words of memory out of 5000000
- 23702 multiletter control sequences out of 15000+600000
+ 23703 multiletter control sequences out of 15000+600000
  538548 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,49p,1516b,1922s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,14n,49p,1516b,1922s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/pub
@@ -926,10 +968,10 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 /cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on practico.pdf (15 pages, 222465 bytes).
+Output written on practico.pdf (16 pages, 227656 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
