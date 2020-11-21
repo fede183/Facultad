@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.9)  15 NOV 2020 21:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.11.9)  20 NOV 2020 18:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -945,15 +945,20 @@ LaTeX Info: Redefining \% on input line 147.
 [13])
 LaTeX Info: Redefining \. on input line 126.
 LaTeX Info: Redefining \% on input line 126.
- [14] (./practico.aux
+ [14] (./practico567.tex
+Cap\'{\i }tulo 5.
+) [15
+
+
+] (./practico.aux
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 ) ) 
 Here is how much of TeX's memory you used:
- 7794 strings out of 480478
- 110447 string characters out of 5905959
+ 7798 strings out of 480478
+ 110505 string characters out of 5905959
  677025 words of memory out of 5000000
- 23703 multiletter control sequences out of 15000+600000
+ 23704 multiletter control sequences out of 15000+600000
  538548 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,14n,49p,1516b,1922s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -968,10 +973,10 @@ dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1
 /cm/cmsl10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on practico.pdf (16 pages, 227656 bytes).
+Output written on practico.pdf (17 pages, 228821 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
+ 118 PDF objects out of 1000 (max. 8388607)
+ 82 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
