@@ -1,6 +1,28 @@
 \chapter{Práctico Tema 5, 6 y 7}
 
-3. 
+1.a. El fragmento es "guarded" porque la única variable es $X$ y $phdStudent(X) → student(X)$ la contiene. Por otro lado no es "linear" porque existen otros átomos aparte de este último. \\
+
+b. $chase(D, \Sigma_{T}) = D \cup \{...\}$ \\
+
+Por "$phdStudent(john)$".\\
+
+$chase(D, \Sigma_{T}) = \{phdStudent(john)\} \cup \{student(john), supervisor(z1, john) \}$ \\
+
+Por "$phdStudent(X) \Longrightarrow student(X)$". \\
+
+$chase(D, \Sigma_{T}) = \{phdStudent(john)\} \cup \{student(john), ...\}$\\
+
+Por "$phdStudent(X) \Longrightarrow \exists Y supervisor(Y, X)$". \\
+
+$chase(D, \Sigma_{T}) = \{phdStudent(john)\} \cup \{student(john), supervisor(z1, john) \}$ \\
+
+c. La respuesta de $Q() = \exists X supervisor(X, john)$ es $True$ ya que por el átomo "$phdStudent(X) \Longrightarrow \exists Y supervisor(Y, X)$" y por "$phdStudent(john)$". \\
+
+Por otro lado la respuesta a $Q(X) = supervisor(X, john)$ es \{\}. Ya que la base de datos D no nos provee más información que el hecho de que 
+esta "$phdStudent(X)$". \\
+
+
+3. a
 a. $F=\{A, R\}$ donde: \\
 $A=\{A, B, C, D, E, F, G\}$ \\
 $R=\{(A, B), (A, F), (B, D), (D, C), (C, E), (E, F), (G, C)\}$ \\
