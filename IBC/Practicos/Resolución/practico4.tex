@@ -11,23 +11,23 @@ AbuelaMaterna $\equiv$ Mujer $\sqcap$ AbueloOAbuela\\
 
 PadreOMadreDeMasDeDos $\equiv$ Persona $\sqcap >= $2 (hijo-de.Persona)\\
 
-HermanoOHermana $\equiv \exists$hijo-de$^-1$.PadreOMadreDeMasDeDos\\
+HermanoOHermana $\equiv \exists$hijo-de$^-$.PadreOMadreDeMasDeDos\\
 
-SinHijos $\equiv$ Persona $\sqcap$ $\neg \exists$hijo-de.Persona\\
+SinHijos $\equiv$ Persona $\sqcap$ $\neg$ PadreOMadre\\
 
-TioTia $\equiv$ Persona $\sqcap$ HermanoOHermana $\sqcap \exists$hijo-de$^-1$.AbueloOAbuela\\
+TioTia $\equiv$ Persona $\sqcap$ HermanoOHermana $\sqcap$  $\exists$hijo-de$^-$.AbueloOAbuela\\
 
 TioSinHijos $\equiv$ TioTia $\sqcap$ SinHijos\\
 
 
 AbueloOAbuelaDeMasDeDos $\equiv$ PadreOMadreDeMasDeDos $\sqcap$ AbueloOAbuela\\
 
-PadreDelSobrinoDeUnaNuera $\equiv \exists$ hijo-de$^-1$.AbueloOAbuelaDeMasDeDos \\
+PadreDelSobrinoDeUnaNuera $\equiv \exists$ hijo-de$^-$.AbueloOAbuelaDeMasDeDos \\
 
-SobrinoDeUnaNuera $\equiv$ Hombre $\sqcap$ $\exists$hijo-de$^-1$.(PadreDelSobrinoDeUnaNuera)\\
+SobrinoDeUnaNuera $\equiv$ Hombre $\sqcap$ $\exists$hijo-de$^-$.(PadreDelSobrinoDeUnaNuera)\\
 
 
-PadreConAlMenos3HijosDosMujeres $\equiv$ Persona $\sqcap >=$3 (hijo-de.Persona) $\sqcap >=$2 (hijo-de.Mujer)\\
+PadreConAlMenos3HijosDosMujeres $\equiv$ Persona $\sqcap >=$3 (hijo-de.Persona) $\sqcap >=$2 (hijo-de.Mujer) $\sqcap <=$2 (hijo-de.Mujer)\\
 
 
 
