@@ -99,13 +99,30 @@ Se puede ver que a la izquierda cada uno de los literales es un hecho de la list
 
 5. ¿Qué tipo de razonamiento cree usted que lleva a cabo un algoritmo de clasificación basado en datos, de acuerdo a los tipos vistos en clase?\\
 
-6. Describa otro ejemplo concreto que muestre la necesidad de razonamiento no monótono, similar al de “Tweety”; muestre por qué la lógica clásica falla en ese caso en particular.
-
+6. 
 \begin{itemize}
-	\item La mayor parte del contenido de la playa es arena.
-	\item Alguien entierra una pala en la arena y la levanta.
-	\item El contenido de la pala es típicamente pura arena.
+	\item Las playas están compuestas de arena.
+	\item Algunas playas en el mundo están compuestas por una mezcla de arena y otros elementos, como botellas de plástico. Entre ellas se encuentra la playa de Mar del Plata.
+	\item La playa donde fui de vacaciones está compuesta por pura arena.
 \end{itemize}
+
+Como se puede ver este es un ejemplo de razonamiento no-monótono ya que se está llegando a una conclusión a partir de información incompleta. Si se agrega la frase "
+La playa donde fui de vacaciones fue la Mar del Plata", se puede ver la conclusión debe retractarse y se debería cambiar por "La playa donde fui de vacaciones no está compuesta por pura arena". \\
+
+Ahora si queremos representar esto con lógica clásica: \\
+
+"Las playas están compuestas de arena" \\
+
+$\forall X (esPlaya(X) \land \neg excepcion(X) \longrightarrow elContenidoEsArena(X))$ \\
+
+Tenemos que agregar una regla para las excepciones: \\
+
+$\forall X (excepcion(X) \iff \neg marDelPlata(X) \land ... )$ \\
+
+No sé todas las excepciones y para poder llegar a la conclusión de que el contenido es arena, debería afirmar que la playa no es ninguna de las excepciones. Con esto concluyo que no puedo realizar una representación de este razonamiento con lógica clásica. \\
+
+Dado que la información está incompleta el razonamiento presentado es no-monótono. 
+
 
 
 \bigskip
