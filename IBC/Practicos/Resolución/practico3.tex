@@ -97,7 +97,7 @@ $\neg A \enBloque B \wedge \neg A \enBloque C \wedge B \neq C \wedge A \neq B \w
 Se puede ver que a la izquierda cada uno de los literales es un hecho de la lista; 1, 2, 7, 8 y 9. Por lo tanto podemos concluir que $A \enBloque mesa$. Pero esto no es lo que queríamos, entonces tenemos que A no se puede dasapilar.\\
 
 
-5. ¿Qué tipo de razonamiento cree usted que lleva a cabo un algoritmo de clasificación basado en datos, de acuerdo a los tipos vistos en clase?\\
+5. Un algoritmo de clasificación es en esencia un pattern matching. La idea es que tendremos diferentes patrones (nuestras clasificaciones) y lo que queremos es poder asociar a cual de estos responde mejor el dato (es más similar o es concuerda a uno y no se hace nada con los otros patrones). En mi opinión esto se acerca al razonamiento analógico ya que la idea no siempre es buscar coincidencia plena sino aproximada quiero decir que como este dato "se parece" a este patrón, entonces el dato se clasifica de acuerdo a este. \\
 
 6. 
 \begin{itemize}
@@ -106,8 +106,7 @@ Se puede ver que a la izquierda cada uno de los literales es un hecho de la list
 	\item La playa donde fui de vacaciones está compuesta por pura arena.
 \end{itemize}
 
-Como se puede ver este es un ejemplo de razonamiento no-monótono ya que se está llegando a una conclusión a partir de información incompleta. Si se agrega la frase "
-La playa donde fui de vacaciones fue la Mar del Plata", se puede ver la conclusión debe retractarse y se debería cambiar por "La playa donde fui de vacaciones no está compuesta por pura arena". \\
+Como se puede ver este es un ejemplo de razonamiento no-monótono ya que se está llegando a una conclusión a partir de información incompleta. Si se agrega la frase "La playa donde fui de vacaciones fue la Mar del Plata", se puede ver la conclusión debe retractarse y se debería cambiar por "La playa donde fui de vacaciones no está compuesta por pura arena". \\
 
 Ahora si queremos representar esto con lógica clásica: \\
 
@@ -122,7 +121,5 @@ $\forall X (excepcion(X) \iff \neg marDelPlata(X) \land ... )$ \\
 No sé todas las excepciones y para poder llegar a la conclusión de que el contenido es arena, debería afirmar que la playa no es ninguna de las excepciones. Con esto concluyo que no puedo realizar una representación de este razonamiento con lógica clásica. \\
 
 Dado que la información está incompleta el razonamiento presentado es no-monótono. 
-
-
 
 \bigskip
