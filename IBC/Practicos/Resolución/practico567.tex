@@ -21,11 +21,23 @@ c. La respuesta de $Q() = \exists X supervisor(X, john)$ es $True$ ya que por el
 Por otro lado la respuesta a $Q(X) = supervisor(X, john)$ es \{\}. Ya que la base de datos D no nos provee más información que el hecho de que 
 esta "$phdStudent(X)$". \\
 
-2.a
+2.a. $K = \{p, p \Longrightarrow  r , r \land s  \Longrightarrow \neg p \}$ tengo que calcular el partial meet contration utilizando la formulación $A-_{\gamma}r = \cap\gamma(A \bot r)$. \\
 
-b.
+Primero es necesario obtener $A \bot r$, el cual es el conjunto de subconjuntos maximales de A que fallan al implicar r. Tenemos dos posibilidades eliminar $p$ o $p \Longrightarrow  r$, con lo cual tenemos estos dos reminders: \\
 
-c.bra
+$\{p \Longrightarrow  r , r \land s  \Longrightarrow \neg p \}$ \\
+	
+$\{p, r \land s  \Longrightarrow \neg p \}$ \\
+
+Usando full meet contraction tenemos que debemos seleccionar el resultado de la contracción buscando lo que los reminders tienen en común. \\
+
+$\{p \Longrightarrow  r , r \land s  \Longrightarrow \neg p \} \cap \{p, r \land s  \Longrightarrow \neg p \} = \{r \land s  \Longrightarrow \neg p\}$ \\
+
+$\{r \land s  \Longrightarrow \neg p\}$ es el resultado de la contracción. \\
+
+b.\\
+
+c.\\
 
 3. a
 a. $F=\{A, R\}$ donde: \\
