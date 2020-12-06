@@ -21,23 +21,37 @@ c. La respuesta de $Q() = \exists X supervisor(X, john)$ es $True$ ya que por el
 Por otro lado la respuesta a $Q(X) = supervisor(X, john)$ es \{\}. Ya que la base de datos D no nos provee más información que el hecho de que 
 esta "$phdStudent(X)$". \\
 
-2.a. $K = \{p, p \Longrightarrow  r , r \land s  \Longrightarrow \neg p \}$ tengo que calcular el partial meet contration utilizando la formulación $A-_{\gamma}r = \cap\gamma(A \bot r)$. \\
+2.a. $K = \{p, p \Longrightarrow r , r \land s \Longrightarrow \neg p \}$ tengo que calcular el partial meet contration utilizando la formulación $K-_{\gamma}r = \cap\gamma(K \bot r)$. \\
 
-Primero es necesario obtener $A \bot r$, el cual es el conjunto de subconjuntos maximales de A que fallan al implicar r. Tenemos dos posibilidades eliminar $p$ o $p \Longrightarrow  r$, con lo cual tenemos estos dos reminders: \\
+Primero es necesario obtener $K \bot r$, el cual es el conjunto de subconjuntos maximales de A que fallan al implicar r. Tenemos dos posibilidades eliminar $p$ o $p \Longrightarrow  r$, con lo cual tenemos estos dos reminders: \\
 
-$\{p \Longrightarrow  r , r \land s  \Longrightarrow \neg p \}$ \\
+$\{p \Longrightarrow r , r \land s \Longrightarrow \neg p \}$ \\
 	
-$\{p, r \land s  \Longrightarrow \neg p \}$ \\
+$\{p, r \land s \Longrightarrow \neg p \}$ \\
 
 Usando full meet contraction tenemos que debemos seleccionar el resultado de la contracción buscando lo que los reminders tienen en común. \\
 
-$\{p \Longrightarrow  r , r \land s  \Longrightarrow \neg p \} \cap \{p, r \land s  \Longrightarrow \neg p \} = \{r \land s  \Longrightarrow \neg p\}$ \\
+$\{p \Longrightarrow r , r \land s \Longrightarrow \neg p \} \cap \{p, r \land s  \Longrightarrow \neg p \} = \{r \land s \Longrightarrow \neg p\}$ \\
 
 $\{r \land s  \Longrightarrow \neg p\}$ es el resultado de la contracción. \\
 
-b.\\
+b. Tengo que calcular la contracción kernel revisión utilizando la formulación $K-_{\sigma}r = K \backslash \sigma(K \| r)$. \\
 
-c.\\
+Primero es necesario obtener $K \| r$, el cual es el conjunto de subconjuntos minimales de A que implican a r. En este caso solamente existe un r-kernel $\{p, p \Longrightarrow r\}$, se puede ver que si quito $p$ entonces no se puede implicar r y si quito $p \Longrightarrow  r$ entonces r ni siquiera aparece. \\
+
+Queda aplicar la función de incisión y sustraer los resultados de K. Se pide dos posibles funciones de incisión; la primera que voy a tomar va a elegir el primero, en este caso $p$, y la segunda elige el otro. Entonces me quedan: \\
+
+$K-_{\sigma_{1}}r = K \backslash \sigma_{1}(K \| r)$ \\
+$K-_{\sigma_{1}}r = K \backslash \sigma_{1}(\{p, p \Longrightarrow r\})$ \\
+$K-_{\sigma_{1}}r = K \backslash \{p\}$ \\
+$K-_{\sigma_{2}}r = \{p \Longrightarrow r , r \land s \Longrightarrow \neg p \}$ \\
+
+$K-_{\sigma_{2}}r = K \backslash \sigma_{2}(K \| r)$ \\
+$K-_{\sigma_{2}}r = K \backslash \sigma_{2}(\{p, p \Longrightarrow r\})$ \\
+$K-_{\sigma_{2}}r = K \backslash \{p \Longrightarrow r\}$ \\
+$K-_{\sigma_{2}}r = \{p, r \land s \Longrightarrow \neg p \}$ \\
+
+c.  \\
 
 3. a
 a. $F=\{A, R\}$ donde: \\
