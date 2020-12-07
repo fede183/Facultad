@@ -65,8 +65,16 @@ b. $\{B, F\}$ es un conjunto que es conflict free ya que ninguno de los dos miem
 
 c. $\{A, D, E\}$ ninguno se ataca con lo cual es conflict free, E es atacado por C, pero es defendido por D, D es atacado por B pero es defendido por A. A no es atacado por nadie. Con lo cual es admisible. \\
 
-$\{G, E\}$ ninguno se ataca con lo que es conflict free, E es atacado por C pero defendido por G, nadie ataca a G. Con lo cual es admisible.
+$\{G, E\}$ ninguno se ataca con lo que es conflict free, E es atacado por C pero defendido por G, nadie ataca a G. Con lo cual es admisible. \\
 
-d. 
+d. Para calcular la extensión grounded de F necesitamos usar esta formulación, $F_{F} (S) = \{ A\ \| \ A\ is\ acceptable\ with\ respect\ to\ S \}$ \\
+
+$F_{F} (\oslash) = \{A, G\}$ \\
+
+$F_{F} (\{A, G\}) = \{A, G, D, E\}$ \\
+
+$F_{F} (\{A, G, D, E\}) = \{A, G, D, E\}$ \\
+
+Entonces $\{A, G, D, E\}$ es la extensión grounded de F.
 
 \bigskip
