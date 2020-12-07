@@ -30,8 +30,7 @@ SobrinoDeUnaNuera $\equiv$ Hombre $\sqcap$ $\exists$hijo-de$^-$.(PadreDelSobrino
 PadreConAlMenos3HijosDosMujeres $\equiv$ Persona $\sqcap >=$3 (hijo-de.Persona) $\sqcap >=$2 (hijo-de.Mujer) $\sqcap <=$2 (hijo-de.Mujer)\\
 
 
-
-2. Teniendo el siguiente programa en Datalog: \\
+2. Teniendo el siguiente programa en Datalog:
 
 \begin{enumerate}
 	\item $father(alice, bob).$
@@ -57,9 +56,7 @@ Para el caso de $ancestro(carla, david)$, si es posible la derivación. A contin
 
 
 
-3. Dada la consulta conjunctiva: Q(X,Y) = $\exists$Z.parent (X,Y) $\bigwedge$ parent (Z,Y) ¿Qué regla debemos agregarle a P (slide 49)? ¿Cual sería el conjunto de respuesta? Verifiquelo en ABCDatalog.\\
-
-Debemos agregar la regla:\\
+3. Debemos agregar la regla: \\
 
 $Q(X, Y) \gets parent(X, Y) \land parent(Z, Y).$\\
 
@@ -67,7 +64,7 @@ Este es el resultado de la consulta Q(X, Y) sería el equivalente a $parent(X, Y
 
 $\{Q(alice, bob), Q(alice, carla), Q(carla, david), Q(evan, carla)\}$ \\
 
-4. $Q_{1} \gets parent(X, Y) \land parent(Z, Y).$\\
+4. Debería agregar la regla $Q_{1} \gets parent(X, Y) \land parent(Z, Y).$ para la consulta booleana. \\
 
 5. De esta forma queda el mundo de bloques modelado en Datalog: \\
 
@@ -92,12 +89,10 @@ $estaDebajoInmediatamente(X, Y) \gets estaSobreTresBloques(Y, X).$\\
 
 $puedeDesapilar(X) \gets tresBloques(X), tresBloques(Y), tresBloques(Z), X \neq Y,  X \neq Z, Y \neq Z, not estaSobreMesa(X), not estaSobre(Y, X), not estaSobre(Z, X).$\\
 
-6. Proponga un ejemplo de dos esquemas de bases de datos (fuente y destino), muestre las s-t-TGDs necesarias para pasar de uno a otro, similar a slide 91, explique la transformación necesaria. Defina una instancia de bases de datos en el esquema fuente y muestre cual seria la solución (la instancia destino) para el problema de intercambio de datos. \\
-
-Esquema fuente: relaciones transacción, usuario, transacción\_cuenta, transacción\_usuario.  \\
+6. Esquema fuente: relaciones transacción, usuario, transacción\_cuenta, transacción\_usuario.  \\
 Esquema destino: relaciones préstamo, usuario.  \\
 
-El esquema fuente la transacción está compuesta por un id, un id de usuario, un importe y una fecha. También posee un valor que le permite distinguir entre los distintos tipos de transacciones, entre ellas los préstamos. La relación  transacción\_cuenta, agrupa a una transacción con la cuenta que fue utilizada en su proceso, transacción\_usuario hace lo mismo con los usuarios. El préstamo por su lado tiene los mismos datos que la transacción, descartando el que indica su tipo y además posee un contrato asociado que deberá generarse y que no forma parte del esquema origen. Los usuarios son equivalentes. \\
+En el esquema fuente la transacción está compuesta por un id, un id de usuario, un importe y una fecha. También posee un valor que le permite distinguir entre los distintos tipos de transacciones, entre ellas los préstamos. La relación transacción\_cuenta, agrupa a una transacción con la cuenta que fue utilizada en su proceso, transacción\_usuario hace lo mismo con los usuarios. El préstamo por su lado tiene los mismos datos que la transacción, descartando el que indica su tipo y además posee un contrato asociado que deberá generarse y que no forma parte del esquema origen. Los usuarios son equivalentes. \\
 
 $\forall\ TID, UID, IMPORTE, FECHA, CUENTA$ 
 

@@ -38,9 +38,7 @@ El conocimiento de que un perro desconocido mostrando los dientes es una señal 
 
 La segunda base claramente contiene a la primera. Si tuviéramos un programador hombre, que no estuviera en la primer base, entonces la monotonía derivada de la suposición de mundo cerrado no se cumpliría porque la segunda no lo puede contener.\\
 
-4. Mundo de bloques: modele el mundo de bloques en lógica proposicional. Debe modelar el estado de la mesa: tenemos 3 bloques (y solo 3) A, B y C. Debemos poder expresar que los bloques están sobre la mesa, o sobre otro bloque. También queremos expresar la siguiente propiedad (para los tres bloques): un bloque se puede desapilar siempre y cuando esté sobre otro bloque y no tenga un bloque encima. ¿Cual sería la KB que represente como estado inicial el hecho de que A está sobre la mesa, B está sobre A y C está sobre la mesa? Muestre que para la consulta “¿se puede desapilar A?”, la respuesta es negativa, usando ambos algoritmos de inferencia (encadenamiento hacia atrás y hacia adelante). Asuma CWA. Recuerde que además de las reglas que defina en la teoría, puede utilizar las reglas de inferencia y equivalencias lógicas para la lógica proposicional (Artificial Intelligence A Modern Approach. Sección 7 – tercera Edición). Una lista completa de las reglas puede encontrarse en: $https://es.wikipedia.org/wiki/Anexo:Reglas_de_inferencia$\\
-
-Si X en mesa lo que estoy diciendo es que el bloque representado por X está sobre la mesa. Si X en Y, con $X \neq Y$, digo que el bloque X está sobre el Y. Además de esto tengo la siguientes reglas: \\
+4. Si X en mesa lo que estoy diciendo es que el bloque representado por X está sobre la mesa. Si X en Y, con $X \neq Y$, digo que el bloque X está sobre el Y. Además de esto tengo la siguientes reglas: \\
 
 $\neg X \enBloque X$ \\
 
@@ -97,7 +95,7 @@ $\neg A \enBloque B \wedge \neg A \enBloque C \wedge B \neq C \wedge A \neq B \w
 Se puede ver que a la izquierda cada uno de los literales es un hecho de la lista; 1, 2, 7, 8 y 9. Por lo tanto podemos concluir que $A \enBloque mesa$. Pero esto no es lo que queríamos, entonces tenemos que A no se puede dasapilar.\\
 
 
-5. Un algoritmo de clasificación es en esencia un pattern matching. La idea es que tendremos diferentes patrones (nuestras clasificaciones) y lo que queremos es poder asociar a cual de estos responde mejor el dato (es más similar o es concuerda a uno y no se hace nada con los otros patrones). En mi opinión esto se acerca al razonamiento analógico ya que la idea no siempre es buscar coincidencia plena sino aproximada quiero decir que como este dato "se parece" a este patrón, entonces el dato se clasifica de acuerdo a este. \\
+5. Un algoritmo de clasificación es en esencia un pattern matching. La idea es que tendremos diferentes patrones (nuestras clasificaciones) y lo que queremos es poder asociar a cual de estos responde mejor el dato (es más similar o es concuerda a uno y no se hace nada con los otros patrones). En mi opinión esto se acerca al razonamiento analógico ya que la idea no siempre es buscar coincidencia plena sino aproximada; si el dato "se parece" a este patrón, entonces el dato se clasifica de acuerdo a este. \\
 
 6. 
 \begin{itemize}
